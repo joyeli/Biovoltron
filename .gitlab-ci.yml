@@ -1,0 +1,60 @@
+image: 
+  name: jhhlab/ubuntu-gcc-cmake-boost:20210811
+  # Using latest ubuntu image (hirsute) will cause this problem.
+  # This is a quick fix (See gitlab-runner #27614).
+  entrypoint: [ '/bin/bash', '-c', 'ln -snf /bin/bash /bin/sh && /bin/bash -c $0' ]
+
+build:
+  stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - g++ --version
+    - gcov --version
+    - cmake --version
+    - dpkg -s libboost-dev | grep 'Version'
+    - dpkg -s libtbb-dev | grep 'Version'
+    - dpkg -s zlib1g-dev | grep 'Version'
+    - dpkg -s librange-v3-dev | grep 'Version'
+  script:
+    - mkdir build; cd build
+    - cmake .. -DGCOV=ON
+    - make -j
+  artifacts:
+    paths:
+      - build
+    expire_in: 1 days
+  only:
+    - master
+    - merge_requests
+
+test:
+  stage: test
+  before_script:
+    - gcovr --version
+  script:
+    - cd build
+    - ./tests/biovoltron-test
+    - gcovr --xml-pretty --exclude-unreachable-branches --print-summary -o coverage.xml --root ../include/biovoltron .
+  coverage: /^\s*lines:\s*\d+.\d+\%/
+  artifacts:
+    name: ${CI_JOB_NAME}-${CI_COMMIT_REF_NAME}-${CI_COMMIT_SHA}
+    reports:
+      junit: build/coverage.xml
+  only:
+    - master
+    - merge_requests
+
+pages:
+  before_script:
+    - doxygen --version
+  script:
+    - cd build
+    - cmake .. -DBIOVOLTRON_DOC=ON
+    - make -j
+  artifacts:
+    paths:
+      - build/doc/doxygen
+  only:
+    - master
+    - merge_requests

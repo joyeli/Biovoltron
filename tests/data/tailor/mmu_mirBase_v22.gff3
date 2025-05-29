@@ -1,0 +1,100 @@
+##gff-version 3
+##date 2018-3-5
+#
+# Chromosomal coordinates of Mus musculus microRNAs
+# microRNAs:               miRBase v22
+# genome-build-id:         GRCm38
+# genome-build-accession:  NCBI_Assembly:GCA_000001635.2
+#
+# Hairpin precursor sequences have type "miRNA_primary_transcript". 
+# Note, these sequences do not represent the full primary transcript, 
+# rather a predicted stem-loop portion that includes the precursor 
+# miRNA. Mature sequences have type "miRNA".
+#
+chr1	.	miRNA_primary_transcript	12425986	12426106	.	+	.	ID=MI0021869;Alias=MI0021869;Name=mmu-mir-6341
+chr1	.	miRNA	12426016	12426038	.	+	.	ID=MIMAT0025084;Alias=MIMAT0025084;Name=mmu-miR-6341;Derives_from=MI0021869
+chr1	.	miRNA_primary_transcript	20679010	20679082	.	+	.	ID=MI0000249;Alias=MI0000249;Name=mmu-mir-206
+chr1	.	miRNA	20679017	20679039	.	+	.	ID=MIMAT0017004;Alias=MIMAT0017004;Name=mmu-miR-206-5p;Derives_from=MI0000249
+chr1	.	miRNA	20679055	20679076	.	+	.	ID=MIMAT0000239;Alias=MIMAT0000239;Name=mmu-miR-206-3p;Derives_from=MI0000249
+chr1	.	miRNA_primary_transcript	20682769	20682887	.	+	.	ID=MI0000821;Alias=MI0000821;Name=mmu-mir-133b
+chr1	.	miRNA	20682797	20682818	.	+	.	ID=MIMAT0017083;Alias=MIMAT0017083;Name=mmu-miR-133b-5p;Derives_from=MI0000821
+chr1	.	miRNA	20682834	20682855	.	+	.	ID=MIMAT0000769;Alias=MIMAT0000769;Name=mmu-miR-133b-3p;Derives_from=MI0000821
+chr1	.	miRNA_primary_transcript	23272269	23272339	.	+	.	ID=MI0000144;Alias=MI0000144;Name=mmu-mir-30a
+chr1	.	miRNA	23272274	23272295	.	+	.	ID=MIMAT0000128;Alias=MIMAT0000128;Name=mmu-miR-30a-5p;Derives_from=MI0000144
+chr1	.	miRNA	23272315	23272336	.	+	.	ID=MIMAT0000129;Alias=MIMAT0000129;Name=mmu-miR-30a-3p;Derives_from=MI0000144
+chr1	.	miRNA_primary_transcript	23291701	23291784	.	+	.	ID=MI0000548;Alias=MI0000548;Name=mmu-mir-30c-2
+chr1	.	miRNA	23291714	23291736	.	+	.	ID=MIMAT0000514;Alias=MIMAT0000514;Name=mmu-miR-30c-5p;Derives_from=MI0000548
+chr1	.	miRNA	23291754	23291775	.	+	.	ID=MIMAT0005438;Alias=MIMAT0005438;Name=mmu-miR-30c-2-3p;Derives_from=MI0000548
+chr1	.	miRNA_primary_transcript	29421488	29421612	.	+	.	ID=MI0021870;Alias=MI0021870;Name=mmu-mir-6342
+chr1	.	miRNA	29421552	29421573	.	+	.	ID=MIMAT0025085;Alias=MIMAT0025085;Name=mmu-miR-6342;Derives_from=MI0021870
+chr1	.	miRNA_primary_transcript	34117359	34117431	.	+	.	ID=MI0022743;Alias=MI0022743;Name=mmu-mir-6896
+chr1	.	miRNA	34117364	34117385	.	+	.	ID=MIMAT0027692;Alias=MIMAT0027692;Name=mmu-miR-6896-5p;Derives_from=MI0022743
+chr1	.	miRNA	34117408	34117429	.	+	.	ID=MIMAT0027693;Alias=MIMAT0027693;Name=mmu-miR-6896-3p;Derives_from=MI0022743
+chr1	.	miRNA_primary_transcript	34433121	34433199	.	-	.	ID=MI0018011;Alias=MI0018011;Name=mmu-mir-5103
+chr1	.	miRNA	34433130	34433149	.	-	.	ID=MIMAT0020610;Alias=MIMAT0020610;Name=mmu-miR-5103;Derives_from=MI0018011
+chr1	.	miRNA_primary_transcript	36144252	36144313	.	-	.	ID=MI0022744;Alias=MI0022744;Name=mmu-mir-6897
+chr1	.	miRNA	36144290	36144312	.	-	.	ID=MIMAT0027694;Alias=MIMAT0027694;Name=mmu-miR-6897-5p;Derives_from=MI0022744
+chr1	.	miRNA	36144252	36144272	.	-	.	ID=MIMAT0027695;Alias=MIMAT0027695;Name=mmu-miR-6897-3p;Derives_from=MI0022744
+chr1	.	miRNA_primary_transcript	36348682	36348758	.	-	.	ID=MI0022745;Alias=MI0022745;Name=mmu-mir-6898
+chr1	.	miRNA	36348732	36348753	.	-	.	ID=MIMAT0027696;Alias=MIMAT0027696;Name=mmu-miR-6898-5p;Derives_from=MI0022745
+chr1	.	miRNA	36348688	36348708	.	-	.	ID=MIMAT0027697;Alias=MIMAT0027697;Name=mmu-miR-6898-3p;Derives_from=MI0022745
+chr1	.	miRNA_primary_transcript	39186896	39186992	.	-	.	ID=MI0021877;Alias=MI0021877;Name=mmu-mir-6349
+chr1	.	miRNA	39186908	39186929	.	-	.	ID=MIMAT0025092;Alias=MIMAT0025092;Name=mmu-miR-6349;Derives_from=MI0021877
+chr1	.	miRNA_primary_transcript	47467021	47467125	.	-	.	ID=MI0021878;Alias=MI0021878;Name=mmu-mir-6350
+chr1	.	miRNA	47467097	47467117	.	-	.	ID=MIMAT0025093;Alias=MIMAT0025093;Name=mmu-miR-6350;Derives_from=MI0021878
+chr1	.	miRNA_primary_transcript	53849424	53849495	.	+	.	ID=MI0025029;Alias=MI0025029;Name=mmu-mir-7681
+chr1	.	miRNA	53849424	53849443	.	+	.	ID=MIMAT0029882;Alias=MIMAT0029882;Name=mmu-miR-7681-5p;Derives_from=MI0025029
+chr1	.	miRNA	53849474	53849495	.	+	.	ID=MIMAT0029883;Alias=MIMAT0029883;Name=mmu-miR-7681-3p;Derives_from=MI0025029
+chr1	.	miRNA_primary_transcript	64042438	64042501	.	-	.	ID=MI0022746;Alias=MI0022746;Name=mmu-mir-6899
+chr1	.	miRNA	64042476	64042496	.	-	.	ID=MIMAT0027698;Alias=MIMAT0027698;Name=mmu-miR-6899-5p;Derives_from=MI0022746
+chr1	.	miRNA	64042438	64042460	.	-	.	ID=MIMAT0027699;Alias=MIMAT0027699;Name=mmu-miR-6899-3p;Derives_from=MI0022746
+chr1	.	miRNA_primary_transcript	73855477	73855575	.	-	.	ID=MI0021879;Alias=MI0021879;Name=mmu-mir-6351
+chr1	.	miRNA	73855553	73855575	.	-	.	ID=MIMAT0025094;Alias=MIMAT0025094;Name=mmu-miR-6351;Derives_from=MI0021879
+chr1	.	miRNA_primary_transcript	74206554	74206620	.	-	.	ID=MI0009917;Alias=MI0009917;Name=mmu-mir-1928
+chr1	.	miRNA	74206562	74206578	.	-	.	ID=MIMAT0009391;Alias=MIMAT0009391;Name=mmu-miR-1928;Derives_from=MI0009917
+chr1	.	miRNA_primary_transcript	74394310	74394394	.	+	.	ID=MI0000575;Alias=MI0000575;Name=mmu-mir-26b
+chr1	.	miRNA	74394324	74394344	.	+	.	ID=MIMAT0000534;Alias=MIMAT0000534;Name=mmu-miR-26b-5p;Derives_from=MI0000575
+chr1	.	miRNA	74394360	74394381	.	+	.	ID=MIMAT0004630;Alias=MIMAT0004630;Name=mmu-miR-26b-3p;Derives_from=MI0000575
+chr1	.	miRNA_primary_transcript	74900658	74900721	.	-	.	ID=MI0000792;Alias=MI0000792;Name=mmu-mir-375
+chr1	.	miRNA	74900696	74900717	.	-	.	ID=MIMAT0017078;Alias=MIMAT0017078;Name=mmu-miR-375-5p;Derives_from=MI0000792
+chr1	.	miRNA	74900661	74900682	.	-	.	ID=MIMAT0000739;Alias=MIMAT0000739;Name=mmu-miR-375-3p;Derives_from=MI0000792
+chr1	.	miRNA_primary_transcript	76509560	76509643	.	+	.	ID=MI0021871;Alias=MI0021871;Name=mmu-mir-6343
+chr1	.	miRNA	76509620	76509641	.	+	.	ID=MIMAT0025086;Alias=MIMAT0025086;Name=mmu-miR-6343;Derives_from=MI0021871
+chr1	.	miRNA_primary_transcript	77496653	77496768	.	-	.	ID=MI0021880;Alias=MI0021880;Name=mmu-mir-6352
+chr1	.	miRNA	77496731	77496752	.	-	.	ID=MIMAT0025095;Alias=MIMAT0025095;Name=mmu-miR-6352;Derives_from=MI0021880
+chr1	.	miRNA_primary_transcript	82131916	82132019	.	+	.	ID=MI0021872;Alias=MI0021872;Name=mmu-mir-6344
+chr1	.	miRNA	82131926	82131947	.	+	.	ID=MIMAT0025087;Alias=MIMAT0025087;Name=mmu-miR-6344;Derives_from=MI0021872
+chr1	.	miRNA_primary_transcript	84218849	84218961	.	-	.	ID=MI0021881;Alias=MI0021881;Name=mmu-mir-6353
+chr1	.	miRNA	84218926	84218948	.	-	.	ID=MIMAT0025096;Alias=MIMAT0025096;Name=mmu-miR-6353;Derives_from=MI0021881
+chr1	.	miRNA_primary_transcript	84695839	84695915	.	+	.	ID=MI0018038;Alias=MI0018038;Name=mmu-mir-5126
+chr1	.	miRNA	84695890	84695911	.	+	.	ID=MIMAT0020637;Alias=MIMAT0020637;Name=mmu-miR-5126;Derives_from=MI0018038
+chr1	.	miRNA_primary_transcript	85751948	85752074	.	+	.	ID=MI0026024;Alias=MI0026024;Name=mmu-mir-8096
+chr1	.	miRNA	85751983	85752002	.	+	.	ID=MIMAT0031398;Alias=MIMAT0031398;Name=mmu-miR-8096;Derives_from=MI0026024
+chr1	.	miRNA_primary_transcript	86351981	86352127	.	-	.	ID=MI0026036;Alias=MI0026036;Name=mmu-mir-3535
+chr1	.	miRNA	86352062	86352087	.	-	.	ID=MIMAT0031410;Alias=MIMAT0031410;Name=mmu-miR-3535;Derives_from=MI0026036
+chr1	.	miRNA_primary_transcript	92464483	92464542	.	-	.	ID=MI0022747;Alias=MI0022747;Name=mmu-mir-6900
+chr1	.	miRNA	92464514	92464537	.	-	.	ID=MIMAT0027700;Alias=MIMAT0027700;Name=mmu-miR-6900-5p;Derives_from=MI0022747
+chr1	.	miRNA	92464483	92464503	.	-	.	ID=MIMAT0027701;Alias=MIMAT0027701;Name=mmu-miR-6900-3p;Derives_from=MI0022747
+chr1	.	miRNA_primary_transcript	92850378	92850443	.	+	.	ID=MI0000171;Alias=MI0000171;Name=mmu-mir-149
+chr1	.	miRNA	92850381	92850403	.	+	.	ID=MIMAT0000159;Alias=MIMAT0000159;Name=mmu-miR-149-5p;Derives_from=MI0000171
+chr1	.	miRNA	92850421	92850442	.	+	.	ID=MIMAT0016990;Alias=MIMAT0016990;Name=mmu-miR-149-3p;Derives_from=MI0000171
+chr1	.	miRNA_primary_transcript	93274549	93274610	.	+	.	ID=MI0022748;Alias=MI0022748;Name=mmu-mir-6901
+chr1	.	miRNA	93274554	93274573	.	+	.	ID=MIMAT0027702;Alias=MIMAT0027702;Name=mmu-miR-6901-5p;Derives_from=MI0022748
+chr1	.	miRNA	93274585	93274604	.	+	.	ID=MIMAT0027703;Alias=MIMAT0027703;Name=mmu-miR-6901-3p;Derives_from=MI0022748
+chr1	.	miRNA_primary_transcript	93346092	93346155	.	+	.	ID=MI0022749;Alias=MI0022749;Name=mmu-mir-6902
+chr1	.	miRNA	93346097	93346118	.	+	.	ID=MIMAT0027704;Alias=MIMAT0027704;Name=mmu-miR-6902-5p;Derives_from=MI0022749
+chr1	.	miRNA	93346135	93346155	.	+	.	ID=MIMAT0027705;Alias=MIMAT0027705;Name=mmu-miR-6902-3p;Derives_from=MI0022749
+chr1	.	miRNA_primary_transcript	93352158	93352285	.	+	.	ID=MI0021873;Alias=MI0021873;Name=mmu-mir-6345
+chr1	.	miRNA	93352191	93352211	.	+	.	ID=MIMAT0025088;Alias=MIMAT0025088;Name=mmu-miR-6345;Derives_from=MI0021873
+chr1	.	miRNA_primary_transcript	106546496	106546631	.	-	.	ID=MI0026016;Alias=MI0026016;Name=mmu-mir-3473f
+chr1	.	miRNA	106546536	106546555	.	-	.	ID=MIMAT0031390;Alias=MIMAT0031390;Name=mmu-miR-3473f;Derives_from=MI0026016
+chr1	.	miRNA_primary_transcript	118954220	118954300	.	+	.	ID=MI0021874;Alias=MI0021874;Name=mmu-mir-6346
+chr1	.	miRNA	118954278	118954299	.	+	.	ID=MIMAT0025089;Alias=MIMAT0025089;Name=mmu-miR-6346;Derives_from=MI0021874
+chr1	.	miRNA_primary_transcript	128202361	128202430	.	+	.	ID=MI0000155;Alias=MI0000155;Name=mmu-mir-128-1
+chr1	.	miRNA	128202369	128202389	.	+	.	ID=MIMAT0016982;Alias=MIMAT0016982;Name=mmu-miR-128-1-5p;Derives_from=MI0000155
+chr1	.	miRNA	128202404	128202424	.	+	.	ID=MIMAT0000140;Alias=MIMAT0000140;Name=mmu-miR-128-3p;Derives_from=MI0000155
+chr1	.	miRNA_primary_transcript	132198088	132198184	.	+	.	ID=MI0000646;Alias=MI0000646;Name=mmu-mir-135b
+chr1	.	miRNA	132198103	132198125	.	+	.	ID=MIMAT0000612;Alias=MIMAT0000612;Name=mmu-miR-135b-5p;Derives_from=MI0000646
+chr1	.	miRNA	132198142	132198163	.	+	.	ID=MIMAT0017044;Alias=MIMAT0017044;Name=mmu-miR-135b-3p;Derives_from=MI0000646
+chr1	.	miRNA_primary_transcript	133726558	133726645	.	-	.	ID=MI0022750;Alias=MI0022750;Name=mmu-mir-6903
+chr1	.	miRNA	133726619	133726640	.	-	.	ID=MIMAT0027706;Alias=MIMAT0027706;Name=mmu-miR-6903-5p;Derives_from=MI0022750

@@ -1,0 +1,33 @@
+---
+BasedOnStyle: Google
+IndentWidth: 2
+---
+Language: Cpp
+AlignAfterOpenBracket: Align
+AlignConsecutiveBitFields: AcrossEmptyLinesAndComments
+AlignConsecutiveMacros: AcrossEmptyLinesAndComments
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: Never
+AlignEscapedNewlines: Left
+AlignTrailingComments: true
+AlignOperands: Align
+AllowShortBlocksOnASingleLine: Always
+AllowShortEnumsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: All
+AlwaysBreakAfterReturnType: All
+AlwaysBreakTemplateDeclarations: Yes
+#BreakBeforeBraces: Allman
+BreakBeforeBinaryOperators: All
+BreakBeforeConceptDeclarations: true
+BreakBeforeTernaryOperators: false
+ColumnLimit: 80
+ConstructorInitializerIndentWidth: 0
+ContinuationIndentWidth: 2
+DerivePointerAlignment: false
+FixNamespaceComments: true
+IndentRequires: true
+PenaltyBreakTemplateDeclaration: 0
+PointerAlignment: Left
+SortUsingDeclarations: true
+SpaceInEmptyBlock: true
+SpaceAfterTemplateKeyword: false

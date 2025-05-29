@@ -1,0 +1,37 @@
+##description: evidence-based annotation of the mouse genome (GRCm38), version M19 (Ensembl 94) - tRNAs (tRNAscan predictions)
+##provider: GENCODE
+##contact: gencode-help@ebi.ac.uk
+##format: gtf
+##date: 2018-08-30
+chr1	ENSEMBL	tRNA	112349389	112349461	.	+	.	gene_id "896"; transcript_id "896"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "896"; transcript_name "Pseudo_tRNA"; level NULL;
+chr1	ENSEMBL	tRNA	112576185	112576260	.	-	.	gene_id "897"; transcript_id "897"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "897"; transcript_name "Pseudo_tRNA"; level NULL;
+chr1	ENSEMBL	tRNA	32624825	32624895	.	+	.	gene_id "1275"; transcript_id "1275"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "1275"; transcript_name "Pseudo_tRNA"; level NULL;
+chr1	ENSEMBL	tRNA	167276215	167276287	.	+	.	gene_id "1914"; transcript_id "1914"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "1914"; transcript_name "Pseudo_tRNA"; level NULL;
+chr1	ENSEMBL	tRNA	167323285	167323359	.	+	.	gene_id "1915"; transcript_id "1915"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "1915"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	55617022	55617096	.	+	.	gene_id "61441"; transcript_id "61441"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61441"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	55911419	55911490	.	+	.	gene_id "61442"; transcript_id "61442"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61442"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	55921532	55921605	.	+	.	gene_id "61443"; transcript_id "61443"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61443"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	56460353	56460425	.	+	.	gene_id "61444"; transcript_id "61444"; gene_type "Ala_tRNA"; gene_name "NULL"; transcript_type "61444"; transcript_name "Ala_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	56508657	56508729	.	+	.	gene_id "61445"; transcript_id "61445"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61445"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	56031447	56031518	.	-	.	gene_id "61446"; transcript_id "61446"; gene_type "Ala_tRNA"; gene_name "NULL"; transcript_type "61446"; transcript_name "Ala_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	55871796	55871868	.	-	.	gene_id "61447"; transcript_id "61447"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61447"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113425200	113425274	.	+	.	gene_id "61448"; transcript_id "61448"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61448"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113492916	113492991	.	+	.	gene_id "61449"; transcript_id "61449"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61449"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113494992	113495066	.	+	.	gene_id "61450"; transcript_id "61450"; gene_type "Ser_tRNA"; gene_name "NULL"; transcript_type "61450"; transcript_name "Ser_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113549932	113550005	.	+	.	gene_id "61451"; transcript_id "61451"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61451"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113597622	113597694	.	+	.	gene_id "61452"; transcript_id "61452"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61452"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113660279	113660348	.	+	.	gene_id "61453"; transcript_id "61453"; gene_type "Ser_tRNA"; gene_name "NULL"; transcript_type "61453"; transcript_name "Ser_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113706887	113706959	.	+	.	gene_id "61454"; transcript_id "61454"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61454"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113744944	113745015	.	+	.	gene_id "61455"; transcript_id "61455"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61455"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113757874	113757946	.	+	.	gene_id "61456"; transcript_id "61456"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61456"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113771977	113772048	.	+	.	gene_id "61457"; transcript_id "61457"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61457"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113772957	113773029	.	+	.	gene_id "61458"; transcript_id "61458"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61458"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113848994	113849063	.	+	.	gene_id "61459"; transcript_id "61459"; gene_type "Thr_tRNA"; gene_name "NULL"; transcript_type "61459"; transcript_name "Thr_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113851205	113851277	.	+	.	gene_id "61460"; transcript_id "61460"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61460"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113921153	113921223	.	+	.	gene_id "61461"; transcript_id "61461"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61461"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	114071561	114071628	.	+	.	gene_id "61462"; transcript_id "61462"; gene_type "Ala_tRNA"; gene_name "NULL"; transcript_type "61462"; transcript_name "Ala_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113876674	113876745	.	-	.	gene_id "61463"; transcript_id "61463"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61463"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113814648	113814719	.	-	.	gene_id "61464"; transcript_id "61464"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61464"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113813323	113813395	.	-	.	gene_id "61465"; transcript_id "61465"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61465"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113213405	113213477	.	-	.	gene_id "61466"; transcript_id "61466"; gene_type "Pseudo_tRNA"; gene_name "NULL"; transcript_type "61466"; transcript_name "Pseudo_tRNA"; level NULL;
+chr11	ENSEMBL	tRNA	113168794	113168861	.	-	.	gene_id "61467"; transcript_id "61467"; gene_type "Ala_tRNA"; gene_name "NULL"; transcript_type "61467"; transcript_name "Ala_tRNA"; level NULL;
