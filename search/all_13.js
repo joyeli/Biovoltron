@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['rangeutils_0',['RangeUtils',['../structbiovoltron_1_1RangeUtils.html',1,'biovoltron']]],
+  ['read_20trimming_20tutorials_1',['Read Trimming Tutorials',['../tutorials.html#tutorials-trimming',1,'']]],
+  ['read_5ffails_5fquality_5fcheck_2',['read_fails_quality_check',['../structbiovoltron_1_1SamRecord.html#a7c498325e43bed5441797b4730fdc959',1,'biovoltron::SamRecord']]],
+  ['read_5fpaired_3',['read_paired',['../structbiovoltron_1_1SamRecord.html#a564b9db19a706ff286c4cc862df3d670',1,'biovoltron::SamRecord']]],
+  ['read_5freverse_5fstrand_4',['read_reverse_strand',['../structbiovoltron_1_1SamRecord.html#af21a015698d8136f1bfe23822782b524',1,'biovoltron::SamRecord']]],
+  ['read_5fsize_5',['read_size',['../structbiovoltron_1_1Cigar.html#a9511ee74a20f2bd6aea18e8f8652824e',1,'biovoltron::Cigar']]],
+  ['read_5funmapped_6',['read_unmapped',['../structbiovoltron_1_1SamRecord.html#a538523f6b40991ef33b6e223a807c7d1',1,'biovoltron::SamRecord']]],
+  ['readclipper_7',['ReadClipper',['../structbiovoltron_1_1ReadClipper.html',1,'biovoltron']]],
+  ['reading_20data_20from_20a_20fasta_20file_8',['Step 3. Reading Data from a FASTA File',['../tutorials-fileio-fasta.html#autotoc_md23',1,'']]],
+  ['record_9',['Record',['../structbiovoltron_1_1Record.html',1,'biovoltron']]],
+  ['ref_10',['ref',['../structbiovoltron_1_1VcfRecord.html#acf12e9c657b404a4fbc995ad570c9980',1,'biovoltron::VcfRecord']]],
+  ['ref_5fsize_11',['ref_size',['../structbiovoltron_1_1Cigar.html#a75ae378e7adfd0255c7b2318fb68af0f',1,'biovoltron::Cigar']]],
+  ['referenceconfidencemodel_12',['ReferenceConfidenceModel',['../structbiovoltron_1_1ReferenceConfidenceModel.html',1,'biovoltron']]],
+  ['release_20notes_13',['Release Notes',['../release_notes.html',1,'']]],
+  ['report_20dependencies_14',['Coverage Report Dependencies',['../contribute.html#autotoc_md4',1,'']]],
+  ['reporting_15',['Bug Reporting',['../contribute.html#contribute-bug-reporting',1,'']]],
+  ['requirements_16',['Requirements',['../installation.html#installation-requirements',1,'']]],
+  ['rev_5fcomp_17',['rev_comp',['../structbiovoltron_1_1Codec.html#a34267e306cec79098879b595e2ec103c',1,'biovoltron::Codec::rev_comp(istring_view seq)'],['../structbiovoltron_1_1Codec.html#aa3fbb1ac8c1ffa307b7a3a63434bb43b',1,'biovoltron::Codec::rev_comp(std::string_view seq)']]],
+  ['reverse_18',['reverse',['../structbiovoltron_1_1Cigar.html#ac60e2ac5c577aa5859d5aa53256a9e26',1,'biovoltron::Cigar']]],
+  ['rhash_19',['rhash',['../structbiovoltron_1_1Codec.html#a116259ff4c30b850396e8922e1f93cc4',1,'biovoltron::Codec']]],
+  ['rname_20',['rname',['../structbiovoltron_1_1SamRecord.html#a21c889ad41fc50ed36410f9fba5884d5',1,'biovoltron::SamRecord']]],
+  ['rnext_21',['rnext',['../structbiovoltron_1_1SamRecord.html#abcf0bc860e322f1dc6f346e375697f4e',1,'biovoltron::SamRecord']]],
+  ['running_22',['Compiling and Running',['../installation.html#autotoc_md19',1,'']]]
+];

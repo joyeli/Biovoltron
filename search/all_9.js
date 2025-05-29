@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['gap_5fcontinuation_5fpenalty_0',['GAP_CONTINUATION_PENALTY',['../structbiovoltron_1_1SamUtil.html#a421c864deef4241edf48719922bc39de',1,'biovoltron::SamUtil']]],
+  ['gap_5fopen_5fpenalty_1',['GAP_OPEN_PENALTY',['../structbiovoltron_1_1SamUtil.html#a9471c7d69a57afdcb13afa57ab4f6c31',1,'biovoltron::SamUtil']]],
+  ['gene_5fname_2',['gene_name',['../structbiovoltron_1_1BedSixRecord.html#a87cdc975dd80a4e759bc104f48159542',1,'biovoltron::BedSixRecord']]],
+  ['gene_5ftype_3',['gene_type',['../structbiovoltron_1_1BedSixRecord.html#a22ebf96b57dd0363dbfe965870cbe63b',1,'biovoltron::BedSixRecord']]],
+  ['genome_20indexing_20tutorials_4',['Genome Indexing Tutorials',['../tutorials.html#tutorials-indexing',1,'']]],
+  ['genotyper_5',['Genotyper',['../classbiovoltron_1_1Genotyper.html',1,'biovoltron']]],
+  ['genotypeutils_6',['GenotypeUtils',['../structbiovoltron_1_1GenotypeUtils.html',1,'biovoltron']]],
+  ['get_5fbwt_5fsize_7',['get_bwt_size',['../structbiovoltron_1_1Index.html#a627d7bd1b0c61ef3ec9a6829d53679f9',1,'biovoltron::Index']]],
+  ['get_5fchr_5fsize_8',['get_chr_size',['../structbiovoltron_1_1Index.html#a169408191cba1bc42650c223a1de9a34',1,'biovoltron::Index']]],
+  ['get_5fintervals_9',['get_intervals',['../structbiovoltron_1_1Index.html#af52150d96266b2cfbe574a91e348bb1b',1,'biovoltron::Index']]],
+  ['get_5foffsets_10',['get_offsets',['../classbiovoltron_1_1FMIndex.html#a455bca12db0383428d3202faa3789d0d',1,'biovoltron::FMIndex']]],
+  ['get_5frange_11',['get_range',['../classbiovoltron_1_1FMIndex.html#a12226db8c7f1a0ec4276a2d350413d42',1,'biovoltron::FMIndex']]],
+  ['get_5fsa_12',['get_sa',['../structbiovoltron_1_1StableSorter.html#a649ec94aea52a731d397e0fb2fd0ec18',1,'biovoltron::StableSorter']]],
+  ['getting_20started_13',['Getting Started',['../index.html#autotoc_md14',1,'']]],
+  ['gffrecord_14',['GffRecord',['../structbiovoltron_1_1GffRecord.html',1,'biovoltron']]],
+  ['git_20guidelines_15',['Other Git Guidelines',['../contribute.html#autotoc_md7',1,'']]],
+  ['git_20style_16',['Git style',['../contribute.html#contribute-git-style',1,'']]],
+  ['glance_17',['Biovoltron at a Glance',['../index.html#autotoc_md10',1,'']]],
+  ['graphwrapper_18',['GraphWrapper',['../structbiovoltron_1_1GraphWrapper.html',1,'biovoltron']]],
+  ['guidelines_19',['Guidelines',['../contribute.html#contribute-coding-guideline',1,'C++ Coding Guidelines'],['../contribute.html#contribute-doxygen',1,'Doxygen Comment Guidelines'],['../contribute.html#autotoc_md7',1,'Other Git Guidelines']]],
+  ['gzstreambase_20',['gzstreambase',['../classbiovoltron_1_1gzstreambase.html',1,'biovoltron']]],
+  ['gzstreambuf_21',['gzstreambuf',['../classbiovoltron_1_1gzstreambuf.html',1,'biovoltron']]]
+];

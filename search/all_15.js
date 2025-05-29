@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['tag_5fcfile_0',['tag_CFILE',['../structskewer_1_1tag__CFILE.html',1,'skewer']]],
+  ['tag_5findex_1',['tag_INDEX',['../structtag__INDEX.html',1,'']]],
+  ['tag_5fline_2',['tag_LINE',['../structskewer_1_1tag__LINE.html',1,'skewer']]],
+  ['tag_5fmtaux_5ft_3',['tag_mtaux_t',['../structskewer_1_1tag__mtaux__t.html',1,'skewer']]],
+  ['tag_5frec_4',['tag_REC',['../structskewer_1_1tag__REC.html',1,'skewer']]],
+  ['tailexp_5',['TailExp',['../structbiovoltron_1_1mirna_1_1TailExp.html',1,'biovoltron::mirna']]],
+  ['tailor_6',['Tailor',['../structbiovoltron_1_1Tailor.html',1,'biovoltron']]],
+  ['task_7',['TASK',['../structskewer_1_1TASK.html',1,'skewer']]],
+  ['the_20installation_8',['Verifying the Installation',['../installation.html#installation-verifying',1,'']]],
+  ['the_20main_20cpp_20file_9',['Writing the main.cpp File',['../installation.html#autotoc_md17',1,'']]],
+  ['the_20necessary_20headers_10',['Step 1. Include the Necessary Headers',['../tutorials-fileio-fasta.html#autotoc_md21',1,'']]],
+  ['threadpool_11',['ThreadPool',['../classbiovoltron_1_1ThreadPool.html',1,'biovoltron']]],
+  ['tlen_12',['tlen',['../structbiovoltron_1_1SamRecord.html#ad2cc0eb95a2355c243022422f84f64ae',1,'biovoltron::SamRecord']]],
+  ['to_5fbegin_13',['to_begin',['../structbiovoltron_1_1IBamStream.html#a6c5a8fc8c8b4feffd011a0595474bc82',1,'biovoltron::IBamStream']]],
+  ['to_5fchar_14',['to_char',['../structbiovoltron_1_1Codec.html#a66577e735c847e8256e6c266d78464d9',1,'biovoltron::Codec']]],
+  ['to_5fint_15',['to_int',['../structbiovoltron_1_1Codec.html#a8c4acb1de26238e19fcb26268d475da5',1,'biovoltron::Codec']]],
+  ['to_5fistring_16',['to_istring',['../structbiovoltron_1_1Codec.html#ae3dbafb19c969e68b01e2a87417cc512',1,'biovoltron::Codec']]],
+  ['to_5fstring_17',['to_string',['../structbiovoltron_1_1Codec.html#ae2d32c00eeb6f75983fb345964a0f46c',1,'biovoltron::Codec']]],
+  ['todo_20list_18',['Todo List',['../todo.html',1,'']]],
+  ['trim_19',['trim',['../classbiovoltron_1_1paired_1_1AdapterTrimmer.html#ae891eb878c17e16f61165d9b3cfd0148',1,'biovoltron::paired::AdapterTrimmer::trim(const std::filesystem::path forward_reads_path, const std::filesystem::path reverse_reads_path, const std::filesystem::path forward_output_path, const std::filesystem::path reverse_output_path, int thread_num=std::thread::hardware_concurrency(), const bool sensitive=false)'],['../classbiovoltron_1_1paired_1_1AdapterTrimmer.html#a88c7bf129c31c94a8775f447c81c28dd',1,'biovoltron::paired::AdapterTrimmer::trim(std::vector&lt; R &gt; forward_reads, std::vector&lt; R &gt; reverse_reads, int thread_num=std::thread::hardware_concurrency(), const bool sensitive=false)'],['../classbiovoltron_1_1single_1_1AdapterTrimmer.html#ab5d1091783b4aee0ce4ef2681cedd2cc',1,'biovoltron::single::AdapterTrimmer::trim()']]],
+  ['trimming_20',['Adaptor Trimming',['../index.html#autotoc_md13',1,'']]],
+  ['trimming_20tutorials_21',['Read Trimming Tutorials',['../tutorials.html#tutorials-trimming',1,'']]],
+  ['tutorials_22',['Tutorials',['../tutorials.html#tutorials-alignment',1,'Alignment Tutorials'],['../tutorials.html#tutorials-annotator',1,'Annotator Tutorials'],['../tutorials.html#tutorials-fileio',1,'File Input/Output Module Tutorials'],['../tutorials.html#tutorials-indexing',1,'Genome Indexing Tutorials'],['../tutorials.html#tutorials-trimming',1,'Read Trimming Tutorials'],['../tutorials.html',1,'Tutorials'],['../tutorials.html#tutorials-calling',1,'Variant Calling Tutorials']]],
+  ['type_23',['type',['../structbiovoltron_1_1GffRecord.html#a1d725456afb7b8796af8956f6e77d0e5',1,'biovoltron::GffRecord']]]
+];
