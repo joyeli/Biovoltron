@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['_7eibamstream_0',['~IBamStream',['../structbiovoltron_1_1IBamStream.html#a3f4095e7b8d73d6bf5926cd082bc0494',1,'biovoltron::IBamStream']]],
-  ['_7eobamstream_1',['~OBamStream',['../structbiovoltron_1_1OBamStream.html#a27fe42c4e06e5e01939ddee150b5e485',1,'biovoltron::OBamStream']]]
+  ['up_20your_20project_0',['Setting Up Your Project',['../installation.html#installation-setup-project',1,'']]],
+  ['usage_1',['Sample Usage',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html#autotoc_md45',1,'']]],
+  ['using_20doxygen_20s_20comment_20style_2',['5.1. Using doxygen&apos;s comment style',['../codingstyle.html#autotoc_md17',1,'']]],
+  ['using_20standard_20containers_20or_20standard_20algorithms_3',['8.1 Prefer using standard containers or standard algorithms',['../codingstyle.html#autotoc_md24',1,'']]],
+  ['utility_4',['utility',['../group__utility.html',1,'']]]
 ];

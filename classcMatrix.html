@@ -115,14 +115,14 @@ $(function(){initNavTree('classcMatrix.html','','classcMatrix-members'); });
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abd24a03e52c1698d3554b1a2e8716bb5" id="r_abd24a03e52c1698d3554b1a2e8716bb5"><td class="memItemLeft" align="right" valign="top"><a id="abd24a03e52c1698d3554b1a2e8716bb5" name="abd24a03e52c1698d3554b1a2e8716bb5"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>InitParameters</b> (enum TRIM_MODE trimMode, double dEpsilon, double dEpsilonIndel, int baseQual, bool bShareAdapter, bool bIsLowComplexity)</td></tr>
-<tr class="memitem:ac3e88f34d7e58cff1bbfcab6422cdbcf" id="r_ac3e88f34d7e58cff1bbfcab6422cdbcf"><td class="memItemLeft" align="right" valign="top"><a id="ac3e88f34d7e58cff1bbfcab6422cdbcf" name="ac3e88f34d7e58cff1bbfcab6422cdbcf"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>AddAdapter</b> (deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt; &amp;adapters, char *vector, size_t len, TRIM_MODE trimMode)</td></tr>
+<tr class="memitem:a71635ba43c4c2db0e7cd10be26cc2c24" id="r_a71635ba43c4c2db0e7cd10be26cc2c24"><td class="memItemLeft" align="right" valign="top"><a id="a71635ba43c4c2db0e7cd10be26cc2c24" name="a71635ba43c4c2db0e7cd10be26cc2c24"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>AddAdapter</b> (std::deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt; &amp;adapters, char *vector, size_t len, TRIM_MODE trimMode)</td></tr>
 <tr class="memitem:aafd87287b12db79a9d70dda5f93b94c2" id="r_aafd87287b12db79a9d70dda5f93b94c2"><td class="memItemLeft" align="right" valign="top"><a id="aafd87287b12db79a9d70dda5f93b94c2" name="aafd87287b12db79a9d70dda5f93b94c2"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateJunctionLengths</b> ()</td></tr>
-<tr class="memitem:aab40800d30a3deb6a49872e64242a9b8" id="r_aab40800d30a3deb6a49872e64242a9b8"><td class="memItemLeft" align="right" valign="top"><a id="aab40800d30a3deb6a49872e64242a9b8" name="aab40800d30a3deb6a49872e64242a9b8"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateIndices</b> (vector&lt; vector&lt; bool &gt; &gt; &amp;bMatrix, int nRow, int nCol)</td></tr>
-<tr class="memitem:a6af999f3a9aaeda1dbe0d593710a7e57" id="r_a6af999f3a9aaeda1dbe0d593710a7e57"><td class="memItemLeft" align="right" valign="top"><a id="a6af999f3a9aaeda1dbe0d593710a7e57" name="a6af999f3a9aaeda1dbe0d593710a7e57"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>InitBarcodes</b> (deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt; &amp;fw_primers, int iCutF, deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt; &amp;rv_primers, int iCutR)</td></tr>
+<tr class="memitem:aa4c9260690349ea51d243a6192d8e63c" id="r_aa4c9260690349ea51d243a6192d8e63c"><td class="memItemLeft" align="right" valign="top"><a id="aa4c9260690349ea51d243a6192d8e63c" name="aa4c9260690349ea51d243a6192d8e63c"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>CalculateIndices</b> (std::vector&lt; std::vector&lt; bool &gt; &gt; &amp;bMatrix, int nRow, int nCol)</td></tr>
+<tr class="memitem:a77d189665363b2ff73381432589d5a20" id="r_a77d189665363b2ff73381432589d5a20"><td class="memItemLeft" align="right" valign="top"><a id="a77d189665363b2ff73381432589d5a20" name="a77d189665363b2ff73381432589d5a20"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>InitBarcodes</b> (std::deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt; &amp;fw_primers, int iCutF, std::deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt; &amp;rv_primers, int iCutR)</td></tr>
 <tr class="memitem:aabe9df3f694a851c097ab01e7b3d1e34" id="r_aabe9df3f694a851c097ab01e7b3d1e34"><td class="memItemLeft" align="right" valign="top"><a id="aabe9df3f694a851c097ab01e7b3d1e34" name="aabe9df3f694a851c097ab01e7b3d1e34"></a>
 static bool&#160;</td><td class="memItemRight" valign="bottom"><b>isBlurry</b> (char *seq, size_t len)</td></tr>
 <tr class="memitem:aa436ac662a34ca91be5f44d5fceb6a4f" id="r_aa436ac662a34ca91be5f44d5fceb6a4f"><td class="memItemLeft" align="right" valign="top"><a id="aa436ac662a34ca91be5f44d5fceb6a4f" name="aa436ac662a34ca91be5f44d5fceb6a4f"></a>
@@ -152,32 +152,32 @@ static bool&#160;</td><td class="memItemRight" valign="bottom"><b>combinePairSeq
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a7a63909f016e86141cedfba63477e684" id="r_a7a63909f016e86141cedfba63477e684"><td class="memItemLeft" align="right" valign="top"><a id="a7a63909f016e86141cedfba63477e684" name="a7a63909f016e86141cedfba63477e684"></a>
-static vector&lt; bool * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fw_masked</b></td></tr>
-<tr class="memitem:a25332f5e2fdd646845d2de8b5d2a7588" id="r_a25332f5e2fdd646845d2de8b5d2a7588"><td class="memItemLeft" align="right" valign="top"><a id="a25332f5e2fdd646845d2de8b5d2a7588" name="a25332f5e2fdd646845d2de8b5d2a7588"></a>
-static vector&lt; bool * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rv_masked</b></td></tr>
-<tr class="memitem:a31c7a55bd187dc64939ec791f51e6371" id="r_a31c7a55bd187dc64939ec791f51e6371"><td class="memItemLeft" align="right" valign="top"><a id="a31c7a55bd187dc64939ec791f51e6371" name="a31c7a55bd187dc64939ec791f51e6371"></a>
-static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fw_barcodes</b></td></tr>
-<tr class="memitem:a491dbd52e906c93384ce6fdf33ded949" id="r_a491dbd52e906c93384ce6fdf33ded949"><td class="memItemLeft" align="right" valign="top"><a id="a491dbd52e906c93384ce6fdf33ded949" name="a491dbd52e906c93384ce6fdf33ded949"></a>
-static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rv_barcodes</b></td></tr>
-<tr class="memitem:a14ffa25a68669b81745d0e6527de40af" id="r_a14ffa25a68669b81745d0e6527de40af"><td class="memItemLeft" align="right" valign="top"><a id="a14ffa25a68669b81745d0e6527de40af" name="a14ffa25a68669b81745d0e6527de40af"></a>
-static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fw_primers</b></td></tr>
-<tr class="memitem:ae3fac7164605995c69c985a28b9ee3d1" id="r_ae3fac7164605995c69c985a28b9ee3d1"><td class="memItemLeft" align="right" valign="top"><a id="ae3fac7164605995c69c985a28b9ee3d1" name="ae3fac7164605995c69c985a28b9ee3d1"></a>
-static vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rv_primers</b></td></tr>
-<tr class="memitem:ab75e136f320b5058c32ddf9842ae819a" id="r_ab75e136f320b5058c32ddf9842ae819a"><td class="memItemLeft" align="right" valign="top"><a id="ab75e136f320b5058c32ddf9842ae819a" name="ab75e136f320b5058c32ddf9842ae819a"></a>
-static vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rowBc</b></td></tr>
-<tr class="memitem:a703606d2f65d904bd3e541868708169d" id="r_a703606d2f65d904bd3e541868708169d"><td class="memItemLeft" align="right" valign="top"><a id="a703606d2f65d904bd3e541868708169d" name="a703606d2f65d904bd3e541868708169d"></a>
-static vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>colBc</b></td></tr>
-<tr class="memitem:a12bfa92dede024d1d33f64cbe90d81cc" id="r_a12bfa92dede024d1d33f64cbe90d81cc"><td class="memItemLeft" align="right" valign="top"><a id="a12bfa92dede024d1d33f64cbe90d81cc" name="a12bfa92dede024d1d33f64cbe90d81cc"></a>
-static deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>firstAdapters</b></td></tr>
-<tr class="memitem:a34f4d67216223e6b25ad418e5d542765" id="r_a34f4d67216223e6b25ad418e5d542765"><td class="memItemLeft" align="right" valign="top"><a id="a34f4d67216223e6b25ad418e5d542765" name="a34f4d67216223e6b25ad418e5d542765"></a>
-static deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>secondAdapters</b></td></tr>
-<tr class="memitem:afd0f1a1ce83a140da093a3082e01923d" id="r_afd0f1a1ce83a140da093a3082e01923d"><td class="memItemLeft" align="right" valign="top"><a id="afd0f1a1ce83a140da093a3082e01923d" name="afd0f1a1ce83a140da093a3082e01923d"></a>
-static deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>junctionAdapters</b></td></tr>
-<tr class="memitem:a58e370580114d6d4fe7877c6566d66de" id="r_a58e370580114d6d4fe7877c6566d66de"><td class="memItemLeft" align="right" valign="top"><a id="a58e370580114d6d4fe7877c6566d66de" name="a58e370580114d6d4fe7877c6566d66de"></a>
-static vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>junctionLengths</b></td></tr>
-<tr class="memitem:a430b8d6ec863bc7e21490b48ee81da4b" id="r_a430b8d6ec863bc7e21490b48ee81da4b"><td class="memItemLeft" align="right" valign="top"><a id="a430b8d6ec863bc7e21490b48ee81da4b" name="a430b8d6ec863bc7e21490b48ee81da4b"></a>
-static vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>indices</b></td></tr>
+<tr class="memitem:a7328bac7983eb7ac793d863705cd10c9" id="r_a7328bac7983eb7ac793d863705cd10c9"><td class="memItemLeft" align="right" valign="top"><a id="a7328bac7983eb7ac793d863705cd10c9" name="a7328bac7983eb7ac793d863705cd10c9"></a>
+static std::vector&lt; bool * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fw_masked</b></td></tr>
+<tr class="memitem:afbb8896d5f310f32fdaf257e37faaec0" id="r_afbb8896d5f310f32fdaf257e37faaec0"><td class="memItemLeft" align="right" valign="top"><a id="afbb8896d5f310f32fdaf257e37faaec0" name="afbb8896d5f310f32fdaf257e37faaec0"></a>
+static std::vector&lt; bool * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rv_masked</b></td></tr>
+<tr class="memitem:a203c97f2293a96da0cc010357aa17d30" id="r_a203c97f2293a96da0cc010357aa17d30"><td class="memItemLeft" align="right" valign="top"><a id="a203c97f2293a96da0cc010357aa17d30" name="a203c97f2293a96da0cc010357aa17d30"></a>
+static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fw_barcodes</b></td></tr>
+<tr class="memitem:a4a5ac483372104a69021a861d5f5872c" id="r_a4a5ac483372104a69021a861d5f5872c"><td class="memItemLeft" align="right" valign="top"><a id="a4a5ac483372104a69021a861d5f5872c" name="a4a5ac483372104a69021a861d5f5872c"></a>
+static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rv_barcodes</b></td></tr>
+<tr class="memitem:ae09101da5c1101a61d55d8bc49c28056" id="r_ae09101da5c1101a61d55d8bc49c28056"><td class="memItemLeft" align="right" valign="top"><a id="ae09101da5c1101a61d55d8bc49c28056" name="ae09101da5c1101a61d55d8bc49c28056"></a>
+static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fw_primers</b></td></tr>
+<tr class="memitem:af1d6d24bae6eac57779538b4db9d085e" id="r_af1d6d24bae6eac57779538b4db9d085e"><td class="memItemLeft" align="right" valign="top"><a id="af1d6d24bae6eac57779538b4db9d085e" name="af1d6d24bae6eac57779538b4db9d085e"></a>
+static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rv_primers</b></td></tr>
+<tr class="memitem:a36c4e8cb6757df98acabca5be50e2792" id="r_a36c4e8cb6757df98acabca5be50e2792"><td class="memItemLeft" align="right" valign="top"><a id="a36c4e8cb6757df98acabca5be50e2792" name="a36c4e8cb6757df98acabca5be50e2792"></a>
+static std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>rowBc</b></td></tr>
+<tr class="memitem:a594ab8a5211fcb9adbf9cd43b4c3bf38" id="r_a594ab8a5211fcb9adbf9cd43b4c3bf38"><td class="memItemLeft" align="right" valign="top"><a id="a594ab8a5211fcb9adbf9cd43b4c3bf38" name="a594ab8a5211fcb9adbf9cd43b4c3bf38"></a>
+static std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>colBc</b></td></tr>
+<tr class="memitem:a2cb3f52b30459e3cb1410927a75ddc9d" id="r_a2cb3f52b30459e3cb1410927a75ddc9d"><td class="memItemLeft" align="right" valign="top"><a id="a2cb3f52b30459e3cb1410927a75ddc9d" name="a2cb3f52b30459e3cb1410927a75ddc9d"></a>
+static std::deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>firstAdapters</b></td></tr>
+<tr class="memitem:a31709307cba472ee7b150796c2154ccc" id="r_a31709307cba472ee7b150796c2154ccc"><td class="memItemLeft" align="right" valign="top"><a id="a31709307cba472ee7b150796c2154ccc" name="a31709307cba472ee7b150796c2154ccc"></a>
+static std::deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>secondAdapters</b></td></tr>
+<tr class="memitem:aab43804ef36e4480afc9779d87094268" id="r_aab43804ef36e4480afc9779d87094268"><td class="memItemLeft" align="right" valign="top"><a id="aab43804ef36e4480afc9779d87094268" name="aab43804ef36e4480afc9779d87094268"></a>
+static std::deque&lt; <a class="el" href="classcAdapter.html">cAdapter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>junctionAdapters</b></td></tr>
+<tr class="memitem:a725ed80d0d6f5f58f4d58a8cefac9a37" id="r_a725ed80d0d6f5f58f4d58a8cefac9a37"><td class="memItemLeft" align="right" valign="top"><a id="a725ed80d0d6f5f58f4d58a8cefac9a37" name="a725ed80d0d6f5f58f4d58a8cefac9a37"></a>
+static std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>junctionLengths</b></td></tr>
+<tr class="memitem:a1a22ac30651e059362a5d58e5beb96de" id="r_a1a22ac30651e059362a5d58e5beb96de"><td class="memItemLeft" align="right" valign="top"><a id="a1a22ac30651e059362a5d58e5beb96de" name="a1a22ac30651e059362a5d58e5beb96de"></a>
+static std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>indices</b></td></tr>
 <tr class="memitem:ad2f2babd6e195207c74f2044d0cb9edf" id="r_ad2f2babd6e195207c74f2044d0cb9edf"><td class="memItemLeft" align="right" valign="top"><a id="ad2f2babd6e195207c74f2044d0cb9edf" name="ad2f2babd6e195207c74f2044d0cb9edf"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>iIdxCnt</b> = 0</td></tr>
 <tr class="memitem:a0e940a2aaf92b7d5fd88c10dccc3a49d" id="r_a0e940a2aaf92b7d5fd88c10dccc3a49d"><td class="memItemLeft" align="right" valign="top"><a id="a0e940a2aaf92b7d5fd88c10dccc3a49d" name="a0e940a2aaf92b7d5fd88c10dccc3a49d"></a>

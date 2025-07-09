@@ -111,14 +111,25 @@ $(function(){initNavTree('structbiovoltron_1_1Codec.html','','structbiovoltron_1
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="structbiovoltron_1_1Codec.html" title="Codec for DNA alphabet to integer conversion.">Codec</a> for DNA alphabet to integer conversion.  
+<p><a class="el" href="structbiovoltron_1_1Codec.html" title="Codec for DNA alphabet from symbols to integer.">Codec</a> for DNA alphabet from symbols to integer.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="istring_8hpp_source.html">istring.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for biovoltron::Codec:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structbiovoltron_1_1Codec.png" usemap="#biovoltron_3A_3ACodec_map" alt=""/>
+  <map id="biovoltron_3A_3ACodec_map" name="biovoltron_3A_3ACodec_map">
+<area href="classbiovoltron_1_1dna4.html" alt="biovoltron::dna4" shape="rect" coords="0,56,111,80"/>
+<area href="classbiovoltron_1_1dna5.html" alt="biovoltron::dna5" shape="rect" coords="121,56,232,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8c4acb1de26238e19fcb26268d475da5" id="r_a8c4acb1de26238e19fcb26268d475da5"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c4acb1de26238e19fcb26268d475da5">to_int</a> (char c) noexcept</td></tr>
+<tr class="memdesc:a8c4acb1de26238e19fcb26268d475da5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the type of DNA alphabet from <em>char</em> to <em>ichar</em>.  <br /></td></tr>
 <tr class="memitem:ac8d38749b04833ace597712a2a02cd49" id="r_ac8d38749b04833ace597712a2a02cd49"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8d38749b04833ace597712a2a02cd49">is_valid</a> (char c) noexcept</td></tr>
 <tr class="memitem:a66577e735c847e8256e6c266d78464d9" id="r_a66577e735c847e8256e6c266d78464d9"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66577e735c847e8256e6c266d78464d9">to_char</a> (int i) noexcept</td></tr>
 <tr class="memitem:a5796349fb77904ba2a1298544b2b1750" id="r_a5796349fb77904ba2a1298544b2b1750"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5796349fb77904ba2a1298544b2b1750">hash</a> (istring_view seq) noexcept</td></tr>
@@ -131,12 +142,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a73267a9dffb1ffbc7366d4d9184784db" id="r_a73267a9dffb1ffbc7366d4d9184784db"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a></td></tr>
+<tr class="memdesc:a73267a9dffb1ffbc7366d4d9184784db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a function that map DNA alphabet from <em>char</em> to <em>ichar</em>.  <br /></td></tr>
 <tr class="memitem:aa807a465ce277e7d14db898f3c6ba4d4" id="r_aa807a465ce277e7d14db898f3c6ba4d4"><td class="memItemLeft" align="right" valign="top"><a id="aa807a465ce277e7d14db898f3c6ba4d4" name="aa807a465ce277e7d14db898f3c6ba4d4"></a>
 static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>chars</b> = std::array{'A', 'C', 'G', 'T', 'N'}</td></tr>
+<tr class="memdesc:aa807a465ce277e7d14db898f3c6ba4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">array as the DNA alphabet set <br /></td></tr>
 <tr class="memitem:ad43c7c625b3a19fae9212e71b7fa4556" id="r_ad43c7c625b3a19fae9212e71b7fa4556"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad43c7c625b3a19fae9212e71b7fa4556">comp</a></td></tr>
+<tr class="memdesc:ad43c7c625b3a19fae9212e71b7fa4556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a function that map a DNA alphabet to its biological complement.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="structbiovoltron_1_1Codec.html" title="Codec for DNA alphabet to integer conversion.">Codec</a> for DNA alphabet to integer conversion. </p>
+<div class="textblock"><p><a class="el" href="structbiovoltron_1_1Codec.html" title="Codec for DNA alphabet from symbols to integer.">Codec</a> for DNA alphabet from symbols to integer. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a5796349fb77904ba2a1298544b2b1750" name="a5796349fb77904ba2a1298544b2b1750"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5796349fb77904ba2a1298544b2b1750">&#9670;&#160;</a></span>hash()</h2>
@@ -357,13 +371,15 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>char
   </tr>
 </table>
 </div><div class="memdoc">
-<p>DNA to integer. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Convert the type of DNA alphabet from <em>char</em> to <em>ichar</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">DNA</td><td>alphabet. </td></tr>
+    <tr><td class="paramname">a</td><td><em>char</em> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A std::int8_t, 0(A), 1(C), 2(G), 3(T). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0, 1, 2, 3 for both <span class="tt">A</span>, <span class="tt">C</span>, <span class="tt">G</span>, <span class="tt">T</span> and <span class="tt">a</span>, <span class="tt">c</span>, <span class="tt">g</span>, <span class="tt">t</span> respectively, 4 for the others in the range. </dd></dl>
 
 </div>
 </div>
@@ -470,6 +486,15 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>char
 <div class="line">    }</div>
 <div class="line">  }</div>
 </div><!-- fragment -->
+<p>Define a function that map a DNA alphabet to its biological complement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>a symbol representing a residue of a DNA sequence </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the biological complement of the residue c, <span class="tt">N</span> for residues other than a DNA alphabet </dd></dl>
+
 </div>
 </div>
 <a id="a73267a9dffb1ffbc7366d4d9184784db" name="a73267a9dffb1ffbc7366d4d9184784db"></a>
@@ -492,15 +517,25 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>char
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= [] {</div>
-<div class="line">    <span class="keyword">auto</span> ints = std::array&lt;ichar, 128&gt;{};</div>
-<div class="line">    ints.fill(4);</div>
-<div class="line">    ints[<span class="charliteral">&#39;a&#39;</span>] = ints[<span class="charliteral">&#39;A&#39;</span>] = 0;</div>
-<div class="line">    ints[<span class="charliteral">&#39;c&#39;</span>] = ints[<span class="charliteral">&#39;C&#39;</span>] = 1;</div>
-<div class="line">    ints[<span class="charliteral">&#39;g&#39;</span>] = ints[<span class="charliteral">&#39;G&#39;</span>] = 2;</div>
-<div class="line">    ints[<span class="charliteral">&#39;t&#39;</span>] = ints[<span class="charliteral">&#39;T&#39;</span>] = 3;</div>
-<div class="line">    <span class="keywordflow">return</span> ints;</div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a> = std::array&lt;ichar, 128&gt;{};</div>
+<div class="line">    <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>.fill(4);</div>
+<div class="line">    <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>[<span class="charliteral">&#39;a&#39;</span>] = <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>[<span class="charliteral">&#39;A&#39;</span>] = 0;</div>
+<div class="line">    <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>[<span class="charliteral">&#39;c&#39;</span>] = <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>[<span class="charliteral">&#39;C&#39;</span>] = 1;</div>
+<div class="line">    <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>[<span class="charliteral">&#39;g&#39;</span>] = <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>[<span class="charliteral">&#39;G&#39;</span>] = 2;</div>
+<div class="line">    <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>[<span class="charliteral">&#39;t&#39;</span>] = <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>[<span class="charliteral">&#39;T&#39;</span>] = 3;</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code hl_variable" href="#a73267a9dffb1ffbc7366d4d9184784db">ints</a>;</div>
 <div class="line">  }()</div>
+<div class="ttc" id="astructbiovoltron_1_1Codec_html_a73267a9dffb1ffbc7366d4d9184784db"><div class="ttname"><a href="#a73267a9dffb1ffbc7366d4d9184784db">biovoltron::Codec::ints</a></div><div class="ttdeci">static constexpr auto ints</div><div class="ttdoc">Define a function that map DNA alphabet from char to ichar.</div><div class="ttdef"><b>Definition</b> istring.hpp:45</div></div>
 </div><!-- fragment -->
+<p>Define a function that map DNA alphabet from <em>char</em> to <em>ichar</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td><em>char</em> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0, 1, 2, 3 for both <span class="tt">A</span>, <span class="tt">C</span>, <span class="tt">G</span>, <span class="tt">T</span> and <span class="tt">a</span>, <span class="tt">c</span>, <span class="tt">g</span>, <span class="tt">t</span> respectively, 4 for the others in the range. </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>

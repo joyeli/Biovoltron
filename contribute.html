@@ -120,7 +120,7 @@ Bug Reporting</h1>
 </ol>
 <h1 class="doxsection"><a class="anchor" id="contribute-setup"></a>
 Environment Setup</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
 Development Dependencies</h2>
 <p>Ensure you have the following dependencies installed:</p><ul>
 <li>g++ &gt;= 11.1.0</li>
@@ -138,7 +138,7 @@ Development Dependencies</h2>
 <div class="line">cmake .. -DCMAKE_BUILD_TYPE=Debug</div>
 </div><!-- fragment --><p>Build the project and run tests </p><div class="fragment"><div class="line">make</div>
 <div class="line">./tests/biovoltron-test</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
 Coverage Report Dependencies</h2>
 <ul>
 <li>gcovr (Ensure your gcov version matches your gcc compiler version.)</li>
@@ -149,7 +149,7 @@ Coverage Report Dependencies</h2>
 <div class="line">./tests/biovoltron-test</div>
 </div><!-- fragment --><p>Generate coverage report in HTML format </p><div class="fragment"><div class="line">gcovr --html-details coverage.html --root ../include/biovoltron/ .</div>
 </div><!-- fragment --><p>Open <span class="tt">coverage.html</span> in your browser.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
 Documentation Building Dependencies</h2>
 <ul>
 <li>doxygen &gt;= 1.9.4</li>
@@ -182,16 +182,10 @@ Development Workflow</h1>
 </ul>
 <h1 class="doxsection"><a class="anchor" id="contribute-coding-guideline"></a>
 C++ Coding Guidelines</h1>
-<ul>
-<li>Use "Almost Always Auto" (AAA) for type inference.</li>
-<li>Prefer using the Standard Template Library (STL) over complex nested raw loops.</li>
-<li>Declare member functions of stateless classes/structs as static.</li>
-<li>Utilize const whenever possible.</li>
-<li>Use move semantics instead of copying.</li>
-</ul>
+<p>For more detailed coding style guidelines, refer to the <a class="el" href="codingstyle.html#md_doc_2markdown_2codingstyle">Biovoltron Coding Style Guide</a>.</p>
 <h1 class="doxsection"><a class="anchor" id="contribute-git-style"></a>
 Git style</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
 Commit Message</h2>
 <p>A commit message should be divided into three parts:</p>
 <ul>
@@ -230,7 +224,7 @@ Commit Message</h2>
 <div class="line">See also: #12, #34</div>
 <div class="line"> </div>
 <div class="line">Source http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
 Other Git Guidelines</h2>
 <ol type="1">
 <li>Rebase before merging.</li>

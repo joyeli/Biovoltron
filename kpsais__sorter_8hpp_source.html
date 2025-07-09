@@ -127,7 +127,7 @@ $(function(){initNavTree('kpsais__sorter_8hpp_source.html','',''); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> <span class="keywordtype">size_t</span>ype = std::u<span class="keywordtype">int</span>32_t&gt;</div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1KPsaisSorter.html">   16</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structbiovoltron_1_1KPsaisSorter.html">KPsaisSorter</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keyword">using </span>SA_t = std::vector&lt;size_type&gt;;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">static</span> <span class="keyword">auto</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  get_sa(istring_view ref, <span class="keywordtype">size_t</span> sort_len = 256u) {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">auto</span> SA = std::vector&lt;size_type&gt;{};</div>

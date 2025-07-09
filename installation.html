@@ -154,7 +154,7 @@ Verifying the Installation</h1>
 </div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="installation-first-example"></a>
 Building Your First Example</h1>
 <p>After passing the unit tests, you can compile and run a simple example. Let's start by creating a basic C++ program that uses Biovoltron to read a sample FASTA sequence.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
 Writing the main.cpp File</h2>
 <p>Create a <span class="tt">main.cpp</span> file in the <span class="tt">src</span>directory with code like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;sstream&gt;</span></div>
@@ -176,7 +176,7 @@ Writing the main.cpp File</h2>
 <div class="line">}</div>
 <div class="ttc" id="astructbiovoltron_1_1FastaRecord_html"><div class="ttname"><a href="structbiovoltron_1_1FastaRecord.html">biovoltron::FastaRecord</a></div><div class="ttdoc">Stores data from FASTA files, facilitating the parsing and manipulation of nucleotide sequences.</div><div class="ttdef"><b>Definition</b> fasta.hpp:13</div></div>
 <div class="ttc" id="astructbiovoltron_1_1FastaRecord_html_ad6cad4e0e9c48a135bc17cb1f28218f6"><div class="ttname"><a href="structbiovoltron_1_1FastaRecord.html#ad6cad4e0e9c48a135bc17cb1f28218f6">biovoltron::FastaRecord::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">Name of reference genome (or reads in FastqRecord)</div><div class="ttdef"><b>Definition</b> fasta.hpp:35</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
 Configuring CMake</h2>
 <p>To build your C++ program with Biovoltron, create a <span class="tt">CMakeLists.txt</span> file: </p><div class="fragment"><div class="line">cmake_minimum_required (VERSION 3.16)</div>
 <div class="line"> </div>
@@ -189,7 +189,7 @@ Configuring CMake</h2>
 <div class="line"># Link your source code to your project</div>
 <div class="line">add_executable(app src/main.cpp)</div>
 <div class="line">target_link_libraries(app biovoltron)</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
 Compiling and Running</h2>
 <p>Compile and run your code: </p><div class="fragment"><div class="line">cd build</div>
 <div class="line">cmake ..</div>

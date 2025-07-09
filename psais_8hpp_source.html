@@ -491,7 +491,7 @@ $(function(){initNavTree('psais_8hpp_source.html','',''); });
 <div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>      prepare&lt;char_type, size_type&gt;(size / BLOCK_SIZE * BLOCK_SIZE, S, SA, T, RBP);</div>
 <div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    }</div>
 <div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>    <span class="keyword">auto</span> pool = biovoltron::ThreadPool(2);</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>    <span class="keyword">auto</span> pool = biovoltron::DeprecatedThreadPool(2);</div>
 <div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>    <span class="keyword">auto</span> stage = std::array&lt;std::future&lt;void&gt;, 2&gt;{};</div>
 <div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
 <div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    <span class="comment">// pipeline</span></div>

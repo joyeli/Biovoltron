@@ -1,9 +1,15 @@
 var searchData=
 [
-  ['include_20the_20necessary_20headers_0',['Step 1. Include the Necessary Headers',['../tutorials-fileio-fasta.html#autotoc_md21',1,'']]],
-  ['indexing_20tutorials_1',['Genome Indexing Tutorials',['../tutorials.html#tutorials-indexing',1,'']]],
-  ['input_20and_20output_2',['File Input and Output',['../index.html#autotoc_md11',1,'']]],
-  ['input_20output_20module_20tutorials_3',['File Input/Output Module Tutorials',['../tutorials.html#tutorials-fileio',1,'']]],
-  ['installation_4',['Installation',['../installation.html',1,'Installation'],['../installation.html#installation-verifying',1,'Verifying the Installation']]],
-  ['introducing_20biovoltron_5',['Introducing Biovoltron',['../index.html#autotoc_md8',1,'']]]
+  ['data_20from_20a_20fasta_20file_0',['Step 3. Reading Data from a FASTA File',['../tutorials-fileio-fasta.html#autotoc_md56',1,'']]],
+  ['declaration_1',['7.1 Template Declaration',['../codingstyle.html#autotoc_md21',1,'']]],
+  ['default_20method_20wf_5fblunt_2',['Default Method (&lt;span class=&quot;tt&quot;&gt;wf_blunt&lt;/span&gt;)',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html#autotoc_md47',1,'']]],
+  ['definition_3',['6.1. Class Definition',['../codingstyle.html#autotoc_md19',1,'']]],
+  ['definitions_4',['7.2 Template Function Definitions',['../codingstyle.html#autotoc_md22',1,'']]],
+  ['dependencies_5',['Dependencies',['../contribute.html#autotoc_md27',1,'Coverage Report Dependencies'],['../contribute.html#autotoc_md26',1,'Development Dependencies'],['../contribute.html#autotoc_md28',1,'Documentation Building Dependencies']]],
+  ['development_20dependencies_6',['Development Dependencies',['../contribute.html#autotoc_md26',1,'']]],
+  ['development_20workflow_7',['Development Workflow',['../contribute.html#contribute-development-workflow',1,'']]],
+  ['devin_8',['Wiki from Devin',['../wiki.html',1,'']]],
+  ['documentation_20building_20dependencies_9',['Documentation Building Dependencies',['../contribute.html#autotoc_md28',1,'']]],
+  ['doxygen_20comment_20guidelines_10',['Doxygen Comment Guidelines',['../contribute.html#contribute-doxygen',1,'']]],
+  ['doxygen_20s_20comment_20style_11',['5.1. Using doxygen&apos;s comment style',['../codingstyle.html#autotoc_md17',1,'']]]
 ];

@@ -2,12 +2,20 @@ var annotated_dup =
 [
     [ "biovoltron", null, [
       [ "detail", null, [
+        [ "policy", null, [
+          [ "RoundRobin", "classbiovoltron_1_1detail_1_1policy_1_1RoundRobin.html", null ]
+        ] ],
         [ "XbitConstIterator", "structbiovoltron_1_1detail_1_1XbitConstIterator.html", null ],
         [ "XbitIterator", "structbiovoltron_1_1detail_1_1XbitIterator.html", null ],
         [ "XbitIteratorBase", "classbiovoltron_1_1detail_1_1XbitIteratorBase.html", null ],
         [ "XbitReference", "classbiovoltron_1_1detail_1_1XbitReference.html", null ],
         [ "XbitVector", "classbiovoltron_1_1detail_1_1XbitVector.html", null ],
         [ "XbitVectorBase", "classbiovoltron_1_1detail_1_1XbitVectorBase.html", null ]
+      ] ],
+      [ "kiss", null, [
+        [ "PackedDNAString", "structbiovoltron_1_1kiss_1_1PackedDNAString.html", null ],
+        [ "ThreadCache", "structbiovoltron_1_1kiss_1_1ThreadCache.html", null ],
+        [ "ThreadState", "structbiovoltron_1_1kiss_1_1ThreadState.html", null ]
       ] ],
       [ "mirna", null, [
         [ "LenExp", "structbiovoltron_1_1mirna_1_1LenExp.html", null ],
@@ -33,14 +41,17 @@ var annotated_dup =
       [ "Assembler", "classbiovoltron_1_1Assembler.html", null ],
       [ "AvxPairHMM", "structbiovoltron_1_1AvxPairHMM.html", null ],
       [ "AvxSmithWaterman", "structbiovoltron_1_1AvxSmithWaterman.html", null ],
-      [ "BedGraphRecord", "structbiovoltron_1_1BedGraphRecord.html", null ],
+      [ "BedGraphRecord", "structbiovoltron_1_1BedGraphRecord.html", "structbiovoltron_1_1BedGraphRecord" ],
       [ "BedHeader", "structbiovoltron_1_1BedHeader.html", null ],
-      [ "BedRecord", "structbiovoltron_1_1BedRecord.html", null ],
+      [ "BedRecord", "structbiovoltron_1_1BedRecord.html", "structbiovoltron_1_1BedRecord" ],
       [ "BedSixRecord", "structbiovoltron_1_1BedSixRecord.html", "structbiovoltron_1_1BedSixRecord" ],
       [ "BurrowWheelerAligner", "structbiovoltron_1_1BurrowWheelerAligner.html", "structbiovoltron_1_1BurrowWheelerAligner" ],
       [ "Cigar", "structbiovoltron_1_1Cigar.html", "structbiovoltron_1_1Cigar" ],
       [ "Codec", "structbiovoltron_1_1Codec.html", null ],
+      [ "DeprecatedThreadPool", "classbiovoltron_1_1DeprecatedThreadPool.html", null ],
       [ "DepthPerAllele", "classbiovoltron_1_1DepthPerAllele.html", null ],
+      [ "dna4", "classbiovoltron_1_1dna4.html", "classbiovoltron_1_1dna4" ],
+      [ "dna5", "classbiovoltron_1_1dna5.html", "classbiovoltron_1_1dna5" ],
       [ "DuplicateReadFilter", "structbiovoltron_1_1DuplicateReadFilter.html", null ],
       [ "FastaRecord", "structbiovoltron_1_1FastaRecord.html", "structbiovoltron_1_1FastaRecord" ],
       [ "FastqRecord", "structbiovoltron_1_1FastqRecord.html", "structbiovoltron_1_1FastqRecord" ],
@@ -49,6 +60,7 @@ var annotated_dup =
       [ "Genotyper", "classbiovoltron_1_1Genotyper.html", null ],
       [ "GenotypeUtils", "structbiovoltron_1_1GenotypeUtils.html", null ],
       [ "GffRecord", "structbiovoltron_1_1GffRecord.html", "structbiovoltron_1_1GffRecord" ],
+      [ "Graph", "classbiovoltron_1_1Graph.html", "classbiovoltron_1_1Graph" ],
       [ "GraphWrapper", "structbiovoltron_1_1GraphWrapper.html", "structbiovoltron_1_1GraphWrapper" ],
       [ "gzstreambase", "classbiovoltron_1_1gzstreambase.html", null ],
       [ "gzstreambuf", "classbiovoltron_1_1gzstreambuf.html", null ],
@@ -65,6 +77,8 @@ var annotated_dup =
       [ "Index", "structbiovoltron_1_1Index.html", "structbiovoltron_1_1Index" ],
       [ "Interval", "structbiovoltron_1_1Interval.html", null ],
       [ "IntervalTree", "structbiovoltron_1_1IntervalTree.html", null ],
+      [ "KISS1Sorter", "structbiovoltron_1_1KISS1Sorter.html", null ],
+      [ "KISS2Sorter", "structbiovoltron_1_1KISS2Sorter.html", null ],
       [ "KPsaisSorter", "structbiovoltron_1_1KPsaisSorter.html", null ],
       [ "MappingQualityReadFilter", "structbiovoltron_1_1MappingQualityReadFilter.html", null ],
       [ "MateOnSameContigReadFilter", "structbiovoltron_1_1MateOnSameContigReadFilter.html", null ],
@@ -81,23 +95,28 @@ var annotated_dup =
       [ "ReadClipper", "structbiovoltron_1_1ReadClipper.html", null ],
       [ "Record", "structbiovoltron_1_1Record.html", null ],
       [ "ReferenceConfidenceModel", "structbiovoltron_1_1ReferenceConfidenceModel.html", null ],
+      [ "ReferenceRecord", "structbiovoltron_1_1ReferenceRecord.html", null ],
       [ "SaisSorter", "structbiovoltron_1_1SaisSorter.html", null ],
       [ "SamHeader", "structbiovoltron_1_1SamHeader.html", null ],
       [ "SamRecord", "structbiovoltron_1_1SamRecord.html", "structbiovoltron_1_1SamRecord" ],
       [ "SamUtil", "structbiovoltron_1_1SamUtil.html", "structbiovoltron_1_1SamUtil" ],
       [ "SecondaryAlignmentReadFilter", "structbiovoltron_1_1SecondaryAlignmentReadFilter.html", null ],
       [ "Serializer", "structbiovoltron_1_1Serializer.html", null ],
+      [ "SIMDAlignment", "structbiovoltron_1_1SIMDAlignment.html", "structbiovoltron_1_1SIMDAlignment" ],
+      [ "SimdAlignmentEngine", "classbiovoltron_1_1SimdAlignmentEngine.html", "classbiovoltron_1_1SimdAlignmentEngine" ],
       [ "SmithWaterman", "structbiovoltron_1_1SmithWaterman.html", "structbiovoltron_1_1SmithWaterman" ],
       [ "SseSmithWaterman", "structbiovoltron_1_1SseSmithWaterman.html", "structbiovoltron_1_1SseSmithWaterman" ],
       [ "StableSorter", "structbiovoltron_1_1StableSorter.html", null ],
       [ "Tailor", "structbiovoltron_1_1Tailor.html", null ],
-      [ "ThreadPool", "classbiovoltron_1_1ThreadPool.html", null ],
+      [ "ThreadPool", "classbiovoltron_1_1ThreadPool.html", "classbiovoltron_1_1ThreadPool" ],
       [ "Variant", "structbiovoltron_1_1Variant.html", null ],
       [ "VcfHeader", "structbiovoltron_1_1VcfHeader.html", null ],
       [ "VcfRecord", "structbiovoltron_1_1VcfRecord.html", "structbiovoltron_1_1VcfRecord" ],
+      [ "VcfUtil", "structbiovoltron_1_1VcfUtil.html", null ],
       [ "WigFixedStepRecord", "structbiovoltron_1_1WigFixedStepRecord.html", null ],
       [ "WigHeader", "structbiovoltron_1_1WigHeader.html", null ],
-      [ "WigVarStepRecord", "structbiovoltron_1_1WigVarStepRecord.html", null ]
+      [ "WigVarStepRecord", "structbiovoltron_1_1WigVarStepRecord.html", null ],
+      [ "Worker", "classbiovoltron_1_1Worker.html", "classbiovoltron_1_1Worker" ]
     ] ],
     [ "skewer", null, [
       [ "cData", "classskewer_1_1cData.html", null ],
@@ -113,6 +132,7 @@ var annotated_dup =
       [ "tag_REC", "structskewer_1_1tag__REC.html", null ],
       [ "TASK", "structskewer_1_1TASK.html", null ]
     ] ],
+    [ "AlignedAllocator", "classAlignedAllocator.html", "classAlignedAllocator" ],
     [ "cAdapter", "classcAdapter.html", null ],
     [ "cElementSet", "classcElementSet.html", null ],
     [ "cMatrix", "classcMatrix.html", null ],

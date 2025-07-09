@@ -15,7 +15,8 @@ var searchData=
   ['set_5fsequential_12',['set_sequential',['../structbiovoltron_1_1IBamStream.html#abd050b8217331b4fae5c1c06d58a3fd0',1,'biovoltron::IBamStream']]],
   ['set_5fss_5fcheck_5fthreshold_13',['set_ss_check_threshold',['../classbiovoltron_1_1paired_1_1AdapterTrimmer.html#acda0a3830c68fee9953fbec3e5d897c8',1,'biovoltron::paired::AdapterTrimmer']]],
   ['set_5funmapped_14',['set_unmapped',['../structbiovoltron_1_1IBamStream.html#a5426f3a2d918d921baba42fd67fa57ed',1,'biovoltron::IBamStream']]],
-  ['size_15',['size',['../structbiovoltron_1_1Cigar.html#a9e7b8d3e7a0369a5bbf8a08751116762',1,'biovoltron::Cigar::size()'],['../structbiovoltron_1_1SamRecord.html#add88beb8afa2fb104d837d7509bbf05d',1,'biovoltron::SamRecord::size() const noexcept']]],
-  ['supplementary_5falignment_16',['supplementary_alignment',['../structbiovoltron_1_1SamRecord.html#a63b9586ade151a16577e90ddcdf15848',1,'biovoltron::SamRecord']]],
-  ['swap_17',['swap',['../structbiovoltron_1_1Cigar.html#a482af65c74136e221f476be8f516fd69',1,'biovoltron::Cigar']]]
+  ['size_15',['size',['../structbiovoltron_1_1Cigar.html#a9e7b8d3e7a0369a5bbf8a08751116762',1,'biovoltron::Cigar::size()'],['../structbiovoltron_1_1SamRecord.html#add88beb8afa2fb104d837d7509bbf05d',1,'biovoltron::SamRecord::size()'],['../classbiovoltron_1_1ThreadPool.html#a9e3f3efa4fc9ebcbb5f7ab832e51198a',1,'biovoltron::ThreadPool::size()'],['../classbiovoltron_1_1Worker.html#a84b272b78aa303a258cb4677a3df3c2b',1,'biovoltron::Worker::size()']]],
+  ['submit_16',['submit',['../classbiovoltron_1_1ThreadPool.html#a40b42f1a5bf32cb874aa9b17a46453b0',1,'biovoltron::ThreadPool::submit(const std::size_t &amp;id, F &amp;&amp;func, ArgType &amp;&amp;... args)'],['../classbiovoltron_1_1ThreadPool.html#a67ec3ccbbc72df7a35e400a7bc27595e',1,'biovoltron::ThreadPool::submit(F &amp;&amp;func, ArgType &amp;&amp;... args)']]],
+  ['supplementary_5falignment_17',['supplementary_alignment',['../structbiovoltron_1_1SamRecord.html#a63b9586ade151a16577e90ddcdf15848',1,'biovoltron::SamRecord']]],
+  ['swap_18',['swap',['../structbiovoltron_1_1Cigar.html#a482af65c74136e221f476be8f516fd69',1,'biovoltron::Cigar']]]
 ];

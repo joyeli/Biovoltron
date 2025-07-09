@@ -1,4 +1,29 @@
 var searchData=
 [
-  ['headers_0',['Step 1. Include the Necessary Headers',['../tutorials-fileio-fasta.html#autotoc_md21',1,'']]]
+  ['c_20coding_20guidelines_0',['C++ Coding Guidelines',['../contribute.html#contribute-coding-guideline',1,'']]],
+  ['c_20coding_20style_20guide_1',['C++ Coding Style Guide',['../codingstyle.html',1,'']]],
+  ['calling_2',['Align and Variant Calling',['../index.html#autotoc_md35',1,'']]],
+  ['calling_20tutorials_3',['Variant Calling Tutorials',['../tutorials.html#tutorials-calling',1,'']]],
+  ['class_20definition_4',['6.1. Class Definition',['../codingstyle.html#autotoc_md19',1,'']]],
+  ['classes_20and_20structs_5',['Classes and Structs',['../codingstyle.html#autotoc_md9',1,'3.3. Classes and Structs'],['../codingstyle.html#autotoc_md18',1,'6. Classes and Structs']]],
+  ['cmake_6',['Configuring CMake',['../installation.html#autotoc_md41',1,'']]],
+  ['coding_20guidelines_7',['C++ Coding Guidelines',['../contribute.html#contribute-coding-guideline',1,'']]],
+  ['coding_20style_20guide_8',['C++ Coding Style Guide',['../codingstyle.html',1,'']]],
+  ['comment_20guidelines_9',['Doxygen Comment Guidelines',['../contribute.html#contribute-doxygen',1,'']]],
+  ['comment_20style_10',['5.1. Using doxygen&apos;s comment style',['../codingstyle.html#autotoc_md17',1,'']]],
+  ['comments_11',['5. Comments',['../codingstyle.html#autotoc_md16',1,'']]],
+  ['commit_20message_12',['Commit Message',['../contribute.html#autotoc_md29',1,'']]],
+  ['community_20and_20support_13',['Community and Support',['../index.html#autotoc_md38',1,'']]],
+  ['compilation_14',['Compilation',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html#autotoc_md46',1,'']]],
+  ['compilation_20and_20execution_20guide_15',['README: WFPOA Compilation and Execution Guide',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html',1,'']]],
+  ['compiling_20and_20running_16',['Compiling and Running',['../installation.html#autotoc_md42',1,'']]],
+  ['configuring_20cmake_17',['Configuring CMake',['../installation.html#autotoc_md41',1,'']]],
+  ['constants_18',['3.4 Constants',['../codingstyle.html#autotoc_md10',1,'']]],
+  ['containers_20or_20standard_20algorithms_19',['8.1 Prefer using standard containers or standard algorithms',['../codingstyle.html#autotoc_md24',1,'']]],
+  ['contribute_20',['Contribute',['../contribute.html',1,'']]],
+  ['conventions_21',['3. Naming Conventions',['../codingstyle.html#autotoc_md6',1,'']]],
+  ['coverage_20report_20dependencies_22',['Coverage Report Dependencies',['../contribute.html#autotoc_md27',1,'']]],
+  ['cpp_20file_23',['Writing the main.cpp File',['../installation.html#autotoc_md40',1,'']]],
+  ['cpu_20profile_24',['CPU profile',['../benchmark.html#autotoc_md2',1,'']]],
+  ['creating_20a_20fastarecord_20object_25',['Step 2. Creating a FastaRecord Object',['../tutorials-fileio-fasta.html#autotoc_md55',1,'']]]
 ];

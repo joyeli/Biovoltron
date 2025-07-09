@@ -124,39 +124,43 @@ Inheritance diagram for biovoltron::IBamStream:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6614c647be756c0c4d9268312a49e5fd" id="r_a6614c647be756c0c4d9268312a49e5fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6614c647be756c0c4d9268312a49e5fd">IBamStream</a> (const std::filesystem::path &amp;)</td></tr>
-<tr class="memdesc:a6614c647be756c0c4d9268312a49e5fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructs the <a class="el" href="structbiovoltron_1_1IBamStream.html" title="A class about the config of SAM file and some core methods.">IBamStream</a> object  <br /></td></tr>
-<tr class="memitem:a3f4095e7b8d73d6bf5926cd082bc0494" id="r_a3f4095e7b8d73d6bf5926cd082bc0494"><td class="memItemLeft" align="right" valign="top"><a id="a3f4095e7b8d73d6bf5926cd082bc0494" name="a3f4095e7b8d73d6bf5926cd082bc0494"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~IBamStream</b> ()</td></tr>
-<tr class="memdesc:a3f4095e7b8d73d6bf5926cd082bc0494"><td class="mdescLeft">&#160;</td><td class="mdescRight">destruct the <a class="el" href="structbiovoltron_1_1IBamStream.html" title="A class about the config of SAM file and some core methods.">IBamStream</a> object <br /></td></tr>
-<tr class="memitem:a6c44c6210ca76c81f3b1be68ab48b98e" id="r_a6c44c6210ca76c81f3b1be68ab48b98e"><td class="memItemLeft" align="right" valign="top"><a id="a6c44c6210ca76c81f3b1be68ab48b98e" name="a6c44c6210ca76c81f3b1be68ab48b98e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const</td></tr>
-<tr class="memitem:aa0479705b83d75665b8ee79a03ebaec6" id="r_aa0479705b83d75665b8ee79a03ebaec6"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0479705b83d75665b8ee79a03ebaec6">open</a> (const std::filesystem::path &amp;)</td></tr>
-<tr class="memdesc:aa0479705b83d75665b8ee79a03ebaec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">opens a BAM file and associate it with this object. If index file is alongside with the BAM file, it will be open automatically. You can also open the specific index file with <span class="tt">load_index</span> function  <br /></td></tr>
+<tr class="memitem:a0614d8286025116c3601b28798d5777a" id="r_a0614d8286025116c3601b28798d5777a"><td class="memItemLeft" align="right" valign="top"><a id="a0614d8286025116c3601b28798d5777a" name="a0614d8286025116c3601b28798d5777a"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>open</b> (const std::filesystem::path &amp;bam_path)</td></tr>
 <tr class="memitem:a1aac8101272bc13429b40637e45c1109" id="r_a1aac8101272bc13429b40637e45c1109"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1aac8101272bc13429b40637e45c1109">is_open</a> ()</td></tr>
 <tr class="memdesc:a1aac8101272bc13429b40637e45c1109"><td class="mdescLeft">&#160;</td><td class="mdescRight">check whether the file is opened  <br /></td></tr>
 <tr class="memitem:a88ff96680a2e4161e0397cbad0ffc202" id="r_a88ff96680a2e4161e0397cbad0ffc202"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88ff96680a2e4161e0397cbad0ffc202">eof</a> ()</td></tr>
 <tr class="memdesc:a88ff96680a2e4161e0397cbad0ffc202"><td class="mdescLeft">&#160;</td><td class="mdescRight">check whether the eof(end of file) flag is set  <br /></td></tr>
+<tr class="memitem:a6c44c6210ca76c81f3b1be68ab48b98e" id="r_a6c44c6210ca76c81f3b1be68ab48b98e"><td class="memItemLeft" align="right" valign="top"><a id="a6c44c6210ca76c81f3b1be68ab48b98e" name="a6c44c6210ca76c81f3b1be68ab48b98e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const</td></tr>
+<tr class="memitem:a9be6ab7c36fc9916045390451b0909b7" id="r_a9be6ab7c36fc9916045390451b0909b7"><td class="memItemLeft" align="right" valign="top"><a id="a9be6ab7c36fc9916045390451b0909b7" name="a9be6ab7c36fc9916045390451b0909b7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!</b> () const</td></tr>
 <tr class="memitem:ae70dca4d86c7d8cebe4f3451f2ccfcee" id="r_ae70dca4d86c7d8cebe4f3451f2ccfcee"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae70dca4d86c7d8cebe4f3451f2ccfcee">close</a> ()</td></tr>
 <tr class="memdesc:ae70dca4d86c7d8cebe4f3451f2ccfcee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the file stream by clear the handler of htslib.  <br /></td></tr>
-<tr class="memitem:a23f07ee57598b066fcddced84d7ea1a9" id="r_a23f07ee57598b066fcddced84d7ea1a9"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23f07ee57598b066fcddced84d7ea1a9">load_index</a> (const std::filesystem::path &amp;)</td></tr>
-<tr class="memdesc:a23f07ee57598b066fcddced84d7ea1a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load or stream a BAM index file.  <br /></td></tr>
-<tr class="memitem:a13f3350278a2f4c11dccc679b0c2a379" id="r_a13f3350278a2f4c11dccc679b0c2a379"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13f3350278a2f4c11dccc679b0c2a379">set_region</a> (std::string_view rname, std::size_t beg, std::size_t end)</td></tr>
-<tr class="memdesc:a13f3350278a2f4c11dccc679b0c2a379"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the iterator to type RANGED from beg to end  <br /></td></tr>
-<tr class="memitem:a1a91a40a4f37b713c95cf4e7e319280f" id="r_a1a91a40a4f37b713c95cf4e7e319280f"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a91a40a4f37b713c95cf4e7e319280f">is_indexed</a> () const noexcept</td></tr>
-<tr class="memdesc:a1a91a40a4f37b713c95cf4e7e319280f"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the index file handler  <br /></td></tr>
+<tr class="memitem:a23d5edcfa031310da65966193e655f06" id="r_a23d5edcfa031310da65966193e655f06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23d5edcfa031310da65966193e655f06">IBamStream</a> (const std::filesystem::path &amp;bam_path)</td></tr>
+<tr class="memdesc:a23d5edcfa031310da65966193e655f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructs the <a class="el" href="structbiovoltron_1_1IBamStream.html" title="A class about the config of SAM file and some core methods.">IBamStream</a> object  <br /></td></tr>
+<tr class="memitem:a01337060064761d50fc69af13624df4c" id="r_a01337060064761d50fc69af13624df4c"><td class="memItemLeft" align="right" valign="top"><a id="a01337060064761d50fc69af13624df4c" name="a01337060064761d50fc69af13624df4c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IBamStream</b> (<a class="el" href="structbiovoltron_1_1IBamStream.html">IBamStream</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memitem:a3f4095e7b8d73d6bf5926cd082bc0494" id="r_a3f4095e7b8d73d6bf5926cd082bc0494"><td class="memItemLeft" align="right" valign="top"><a id="a3f4095e7b8d73d6bf5926cd082bc0494" name="a3f4095e7b8d73d6bf5926cd082bc0494"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~IBamStream</b> ()</td></tr>
+<tr class="memdesc:a3f4095e7b8d73d6bf5926cd082bc0494"><td class="mdescLeft">&#160;</td><td class="mdescRight">destruct the <a class="el" href="structbiovoltron_1_1IBamStream.html" title="A class about the config of SAM file and some core methods.">IBamStream</a> object <br /></td></tr>
+<tr class="memitem:a1a91a40a4f37b713c95cf4e7e319280f" id="r_a1a91a40a4f37b713c95cf4e7e319280f"><td class="memItemLeft" align="right" valign="top"><a id="a1a91a40a4f37b713c95cf4e7e319280f" name="a1a91a40a4f37b713c95cf4e7e319280f"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>is_indexed</b> () const noexcept</td></tr>
 <tr class="memitem:a4d27fa4bb7ebf4c383f95e1d4a5158be" id="r_a4d27fa4bb7ebf4c383f95e1d4a5158be"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d27fa4bb7ebf4c383f95e1d4a5158be">on_sequential</a> () const noexcept</td></tr>
 <tr class="memdesc:a4d27fa4bb7ebf4c383f95e1d4a5158be"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether the iterate type is sequential  <br /></td></tr>
 <tr class="memitem:a1183b05ebbca3cc8393f28ace007f260" id="r_a1183b05ebbca3cc8393f28ace007f260"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1183b05ebbca3cc8393f28ace007f260">on_ranged</a> () const noexcept</td></tr>
 <tr class="memdesc:a1183b05ebbca3cc8393f28ace007f260"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether the iterate type is ranged  <br /></td></tr>
 <tr class="memitem:a974efae6dd0bfd85e5661c8da2ce45a1" id="r_a974efae6dd0bfd85e5661c8da2ce45a1"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a974efae6dd0bfd85e5661c8da2ce45a1">on_unmapped</a> () const noexcept</td></tr>
 <tr class="memdesc:a974efae6dd0bfd85e5661c8da2ce45a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether the iterate type is unmapped  <br /></td></tr>
+<tr class="memitem:a13f3350278a2f4c11dccc679b0c2a379" id="r_a13f3350278a2f4c11dccc679b0c2a379"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13f3350278a2f4c11dccc679b0c2a379">set_region</a> (std::string_view rname, std::size_t beg, std::size_t end)</td></tr>
+<tr class="memdesc:a13f3350278a2f4c11dccc679b0c2a379"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the iterator to type RANGED from beg to end  <br /></td></tr>
 <tr class="memitem:a5426f3a2d918d921baba42fd67fa57ed" id="r_a5426f3a2d918d921baba42fd67fa57ed"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5426f3a2d918d921baba42fd67fa57ed">set_unmapped</a> ()</td></tr>
 <tr class="memdesc:a5426f3a2d918d921baba42fd67fa57ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the iterator type to UNMAPPED  <br /></td></tr>
 <tr class="memitem:abd050b8217331b4fae5c1c06d58a3fd0" id="r_abd050b8217331b4fae5c1c06d58a3fd0"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd050b8217331b4fae5c1c06d58a3fd0">set_sequential</a> ()</td></tr>
 <tr class="memdesc:abd050b8217331b4fae5c1c06d58a3fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the iterator type to SEQUENTIAL  <br /></td></tr>
 <tr class="memitem:a6c5a8fc8c8b4feffd011a0595474bc82" id="r_a6c5a8fc8c8b4feffd011a0595474bc82"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c5a8fc8c8b4feffd011a0595474bc82">to_begin</a> ()</td></tr>
 <tr class="memdesc:a6c5a8fc8c8b4feffd011a0595474bc82"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the iterator back to begin and type to SEQUENTIAL  <br /></td></tr>
+<tr class="memitem:a000f104892c00ca4e8856f6f3d4aa8c9" id="r_a000f104892c00ca4e8856f6f3d4aa8c9"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a000f104892c00ca4e8856f6f3d4aa8c9">load_index</a> (const std::filesystem::path &amp;index_path)</td></tr>
+<tr class="memdesc:a000f104892c00ca4e8856f6f3d4aa8c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load or stream a BAM index file.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -169,11 +173,14 @@ Friends</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class about the config of SAM file and some core methods. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6614c647be756c0c4d9268312a49e5fd" name="a6614c647be756c0c4d9268312a49e5fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6614c647be756c0c4d9268312a49e5fd">&#9670;&#160;</a></span>IBamStream()</h2>
+<a id="a23d5edcfa031310da65966193e655f06" name="a23d5edcfa031310da65966193e655f06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d5edcfa031310da65966193e655f06">&#9670;&#160;</a></span>IBamStream()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">biovoltron::IBamStream::IBamStream </td>
@@ -182,6 +189,11 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>constructs the <a class="el" href="structbiovoltron_1_1IBamStream.html" title="A class about the config of SAM file and some core methods.">IBamStream</a> object </p>
@@ -200,6 +212,9 @@ Friends</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto biovoltron::IBamStream::close </td>
@@ -208,6 +223,11 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Close the file stream by clear the handler of htslib. </p>
@@ -220,6 +240,9 @@ Friends</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto biovoltron::IBamStream::eof </td>
@@ -228,38 +251,15 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-<p>check whether the eof(end of file) flag is set </p>
-<dl class="section return"><dt>Returns</dt><dd>true if the eof flag is set, false otherwise </dd></dl>
-
-</div>
-</div>
-<a id="a1a91a40a4f37b713c95cf4e7e319280f" name="a1a91a40a4f37b713c95cf4e7e319280f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a91a40a4f37b713c95cf4e7e319280f">&#9670;&#160;</a></span>is_indexed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto biovoltron::IBamStream::is_indexed </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>gets the index file handler </p>
-<dl class="section return"><dt>Returns</dt><dd>the index file handler, nullptr if there's no index file </dd></dl>
+<p>check whether the eof(end of file) flag is set </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the eof flag is set, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -268,6 +268,9 @@ Friends</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto biovoltron::IBamStream::is_open </td>
@@ -276,6 +279,11 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>check whether the file is opened </p>
@@ -283,11 +291,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a23f07ee57598b066fcddced84d7ea1a9" name="a23f07ee57598b066fcddced84d7ea1a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23f07ee57598b066fcddced84d7ea1a9">&#9670;&#160;</a></span>load_index()</h2>
+<a id="a000f104892c00ca4e8856f6f3d4aa8c9" name="a000f104892c00ca4e8856f6f3d4aa8c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a000f104892c00ca4e8856f6f3d4aa8c9">&#9670;&#160;</a></span>load_index()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto biovoltron::IBamStream::load_index </td>
@@ -296,6 +307,11 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Load or stream a BAM index file. </p>
@@ -327,7 +343,7 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -355,7 +371,7 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -383,7 +399,7 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -393,36 +409,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="aa0479705b83d75665b8ee79a03ebaec6" name="aa0479705b83d75665b8ee79a03ebaec6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0479705b83d75665b8ee79a03ebaec6">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto biovoltron::IBamStream::open </td>
-          <td>(</td>
-          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>bam_path</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>opens a BAM file and associate it with this object. If index file is alongside with the BAM file, it will be open automatically. You can also open the specific index file with <span class="tt">load_index</span> function </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bam_path</td><td>the path to the file to be opened </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a13f3350278a2f4c11dccc679b0c2a379" name="a13f3350278a2f4c11dccc679b0c2a379"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a13f3350278a2f4c11dccc679b0c2a379">&#9670;&#160;</a></span>set_region()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto biovoltron::IBamStream::set_region </td>
@@ -440,6 +434,11 @@ Friends</h2></td></tr>
           <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>end</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>sets the iterator to type RANGED from beg to end </p>
@@ -460,6 +459,9 @@ Friends</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto biovoltron::IBamStream::set_sequential </td>
@@ -468,6 +470,11 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>set the iterator type to SEQUENTIAL </p>
@@ -480,6 +487,9 @@ Friends</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto biovoltron::IBamStream::set_unmapped </td>
@@ -488,6 +498,11 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>set the iterator type to UNMAPPED </p>
@@ -500,6 +515,9 @@ Friends</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">auto biovoltron::IBamStream::to_begin </td>
@@ -508,6 +526,11 @@ Friends</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>set the iterator back to begin and type to SEQUENTIAL </p>

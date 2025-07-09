@@ -1,12 +1,16 @@
 var searchData=
 [
-  ['tag_5fcfile_0',['tag_CFILE',['../structskewer_1_1tag__CFILE.html',1,'skewer']]],
-  ['tag_5findex_1',['tag_INDEX',['../structtag__INDEX.html',1,'']]],
-  ['tag_5fline_2',['tag_LINE',['../structskewer_1_1tag__LINE.html',1,'skewer']]],
-  ['tag_5fmtaux_5ft_3',['tag_mtaux_t',['../structskewer_1_1tag__mtaux__t.html',1,'skewer']]],
-  ['tag_5frec_4',['tag_REC',['../structskewer_1_1tag__REC.html',1,'skewer']]],
-  ['tailexp_5',['TailExp',['../structbiovoltron_1_1mirna_1_1TailExp.html',1,'biovoltron::mirna']]],
-  ['tailor_6',['Tailor',['../structbiovoltron_1_1Tailor.html',1,'biovoltron']]],
-  ['task_7',['TASK',['../structskewer_1_1TASK.html',1,'skewer']]],
-  ['threadpool_8',['ThreadPool',['../classbiovoltron_1_1ThreadPool.html',1,'biovoltron']]]
+  ['saissorter_0',['SaisSorter',['../structbiovoltron_1_1SaisSorter.html',1,'biovoltron']]],
+  ['samheader_1',['SamHeader',['../structbiovoltron_1_1SamHeader.html',1,'biovoltron']]],
+  ['samrecord_2',['SamRecord',['../structbiovoltron_1_1SamRecord.html',1,'biovoltron']]],
+  ['samutil_3',['SamUtil',['../structbiovoltron_1_1SamUtil.html',1,'biovoltron']]],
+  ['secondaryalignmentreadfilter_4',['SecondaryAlignmentReadFilter',['../structbiovoltron_1_1SecondaryAlignmentReadFilter.html',1,'biovoltron']]],
+  ['seedspan_5',['SeedSpan',['../structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html',1,'biovoltron::BurrowWheelerAligner']]],
+  ['serializer_6',['Serializer',['../structbiovoltron_1_1Serializer.html',1,'biovoltron']]],
+  ['simdalignment_7',['SIMDAlignment',['../structbiovoltron_1_1SIMDAlignment.html',1,'biovoltron']]],
+  ['simdalignmentengine_8',['SimdAlignmentEngine',['../classbiovoltron_1_1SimdAlignmentEngine.html',1,'biovoltron']]],
+  ['smithwaterman_9',['SmithWaterman',['../structbiovoltron_1_1SmithWaterman.html',1,'biovoltron']]],
+  ['ssesmithwaterman_10',['SseSmithWaterman',['../structbiovoltron_1_1SseSmithWaterman.html',1,'biovoltron']]],
+  ['stablesorter_11',['StableSorter',['../structbiovoltron_1_1StableSorter.html',1,'biovoltron']]],
+  ['swresult_12',['SWResult',['../structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html',1,'biovoltron::SseSmithWaterman']]]
 ];

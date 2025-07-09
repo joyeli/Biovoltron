@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['wigfixedsteprecord_0',['WigFixedStepRecord',['../structbiovoltron_1_1WigFixedStepRecord.html',1,'biovoltron']]],
-  ['wigheader_1',['WigHeader',['../structbiovoltron_1_1WigHeader.html',1,'biovoltron']]],
-  ['wigvarsteprecord_2',['WigVarStepRecord',['../structbiovoltron_1_1WigVarStepRecord.html',1,'biovoltron']]]
+  ['variant_0',['Variant',['../structbiovoltron_1_1Variant.html',1,'biovoltron']]],
+  ['vcfheader_1',['VcfHeader',['../structbiovoltron_1_1VcfHeader.html',1,'biovoltron']]],
+  ['vcfrecord_2',['VcfRecord',['../structbiovoltron_1_1VcfRecord.html',1,'biovoltron']]],
+  ['vcfutil_3',['VcfUtil',['../structbiovoltron_1_1VcfUtil.html',1,'biovoltron']]]
 ];

@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['waiting_0',['waiting',['../classbiovoltron_1_1Worker.html#a302be5ab578c184ce2b8984eae886103',1,'biovoltron::Worker']]],
+  ['welcome_1',['Welcome',['../index.html',1,'']]],
+  ['wf_5farrow_20method_2',['&lt;span class=&quot;tt&quot;&gt;wf_arrow&lt;/span&gt; Method',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html#autotoc_md49',1,'']]],
+  ['wf_5fblunt_3',['Default Method (&lt;span class=&quot;tt&quot;&gt;wf_blunt&lt;/span&gt;)',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html#autotoc_md47',1,'']]],
+  ['wf_5funit_20method_4',['&lt;span class=&quot;tt&quot;&gt;wf_unit&lt;/span&gt; Method',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html#autotoc_md48',1,'']]],
+  ['wfpoa_20compilation_20and_20execution_20guide_5',['README: WFPOA Compilation and Execution Guide',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html',1,'']]],
+  ['wheeler_20aligner_6',['Burrow Wheeler Aligner',['../benchmark.html#autotoc_md0',1,'']]],
+  ['whitespace_7',['4.4. Whitespace',['../codingstyle.html#autotoc_md15',1,'']]],
+  ['wigfixedsteprecord_8',['WigFixedStepRecord',['../structbiovoltron_1_1WigFixedStepRecord.html',1,'biovoltron']]],
+  ['wigheader_9',['WigHeader',['../structbiovoltron_1_1WigHeader.html',1,'biovoltron']]],
+  ['wigvarsteprecord_10',['WigVarStepRecord',['../structbiovoltron_1_1WigVarStepRecord.html',1,'biovoltron']]],
+  ['wiki_20from_20devin_11',['Wiki from Devin',['../wiki.html',1,'']]],
+  ['with_20fasta_20files_12',['Working with FASTA files',['../tutorials-fileio-fasta.html',1,'']]],
+  ['with_20fastq_20files_13',['Working with FASTQ files',['../tutorials-fileio-fastq.html',1,'']]],
+  ['worker_14',['Worker',['../classbiovoltron_1_1Worker.html',1,'biovoltron::Worker'],['../classbiovoltron_1_1Worker.html#a1d9ff4e27d804e089e9cd1e3ada99613',1,'biovoltron::Worker::Worker()']]],
+  ['worker_15',['worker',['../classbiovoltron_1_1Worker.html#a943ae20ecbee74163ffc5df38d557206',1,'biovoltron::Worker']]],
+  ['workers_16',['workers',['../classbiovoltron_1_1ThreadPool.html#a545bf9cc420d5fb617d4466c3dad3dc4',1,'biovoltron::ThreadPool']]],
+  ['workerselectable_17',['WorkerSelectable',['../conceptbiovoltron_1_1WorkerSelectable.html',1,'biovoltron']]],
+  ['workflow_18',['Development Workflow',['../contribute.html#contribute-development-workflow',1,'']]],
+  ['working_20with_20fasta_20files_19',['Working with FASTA files',['../tutorials-fileio-fasta.html',1,'']]],
+  ['working_20with_20fastq_20files_20',['Working with FASTQ files',['../tutorials-fileio-fastq.html',1,'']]],
+  ['writing_20the_20main_20cpp_20file_21',['Writing the main.cpp File',['../installation.html#autotoc_md40',1,'']]]
+];

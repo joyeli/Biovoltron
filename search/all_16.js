@@ -1,5 +1,25 @@
 var searchData=
 [
-  ['up_20your_20project_0',['Setting Up Your Project',['../installation.html#installation-setup-project',1,'']]],
-  ['utility_1',['utility',['../group__utility.html',1,'']]]
+  ['packeddnastring_0',['PackedDNAString',['../structbiovoltron_1_1kiss_1_1PackedDNAString.html',1,'biovoltron::kiss']]],
+  ['pairhmm_1',['PairHMM',['../structbiovoltron_1_1PairHMM.html',1,'biovoltron']]],
+  ['parameter_2',['Parameter',['../structbiovoltron_1_1HaplotypeGraph_1_1Parameter.html',1,'biovoltron::HaplotypeGraph']]],
+  ['parameters_3',['Parameters',['../structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters.html',1,'biovoltron::BurrowWheelerAligner::Parameters'],['../structbiovoltron_1_1HaplotypeCaller_1_1Parameters.html',1,'biovoltron::HaplotypeCaller::Parameters'],['../structbiovoltron_1_1SmithWaterman_1_1Parameters.html',1,'biovoltron::SmithWaterman::Parameters']]],
+  ['parameters_3a_4',['Parameters:',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html#autotoc_md51',1,'']]],
+  ['performance_5',['Performance',['../benchmark.html#autotoc_md1',1,'']]],
+  ['phase_6',['phase',['../structbiovoltron_1_1GffRecord.html#a80ec5313bf229b7f6cbc8ae9504d8204',1,'biovoltron::GffRecord']]],
+  ['pnext_7',['pnext',['../structbiovoltron_1_1SamRecord.html#a8ab8cdfa15d7c9268d3da0fcc4c9ac34',1,'biovoltron::SamRecord']]],
+  ['pool_5fsize_8',['pool_size',['../classbiovoltron_1_1ThreadPool.html#a0b56911cecaaf7e6030f2ffe544d646a',1,'biovoltron::ThreadPool']]],
+  ['pop_5fback_9',['pop_back',['../structbiovoltron_1_1Cigar.html#a9819f464a6b661d502f1ea8e2e1e5fa7',1,'biovoltron::Cigar']]],
+  ['pop_5ffront_10',['pop_front',['../structbiovoltron_1_1Cigar.html#a213de556c20cf804d8ac315267474000',1,'biovoltron::Cigar']]],
+  ['pos_11',['pos',['../structbiovoltron_1_1SamRecord.html#ae4cebd055e5c2916a77d7f9e1db52683',1,'biovoltron::SamRecord::pos'],['../structbiovoltron_1_1VcfRecord.html#ad0e9f236f3004da79459a1d505309705',1,'biovoltron::VcfRecord::pos']]],
+  ['prealloc_12',['Prealloc',['../classbiovoltron_1_1SimdAlignmentEngine.html#add9fdb73a174a5f4b58964dc4dc24f46',1,'biovoltron::SimdAlignmentEngine::Prealloc(std::uint32_t max_sequence_len, std::uint8_t alphabet_size)'],['../classbiovoltron_1_1SimdAlignmentEngine.html#add9fdb73a174a5f4b58964dc4dc24f46',1,'biovoltron::SimdAlignmentEngine::Prealloc(std::uint32_t max_sequence_len, std::uint8_t alphabet_size)']]],
+  ['prefer_20using_20standard_20containers_20or_20standard_20algorithms_13',['8.1 Prefer using standard containers or standard algorithms',['../codingstyle.html#autotoc_md24',1,'']]],
+  ['profile_14',['CPU profile',['../benchmark.html#autotoc_md2',1,'']]],
+  ['project_15',['Setting Up Your Project',['../installation.html#installation-setup-project',1,'']]],
+  ['proper_5fpair_16',['proper_pair',['../structbiovoltron_1_1SamRecord.html#a10df7c0057ed9a6466bd622f2e63fd3b',1,'biovoltron::SamRecord']]],
+  ['proxy_17',['proxy',['../structbiovoltron_1_1dna4_1_1proxy.html',1,'biovoltron::dna4::proxy'],['../structbiovoltron_1_1dna5_1_1proxy.html',1,'biovoltron::dna5::proxy']]],
+  ['psaissorter_18',['PsaisSorter',['../structbiovoltron_1_1PsaisSorter.html',1,'biovoltron']]],
+  ['psaissorter_3c_20std_3a_3auint32_5ft_20_3e_19',['PsaisSorter&lt; std::uint32_t &gt;',['../structbiovoltron_1_1PsaisSorter.html',1,'biovoltron']]],
+  ['push_20',['push',['../classbiovoltron_1_1Worker.html#af44561bd2220b5a0567d1072a402fcb0',1,'biovoltron::Worker']]],
+  ['push_5fback_21',['push_back',['../structbiovoltron_1_1Cigar.html#aaa898e6405e58f750c0c2df994596f56',1,'biovoltron::Cigar']]]
 ];

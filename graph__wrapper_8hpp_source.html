@@ -289,12 +289,16 @@ $(function(){initNavTree('graph__wrapper_8hpp_source.html','',''); });
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    );</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordflow">return</span> sinks;</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>  }</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>};</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> EdgeFilter&gt;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>  <span class="keyword">auto</span> filtered_graph(<span class="keyword">const</span> EdgeFilter&amp; filter)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">return</span> boost::filtered_graph&lt;Graph, EdgeFilter&gt;(g, filter);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>  }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>};</div>
 </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>} <span class="comment">// namespace biovoltron</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>} <span class="comment">// namespace biovoltron</span></div>
 <div class="ttc" id="astructbiovoltron_1_1GraphWrapper_html"><div class="ttname"><a href="structbiovoltron_1_1GraphWrapper.html">biovoltron::GraphWrapper</a></div><div class="ttdoc">Wrapper of Boost Grpah Libaray(BGL), the current implemetation is bidirecitonal graph.</div><div class="ttdef"><b>Definition</b> graph_wrapper.hpp:33</div></div>
 <div class="ttc" id="astructbiovoltron_1_1GraphWrapper_html_a88bcf19ba385c36e3c3a77a897542595"><div class="ttname"><a href="structbiovoltron_1_1GraphWrapper.html#a88bcf19ba385c36e3c3a77a897542595">biovoltron::GraphWrapper::find_paths</a></div><div class="ttdeci">auto find_paths(Vertex from, Vertex to, bool use_edge_filter=true)</div><div class="ttdoc">find all paths between two vertices</div><div class="ttdef"><b>Definition</b> graph_wrapper.hpp:85</div></div>
 <div class="ttc" id="astructbiovoltron_1_1GraphWrapper_html_a9f512f680b0badc8d7e54528914fb912"><div class="ttname"><a href="structbiovoltron_1_1GraphWrapper.html#a9f512f680b0badc8d7e54528914fb912">biovoltron::GraphWrapper::create_edge</a></div><div class="ttdeci">auto create_edge(Vertex u, Vertex v)</div><div class="ttdoc">Create an edge if not exists.</div><div class="ttdef"><b>Definition</b> graph_wrapper.hpp:67</div></div>

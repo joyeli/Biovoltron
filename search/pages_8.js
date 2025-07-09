@@ -1,15 +1,19 @@
 var searchData=
 [
-  ['fasta_20file_0',['Step 3. Reading Data from a FASTA File',['../tutorials-fileio-fasta.html#autotoc_md23',1,'']]],
-  ['fasta_20files_1',['Working with FASTA files',['../tutorials-fileio-fasta.html',1,'']]],
-  ['fastarecord_20object_2',['Step 2. Creating a FastaRecord Object',['../tutorials-fileio-fasta.html#autotoc_md22',1,'']]],
-  ['fastq_20files_3',['Working with FASTQ files',['../tutorials-fileio-fastq.html',1,'']]],
-  ['features_4',['Features',['../release_notes.html#autotoc_md20',1,'Features'],['../index.html#autotoc_md9',1,'Key Features']]],
-  ['file_5',['File',['../tutorials-fileio-fasta.html#autotoc_md23',1,'Step 3. Reading Data from a FASTA File'],['../installation.html#autotoc_md17',1,'Writing the main.cpp File']]],
-  ['file_20input_20and_20output_6',['File Input and Output',['../index.html#autotoc_md11',1,'']]],
-  ['file_20input_20output_20module_20tutorials_7',['File Input/Output Module Tutorials',['../tutorials.html#tutorials-fileio',1,'']]],
-  ['files_8',['files',['../tutorials-fileio-fasta.html',1,'Working with FASTA files'],['../tutorials-fileio-fastq.html',1,'Working with FASTQ files']]],
-  ['first_20example_9',['Building Your First Example',['../installation.html#installation-first-example',1,'']]],
-  ['from_20a_20fasta_20file_10',['Step 3. Reading Data from a FASTA File',['../tutorials-fileio-fasta.html#autotoc_md23',1,'']]],
-  ['from_20devin_11',['Wiki from Devin',['../wiki.html',1,'']]]
+  ['a_20fasta_20file_0',['Step 3. Reading Data from a FASTA File',['../tutorials-fileio-fasta.html#autotoc_md56',1,'']]],
+  ['a_20fastarecord_20object_1',['Step 2. Creating a FastaRecord Object',['../tutorials-fileio-fasta.html#autotoc_md55',1,'']]],
+  ['a_20glance_2',['Biovoltron at a Glance',['../index.html#autotoc_md33',1,'']]],
+  ['adaptor_20trimming_3',['Adaptor Trimming',['../index.html#autotoc_md36',1,'']]],
+  ['algorithms_4',['8.1 Prefer using standard containers or standard algorithms',['../codingstyle.html#autotoc_md24',1,'']]],
+  ['align_20and_20variant_20calling_5',['Align and Variant Calling',['../index.html#autotoc_md35',1,'']]],
+  ['aligner_6',['Burrow Wheeler Aligner',['../benchmark.html#autotoc_md0',1,'']]],
+  ['alignment_20tutorials_7',['Alignment Tutorials',['../tutorials.html#tutorials-alignment',1,'']]],
+  ['and_20execution_20guide_8',['README: WFPOA Compilation and Execution Guide',['../md_doc_2markdown_2tutorials_2algo_2align_2wfpoa.html',1,'']]],
+  ['and_20output_9',['File Input and Output',['../index.html#autotoc_md34',1,'']]],
+  ['and_20running_10',['Compiling and Running',['../installation.html#autotoc_md42',1,'']]],
+  ['and_20structs_11',['and Structs',['../codingstyle.html#autotoc_md9',1,'3.3. Classes and Structs'],['../codingstyle.html#autotoc_md18',1,'6. Classes and Structs']]],
+  ['and_20support_12',['Community and Support',['../index.html#autotoc_md38',1,'']]],
+  ['and_20variant_20calling_13',['Align and Variant Calling',['../index.html#autotoc_md35',1,'']]],
+  ['annotator_20tutorials_14',['Annotator Tutorials',['../tutorials.html#tutorials-annotator',1,'']]],
+  ['at_20a_20glance_15',['Biovoltron at a Glance',['../index.html#autotoc_md33',1,'']]]
 ];

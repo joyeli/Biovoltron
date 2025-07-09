@@ -4,6 +4,7 @@ var hierarchy =
     [ "biovoltron::paired::AdapterTrimmer< R >", "classbiovoltron_1_1paired_1_1AdapterTrimmer.html", null ],
     [ "biovoltron::single::AdapterTrimmer< R >", "classbiovoltron_1_1single_1_1AdapterTrimmer.html", null ],
     [ "biovoltron::AFCalculator", "structbiovoltron_1_1AFCalculator.html", null ],
+    [ "AlignedAllocator< T, Alignment >", "classAlignedAllocator.html", null ],
     [ "biovoltron::Alignment", "structbiovoltron_1_1Alignment.html", null ],
     [ "biovoltron::AlleleUtils", "classbiovoltron_1_1AlleleUtils.html", null ],
     [ "biovoltron::BurrowWheelerAligner::Aln", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html", null ],
@@ -21,16 +22,21 @@ var hierarchy =
     [ "cAdapter", "classcAdapter.html", null ],
     [ "skewer::cData", "classskewer_1_1cData.html", null ],
     [ "skewer::cFQ", "classskewer_1_1cFQ.html", null ],
-    [ "biovoltron::Index< size_type, Sorter >::ChromBound", "structbiovoltron_1_1Index_1_1ChromBound.html", null ],
+    [ "biovoltron::Index< SA_INTV, size_type, Sorter >::ChromBound", "structbiovoltron_1_1Index_1_1ChromBound.html", null ],
     [ "biovoltron::Cigar", "structbiovoltron_1_1Cigar.html", null ],
     [ "cMatrix", "classcMatrix.html", null ],
-    [ "biovoltron::Codec", "structbiovoltron_1_1Codec.html", null ],
+    [ "biovoltron::Codec", "structbiovoltron_1_1Codec.html", [
+      [ "biovoltron::dna4", "classbiovoltron_1_1dna4.html", null ],
+      [ "biovoltron::dna5", "classbiovoltron_1_1dna5.html", null ]
+    ] ],
     [ "skewer::cParameter", "classskewer_1_1cParameter.html", null ],
     [ "skewer::cStats", "classskewer_1_1cStats.html", null ],
     [ "skewer::cTaskManager", "classskewer_1_1cTaskManager.html", null ],
     [ "skewer::cWork", "classskewer_1_1cWork.html", null ],
+    [ "biovoltron::DeprecatedThreadPool", "classbiovoltron_1_1DeprecatedThreadPool.html", null ],
     [ "biovoltron::DepthPerAllele", "classbiovoltron_1_1DepthPerAllele.html", null ],
     [ "biovoltron::DuplicateReadFilter", "structbiovoltron_1_1DuplicateReadFilter.html", null ],
+    [ "biovoltron::Graph::Edge", "structbiovoltron_1_1Graph_1_1Edge.html", null ],
     [ "ELEMENT", "structELEMENT.html", null ],
     [ "biovoltron::Cigar::Element", "structbiovoltron_1_1Cigar_1_1Element.html", null ],
     [ "ELEMENT_SET", null, [
@@ -43,14 +49,18 @@ var hierarchy =
     ] ],
     [ "biovoltron::FisherStrand", "classbiovoltron_1_1FisherStrand.html", null ],
     [ "biovoltron::FMIndex< SA_INTV, size_type, Sorter >", "classbiovoltron_1_1FMIndex.html", [
-      [ "biovoltron::Index< size_type, Sorter >", "structbiovoltron_1_1Index.html", null ],
-      [ "biovoltron::Index< size_type, Sorter >", "structbiovoltron_1_1Index.html", null ]
+      [ "biovoltron::Index< SA_INTV, size_type, Sorter >", "structbiovoltron_1_1Index.html", null ]
     ] ],
-    [ "biovoltron::FMIndex< 1, std::uint32_t, Sorter >", "classbiovoltron_1_1FMIndex.html", [
-      [ "biovoltron::Index< std::uint32_t, PsaisSorter< std::uint32_t > >", "structbiovoltron_1_1Index.html", null ]
+    [ "biovoltron::FMIndex< SA_INTV, size_type, Sorter >", "classbiovoltron_1_1FMIndex.html", [
+      [ "biovoltron::Index< SA_INTV, size_type, Sorter >", "structbiovoltron_1_1Index.html", null ]
+    ] ],
+    [ "biovoltron::FMIndex< SA_INTV, std::uint32_t, Sorter >", "classbiovoltron_1_1FMIndex.html", [
+      [ "biovoltron::Index< 1, std::uint32_t, PsaisSorter< std::uint32_t > >", "structbiovoltron_1_1Index.html", null ]
     ] ],
     [ "biovoltron::Genotyper", "classbiovoltron_1_1Genotyper.html", null ],
     [ "biovoltron::GenotypeUtils", "structbiovoltron_1_1GenotypeUtils.html", null ],
+    [ "biovoltron::SIMDAlignment::global_result_type", "structbiovoltron_1_1SIMDAlignment_1_1global__result__type.html", null ],
+    [ "biovoltron::Graph", "classbiovoltron_1_1Graph.html", null ],
     [ "biovoltron::GraphWrapper< VertexProperty, EdgeProperty >", "structbiovoltron_1_1GraphWrapper.html", null ],
     [ "biovoltron::Haplotype", "structbiovoltron_1_1Haplotype.html", null ],
     [ "biovoltron::HaplotypeCaller", "structbiovoltron_1_1HaplotypeCaller.html", null ],
@@ -77,8 +87,11 @@ var hierarchy =
     [ "std::istream", null, [
       [ "biovoltron::igzstream", "classbiovoltron_1_1igzstream.html", null ]
     ] ],
+    [ "biovoltron::KISS1Sorter< size_type >", "structbiovoltron_1_1KISS1Sorter.html", null ],
+    [ "biovoltron::KISS2Sorter< size_type >", "structbiovoltron_1_1KISS2Sorter.html", null ],
     [ "biovoltron::KPsaisSorter< size_type >", "structbiovoltron_1_1KPsaisSorter.html", null ],
     [ "biovoltron::mirna::LenExp", "structbiovoltron_1_1mirna_1_1LenExp.html", null ],
+    [ "biovoltron::SIMDAlignment::local_result_type", "structbiovoltron_1_1SIMDAlignment_1_1local__result__type.html", null ],
     [ "biovoltron::MappingQualityReadFilter", "structbiovoltron_1_1MappingQualityReadFilter.html", null ],
     [ "biovoltron::MateOnSameContigReadFilter", "structbiovoltron_1_1MateOnSameContigReadFilter.html", null ],
     [ "biovoltron::MathUtils", "structbiovoltron_1_1MathUtils.html", null ],
@@ -86,6 +99,7 @@ var hierarchy =
     [ "biovoltron::MinimumLengthReadFilter", "structbiovoltron_1_1MinimumLengthReadFilter.html", null ],
     [ "biovoltron::mirna::MirExp", "structbiovoltron_1_1mirna_1_1MirExp.html", null ],
     [ "biovoltron::Mismatch", "structbiovoltron_1_1Mismatch.html", null ],
+    [ "biovoltron::Graph::Node", "structbiovoltron_1_1Graph_1_1Node.html", null ],
     [ "std::ofstream", null, [
       [ "biovoltron::OBamStream", "structbiovoltron_1_1OBamStream.html", null ]
     ] ],
@@ -93,16 +107,20 @@ var hierarchy =
     [ "std::ostream", null, [
       [ "biovoltron::ogzstream", "classbiovoltron_1_1ogzstream.html", null ]
     ] ],
+    [ "biovoltron::kiss::PackedDNAString< char_type, size_type >", "structbiovoltron_1_1kiss_1_1PackedDNAString.html", null ],
     [ "biovoltron::PairHMM", "structbiovoltron_1_1PairHMM.html", null ],
     [ "biovoltron::HaplotypeGraph::Parameter", "structbiovoltron_1_1HaplotypeGraph_1_1Parameter.html", null ],
     [ "biovoltron::BurrowWheelerAligner::Parameters", "structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters.html", null ],
     [ "biovoltron::HaplotypeCaller::Parameters", "structbiovoltron_1_1HaplotypeCaller_1_1Parameters.html", null ],
     [ "biovoltron::SmithWaterman::Parameters", "structbiovoltron_1_1SmithWaterman_1_1Parameters.html", null ],
+    [ "biovoltron::dna4::proxy", "structbiovoltron_1_1dna4_1_1proxy.html", null ],
+    [ "biovoltron::dna5::proxy", "structbiovoltron_1_1dna5_1_1proxy.html", null ],
     [ "biovoltron::PsaisSorter< size_type >", "structbiovoltron_1_1PsaisSorter.html", null ],
     [ "biovoltron::QualityUtils", "structbiovoltron_1_1QualityUtils.html", null ],
     [ "biovoltron::quantile::QuantileDataHelperType", "structbiovoltron_1_1quantile_1_1QuantileDataHelperType.html", null ],
     [ "biovoltron::RangeUtils", "structbiovoltron_1_1RangeUtils.html", null ],
     [ "biovoltron::ReadClipper", "structbiovoltron_1_1ReadClipper.html", null ],
+    [ "AlignedAllocator< T, Alignment >::rebind< U >", "structAlignedAllocator_1_1rebind.html", null ],
     [ "biovoltron::Record", "structbiovoltron_1_1Record.html", [
       [ "biovoltron::BedSixRecord", "structbiovoltron_1_1BedSixRecord.html", null ],
       [ "biovoltron::GffRecord", "structbiovoltron_1_1GffRecord.html", null ],
@@ -116,11 +134,15 @@ var hierarchy =
       ] ]
     ] ],
     [ "biovoltron::ReferenceConfidenceModel", "structbiovoltron_1_1ReferenceConfidenceModel.html", null ],
+    [ "biovoltron::ReferenceRecord< Encoded >", "structbiovoltron_1_1ReferenceRecord.html", null ],
+    [ "biovoltron::detail::policy::RoundRobin", "classbiovoltron_1_1detail_1_1policy_1_1RoundRobin.html", null ],
     [ "biovoltron::SaisSorter< size_type >", "structbiovoltron_1_1SaisSorter.html", null ],
     [ "biovoltron::SamUtil", "structbiovoltron_1_1SamUtil.html", null ],
     [ "biovoltron::SecondaryAlignmentReadFilter", "structbiovoltron_1_1SecondaryAlignmentReadFilter.html", null ],
     [ "biovoltron::BurrowWheelerAligner::SeedSpan", "structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html", null ],
     [ "biovoltron::Serializer", "structbiovoltron_1_1Serializer.html", null ],
+    [ "biovoltron::SIMDAlignment", "structbiovoltron_1_1SIMDAlignment.html", null ],
+    [ "biovoltron::SimdAlignmentEngine", "classbiovoltron_1_1SimdAlignmentEngine.html", null ],
     [ "biovoltron::SmithWaterman", "structbiovoltron_1_1SmithWaterman.html", null ],
     [ "biovoltron::SseSmithWaterman", "structbiovoltron_1_1SseSmithWaterman.html", null ],
     [ "biovoltron::StableSorter< size_type >", "structbiovoltron_1_1StableSorter.html", null ],
@@ -134,10 +156,14 @@ var hierarchy =
     [ "skewer::tag_mtaux_t", "structskewer_1_1tag__mtaux__t.html", null ],
     [ "skewer::tag_REC", "structskewer_1_1tag__REC.html", null ],
     [ "biovoltron::mirna::TailExp", "structbiovoltron_1_1mirna_1_1TailExp.html", null ],
-    [ "biovoltron::Tailor< size_type, Sorter >", "structbiovoltron_1_1Tailor.html", null ],
+    [ "biovoltron::Tailor< SA_INTV, size_type, Sorter >", "structbiovoltron_1_1Tailor.html", null ],
     [ "skewer::TASK", "structskewer_1_1TASK.html", null ],
-    [ "biovoltron::ThreadPool", "classbiovoltron_1_1ThreadPool.html", null ],
+    [ "biovoltron::kiss::ThreadCache< size_type >", "structbiovoltron_1_1kiss_1_1ThreadCache.html", null ],
+    [ "biovoltron::ThreadPool< Policy >", "classbiovoltron_1_1ThreadPool.html", null ],
+    [ "biovoltron::kiss::ThreadState< size_type >", "structbiovoltron_1_1kiss_1_1ThreadState.html", null ],
     [ "biovoltron::Variant", "structbiovoltron_1_1Variant.html", null ],
+    [ "biovoltron::VcfUtil", "structbiovoltron_1_1VcfUtil.html", null ],
+    [ "biovoltron::Worker", "classbiovoltron_1_1Worker.html", null ],
     [ "biovoltron::detail::XbitIteratorBase< N, Block >", "classbiovoltron_1_1detail_1_1XbitIteratorBase.html", [
       [ "biovoltron::detail::XbitConstIterator< N, block_type >", "structbiovoltron_1_1detail_1_1XbitConstIterator.html", null ],
       [ "biovoltron::detail::XbitIterator< N, block_type >", "structbiovoltron_1_1detail_1_1XbitIterator.html", null ],

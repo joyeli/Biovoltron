@@ -47,7 +47,7 @@ var NAVTREE =
       [ "Bug Reporting", "contribute.html#contribute-bug-reporting", null ],
       [ "Environment Setup", "contribute.html#contribute-setup", null ],
       [ "Development Workflow", "contribute.html#contribute-development-workflow", null ],
-      [ "C++ Coding Guidelines", "contribute.html#contribute-coding-guideline", null ],
+      [ "C++ Coding Guidelines", "codingstyle.html", null ],
       [ "Git style", "contribute.html#contribute-git-style", null ],
       [ "Doxygen Comment Guidelines", "contribute.html#contribute-doxygen", null ]
     ] ],
@@ -61,7 +61,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
@@ -74,7 +74,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structbiovoltron_1_1SamRecord.html#a21824292182864ab15b55121095a3bd3"
+"structbiovoltron_1_1GffRecord.html#a80ec5313bf229b7f6cbc8ae9504d8204"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

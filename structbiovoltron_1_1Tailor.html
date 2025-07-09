@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Biovoltron: biovoltron::Tailor&lt; size_type, Sorter &gt; Struct Template Reference</title>
+<title>Biovoltron: biovoltron::Tailor&lt; SA_INTV, size_type, Sorter &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -107,7 +107,7 @@ $(function(){initNavTree('structbiovoltron_1_1Tailor.html','','structbiovoltron_
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">biovoltron::Tailor&lt; size_type, Sorter &gt; Struct Template Reference</div></div>
+  <div class="headertitle"><div class="title">biovoltron::Tailor&lt; SA_INTV, size_type, Sorter &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -115,45 +115,44 @@ $(function(){initNavTree('structbiovoltron_1_1Tailor.html','','structbiovoltron_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad4c249924ba162073a246272a1856bb9" id="r_ad4c249924ba162073a246272a1856bb9"><td class="memItemLeft" align="right" valign="top"><a id="ad4c249924ba162073a246272a1856bb9" name="ad4c249924ba162073a246272a1856bb9"></a>
+<tr class="memitem:a7541c32e4f5aa1b0e7e442625fa9bdf1" id="r_a7541c32e4f5aa1b0e7e442625fa9bdf1"><td class="memItemLeft" align="right" valign="top"><a id="a7541c32e4f5aa1b0e7e442625fa9bdf1" name="a7541c32e4f5aa1b0e7e442625fa9bdf1"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>range_type</b> = std::pair&lt;size_type, size_type&gt;</td></tr>
-<tr class="memitem:a9191db574783a4fb6ee7132e95638a2d" id="r_a9191db574783a4fb6ee7132e95638a2d"><td class="memItemLeft" align="right" valign="top"><a id="a9191db574783a4fb6ee7132e95638a2d" name="a9191db574783a4fb6ee7132e95638a2d"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>index_type</b> = <a class="el" href="structbiovoltron_1_1Index.html">Index</a>&lt;size_type, Sorter&gt;</td></tr>
+<tr class="memitem:af9178b76957a020e9460f0c15787f0fc" id="r_af9178b76957a020e9460f0c15787f0fc"><td class="memItemLeft" align="right" valign="top"><a id="af9178b76957a020e9460f0c15787f0fc" name="af9178b76957a020e9460f0c15787f0fc"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>index_type</b> = <a class="el" href="structbiovoltron_1_1Index.html">Index</a>&lt;SA_INTV, size_type, Sorter&gt;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3e3c222905f95ce01a0ccfe806cab70f" id="r_a3e3c222905f95ce01a0ccfe806cab70f"><td class="memItemLeft" align="right" valign="top"><a id="a3e3c222905f95ce01a0ccfe806cab70f" name="a3e3c222905f95ce01a0ccfe806cab70f"></a>
+<tr class="memitem:a34ff914d0f8f70618d44934c18dd27af" id="r_a34ff914d0f8f70618d44934c18dd27af"><td class="memItemLeft" align="right" valign="top"><a id="a34ff914d0f8f70618d44934c18dd27af" name="a34ff914d0f8f70618d44934c18dd27af"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Tailor</b> (const <a class="el" href="structbiovoltron_1_1Index.html">index_type</a> &amp;index, const <a class="el" href="structbiovoltron_1_1Index.html">index_type</a> &amp;rc_index)</td></tr>
-<tr class="memitem:af712f1e2f8c685945474b648d53df70c" id="r_af712f1e2f8c685945474b648d53df70c"><td class="memTemplParams" colspan="2"><a id="af712f1e2f8c685945474b648d53df70c" name="af712f1e2f8c685945474b648d53df70c"></a>
-template&lt;class R&gt; <br />
-requires std::derived_from&lt;R, <a class="el" href="structbiovoltron_1_1FastaRecord.html">FastaRecord</a>&lt;R::encoded&gt;&gt;</td></tr>
-<tr class="memitem:af712f1e2f8c685945474b648d53df70c template"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><b>search</b> (const R &amp;record) const</td></tr>
+<tr class="memitem:a01fd14a4957bc6cbd23408e0cd2316e8" id="r_a01fd14a4957bc6cbd23408e0cd2316e8"><td class="memTemplParams" colspan="2"><a id="a01fd14a4957bc6cbd23408e0cd2316e8" name="a01fd14a4957bc6cbd23408e0cd2316e8"></a>
+template&lt;bool Encoded&gt; </td></tr>
+<tr class="memitem:a01fd14a4957bc6cbd23408e0cd2316e8 template"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><b>search</b> (const <a class="el" href="structbiovoltron_1_1FastqRecord.html">FastqRecord</a>&lt; Encoded &gt; &amp;record) const</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1d60e7f4c388938914dcb37c862ca801" id="r_a1d60e7f4c388938914dcb37c862ca801"><td class="memItemLeft" align="right" valign="top"><a id="a1d60e7f4c388938914dcb37c862ca801" name="a1d60e7f4c388938914dcb37c862ca801"></a>
+<tr class="memitem:aa1fd59d840fe46daeae083971e710626" id="r_aa1fd59d840fe46daeae083971e710626"><td class="memItemLeft" align="right" valign="top"><a id="aa1fd59d840fe46daeae083971e710626" name="aa1fd59d840fe46daeae083971e710626"></a>
 <a class="el" href="structbiovoltron_1_1Index.html">index_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fmi</b></td></tr>
-<tr class="memitem:a8121713d8f3e54f2102b50c5b9c4b319" id="r_a8121713d8f3e54f2102b50c5b9c4b319"><td class="memItemLeft" align="right" valign="top"><a id="a8121713d8f3e54f2102b50c5b9c4b319" name="a8121713d8f3e54f2102b50c5b9c4b319"></a>
+<tr class="memitem:a5caab79daa132f584025e12d475ac1dc" id="r_a5caab79daa132f584025e12d475ac1dc"><td class="memItemLeft" align="right" valign="top"><a id="a5caab79daa132f584025e12d475ac1dc" name="a5caab79daa132f584025e12d475ac1dc"></a>
 <a class="el" href="structbiovoltron_1_1Index.html">index_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rc_fmi</b></td></tr>
-<tr class="memitem:a7a17c3b3c8234edc80edb83d0e95ea9a" id="r_a7a17c3b3c8234edc80edb83d0e95ea9a"><td class="memItemLeft" align="right" valign="top"><a id="a7a17c3b3c8234edc80edb83d0e95ea9a" name="a7a17c3b3c8234edc80edb83d0e95ea9a"></a>
+<tr class="memitem:aa1db17803444d7b974ee69ce1ea3dc8b" id="r_aa1db17803444d7b974ee69ce1ea3dc8b"><td class="memItemLeft" align="right" valign="top"><a id="aa1db17803444d7b974ee69ce1ea3dc8b" name="aa1db17803444d7b974ee69ce1ea3dc8b"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>allow_seed_mismatch</b> = false</td></tr>
-<tr class="memitem:a63ed79ed74e2ba01918fbabd77412c5f" id="r_a63ed79ed74e2ba01918fbabd77412c5f"><td class="memItemLeft" align="right" valign="top"><a id="a63ed79ed74e2ba01918fbabd77412c5f" name="a63ed79ed74e2ba01918fbabd77412c5f"></a>
+<tr class="memitem:aa6b9f5ab8b18cb65045ca82eaf6f9b74" id="r_aa6b9f5ab8b18cb65045ca82eaf6f9b74"><td class="memItemLeft" align="right" valign="top"><a id="aa6b9f5ab8b18cb65045ca82eaf6f9b74" name="aa6b9f5ab8b18cb65045ca82eaf6f9b74"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>strict_mode</b> = false</td></tr>
-<tr class="memitem:abfe27421796e128ff78936adc7f58258" id="r_abfe27421796e128ff78936adc7f58258"><td class="memItemLeft" align="right" valign="top"><a id="abfe27421796e128ff78936adc7f58258" name="abfe27421796e128ff78936adc7f58258"></a>
+<tr class="memitem:a04944d15ae6573431eceea704036a906" id="r_a04944d15ae6573431eceea704036a906"><td class="memItemLeft" align="right" valign="top"><a id="a04944d15ae6573431eceea704036a906" name="a04944d15ae6573431eceea704036a906"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_c2t</b> = false</td></tr>
-<tr class="memitem:a8ec62c9f6823ed8d9093c203af73ef32" id="r_a8ec62c9f6823ed8d9093c203af73ef32"><td class="memItemLeft" align="right" valign="top"><a id="a8ec62c9f6823ed8d9093c203af73ef32" name="a8ec62c9f6823ed8d9093c203af73ef32"></a>
+<tr class="memitem:ab1d70bc9bf4d5023186bb7afdcccb0d8" id="r_ab1d70bc9bf4d5023186bb7afdcccb0d8"><td class="memItemLeft" align="right" valign="top"><a id="ab1d70bc9bf4d5023186bb7afdcccb0d8" name="ab1d70bc9bf4d5023186bb7afdcccb0d8"></a>
 size_type&#160;</td><td class="memItemRight" valign="bottom"><b>seed_len</b> = 18</td></tr>
-<tr class="memitem:a8da6f786347f4e1af1c04bb8decdba51" id="r_a8da6f786347f4e1af1c04bb8decdba51"><td class="memItemLeft" align="right" valign="top"><a id="a8da6f786347f4e1af1c04bb8decdba51" name="a8da6f786347f4e1af1c04bb8decdba51"></a>
+<tr class="memitem:a18449a64d25b87f31baa0869c5568f3d" id="r_a18449a64d25b87f31baa0869c5568f3d"><td class="memItemLeft" align="right" valign="top"><a id="a18449a64d25b87f31baa0869c5568f3d" name="a18449a64d25b87f31baa0869c5568f3d"></a>
 size_type&#160;</td><td class="memItemRight" valign="bottom"><b>max_multi</b> = 10</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a31c79e243876fb0b6b248dada73795a9" id="r_a31c79e243876fb0b6b248dada73795a9"><td class="memItemLeft" align="right" valign="top"><a id="a31c79e243876fb0b6b248dada73795a9" name="a31c79e243876fb0b6b248dada73795a9"></a>
+<tr class="memitem:a489426e35a4b16e7f07525acc49b2312" id="r_a489426e35a4b16e7f07525acc49b2312"><td class="memItemLeft" align="right" valign="top"><a id="a489426e35a4b16e7f07525acc49b2312" name="a489426e35a4b16e7f07525acc49b2312"></a>
 static constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><b>npos</b> = -1</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename size_type = std::uint32_t, SASorter Sorter = PsaisSorter&lt;size_type&gt;&gt;<br />
-struct biovoltron::Tailor&lt; size_type, Sorter &gt;</div><p>todo: some brief descriptions.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;int SA_INTV = 1, typename size_type = std::uint32_t, SASorter Sorter = PsaisSorter&lt;size_type&gt;&gt;<br />
+struct biovoltron::Tailor&lt; SA_INTV, size_type, Sorter &gt;</div><p>todo: some brief descriptions.</p>
 <p>todo: some detail descriptions.</p>
 <p>Example: auto sample1 = std::vector&lt;FastqRecord&lt;&gt;&gt;{}; { auto record = <a class="el" href="structbiovoltron_1_1FastqRecord.html" title="Manages data from FASTQ files, including sequences and quality scores, for easy parsing and manipulat...">FastqRecord</a>{}; auto ifs = std::ifstream{"sample1.fastq"}; while (ifs &gt;&gt; record) sample1.emplace_back(record); }</p>
 <p>// Load prebuilt index. auto index = <a class="el" href="structbiovoltron_1_1Index.html">Index</a>{}; { auto ifs = std::ifstream{"ref.idx"}; index.load(ifs); }</p>
