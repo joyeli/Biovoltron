@@ -129,4 +129,9 @@ TEST_CASE("Cigar") {
     ss >> cigar;
     CHECK(cigar == "5H5S"s);
   }
+
+  SECTION("Unmapped read in SAMRecord") {
+    auto cigar = Cigar{"*"};
+    CHECK(cigar.size() == 0);
+  }
 }

@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <istream>
 #include <ostream>
+#include <array>
 
 namespace biovoltron {
 
@@ -32,10 +33,15 @@ inline auto operator""_s(const char *s, std::size_t) {
 
 /**
  * @ingroup utility
- * @brief Codec for DNA alphabet to integer conversion.
+ * @brief Codec for DNA alphabet from symbols to integer.
  */
 struct Codec {
-
+  /**
+   * @brief Define a function that map DNA alphabet from *char* to *ichar*.
+   *
+   * @param a *char*
+   * @return 0, 1, 2, 3 for both `A`, `C`, `G`, `T` and `a`, `c`, `g`, `t` respectively, 4 for the others in the range.
+   */
   constexpr static auto ints = [] {
     auto ints = std::array<ichar, 128>{};
     ints.fill(4);
@@ -46,9 +52,10 @@ struct Codec {
     return ints;
   }();
   /**
-   * DNA to integer.
-   * @param DNA alphabet.
-   * @return A std::int8_t, 0(A), 1(C), 2(G), 3(T).
+   * @brief Convert the type of DNA alphabet from *char* to *ichar*.
+   *
+   * @param a *char*
+   * @return 0, 1, 2, 3 for both `A`, `C`, `G`, `T` and `a`, `c`, `g`, `t` respectively, 4 for the others in the range.
    */
   constexpr static auto to_int(char c) noexcept { return ints[c]; }
 
@@ -60,6 +67,9 @@ struct Codec {
    */
   constexpr static auto is_valid(char c) noexcept { return to_int(c) != 4; }
 
+  /**
+   * @brief array as the DNA alphabet set
+   */
   constexpr static auto chars = std::array{'A', 'C', 'G', 'T', 'N'};
   /**
    * Convert an integer (0-3) to its corresponding DNA alphabet character.
@@ -132,6 +142,12 @@ struct Codec {
     return res;
   }
 
+  /**
+   * @brief Define a function that map a DNA alphabet to its biological complement.
+   * 
+   * @param c a symbol representing a residue of a DNA sequence
+   * @return the biological complement of the residue c, `N` for residues other than a DNA alphabet
+   */
   constexpr static auto comp = [](char c) {
     switch (c) {
     case 'a':

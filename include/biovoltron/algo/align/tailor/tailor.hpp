@@ -46,12 +46,13 @@ namespace biovoltron {
  *     ofs << record << '\n';
  */
 template<
+  int SA_INTV = 1,
   typename size_type = std::uint32_t,
   SASorter Sorter = PsaisSorter<size_type>
 >
 struct Tailor {
   using range_type = std::pair<size_type, size_type>;
-  using index_type = Index<size_type, Sorter>;
+  using index_type = Index<SA_INTV, size_type, Sorter>;
   constexpr static size_type npos = -1;
 
   index_type fmi;
@@ -150,7 +151,8 @@ struct Tailor {
     istring_view read,
     size_type mismatch_pos,
     std::vector<range_type>& match_history,
-    bool forward
+    bool forward,
+    size_type local_seed_len
   ) const {
     auto candidates = std::vector<Raw>{};
     for (; mismatch_pos < read.size(); mismatch_pos++) {
@@ -167,7 +169,7 @@ struct Tailor {
     auto min_hit_pos = std::ranges::min_element(
       candidates, {}, &Raw::hit_pos)->hit_pos;
     // If hit position still in seed region, report unmappable.
-    if (min_hit_pos >= read.size() - seed_len)
+    if (min_hit_pos >= read.size() - local_seed_len)
       return std::vector<Raw>{};
 
     if (std::ranges::count(
@@ -183,15 +185,15 @@ struct Tailor {
     return final_candidates;
   }
 
-  auto search_(istring_view read, bool forward) const {
+  auto search_(istring_view read, bool forward, size_type local_seed_len) const {
     auto [hit_pos, match_history] = exact_match(read, forward);
 
     auto candidates = std::vector<Raw>{};
-    if (hit_pos < read.size() - seed_len)
+    if (hit_pos < read.size() - local_seed_len)
       candidates.emplace_back(forward, hit_pos, match_history.back());
     else if (allow_seed_mismatch)
       std::ranges::move(
-        backtrack(read, hit_pos-1, match_history, forward),
+        backtrack(read, hit_pos-1, match_history, forward, local_seed_len),
         std::back_inserter(candidates)
       );
 
@@ -261,25 +263,24 @@ struct Tailor {
       candidates.erase(ret.begin(), ret.end());
     }
 
-    // Prefer forward strand(Note: this can be discussed).
-    if (!got_best(candidates)) {
-      // Forward stand is "false" because we did a reverse complement.
-      // So we remove "true".
-      const auto ret = std::ranges::remove(candidates, true, &Raw::forward);
-      candidates.erase(ret.begin(), ret.end());
-    }
+    // Note: this filter doesn't make sense
+    // // Prefer forward strand(Note: this can be discussed).
+    // if (!got_best(candidates)) {
+    //   // Forward stand is "false" because we did a reverse complement.
+    //   // So we remove "true".
+    //   const auto ret = std::ranges::remove(candidates, true, &Raw::forward);
+    //   candidates.erase(ret.begin(), ret.end());
+    // }
 
     return candidates;
   }
 
-  template<class R> requires std::derived_from<R, FastaRecord<R::encoded>>
-  auto raws2alignment(const R& record, std::vector<Raw>&& raws) const {
+  template <bool Encoded>
+  auto raws2alignment(const FastqRecord<Encoded>& record, std::vector<Raw>&& raws) const {
     auto aln = Alignment{};
     aln.name = record.name;
     aln.seq = record.seq;
-    if constexpr (std::same_as<R, FastqRecord<R::encoded>>) {
-      aln.qual = record.qual;
-    }
+    aln.qual = record.qual;
 
     // Report unmappable with empty hits.
     if (raws.empty()) 
@@ -321,10 +322,11 @@ struct Tailor {
     return aln;
   }
 
-  template<class R> requires std::derived_from<R, FastaRecord<R::encoded>>
+  template <bool Encoded>
   auto c2t (
-    const R& record, 
-    std::vector<Raw>& candidates
+    const FastqRecord<Encoded>& record, 
+    std::vector<Raw>& candidates,
+    size_type local_seed_len
   ) const {
     // todo: Make combination cleaner and more expressive.
     auto read = record.seq;
@@ -349,11 +351,11 @@ struct Tailor {
         for (auto idx : indexes)
           read[idx] = 'T';
         auto rc_read = istring{};
-        if constexpr (R::encoded) rc_read = Codec::rev_comp(read);
+        if constexpr (Encoded) rc_read = Codec::rev_comp(read);
         else rc_read = Codec::rev_comp(Codec::to_istring(read));
 
-        std::ranges::move(search_(rc_read, true), std::back_inserter(candidates));
-        std::ranges::move(search_(rc_read, false), std::back_inserter(candidates));
+        std::ranges::move(search_(rc_read, true, local_seed_len), std::back_inserter(candidates));
+        std::ranges::move(search_(rc_read, false, local_seed_len), std::back_inserter(candidates));
   
         if (!candidates.empty()) {
           for (auto& candidate : candidates) {
@@ -377,39 +379,73 @@ struct Tailor {
     assert(rc_fmi.get_bwt_size() != 0);
   }
 
-  template<class R> requires std::derived_from<R, FastaRecord<R::encoded>>
-  // TODO: || std::same_as<Record, BamRecord>
-  auto search(const R& record) const {
+  template <bool Encoded>
+  auto search(const FastqRecord<Encoded>& record) const {
+    size_type local_seed_len = seed_len;
 
-    if (record.seq.size() < seed_len)
-      return Alignment{};
+    auto make_fallback_return = [](bool is_N){
+      return std::make_pair(
+        Alignment{.seq = (is_N ? "N": "")},
+        Alignment{.seq = (is_N ? "N": "")}
+      );
+    };
+
+    if (record.seq.size() < local_seed_len)
+      return make_fallback_return(false);
 
     auto rc_read = istring{};
-    if constexpr (R::encoded) rc_read = Codec::rev_comp(record.seq);
+    if constexpr (Encoded) rc_read = Codec::rev_comp(record.seq);
     else rc_read = Codec::rev_comp(Codec::to_istring(record.seq));
 
+    // make aln of reads that contain 'N' a lil bit special
+    // so the aligner can calculate the filtered read count
     if (std::ranges::find(rc_read, Codec::to_int('N')) != rc_read.end())
-      return Alignment{};
+      return make_fallback_return(true);
 
     auto candidates = std::vector<Raw>{};
-    std::ranges::move(search_(rc_read, true), std::back_inserter(candidates));
-    std::ranges::move(search_(rc_read, false), std::back_inserter(candidates));
+    std::ranges::move(search_(rc_read, true, local_seed_len), std::back_inserter(candidates));
+    std::ranges::move(search_(rc_read, false, local_seed_len), std::back_inserter(candidates));
 
     if (candidates.empty() && enable_c2t) 
-      c2t(record, candidates);
+      c2t(record, candidates, local_seed_len);
 
-    // if (!candidates.empty() && strict_mode) {
-    //   // todo:Apply strict mode.
-    // }
+    if (!candidates.empty() && strict_mode) {
+      // todo:Apply strict mode.
+      
+      auto min_hit_pos = std::ranges::min(candidates, {}, &Raw::hit_pos).hit_pos;
+      if(min_hit_pos > 5) { // still no tail smaller than 5
+        local_seed_len = rc_read.size() - min_hit_pos;
 
-    //
+        candidates.clear();
+
+        std::ranges::move(search_(rc_read, true, local_seed_len), std::back_inserter(candidates));
+        std::ranges::move(search_(rc_read, false, local_seed_len), std::back_inserter(candidates));
+
+        if (candidates.empty() && enable_c2t)
+          c2t(record, candidates, local_seed_len);
+      }
+    }
     
-    auto aln = raws2alignment(record, pick_best(candidates));
+    auto&& best = pick_best(candidates);
+    auto filter_strand = [](const std::vector<Raw>& candidates, bool forward){
+      std::vector<Raw> filtered_candidates;
+      std::ranges::copy_if(
+        candidates,
+        std::back_inserter(filtered_candidates),
+        [&forward](bool f){ return forward == f; },
+        &Raw::forward
+      );
+      return filtered_candidates;
+    };
     
-    if (aln.hits.size() > max_multi)
-      return Alignment{};
+    // Note that forward == false means read is aln to forward strand
+    auto aln_forward = raws2alignment(record, filter_strand(best, false));
+    auto aln_reverse = raws2alignment(record, filter_strand(best, true));
+    
+    if ((aln_forward.hits.size() + aln_reverse.hits.size()) > max_multi)
+      return make_fallback_return(false);
 
-    return aln;
+    return std::make_pair(aln_forward, aln_reverse);
   }
 };
 

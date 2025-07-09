@@ -3,6 +3,7 @@
 #include <biovoltron/file_io/fasta.hpp> 
 #include <biovoltron/file_io/fastq.hpp> 
 #include <catch.hpp>
+#include <iostream>
 
 namespace ranges = std::ranges;
 using namespace biovoltron;
@@ -36,14 +37,14 @@ SCENARIO("Tailor: single match") {
     read.seq = "GATTGTTGC";
     assert(read.seq.size() < tailor.seed_len);
     const auto aln = tailor.search(read);
-    CHECK(aln.hits.empty());
+    CHECK(aln.first.hits.empty());
   }
 
   SECTION("Unqulified reads: with 'N' base.") {
     read.seq = "NNNNNNAATTGATTGATTGATTGATTGTTGC";
     assert(read.seq.size() >= tailor.seed_len);
     const auto aln = tailor.search(read);
-    CHECK(aln.hits.empty());
+    CHECK(aln.first.hits.empty());
   }
 
   GIVEN("One mismatch at seed region") {
@@ -53,7 +54,7 @@ SCENARIO("Tailor: single match") {
       tailor.allow_seed_mismatch = false;
       const auto aln = tailor.search(read);
       THEN("Empty align") {
-        REQUIRE(aln.hits.empty());
+        REQUIRE(aln.first.hits.empty());
       }
     }
   }
@@ -62,16 +63,16 @@ SCENARIO("Tailor: single match") {
     read.seq = ref.front().seq.substr(2, 25);
     const auto aln = tailor.search(read);
 
-    CHECK(aln.name == read.name);
-    CHECK(aln.seq == read.seq);
-    CHECK(aln.qual == read.qual);
-    CHECK(aln.forward);
-    CHECK(aln.tail_pos == -1);
-    CHECK(aln.counts == 0);
+    CHECK(aln.first.name == read.name);
+    CHECK(aln.first.seq == read.seq);
+    CHECK(aln.first.qual == read.qual);
+    CHECK(aln.first.forward);
+    CHECK(aln.first.tail_pos == -1);
+    CHECK(aln.first.counts == 0);
 
-    REQUIRE(aln.hits.size() == 1);
-    CHECK(aln.hits.front().mismatches.empty());
-    CHECK(aln.hits.front().intv == Interval{"chr1", 2, 27});
+    REQUIRE(aln.first.hits.size() == 1);
+    CHECK(aln.first.hits.front().mismatches.empty());
+    CHECK(aln.first.hits.front().intv == Interval{"chr1", 2, 27});
   }
 
   SECTION("Exact match to reverse strand, no tail") {
@@ -79,17 +80,17 @@ SCENARIO("Tailor: single match") {
     read.seq = Codec::rev_comp(read.seq);
     const auto aln = tailor.search(read);
 
-    CHECK(aln.name == read.name);
-    CHECK(aln.seq == read.seq);
-    CHECK(aln.qual == read.qual);
-    CHECK(!aln.forward);
-    CHECK(aln.tail_pos == -1);
-    CHECK(aln.counts == 0);
+    CHECK(aln.second.name == read.name);
+    CHECK(aln.second.seq == read.seq);
+    CHECK(aln.second.qual == read.qual);
+    CHECK(!aln.second.forward);
+    CHECK(aln.second.tail_pos == -1);
+    CHECK(aln.second.counts == 0);
 
-    REQUIRE(aln.hits.size() == 1);
-    CHECK(aln.hits.front().mismatches.empty());
-    // std::cout << aln.hits.front().intv.to_string() << "\n";
-    CHECK(aln.hits.front().intv == Interval{"chr1", 2, 27, '-'});
+    REQUIRE(aln.second.hits.size() == 1);
+    CHECK(aln.second.hits.front().mismatches.empty());
+    // std::cout << aln.second.hits.front().intv.to_string() << "\n";
+    CHECK(aln.second.hits.front().intv == Interval{"chr1", 2, 27, '-'});
   }
 
   SECTION("Tail len 1") {
@@ -97,16 +98,16 @@ SCENARIO("Tailor: single match") {
     read.seq.back() = Codec::comp(read.seq.back());
     const auto aln = tailor.search(read);
 
-    CHECK(aln.name == read.name);
-    CHECK(aln.seq == read.seq);
-    CHECK(aln.qual == read.qual);
-    CHECK(aln.forward);
-    CHECK(aln.tail_pos == 25);
-    CHECK(aln.counts == 0);
+    CHECK(aln.first.name == read.name);
+    CHECK(aln.first.seq == read.seq);
+    CHECK(aln.first.qual == read.qual);
+    CHECK(aln.first.forward);
+    CHECK(aln.first.tail_pos == 25);
+    CHECK(aln.first.counts == 0);
 
-    REQUIRE(aln.hits.size() == 1);
-    CHECK(aln.hits.front().mismatches.empty());
-    CHECK(aln.hits.front().intv == Interval{"chr1", 2, 27});
+    REQUIRE(aln.first.hits.size() == 1);
+    CHECK(aln.first.hits.front().mismatches.empty());
+    CHECK(aln.first.hits.front().intv == Interval{"chr1", 2, 27});
   }
 
   SECTION("One mismatch at non-seed region, no tail") {
@@ -114,17 +115,17 @@ SCENARIO("Tailor: single match") {
     read.seq[20] = Codec::comp(read.seq[20]);
     const auto aln = tailor.search(read);
 
-    CHECK(aln.name == read.name);
-    CHECK(aln.seq == read.seq);
-    CHECK(aln.qual == read.qual);
-    CHECK(aln.forward);
-    CHECK(aln.tail_pos == -1);
-    CHECK(aln.counts == 0);
+    CHECK(aln.first.name == read.name);
+    CHECK(aln.first.seq == read.seq);
+    CHECK(aln.first.qual == read.qual);
+    CHECK(aln.first.forward);
+    CHECK(aln.first.tail_pos == -1);
+    CHECK(aln.first.counts == 0);
 
-    REQUIRE(aln.hits.size() == 1);
-    REQUIRE(aln.hits.front().mismatches.size() == 1);
-    CHECK(aln.hits.front().mismatches.front() == Mismatch{20, Codec::comp(read.seq[20])});
-    CHECK(aln.hits.front().intv == Interval{"chr1", 2, 27});
+    REQUIRE(aln.first.hits.size() == 1);
+    REQUIRE(aln.first.hits.front().mismatches.size() == 1);
+    CHECK(aln.first.hits.front().mismatches.front() == Mismatch{20, Codec::comp(read.seq[20])});
+    CHECK(aln.first.hits.front().intv == Interval{"chr1", 2, 27});
   }
 
   SECTION("Tail with length 5") {
@@ -133,16 +134,16 @@ SCENARIO("Tailor: single match") {
     read.seq[27] = Codec::comp(read.seq[27]);
     const auto aln = tailor.search(read);
 
-    CHECK(aln.name == read.name);
-    CHECK(aln.seq == read.seq);
-    CHECK(aln.qual == read.qual);
-    CHECK(aln.forward);
-    CHECK(aln.tail_pos == 25);
-    CHECK(aln.counts == 0);
+    CHECK(aln.first.name == read.name);
+    CHECK(aln.first.seq == read.seq);
+    CHECK(aln.first.qual == read.qual);
+    CHECK(aln.first.forward);
+    CHECK(aln.first.tail_pos == 25);
+    CHECK(aln.first.counts == 0);
 
-    REQUIRE(aln.hits.size() == 1);
-    CHECK(aln.hits.front().mismatches.empty());
-    CHECK(aln.hits.front().intv == Interval{"chr1", 2, 27});
+    REQUIRE(aln.first.hits.size() == 1);
+    CHECK(aln.first.hits.front().mismatches.empty());
+    CHECK(aln.first.hits.front().intv == Interval{"chr1", 2, 27});
   }
 
   SECTION("One mismatch at seed region, perfect match at non-seed, no tail") {
@@ -150,17 +151,17 @@ SCENARIO("Tailor: single match") {
     read.seq[4] = Codec::comp(read.seq[4]);
     const auto aln = tailor.search(read);
 
-    CHECK(aln.name == read.name);
-    CHECK(aln.seq == read.seq);
-    CHECK(aln.qual == read.qual);
-    CHECK(aln.forward);
-    CHECK(aln.tail_pos == -1);
-    CHECK(aln.counts == 0);
+    CHECK(aln.first.name == read.name);
+    CHECK(aln.first.seq == read.seq);
+    CHECK(aln.first.qual == read.qual);
+    CHECK(aln.first.forward);
+    CHECK(aln.first.tail_pos == -1);
+    CHECK(aln.first.counts == 0);
 
-    REQUIRE(aln.hits.size() == 1);
-    REQUIRE(aln.hits.front().mismatches.size() == 1);
-    CHECK(aln.hits.front().mismatches.front() == Mismatch{4, Codec::comp(read.seq[4])});
-    CHECK(aln.hits.front().intv == Interval{"chr1", 2, 27});
+    REQUIRE(aln.first.hits.size() == 1);
+    REQUIRE(aln.first.hits.front().mismatches.size() == 1);
+    CHECK(aln.first.hits.front().mismatches.front() == Mismatch{4, Codec::comp(read.seq[4])});
+    CHECK(aln.first.hits.front().intv == Interval{"chr1", 2, 27});
   }
 
   SECTION("One mismatch at seed region, tail with length 1") {
@@ -169,17 +170,17 @@ SCENARIO("Tailor: single match") {
     read.seq[25] = Codec::comp(read.seq[25]);
     const auto aln = tailor.search(read);
 
-    CHECK(aln.name == read.name);
-    CHECK(aln.seq == read.seq);
-    CHECK(aln.qual == read.qual);
-    CHECK(aln.forward);
-    CHECK(aln.tail_pos == 25);
-    CHECK(aln.counts == 0);
+    CHECK(aln.first.name == read.name);
+    CHECK(aln.first.seq == read.seq);
+    CHECK(aln.first.qual == read.qual);
+    CHECK(aln.first.forward);
+    CHECK(aln.first.tail_pos == 25);
+    CHECK(aln.first.counts == 0);
 
-    REQUIRE(aln.hits.size() == 1);
-    REQUIRE(aln.hits.front().mismatches.size() == 1);
-    CHECK(aln.hits.front().mismatches.front() == Mismatch{4, Codec::comp(read.seq[4])});
-    CHECK(aln.hits.front().intv == Interval{"chr1", 2, 27});
+    REQUIRE(aln.first.hits.size() == 1);
+    REQUIRE(aln.first.hits.front().mismatches.size() == 1);
+    CHECK(aln.first.hits.front().mismatches.front() == Mismatch{4, Codec::comp(read.seq[4])});
+    CHECK(aln.first.hits.front().intv == Interval{"chr1", 2, 27});
   }
 
   SECTION("One mismatch at seed region, one mismatch at non-seed region, no tail") {
@@ -188,19 +189,19 @@ SCENARIO("Tailor: single match") {
     read.seq[20] = Codec::comp(read.seq[20]);
     const auto aln = tailor.search(read);
 
-    CHECK(aln.name == read.name);
-    CHECK(aln.seq == read.seq);
-    CHECK(aln.qual == read.qual);
-    CHECK(aln.forward);
-    CHECK(aln.tail_pos == -1);
-    CHECK(aln.counts == 0);
+    CHECK(aln.first.name == read.name);
+    CHECK(aln.first.seq == read.seq);
+    CHECK(aln.first.qual == read.qual);
+    CHECK(aln.first.forward);
+    CHECK(aln.first.tail_pos == -1);
+    CHECK(aln.first.counts == 0);
 
-    REQUIRE(aln.hits.size() == 1);
-    REQUIRE(aln.hits.front().mismatches.size() == 2);
-    const auto& mms = aln.hits.front().mismatches;
+    REQUIRE(aln.first.hits.size() == 1);
+    REQUIRE(aln.first.hits.front().mismatches.size() == 2);
+    const auto& mms = aln.first.hits.front().mismatches;
     CHECK(ranges::find(mms, Mismatch{4, Codec::comp(read.seq[4])}) != mms.end());
     CHECK(ranges::find(mms, Mismatch{20, Codec::comp(read.seq[20])}) != mms.end());
-    CHECK(aln.hits.front().intv == Interval{"chr1", 2, 27});
+    CHECK(aln.first.hits.front().intv == Interval{"chr1", 2, 27});
   }
 
   SECTION("One mismatch at seed region, tail with length 5") {
@@ -211,17 +212,42 @@ SCENARIO("Tailor: single match") {
     read.seq[27] = Codec::comp(read.seq[27]);
     const auto aln = tailor.search(read);
 
-    CHECK(aln.name == read.name);
-    CHECK(aln.seq == read.seq);
-    CHECK(aln.qual == read.qual);
-    CHECK(aln.forward);
-    CHECK(aln.tail_pos == 25);
-    CHECK(aln.counts == 0);
+    CHECK(aln.first.name == read.name);
+    CHECK(aln.first.seq == read.seq);
+    CHECK(aln.first.qual == read.qual);
+    CHECK(aln.first.forward);
+    CHECK(aln.first.tail_pos == 25);
+    CHECK(aln.first.counts == 0);
 
-    REQUIRE(aln.hits.size() == 1);
-    REQUIRE(aln.hits.front().mismatches.size() == 1);
-    CHECK(aln.hits.front().mismatches.front() == Mismatch{4, Codec::comp(read.seq[4])});
-    CHECK(aln.hits.front().intv == Interval{"chr1", 2, 27});
+    REQUIRE(aln.first.hits.size() == 1);
+    REQUIRE(aln.first.hits.front().mismatches.size() == 1);
+    CHECK(aln.first.hits.front().mismatches.front() == Mismatch{4, Codec::comp(read.seq[4])});
+    CHECK(aln.first.hits.front().intv == Interval{"chr1", 2, 27});
+  }
+
+  SECTION("One mismatch at non-seed region, tail with length 4") {
+    tailor.strict_mode = false;
+    read.seq = ref.front().seq.substr(2, 22);
+    read.seq[20] = Codec::comp(read.seq[20]);
+    //tail
+    read.seq += "AAAA";
+    const auto aln_no_strict = tailor.search(read);
+    CHECK(aln_no_strict.first.name == read.name);
+    CHECK(aln_no_strict.first.tail_pos == 20);
+
+    tailor.strict_mode = true;
+    const auto aln_strict = tailor.search(read);
+
+    CHECK(aln_strict.first.seq == read.seq);
+    CHECK(aln_strict.first.qual == read.qual);
+    CHECK(aln_strict.first.forward);
+    CHECK(aln_strict.first.tail_pos == 22);
+    CHECK(aln_strict.first.counts == 0);
+
+    REQUIRE(aln_strict.first.hits.size() == 1);
+    REQUIRE(aln_strict.first.hits.front().mismatches.size() == 1);
+    CHECK(aln_strict.first.hits.front().mismatches.front() == Mismatch{20, Codec::comp(read.seq[20])});
+    CHECK(aln_strict.first.hits.front().intv == Interval{"chr1", 2, 24});
   }
 
   SECTION("Drop two mismatch at seed region") {
@@ -229,7 +255,7 @@ SCENARIO("Tailor: single match") {
     read.seq[4] = Codec::comp(read.seq[4]);
     read.seq[8] = Codec::comp(read.seq[8]);
     const auto aln = tailor.search(read);
-    CHECK(aln.hits.empty());
+    CHECK(aln.first.hits.empty());
   }
 
   SECTION("Align T2C reads, converting C back to T") {
@@ -242,21 +268,21 @@ SCENARIO("Tailor: single match") {
 
     /// first search failed
     const auto aln = tailor.search(read);
-    CHECK(aln.hits.empty());
+    CHECK(aln.first.hits.empty());
     
     tailor.enable_c2t = true;
     tailor.allow_seed_mismatch = false;
     const auto tc_aln = tailor.search(read);
 
-    CHECK(tc_aln.name == read.name);
-    CHECK(tc_aln.seq == read.seq);
-    CHECK(tc_aln.qual == read.qual);
-    CHECK(tc_aln.forward);
-    CHECK(tc_aln.tail_pos == -1);
-    CHECK(tc_aln.counts == 0);
+    CHECK(tc_aln.first.name == read.name);
+    CHECK(tc_aln.first.seq == read.seq);
+    CHECK(tc_aln.first.qual == read.qual);
+    CHECK(tc_aln.first.forward);
+    CHECK(tc_aln.first.tail_pos == -1);
+    CHECK(tc_aln.first.counts == 0);
 
-    REQUIRE(tc_aln.hits.size() == 1);
-    CHECK(tc_aln.hits.front().mismatches.size() == 0);
+    REQUIRE(tc_aln.first.hits.size() == 1);
+    CHECK(tc_aln.first.hits.front().mismatches.size() == 0);
     //                      5    9
     // origin:        ATCGA TCGA TGCATCGATAG
     // T2C (read):    ATCGA CCGA CGCATCGATAG
@@ -265,10 +291,10 @@ SCENARIO("Tailor: single match") {
     //                          9    5   
     //                CTATCGATGCA TCGA TCGAT
     //                CTATCGATGCG TCGG TCGAT
-    auto t2c_site_itr = tc_aln.hits.front().tc_set.begin();
+    auto t2c_site_itr = tc_aln.first.hits.front().tc_set.begin();
     REQUIRE(*t2c_site_itr == 5);
     REQUIRE(*(++t2c_site_itr) == 9);
-    CHECK(tc_aln.hits.front().intv == Interval{"chr1", 2, 22});
+    CHECK(tc_aln.first.hits.front().intv == Interval{"chr1", 2, 22});
   }
 }
 
@@ -316,15 +342,15 @@ SCENARIO("Tailor: multiple matching occurs") {
     const auto aln = tailor.search(read);
 
     THEN("Report shorter tail") {
-      CHECK(aln.name == read.name);
-      CHECK(aln.seq == read.seq);
-      CHECK(aln.qual == read.qual);
-      CHECK(aln.forward);
-      CHECK(aln.tail_pos == -1);
-      CHECK(aln.counts == 0);
+      CHECK(aln.first.name == read.name);
+      CHECK(aln.first.seq == read.seq);
+      CHECK(aln.first.qual == read.qual);
+      CHECK(aln.first.forward);
+      CHECK(aln.first.tail_pos == -1);
+      CHECK(aln.first.counts == 0);
 
-      CHECK(aln.hits.size() == 2);
-      for (const auto& hit : aln.hits) {
+      CHECK(aln.first.hits.size() == 2);
+      for (const auto& hit : aln.first.hits) {
         REQUIRE(hit.mismatches.size() == 1);
         CHECK((
           (hit.mismatches[0] == Mismatch{mismatch_pos, correct_base1}) || 
@@ -366,17 +392,17 @@ SCENARIO("Tailor: multiple matching occurs") {
     const auto aln = tailor.search(read);
 
     THEN("Report the one with mismatch toward 3'") {
-      CHECK(aln.name == read.name);
-      CHECK(aln.seq == read.seq);
-      CHECK(aln.qual == read.qual);
-      CHECK(aln.forward);
-      CHECK(aln.tail_pos == -1);
-      CHECK(aln.counts == 0);
+      CHECK(aln.first.name == read.name);
+      CHECK(aln.first.seq == read.seq);
+      CHECK(aln.first.qual == read.qual);
+      CHECK(aln.first.forward);
+      CHECK(aln.first.tail_pos == -1);
+      CHECK(aln.first.counts == 0);
 
-      REQUIRE(aln.hits.size() == 1);
-      REQUIRE(aln.hits[0].mismatches.size() == 1);
-      CHECK(aln.hits[0].mismatches[0] == Mismatch{mismatch_pos3, correct_base});
-      CHECK(aln.hits[0].intv == Interval{"chr3", 6, 31});
+      REQUIRE(aln.first.hits.size() == 1);
+      REQUIRE(aln.first.hits[0].mismatches.size() == 1);
+      CHECK(aln.first.hits[0].mismatches[0] == Mismatch{mismatch_pos3, correct_base});
+      CHECK(aln.first.hits[0].intv == Interval{"chr3", 6, 31});
     }
   }
 
@@ -403,16 +429,16 @@ SCENARIO("Tailor: multiple matching occurs") {
       const auto aln = tailor.search(read);
 
       THEN("Report shorter tail: reverse") {
-        CHECK(aln.name == read.name);
-        CHECK(aln.seq == read.seq);
-        CHECK(aln.qual == read.qual);
-        CHECK_FALSE(aln.forward);
-        CHECK(aln.tail_pos == -1);
-        CHECK(aln.counts == 0);
+        CHECK(aln.second.name == read.name);
+        CHECK(aln.second.seq == read.seq);
+        CHECK(aln.second.qual == read.qual);
+        CHECK_FALSE(aln.second.forward);
+        CHECK(aln.second.tail_pos == -1);
+        CHECK(aln.second.counts == 0);
 
-        REQUIRE(aln.hits.size() == 1);
-        CHECK(aln.hits[0].mismatches.empty());
-        CHECK(aln.hits[0].intv == Interval{"chr2", ref[1].seq.size() - rc_read.size(), ref[1].seq.size(), '-'});
+        REQUIRE(aln.second.hits.size() == 1);
+        CHECK(aln.second.hits[0].mismatches.empty());
+        CHECK(aln.second.hits[0].intv == Interval{"chr2", ref[1].seq.size() - rc_read.size(), ref[1].seq.size(), '-'});
       }
     }
 
@@ -437,16 +463,16 @@ SCENARIO("Tailor: multiple matching occurs") {
       const auto aln = tailor.search(read);
 
       THEN("Report fewer mismatch") {
-        CHECK(aln.name == read.name);
-        CHECK(aln.seq == read.seq);
-        CHECK(aln.qual == read.qual);
-        CHECK_FALSE(aln.forward);
-        CHECK(aln.tail_pos == read.seq.size() - 1);
-        CHECK(aln.counts == 0);
+        CHECK(aln.second.name == read.name);
+        CHECK(aln.second.seq == read.seq);
+        CHECK(aln.second.qual == read.qual);
+        CHECK_FALSE(aln.second.forward);
+        CHECK(aln.second.tail_pos == read.seq.size() - 1);
+        CHECK(aln.second.counts == 0);
 
-        REQUIRE(aln.hits.size() == 1);
-        CHECK(aln.hits[0].mismatches.empty());
-        CHECK(aln.hits[0].intv == Interval{"chr2", ref[1].seq.size() - rc_read.size() + 1, ref[1].seq.size(), '-'});
+        REQUIRE(aln.second.hits.size() == 1);
+        CHECK(aln.second.hits[0].mismatches.empty());
+        CHECK(aln.second.hits[0].intv == Interval{"chr2", ref[1].seq.size() - rc_read.size() + 1, ref[1].seq.size(), '-'});
       }
     }
 
@@ -473,16 +499,16 @@ SCENARIO("Tailor: multiple matching occurs") {
       const auto aln = tailor.search(read);
 
       THEN("Report the one with mismatch toward 3'") {
-        CHECK(aln.name == read.name);
-        CHECK(aln.seq == read.seq);
-        CHECK(aln.qual == read.qual);
-        CHECK_FALSE(aln.forward);
-        CHECK(aln.tail_pos == -1);
-        CHECK(aln.counts == 0);
+        CHECK(aln.second.name == read.name);
+        CHECK(aln.second.seq == read.seq);
+        CHECK(aln.second.qual == read.qual);
+        CHECK_FALSE(aln.second.forward);
+        CHECK(aln.second.tail_pos == -1);
+        CHECK(aln.second.counts == 0);
 
-        REQUIRE(aln.hits.size() == 1);
-        REQUIRE(aln.hits[0].mismatches.size() == 1);
-        CHECK(aln.hits[0].intv == Interval{"chr2", ref[1].seq.size() - rc_read.size(), ref[1].seq.size(), '-'});
+        REQUIRE(aln.second.hits.size() == 1);
+        REQUIRE(aln.second.hits[0].mismatches.size() == 1);
+        CHECK(aln.second.hits[0].intv == Interval{"chr2", ref[1].seq.size() - rc_read.size(), ref[1].seq.size(), '-'});
       }
     }
 
@@ -505,16 +531,16 @@ SCENARIO("Tailor: multiple matching occurs") {
       const auto aln = tailor.search(read);
 
       THEN("Choose forward over reverse") {
-        CHECK(aln.name == read.name);
-        CHECK(aln.seq == read.seq);
-        CHECK(aln.qual == read.qual);
-        CHECK(aln.forward);
-        CHECK(aln.tail_pos == -1);
-        CHECK(aln.counts == 0);
+        CHECK(aln.first.name == read.name);
+        CHECK(aln.first.seq == read.seq);
+        CHECK(aln.first.qual == read.qual);
+        CHECK(aln.first.forward);
+        CHECK(aln.first.tail_pos == -1);
+        CHECK(aln.first.counts == 0);
 
-        REQUIRE(aln.hits.size() == 1);
-        CHECK(aln.hits[0].mismatches.empty());
-        CHECK(aln.hits[0].intv == Interval{"chr1", 0, read.seq.size()});
+        REQUIRE(aln.first.hits.size() == 1);
+        CHECK(aln.first.hits[0].mismatches.empty());
+        CHECK(aln.first.hits[0].intv == Interval{"chr1", 0, read.seq.size()});
       }
     }
   }
@@ -541,7 +567,7 @@ SCENARIO("Tailor: multiple matching occurs") {
     const auto aln = tailor.search(read);
 
     THEN("Drop this read") {
-      CHECK(aln.hits.empty());
+      CHECK(aln.first.hits.empty());
     }
   }
 }

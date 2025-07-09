@@ -11,9 +11,9 @@ namespace biovoltron {
  * @ingroup utility
  * @brief TBA
  */
-class ThreadPool {
+class DeprecatedThreadPool {
   public:
-  ThreadPool(int cnt) : thread_cnt(cnt) {
+  DeprecatedThreadPool(int cnt) : thread_cnt(cnt) {
     auto init_thread = [this](std::stop_token tok) {
       auto job = std::packaged_task<void()>{};
 

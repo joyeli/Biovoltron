@@ -13,11 +13,12 @@
 #include <spdlog/spdlog.h>
 #include <omp.h>
 
-#include <biovoltron/applications/adapter_trimmer/detail/simd.hpp>
-#include <biovoltron/algo/assemble/assembler.hpp>
 #include <biovoltron/file_io/all.hpp>
-#include <biovoltron/utility/istring.hpp>
+#include <biovoltron/applications/adapter_trimmer/detail/simd.hpp>
+#include <biovoltron/applications/adapter_trimmer/detail/parse_file.hpp>
+#include <biovoltron/algo/assemble/assembler.hpp>
 #include <biovoltron/container/xbit_vector.hpp>
+#include <biovoltron/utility/istring.hpp>
 
 
 using namespace std::literals;
@@ -26,20 +27,20 @@ namespace biovoltron {
 
 /**
  * @ingroup applications
- * @brief The paired-end reads adapter trimmer, here is the implementation from 
+ * @brief The paired-end reads adapter trimmer, here is the implementation from
  * EARRINGS, which optimized by multithreading and SIMD intrinsic functions.
- * @todo single-end reads adapter trimmer -> wait tailor
+ * @todo single-end reads adapter trimmer
  * ```cpp
  * #include <biovoltron/applications/adapter_trimmer/trimmer.hpp>
  * #include <filesystem>
  * #include <fstream>
- * 
+ *
  * int main() {
  *  TODO: usage
- *   std:: 
+ *   std::
  * }
  * ```
- * 
+ *
  * @tparam R the type of reads, we only take FastaRecord and FastqRecord now,
  * will support BamRecord and SamRecord in future.
  * @ref https://academic.oup.com/bioinformatics/article/37/13/1846/6103563?login=true
@@ -67,17 +68,17 @@ class AdapterTrimmer {
 
     /**
      * [RC check]
-     * The compare length use to check the similarity between reverse 
+     * The compare length use to check the similarity between reverse
      * complement of forward reads and reverse reads, and vice versa
      */
     std::size_t RC_CHECK_LEN = 16;
-    
+
     /**
      * The read size use to detect possible adapter fragments, which will use
      * to assemble adapters.
      */
     const std::size_t DETECT_READS = 10000;
-    
+
     /**
      * [RC check]
      * the similarity threshold that considered hit if the similarity of
@@ -100,7 +101,7 @@ class AdapterTrimmer {
      * value
      */
     double ADAPTER_MATCH_RATIO = 0.8;
-  
+
     /**
      * the minimum length of assembled adapter
      */
@@ -147,17 +148,17 @@ class AdapterTrimmer {
 
   /**
    * @brief Given sequence and possible adapter, get all possible positions of
-   * adapter appearence in the sequence. 
-   * @details Calculate the similarity between all possible subsequences and 
+   * adapter appearence in the sequence.
+   * @details Calculate the similarity between all possible subsequences and
    * adapter, which considered hit if it is over `TAIL_MATCH_RATIO`.
-   * 
+   *
    * @param seq the sequence
    * @param adapter possible adapter
-   * @return std::vector<std::size_t> 
+   * @return std::vector<std::size_t>
    */
   auto find_possible_adapter_pos(SeqView seq,
-                                 SeqView adapter) const noexcept 
-                                 -> std::vector<std::size_t> {
+                                 SeqView adapter) const noexcept
+    -> std::vector<std::size_t> {
     auto possible_pos = std::vector<std::size_t> {};
 
     const auto read_size = std::min(detail::BASE_IN_VECTOR, seq.size());
@@ -183,10 +184,10 @@ class AdapterTrimmer {
     if (seq.size() > detail::BASE_IN_VECTOR) {
       auto base_pos = detail::BASE_IN_VECTOR - param.RC_CHECK_LEN + 1;
       auto&& r = find_possible_adapter_pos(seq.substr(base_pos), adapter);
-      std::ranges::transform(r, std::back_inserter(possible_pos), 
+      std::ranges::transform(r, std::back_inserter(possible_pos),
                              [&](const auto& idx) {
-                               return idx + base_pos;
-                             });
+        return idx + base_pos;
+      });
     }
     return possible_pos;
   }
@@ -195,20 +196,20 @@ class AdapterTrimmer {
    * @brief After we have intersect positions from both reads, we want to find
    * the closest position to 5' that seperate the sequence into DNA part and
    * adapter part.
-   * @details We perform Sequence similarity(SS) check, which calculated the 
+   * @details We perform Sequence similarity(SS) check, which calculated the
    * similarity between DNA part from both reads after determine the seperation
    * position, we considered a hit if it is greater or equal to
    * `DNA_MATCH_RATIO`.
-   * 
+   *
    * @param forward_seq forward sequence
    * @param reverse_seq reverse sequence
    * @param intersect_pos intersect of possible adapter positions
    * @return `std::size_t`
    */
   auto get_adapter_pos(const SeqView forward_seq, const SeqView reverse_seq,
-                       const std::vector<std::size_t>& intersect_pos) 
-                       const noexcept
-                       -> std::size_t {
+                       const std::vector<std::size_t>& intersect_pos)
+    const noexcept
+    -> std::size_t {
 
     auto forward_rc = Codec::rev_comp(forward_seq);
 
@@ -237,19 +238,19 @@ class AdapterTrimmer {
 
   /**
    * @brief find proper trimming position for each read
-   * @details After we get assembled adatper and intersecting positions between 
-   * both reads. For every intersection, we will first check whether the adapter 
-   * part pass AS check,then check whether the DNA part pass SS check. If so, 
+   * @details After we get assembled adatper and intersecting positions between
+   * both reads. For every intersection, we will first check whether the adapter
+   * part pass AS check,then check whether the DNA part pass SS check. If so,
    * the position which closest to 5' is considered as trimming position.
-   * 
-   * If none of intersecting position meet the condition above, we will check 
-   * whether the adapter is located on 3'. By checking the 
-   * 
-   * 
+   *
+   * If none of intersecting position meet the condition above, we will check
+   * whether the adapter is located on 3'. By checking the
+   *
+   *
    *                   pos
    * 3' ----------------|---------------------- 5'
    *        DNA part          adapter part
-   * 
+   *
    * @param forward_seq forward sequence
    * @param reverse_seq reverse sequence
    * @param intersect_pos intersecting position of possible adapter
@@ -260,11 +261,11 @@ class AdapterTrimmer {
   auto get_trim_pos(const SeqView forward_seq, const SeqView reverse_seq,
                     const std::vector<std::size_t>& intersect_pos,
                     const SeqView forward_adapter,
-                    const SeqView reverse_adapter) 
-                    const noexcept -> std::size_t {
+                    const SeqView reverse_adapter)
+    const noexcept -> std::size_t {
 
     auto forward_rc = Codec::rev_comp(forward_seq);
-    
+
     /* we only need to make simd vector of reverse read for once */
     auto rev_vec = detail::make_simd_vector(reverse_seq);
     auto fwd_adapter_vec = detail::make_simd_vector(forward_adapter, 1)[0];
@@ -296,10 +297,10 @@ class AdapterTrimmer {
         auto fwd_subseq_vec = detail::make_simd_vector(fwd_subseq, 1)[0];
         auto rev_subseq_vec = detail::make_simd_vector(rev_subseq, 1)[0];
         auto len = std::min(fwd_subseq.size(), forward_adapter.size());
-        
+
         /**
          * if the similarity between adapter part and assembled adapter is
-         * greater or equal to `ADAPTER_MATCH_RATIO`, then this position is a 
+         * greater or equal to `ADAPTER_MATCH_RATIO`, then this position is a
          * proper position for trimming.
          */
         if (detail::cal_similarity(fwd_subseq_vec, fwd_adapter_vec, len)
@@ -366,7 +367,7 @@ class AdapterTrimmer {
   /**
    * @brief preprocess for paired-end reads, resize both reads to same length,
    * and transform `N` to randomly "ATCG"
-   * 
+   *
    * @param fwd_read forward read
    * @param rev_read reverse read
    * @return None
@@ -400,7 +401,7 @@ class AdapterTrimmer {
 
 
   /**
-   * @brief get the possible adapter positions by calcuate the similarity 
+   * @brief get the possible adapter positions by calcuate the similarity
    * between reverse complement of reverse read and forward read, and vice versa.
    * We will return the intersect between two set of positions.
    * @param fwd_seq forward sequence
@@ -408,8 +409,8 @@ class AdapterTrimmer {
    * @return std::vector<std::size_t>
    */
   auto get_possible_intersect(SeqView fwd_seq,
-                              SeqView rev_seq) const noexcept 
-                              -> std::vector<std::size_t> {
+                              SeqView rev_seq) const noexcept
+    -> std::vector<std::size_t> {
     auto seq_pair = std::array { fwd_seq, rev_seq };
     auto possible_pos = std::array<std::vector<std::size_t>, 2>{};
 
@@ -424,19 +425,19 @@ class AdapterTrimmer {
                                   std::back_inserter(intersect_pos));
     return intersect_pos;
   };
-  
+
   /**
    * @brief detect adatper from the first `DETECT_READS` reads of given files.
-   * 
-   * @param forward_reads 
-   * @param reverse_reads 
-   * @param sensitive 
+   *
+   * @param forward_reads
+   * @param reverse_reads
+   * @param sensitive
    * @return std::pair<SeqType, SeqType>
    */
   auto detect_adapter(const std::vector<R>& forward_reads,
                       const std::vector<R>& reverse_reads,
-                      bool sensitive) noexcept 
-                      -> std::pair<SeqType, SeqType> {
+                      bool sensitive) noexcept
+    -> std::pair<SeqType, SeqType> {
 
     auto forward_tails = std::vector<SeqView> {};
     auto reverse_tails = std::vector<SeqView> {};
@@ -501,7 +502,7 @@ class AdapterTrimmer {
   /**
    * @brief After we get assembled adatper, trim reads on the postion by calling
    * `get_trim_pos`
-   * 
+   *
    * @param forward_read forward read
    * @param reverse_read reverse read
    * @param forward_adapter forward assembled adapter
@@ -509,9 +510,9 @@ class AdapterTrimmer {
    * @return void
    */
   auto trim_read(R& forward_read, R& reverse_read,
-                 const SeqType& forward_adapter, const SeqType& reverse_adapter) 
-                 const noexcept
-                 -> void {
+                 const SeqType& forward_adapter, const SeqType& reverse_adapter)
+    const noexcept
+    -> void {
     auto fwd_seq_view = SeqView(forward_read.seq);
     auto rev_seq_view = SeqView(reverse_read.seq);
 
@@ -535,7 +536,7 @@ class AdapterTrimmer {
   /**
    * @brief trim reads in asynchronous mode
    * @details
-   * 
+   *
    * @param forward_fin std::ifstream of file contains forward reads
    * @param reverse_fin std::ifstream of file contains reverse reads
    * @param forward_fout std::ofstream of file store trimmed forward reads
@@ -544,8 +545,9 @@ class AdapterTrimmer {
    * @param sensitive whether perform trimming in sensitive mode
    * @return `void`
    */
-  auto asio_trim(std::ifstream& forward_fin, std::ifstream& reverse_fin,
-                 std::ofstream& forward_fout, std::ofstream& reverse_fout,
+  template<class IStream, class OStream>
+  auto asio_trim(IStream& forward_fin, IStream& reverse_fin,
+                 OStream& forward_fout, OStream& reverse_fout,
                  int thread_num, const bool sensitive) {
 
     using BufType = std::vector<R>;
@@ -558,13 +560,14 @@ class AdapterTrimmer {
     if (!std::filesystem::create_directory(fwd_tmp_dir) ||
         !std::filesystem::create_directory(rev_tmp_dir)) {
       SPDLOG_ERROR("Cannot create temporary directory {} and {}", fwd_tmp_dir.string(), rev_tmp_dir.string());
-      std::exit(1);
+      throw std::runtime_error("Cannot create temporary directory");
     }
     auto ios = boost::asio::io_context {};
     auto guard = boost::asio::make_work_guard(ios);
     auto total_batch = -1LL;
     auto writed_batch = std::set<std::size_t> {};
     auto writed_batch_mtx = std::mutex {};
+
 
     std::vector<std::jthread> threads(thread_num - 1);
     for (auto i = 0; i < thread_num - 1; i++) {
@@ -575,15 +578,31 @@ class AdapterTrimmer {
 
     SPDLOG_DEBUG("Start Trimming by using Asychronous IO");
 
+    SamHeader fwd_header, rev_header;
+    if constexpr (std::same_as<IStream, IBamStream>) {
+      forward_fin >> fwd_header;
+      reverse_fin >> rev_header;
+    }
     auto write_all_files = [&]() {
       auto batch = 0LL;
-      auto final_write = [](std::filesystem::path p, std::ofstream& fout) {
-        auto fin = std::ifstream(p, std::ios::binary);
+      auto final_write = [](std::filesystem::path p, OStream& fout) {
+        auto fin = IStream(p);
         assert(fin.is_open());
-        fout << fin.rdbuf() << std::flush;
+        if constexpr (std::same_as<OStream, OBamStream>) {
+          SamRecord<false> r;
+          while (fin >> r) {
+            fout << r;
+          }
+        } else {
+          fout << fin.rdbuf() << std::flush;
+        }
         fin.close();
         std::filesystem::remove(p);
       };
+      if constexpr (std::same_as<OStream, OBamStream>) {
+        forward_fout << fwd_header;
+        reverse_fout << rev_header;
+      }
       while (1) {
         while (writed_batch.contains(batch)) {
           auto fwd_path = fwd_tmp_dir / std::to_string(batch);
@@ -621,7 +640,7 @@ class AdapterTrimmer {
         }
         if (fwd_eof != rev_eof) {
           SPDLOG_ERROR("The forward reads file and reverse reads files doesn't contain same amount reads");
-          exit(EXIT_FAILURE);
+          throw std::runtime_error("The forward reads file and reverse reads files doesn't contain same amount reads");
         } else if (fwd_eof) {
           return std::make_tuple(true, std::move(fwd_buf), std::move(rev_buf));
         }
@@ -635,7 +654,7 @@ class AdapterTrimmer {
         auto fout = std::ofstream(p, std::ios::binary);
         if (!fout.is_open()) {
           SPDLOG_ERROR("Cannot open tmp file {}", p.string());
-          exit(EXIT_FAILURE);
+          throw std::runtime_error("Cannot open tmp file");
         }
         for (const auto& r : buf) {
           fout << r << '\n';
@@ -673,8 +692,8 @@ class AdapterTrimmer {
         }
         // SPDLOG_DEBUG("[Pipeline] Read batch {} finished", batch);
         boost::asio::post(ios, std::bind(trim_reads, batch,
-                                         std::move(fwd_buf),
-                                         std::move(rev_buf)));
+          std::move(fwd_buf),
+          std::move(rev_buf)));
         batch++;
         if (eof) {
           forward_fin.close();
@@ -685,12 +704,17 @@ class AdapterTrimmer {
       auto ed = std::chrono::high_resolution_clock::now();
       SPDLOG_DEBUG("[Asio trim] read files takes {} ms", (ed - bg) / 1ms);
       total_batch = batch;
-      
+
       boost::asio::post(ios, [&guard]() { guard.reset(); });
     };
 
-    forward_fin.seekg(0);
-    reverse_fin.seekg(0);
+    if constexpr (std::same_as<IStream, IBamStream>) {
+      forward_fin.to_begin();
+      reverse_fin.to_begin();
+    } else {
+      forward_fin.seekg(0);
+      reverse_fin.seekg(0);
+    }
 
     spdlog::info("Start trimming...");
     if (thread_num <= 4) {
@@ -726,7 +750,7 @@ public:
 
   /**
    * @brief Set the RC check threshold. The RC check threshold is use
-   * 
+   *
    * @param ratio RC check threshold, the value should between [0.0 - 1.0]
    * @return None
    */
@@ -739,10 +763,10 @@ public:
   }
 
   /**
-   * @brief Set the SS check threshold. 
-   * 
+   * @brief Set the SS check threshold.
+   *
    * @param ratio SS check threshold, the value should between [0.0 - 1.0]
-   * @return None 
+   * @return None
    */
   auto set_ss_check_threshold(const double ratio) noexcept {
     if (ratio < 0 || 1 < ratio) {
@@ -754,9 +778,9 @@ public:
 
   /**
    * @brief Set the AS check threshold.
-   * 
+   *
    * @param ratio AS check threshold, the value should between [0.0 - 1.0]
-   * @return None 
+   * @return None
    */
   auto set_as_check_threshold(const double ratio) noexcept {
     if (ratio < 0 || 1 < ratio) {
@@ -768,7 +792,7 @@ public:
 
   /**
    * @brief Set the minimum read length after adapter trimming.
-   * 
+   *
    * @param len Minimum read length that the trimmed read have.
    * @return None
    */
@@ -780,9 +804,9 @@ public:
   /**
    * @brief Set the default adapter1, which will be used when cannot auto-detect
    * adapter1
-   * 
-   * @param adapter 
-   * @return None 
+   *
+   * @param adapter
+   * @return None
    */
   auto set_default_adapter1(const std::string& adapter) {
     param.DEFAULT_ADAPTER1 = adapter;
@@ -791,9 +815,9 @@ public:
   /**
    * @brief Set the default adapter2, which will be used when cannot auto-detect
    * adapter2
-   * 
-   * @param adapter 
-   * @return None 
+   *
+   * @param adapter
+   * @return None
    */
   auto set_default_adapter2(const std::string& adapter) {
     param.DEFAULT_ADAPTER2 = adapter;
@@ -802,7 +826,7 @@ public:
   /**
    * @brief Set the asio buffer size. This value is being used in ASIO mode
    * trimming.
-   * 
+   *
    * @param size The asio buffer size.
    * @return `void`
    */
@@ -811,18 +835,18 @@ public:
   }
 
   /**
-   * @brief Paired-end read adapter trimming in asychronous I/O(ASIO) mode. 
-   * Compare to non-asychronous I/O mode, ASIO mode consume less memory and use 
-   * less cpu usage when trimming, but it will increase the overload on 
+   * @brief Paired-end read adapter trimming in asychronous I/O(ASIO) mode.
+   * Compare to non-asychronous I/O mode, ASIO mode consume less memory and use
+   * less cpu usage when trimming, but it will increase the overload on
    * system I/O.
-   * 
+   *
    * @param forward_reads_path the file path contains forward reads
    * @param reverse_reads_path the file path contains reverse reads
    * @param forward_output_path the file path to store the trimmed forward reads
    * @param reverse_output_path the file path to store the trimmed reverse reads
    * @param thread_num the maximum thread used to trimming the reads
    * @param sensitive whether trim the reads in sensitive mode. The sensitive
-   * mode should be used when guaranted the forward reads and reverse reads 
+   * mode should be used when guaranted the forward reads and reverse reads
    * contains adapters.
    * @return None
    */
@@ -833,38 +857,6 @@ public:
             int thread_num = std::thread::hardware_concurrency(),
             const bool sensitive = false) {
 
-    auto check_path_exists = [](const std::filesystem::path& path) {
-      if (!std::filesystem::exists(path)) {
-        SPDLOG_ERROR("{} doesn't exists", path.string());
-        std::exit(1);
-      }
-    };
-
-    auto open_input_file = [](const std::filesystem::path& path) {
-      std::ifstream fin(std::filesystem::absolute(path));
-      if (!fin.is_open()) {
-        SPDLOG_ERROR("Cannot open {}", path.string());
-        std::exit(1);
-      }
-      return fin;
-    };
-
-    auto open_output_file = [](const std::filesystem::path& path) {
-      std::ofstream fout(std::filesystem::absolute(path), std::ios::binary);
-      if (!fout.is_open()) {
-        SPDLOG_ERROR("Cannot open {}", path.string());
-        std::exit(1);
-      }
-      return fout;
-    };
-
-    check_path_exists(forward_reads_path);
-    check_path_exists(reverse_reads_path);
-    auto fwd_fin = open_input_file(forward_reads_path);
-    auto rev_fin = open_input_file(reverse_reads_path);
-    auto fwd_fout = open_output_file(forward_output_path);
-    auto rev_fout = open_output_file(reverse_output_path);
-
     if (thread_num <= 0) {
       thread_num = 1;
     } else {
@@ -872,8 +864,40 @@ public:
                             thread_num);
     }
 
-    print_param(sensitive, thread_num, true);
-    asio_trim(fwd_fin, rev_fin, fwd_fout, rev_fout, thread_num, sensitive);
+    auto fwd_fin_type = detail::parse_file_format(forward_reads_path);
+    auto rev_fin_type = detail::parse_file_format(reverse_reads_path);
+    if (fwd_fin_type & detail::FILE_FORMAT::ERROR) {
+      SPDLOG_ERROR("Unsupported file format: {}", forward_reads_path.string());
+      throw std::invalid_argument("Unsupported file format");
+    }
+    if (rev_fin_type & detail::FILE_FORMAT::ERROR) {
+      SPDLOG_ERROR("Unsupported file format: {}", reverse_reads_path.string());
+      throw std::invalid_argument("Unsupported file format");
+    }
+    if (fwd_fin_type != rev_fin_type) {
+      throw std::invalid_argument("The file of forward reads and reverse reads must be the same type");
+    }
+
+    if (fwd_fin_type == detail::FILE_FORMAT::BAM) {
+      if constexpr (std::same_as<R, SamRecord<R::encoded>>) {
+        auto fwd_fin = detail::open_input_file<IBamStream>(forward_reads_path);
+        auto rev_fin = detail::open_input_file<IBamStream>(reverse_reads_path);
+        auto fwd_fout = detail::open_output_file<OBamStream>(forward_output_path);
+        auto rev_fout = detail::open_output_file<OBamStream>(reverse_output_path);
+        print_param(sensitive, thread_num, true);
+        asio_trim(fwd_fin, rev_fin, fwd_fout, rev_fout, thread_num, sensitive);
+      } else {
+        SPDLOG_ERROR("The type of input and output must be `SamRecord` when input file is BAM");
+        throw std::invalid_argument("The type of input and output must be `SamRecord` when input file is BAM");
+      }
+    } else {
+      auto fwd_fin = detail::open_input_file<>(forward_reads_path);
+      auto rev_fin = detail::open_input_file<>(reverse_reads_path);
+      auto fwd_fout = detail::open_output_file<>(forward_output_path);
+      auto rev_fout = detail::open_output_file<>(reverse_output_path);
+      print_param(sensitive, thread_num, true);
+      asio_trim(fwd_fin, rev_fin, fwd_fout, rev_fout, thread_num, sensitive);
+    }
   }
 
   /**
@@ -882,7 +906,7 @@ public:
    * @param forward_reads `std::vector<R>` contains all forward reads
    * @param reverse_reads `std::vector<R>` contains all reverse reads
    * @param thread_num the maximum thread used to trimming the reads
-   * @param sensitive whether perfrom adapter trimming in sensitive mode. The 
+   * @param sensitive whether perfrom adapter trimming in sensitive mode. The
    * sensitive mode can be used when you guarantee there are adapter inside the
    * reads
    * @return `std::pair<std::vector<R>, std::vector<R>>` contains trimmed
@@ -891,10 +915,10 @@ public:
   auto trim(std::vector<R> forward_reads, std::vector<R> reverse_reads,
             int thread_num = std::thread::hardware_concurrency(),
             const bool sensitive = false) {
-    
+
     if (forward_reads.size() != reverse_reads.size()) {
       SPDLOG_ERROR("The size between forward read and reverse read is differnt");
-      exit(EXIT_FAILURE);
+      throw std::runtime_error("The size between forward read and reverse read is differnt");
     }
     if (thread_num <= 0) {
       thread_num = 1;
@@ -909,7 +933,7 @@ public:
     const auto reads_size = forward_reads.size();
     print_param(sensitive, thread_num, false);
     spdlog::info("The read size = {}", reads_size);
-    #pragma omp parallel for
+  #pragma omp parallel for
     for (auto i = 0u; i < reads_size; i++) {
       preprocess(forward_reads[i], reverse_reads[i]);
     }
@@ -922,8 +946,8 @@ public:
     auto [fwd_adapter, rev_adapter] = detect_adapter(fwd_sub_reads,
                                                      rev_sub_reads,
                                                      sensitive);
-    
-    #pragma omp parallel for
+
+  #pragma omp parallel for
     for (auto i = 0ul; i < reads_size; i++) {
       trim_read(forward_reads[i], reverse_reads[i], fwd_adapter, rev_adapter);
     }

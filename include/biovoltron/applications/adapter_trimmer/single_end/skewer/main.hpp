@@ -30,29 +30,25 @@
  */
 
 #pragma once
-#include <cstring>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
+#include <string>
+#include <vector>
+#include <ctime>
 #include <algorithm>
 #include <pthread.h>
 #include <unistd.h>
-#include <assert.h>
+#include <cassert>
 
 #include <biovoltron/applications/adapter_trimmer/single_end/skewer/common.hpp>
 #include <biovoltron/applications/adapter_trimmer/single_end/skewer/fastq.hpp>
 #include <biovoltron/applications/adapter_trimmer/single_end/skewer/parameter.hpp>
 #include <biovoltron/applications/adapter_trimmer/single_end/skewer/matrix.hpp>
 
-// #include "common.h"
-// #include "fastq.h"
-// #include "parameter.h"
-// #include "matrix.h"
-
 using namespace std;
 
-namespace skewer{ 
+namespace skewer{
 inline void OutputTaggedRecord(FILE * fpOut, RECORD * pRecord)
 {
 	// refer to "enum REC_TAG" defined in "fastq.h"
@@ -124,7 +120,7 @@ private:
 	size_t nBarcodes;
 	long * pHist;
 	long * pBarcode;
-	vector<string> * pBarcodeNames;
+	std::vector<std::string> * pBarcodeNames;
 	const char * pDecorate;
 
 public:
@@ -201,7 +197,7 @@ public:
 		nBarcodes = 0;
 		iCutF = iCutR = 0;
 		pDecorate = "";
-		
+
 		fpOuts = fpOuts2 = NULL;
 		fpMasked = fpMasked2 = NULL;
 		fpMask = fpMask2 = NULL;
@@ -506,12 +502,12 @@ public:
 
 		curtime = time(NULL);
 		loctime = localtime(&curtime);
-		sprintf(result, "%.3s %.3s%3d %.2d:%.2d:%.2d %d",
+		sprintf(result, "%.3s %.3s %2d %.2d:%.2d:%.2d %4d",
 			wday_name[loctime->tm_wday],
 			mon_name[loctime->tm_mon],
 			loctime->tm_mday, loctime->tm_hour,
 			loctime->tm_min, loctime->tm_sec,
-			1900 + loctime->tm_year);
+			(1900 + loctime->tm_year) % 10000);
 		return result;
 	}
 	void printTime(const char * message, FILE * fp, int flag=0x1){
@@ -597,7 +593,7 @@ typedef struct{
 	TASK_TYPE type;
 	int nItemCnt;
 	int nBlockSize;
-	int64 startId;
+	int64_t startId;
 }TASK;
 
 class cTaskManager
@@ -613,7 +609,7 @@ private:
 	int nBufferSize;
 	bool bFinished;
 
-	int64 nextId;
+	int64_t nextId;
 public:
 	bool bSingleBlock;
 
@@ -627,7 +623,7 @@ public:
 		pthread_mutex_destroy(&mutex_cnt);
 		pthread_mutex_destroy(&mutex);
 	}
-	void initialize(int nSize, int nBlockSize, int64 id = 0L){
+	void initialize(int nSize, int nBlockSize, int64_t id = 0L){
 		TASK task;
 
 		task.type = TASK_READ;
@@ -812,7 +808,7 @@ public:
 		pBuffer = NULL;
 		size = 0;
 	}
-	bool Init(cParameter * pParameter, cStats * pStats, int64 total_file_length, FILE * fp, FILE * fp2=NULL){
+	bool Init(cParameter * pParameter, cStats * pStats, int64_t total_file_length, FILE * fp, FILE * fp2=NULL){
 		mt = (mtaux_t *)calloc(1, sizeof(mtaux_t));
 		if(mt == NULL)
 			return false;
@@ -842,7 +838,7 @@ public:
 		}
 		cMatrix::InitParameters(pParameter->trimMode, pParameter->epsilon, pParameter->delta, pParameter->baseQual, pParameter->bShareAdapter, pParameter->bIsLowComplexity);
 		cMatrix::iMinOverlap = pParameter->minK;
-		vector<string> *pAdapters;
+		std::vector<std::string> *pAdapters;
 		TRIM_MODE trimMode = ((pParameter->trimMode & TRIM_ANY) == TRIM_DEFAULT) ? TRIM_TAIL : TRIM_MODE(pParameter->trimMode & TRIM_ANY);
 		pAdapters = &pParameter->adapters;
 		for(i=0; i<int(pAdapters->size()); i++){
@@ -882,7 +878,7 @@ void * mt_worker(void * data)
 	cData * pData = (cData *)data;
 	cTaskManager *pTaskMan = pData->pTaskMan;
 	cStats * pStats = pData->pStats;
-	int64 file_length = pStats->total_file_length;
+	int64_t file_length = pStats->total_file_length;
 	cFQ * pfq = pStats->pfq;
 	FILE *fpOut = pStats->fpOut;
 	FILE *fpMask = pStats->fpMask;
@@ -894,17 +890,17 @@ void * mt_worker(void * data)
 	bool bFivePrimeEnd = pStats->bFivePrimeEnd;
 	bool bBarcode = pStats->bBarcode;
 	bool bCutTail = pStats->bCutTail;
-	
+
 	RECORD * pBuffer, *pRecord;
 	TASK task;
 	int size, rc, nItemCnt, nCnt;
-	int64 startId;
+	int64_t startId;
 
 	pBuffer = pData->pBuffer;
 	size = pData->size;
 	rc = 0;
 
-	int64 cur_pos;
+	int64_t cur_pos;
 	double cur_ratio;
 	int pos;
 
@@ -936,9 +932,9 @@ void * mt_worker(void * data)
 			if(!pStats->bQuiet){
 				cur_pos = pfq->tell();
 				if(cur_pos >= pfq->next_pos){
-					cur_ratio = int64(cur_pos * 10000 / file_length) / 10000.0;
+					cur_ratio = int64_t(cur_pos * 10000 / file_length) / 10000.0;
 					pStats->progress(cur_ratio, 50);
-					pfq->next_pos = int64(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
+					pfq->next_pos = int64_t(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
 				}
 			}
 			if(rc < 0){ // error or end of file
@@ -1029,7 +1025,7 @@ void * mt_worker(void * data)
 					}
 					pos = maxLen;
 				}
-				
+
 				if(bBarcode){
 					int bc = pRecord->idx.bc - 1;
 					if(bc < 0){
@@ -1090,7 +1086,7 @@ void * mt_worker_ap(void * data)
 	cData * pData = (cData *)data;
 	cTaskManager *pTaskMan = pData->pTaskMan;
 	cStats * pStats = pData->pStats;
-	int64 file_length = pStats->total_file_length;
+	int64_t file_length = pStats->total_file_length;
 	cFQ * pfq = pStats->pfq;
 	FILE *fpOut = pStats->fpOut;
 	FILE *fpMask = pStats->fpMask;
@@ -1116,13 +1112,13 @@ void * mt_worker_ap(void * data)
 	TASK task;
 	int size, rc, nItemCnt, nCnt;
 	int flag;
-	int64 startId;
+	int64_t startId;
 
 	pBuffer = pData->pBuffer;
 	size = pData->size;
 	rc = 0;
 
-	int64 cur_pos;
+	int64_t cur_pos;
 	double cur_ratio;
 	int pos;
 
@@ -1154,9 +1150,9 @@ void * mt_worker_ap(void * data)
 			if(!pStats->bQuiet){
 				cur_pos = pfq->tell();
 				if(cur_pos >= pfq->next_pos){
-					cur_ratio = int64(cur_pos * 10000 / file_length) / 10000.0;
+					cur_ratio = int64_t(cur_pos * 10000 / file_length) / 10000.0;
 					pStats->progress(cur_ratio, 50);
-					pfq->next_pos = int64(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
+					pfq->next_pos = int64_t(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
 				}
 			}
 			if(rc < 0){ // error or end of file
@@ -1179,7 +1175,7 @@ void * mt_worker_ap(void * data)
 				}
 				pRecord->tag = TAG_NORMAL;
 				flag = cMatrix::findAdaptersInARead(pRecord->seq.s, pRecord->seq.n, (uchar *)pRecord->qual.s, pRecord->qual.n, pRecord->idx);
-				// TODO: 
+				// TODO:
 				if(flag >= 0){
 					pRecord->bExchange = (flag == 1);
 					if(flag == 0){
@@ -1282,7 +1278,7 @@ void * mt_worker_ap(void * data)
 						OutputPartialRecord(fpOut, pRecord, iCut, pos);
 					}
 				}
-				
+
 				if(pRecord->idx.bc < 0){ // assigned
 					pStats->nUntrimAvail++;
 				}
@@ -1305,7 +1301,7 @@ void * mt_worker2(void * data)
 	cData * pData = (cData *)data;
 	cTaskManager *pTaskMan = pData->pTaskMan;
 	cStats * pStats = pData->pStats;
-	int64 file_length = pStats->total_file_length;
+	int64_t file_length = pStats->total_file_length;
 	cFQ * pfq = pStats->pfq;
 	cFQ * pfq2 = pStats->pfq2;
 	FILE *fpOut = pStats->fpOut;
@@ -1324,13 +1320,13 @@ void * mt_worker2(void * data)
 	RECORD *pBuffer, *pRecord, *pRecord2;
 	TASK task;
 	int size2, rc, rc2, nItemCnt, nCnt;
-	int64 startId;
+	int64_t startId;
 
 	pBuffer = pData->pBuffer;
 	size2 = pData->size * 2;
 	rc = rc2 = 0;
 
-	int64 cur_pos;
+	int64_t cur_pos;
 	double cur_ratio;
 	int pos, pos2, mLen;
 
@@ -1367,9 +1363,9 @@ void * mt_worker2(void * data)
 			if(!pStats->bQuiet){
 				cur_pos = pfq->tell() + pfq2->tell();
 				if(cur_pos >= pfq->next_pos){
-					cur_ratio = int64(cur_pos * 10000 / file_length) / 10000.0;
+					cur_ratio = int64_t(cur_pos * 10000 / file_length) / 10000.0;
 					pStats->progress(cur_ratio, 50);
-					pfq->next_pos = int64(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
+					pfq->next_pos = int64_t(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
 				}
 			}
 			if( (rc < 0) || (rc2 < 0) ){ // error or end of file
@@ -1557,7 +1553,7 @@ void * mt_worker2_sep(void * data)
 	cData * pData = (cData *)data;
 	cTaskManager *pTaskMan = pData->pTaskMan;
 	cStats * pStats = pData->pStats;
-	int64 file_length = pStats->total_file_length;
+	int64_t file_length = pStats->total_file_length;
 	cFQ * pfq = pStats->pfq;
 	cFQ * pfq2 = pStats->pfq2;
 	FILE *fpOut = pStats->fpOut;
@@ -1577,13 +1573,13 @@ void * mt_worker2_sep(void * data)
 	RECORD *pBuffer, *pRecord, *pRecord2;
 	TASK task;
 	int size2, rc, rc2, nItemCnt, nCnt;
-	int64 startId;
+	int64_t startId;
 
 	pBuffer = pData->pBuffer;
 	size2 = pData->size * 2;
 	rc = rc2 = 0;
 
-	int64 cur_pos;
+	int64_t cur_pos;
 	double cur_ratio;
 	int pos, pos2, mLen;
 
@@ -1617,9 +1613,9 @@ void * mt_worker2_sep(void * data)
 			if(!pStats->bQuiet){
 				cur_pos = pfq->tell() + pfq2->tell();
 				if(cur_pos >= pfq->next_pos){
-					cur_ratio = int64(cur_pos * 10000 / file_length) / 10000.0;
+					cur_ratio = int64_t(cur_pos * 10000 / file_length) / 10000.0;
 					pStats->progress(cur_ratio, 50);
-					pfq->next_pos = int64(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
+					pfq->next_pos = int64_t(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
 				}
 			}
 			if( (rc < 0) || (rc2 < 0) ){ // error or end of file
@@ -1634,7 +1630,7 @@ void * mt_worker2_sep(void * data)
 			for(pRecord=&pBuffer[(startId << 1) % size2], nCnt=0; nCnt < nItemCnt; nCnt++, pRecord+=2){
 				pRecord2 = pRecord + 1;
 				if( pStats->bFilterNs &&
-					(cMatrix::isBlurry(pRecord->seq.s, pRecord->seq.n) && 
+					(cMatrix::isBlurry(pRecord->seq.s, pRecord->seq.n) &&
 					cMatrix::isBlurry(pRecord2->seq.s, pRecord2->seq.n)) ){
 					pRecord->tag = pRecord2->tag = TAG_BLURRY;
 					continue;
@@ -1813,7 +1809,7 @@ void * mt_worker2_ap(void * data)
 	cData * pData = (cData *)data;
 	cTaskManager *pTaskMan = pData->pTaskMan;
 	cStats * pStats = pData->pStats;
-	int64 file_length = pStats->total_file_length;
+	int64_t file_length = pStats->total_file_length;
 	cFQ * pfq = pStats->pfq;
 	cFQ * pfq2 = pStats->pfq2;
 	FILE *fpOut = pStats->fpOut;
@@ -1843,13 +1839,13 @@ void * mt_worker2_ap(void * data)
 	TASK task;
 	int size2, rc, rc2, nItemCnt, nCnt;
 	int flag;
-	int64 startId;
+	int64_t startId;
 
 	pBuffer = pData->pBuffer;
 	size2 = pData->size * 2;
 	rc = rc2 = 0;
 
-	int64 cur_pos;
+	int64_t cur_pos;
 	double cur_ratio;
 	int pos, pos2, mLen;
 
@@ -1883,9 +1879,9 @@ void * mt_worker2_ap(void * data)
 			if(!pStats->bQuiet){
 				cur_pos = pfq->tell() + pfq2->tell();
 				if(cur_pos >= pfq->next_pos){
-					cur_ratio = int64(cur_pos * 10000 / file_length) / 10000.0;
+					cur_ratio = int64_t(cur_pos * 10000 / file_length) / 10000.0;
 					pStats->progress(cur_ratio, 50);
-					pfq->next_pos = int64(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
+					pfq->next_pos = int64_t(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
 				}
 			}
 			if( (rc < 0) || (rc2 < 0) ){ // error or end of file
@@ -1900,7 +1896,7 @@ void * mt_worker2_ap(void * data)
 			for(pRecord=&pBuffer[(startId << 1) % size2], nCnt=0; nCnt < nItemCnt; nCnt++, pRecord+=2){
 				pRecord2 = pRecord + 1;
 				if( pStats->bFilterNs &&
-					(cMatrix::isBlurry(pRecord->seq.s, pRecord->seq.n) && 
+					(cMatrix::isBlurry(pRecord->seq.s, pRecord->seq.n) &&
 					cMatrix::isBlurry(pRecord2->seq.s, pRecord2->seq.n)) ){
 					pRecord->tag = pRecord2->tag = TAG_BLURRY;
 					continue;
@@ -2009,7 +2005,7 @@ void * mt_worker2_ap(void * data)
 					if(pos > maxLen) pos = maxLen;
 					if(pos2 > maxLen) pos2 = maxLen;
 				}
-				
+
 				if(bBarcode){
 					if(pRecord->idx.bc < 0){
 						fpOut = pStats->fpUntrim.fp;
@@ -2089,7 +2085,7 @@ void * mt_worker2_mp(void * data)
 	cData * pData = (cData *)data;
 	cTaskManager *pTaskMan = pData->pTaskMan;
 	cStats * pStats = pData->pStats;
-	int64 file_length = pStats->total_file_length;
+	int64_t file_length = pStats->total_file_length;
 	cFQ * pfq = pStats->pfq;
 	cFQ * pfq2 = pStats->pfq2;
 	FILE *fpOut = pStats->fpOut;
@@ -2110,13 +2106,13 @@ void * mt_worker2_mp(void * data)
 	RECORD *pBuffer, *pRecord, *pRecord2;
 	TASK task;
 	int size2, rc, rc2, nItemCnt, nCnt;
-	int64 startId;
+	int64_t startId;
 
 	pBuffer = pData->pBuffer;
 	size2 = pData->size * 2;
 	rc = rc2 = 0;
 
-	int64 cur_pos;
+	int64_t cur_pos;
 	double cur_ratio;
 	int pos, pos2;
 
@@ -2153,9 +2149,9 @@ void * mt_worker2_mp(void * data)
 			if(!pStats->bQuiet){
 				cur_pos = pfq->tell() + pfq2->tell();
 				if(cur_pos >= pfq->next_pos){
-					cur_ratio = int64(cur_pos * 10000 / file_length) / 10000.0;
+					cur_ratio = int64_t(cur_pos * 10000 / file_length) / 10000.0;
 					pStats->progress(cur_ratio, 50);
-					pfq->next_pos = int64(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
+					pfq->next_pos = int64_t(((cur_ratio * 10000 + 1) * file_length + 9999)/10000);
 				}
 			}
 			if( (rc < 0) || (rc2 < 0) ){ // error or end of file
@@ -2376,7 +2372,7 @@ void * mt_worker2_mp(void * data)
 					if(pos > maxLen) pos = maxLen;
 					if(pos2 > maxLen) pos2 = maxLen;
 				}
-				
+
 				if(bBarcode){
 					if(pRecord->idx.bc < 0){
 						fpOut = pStats->fpUntrim.fp;
@@ -2453,7 +2449,7 @@ int processFile(cParameter * pParameter, cStats * pStats)
 	CFILE cf;
 	int i;
 
-	int64 file_length;
+	int64_t file_length;
 	if(pParameter->bStdin){
 		cf.fp = stdin;
 		file_length = -1;
@@ -2513,7 +2509,7 @@ int processPairedFiles(cParameter * pParameter, cStats * pStats)
 	CFILE cf, cf2;
 	int i;
 
-	int64 file_length = gzsize(inFile) + gzsize(inFile2);
+	int64_t file_length = gzsize(inFile) + gzsize(inFile2);
 	cf = gzopen(inFile, "r");
 	cf2 = gzopen(inFile2, "r");
 	if( (cf.fp == NULL) || (cf2.fp == NULL) ){

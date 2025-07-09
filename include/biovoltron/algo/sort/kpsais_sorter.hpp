@@ -14,7 +14,7 @@ namespace biovoltron {
 
 template <typename size_type = std::uint32_t>
 struct KPsaisSorter {
-
+  using SA_t = std::vector<size_type>;
   static auto
   get_sa(istring_view ref, size_t sort_len = 256u) {
     auto SA = std::vector<size_type>{};

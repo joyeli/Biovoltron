@@ -2,6 +2,7 @@
 
 #include <biovoltron/file_io/core/header.hpp>
 #include <biovoltron/file_io/core/record.hpp>
+#include <biovoltron/file_io/fasta.hpp>
 #include <biovoltron/utility/interval.hpp>
 
 namespace biovoltron {
@@ -200,6 +201,72 @@ struct VcfRecord : HeaderableRecord {
    * start and end of position, and the strand of segment.
    */
   operator auto() const { return Interval{chrom, pos - 1, pos, '+'}; }
+};
+
+struct VcfUtil {
+  /**
+   * @brief fasta and vcf consensus function
+   * @para vector of fasta and vcf
+   *
+   * return vector of consensus fasta
+   */
+  static auto
+  consense(const std::vector<FastaRecord<>>& fasta,
+           const std::vector<VcfRecord>& vcf) {
+    auto fasta_con = fasta;
+    auto vcf_sort = vcf;
+    // O(n^2)
+    /*for (auto& con : fasta_con) {
+      size_t leng = 0;
+      std::ranges::for_each(
+        vcf | std::views::filter([&con](const VcfRecord& v) {
+          return con.name == v.chrom;
+        }),
+        [&con, &leng](const VcfRecord& v) {
+          auto first = con.seq.substr(0, v.pos - 1 + leng);
+          auto last = con.seq.substr(
+            v.pos - 1 + (v.ref == "." ? 0 : v.ref.length()) + leng);
+          if (v.ref == ".") {
+            con.seq = first + v.alt + last;
+            leng += v.alt.length();
+          } else if (v.alt == ".") {
+            con.seq = first + "." + last;
+            leng -= v.ref.length();
+          } else {
+            con.seq = first + v.alt + last;
+            leng += v.alt.length() - v.ref.length();
+          }
+        });
+    }*/
+   std::sort(vcf_sort.begin(), vcf_sort.end());
+   for (auto& con : fasta_con) {
+        auto tmp = con.seq;
+        const char* ptr = tmp.c_str();
+        con.seq = "";
+        size_t vminus = 0;
+        auto seqadd_view = vcf_sort
+            | std::views::filter([&con](const VcfRecord& v) { return con.name == v.chrom; })
+            | std::views::transform([&](const VcfRecord& v) {
+                size_t index = ptr - tmp.c_str();
+                auto seqadd = tmp.substr(index, v.pos - 1 - vminus - index);
+                tmp = tmp.substr(v.pos - 1 - vminus);
+                ptr = tmp.c_str() + (v.ref == "." ? 0 : v.ref.length());
+                std::string addstr;
+                if (v.alt == ".") {
+                    addstr = seqadd + ".";
+                } else {
+                    addstr = seqadd + v.alt;
+                }
+                vminus = v.pos - 1;
+                return addstr;
+            });
+        for (const auto& tmpstr : seqadd_view) {
+            con.seq += tmpstr;
+        }
+        con.seq.append(ptr);
+    }
+    return fasta_con;
+  };
 };
 
 }  // namespace biovoltron

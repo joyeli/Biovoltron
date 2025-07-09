@@ -30,7 +30,7 @@
       <tab type="user"     visible="yes" title="Bug Reporting"    url="@ref contribute-bug-reporting" />
       <tab type="user"     visible="yes" title="Environment Setup"    url="@ref contribute-setup" />
       <tab type="user"     visible="yes" title="Development Workflow"    url="@ref contribute-development-workflow" />
-      <tab type="user"     visible="yes" title="C++ Coding Guidelines"    url="@ref contribute-coding-guideline" />
+      <tab type="user"     visible="yes" title="C++ Coding Guidelines"    url="@ref codingstyle" />
       <tab type="user"     visible="yes" title="Git style"    url="@ref contribute-git-style" />
       <tab type="user"     visible="yes" title="Doxygen Comment Guidelines"    url="@ref contribute-doxygen" />
     </tab>

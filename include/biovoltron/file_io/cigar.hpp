@@ -69,6 +69,8 @@ struct Cigar {
   std::vector<Element> elements;
   static auto
   to_elements(std::string_view cigar_string) {
+    if (cigar_string == "*")
+      return std::vector<Element>{};
     auto elements = std::vector<Element>{};
     for (auto i = 0u; i < cigar_string.size(); i++) {
       auto size = cigar_string[i] - '0';
@@ -427,6 +429,8 @@ struct Cigar {
    */
   friend auto&
   operator<<(std::ostream& os, const Cigar& cigar) {
+    if (cigar.size() == 0)
+      return os << "*";
     for (const auto [size, op] : cigar) os << size << op;
     return os;
   }

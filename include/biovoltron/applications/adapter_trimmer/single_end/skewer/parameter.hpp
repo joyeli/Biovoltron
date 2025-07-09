@@ -30,12 +30,10 @@
  */
 #pragma once
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <float.h>
+#include <cstdlib>
 #include <string>
-#include <stdarg.h>
+#include <vector>
+#include <cstdarg>
 
 #include <biovoltron/applications/adapter_trimmer/single_end/skewer/fastq.hpp>
 
@@ -128,38 +126,38 @@ private:
 
 public:
 	const char* version;
-	string x_str;
-	string y_str;
-	string m_str;
-	string j_str;
-	vector<string> adapters;
-	vector<string> adapters2;
-	vector< vector<bool> > bMatrix;
-	vector<string> rowNames;
-	vector<string> colNames;
-	vector<string> juncAdapters;
+	std::string x_str;
+	std::string y_str;
+	std::string m_str;
+	std::string j_str;
+	std::vector<std::string> adapters;
+	std::vector<std::string> adapters2;
+	std::vector< std::vector<bool> > bMatrix;
+	std::vector<std::string> rowNames;
+	std::vector<std::string> colNames;
+	std::vector<std::string> juncAdapters;
 	char* input[2];
 	// These are the output fastq files for the
 	// trimmed reads that pass filters
-	vector<string> output;
-	vector<string> output2;
+	std::vector<std::string> output;
+	std::vector<std::string> output2;
 	// These are the output fastq files for only
 	// the reads that passed filters AND were trimmed.
 	// The full reads appear in the file with the
 	// trimmed bases in lower case rather than removed.
-	vector<string> masked;
-	vector<string> masked2;
+	std::vector<std::string> masked;
+	std::vector<std::string> masked2;
 	bool bWriteMasked;
 	// These files contain the reads that were excluded
 	// from the output because they failed filters.
-	vector<string> excluded;
-	vector<string> excluded2;
+	std::vector<std::string> excluded;
+	std::vector<std::string> excluded2;
 	bool bWriteExcluded;
-	vector<string> barcodeNames;
-	string barcodes;
-	string mapfile;
-	string untrimmed;
-	string untrimmed2;
+	std::vector<std::string> barcodeNames;
+	std::string barcodes;
+	std::string mapfile;
+	std::string untrimmed;
+	std::string untrimmed2;
 	char logfile[MAX_PATH + 1 + 100];
 	const char* pDecorate;
 	TRIM_MODE trimMode;
@@ -190,7 +188,7 @@ private:
 	char* occOfLastDot(char* str);
 	bool IsDirectorySpecified(char* str);
 	int ReadMatrix(const char* fileName);
-	int ReadFasta(const char* fileName, vector<string>& sequences);
+	int ReadFasta(const char* fileName, std::vector<std::string>& sequences);
 
 public:
 	cParameter();
@@ -206,9 +204,9 @@ public:
 	int GetOpt(int argc, const char* argv[], char* errMsg);
 };
 
-void color_fprintf_sequences(int colorCode, FILE *stream, vector<string> &sequences, char leading)
+void color_fprintf_sequences(int colorCode, FILE *stream, std::vector<std::string> &sequences, char leading)
 {
-	vector<string>::iterator it_seq;
+	std::vector<std::string>::iterator it_seq;
 	int i;
 	for(i=1,it_seq=sequences.begin(); it_seq!=sequences.end(); it_seq++,i++){
 		fprintf(stream, "%c%02d:\t", leading, i);
@@ -216,10 +214,10 @@ void color_fprintf_sequences(int colorCode, FILE *stream, vector<string> &sequen
 	}
 }
 
-void color_fprintf_sequences(int colorCode, FILE *stream, vector<string> &sequences, vector<string> &names)
+void color_fprintf_sequences(int colorCode, FILE *stream, std::vector<std::string> &sequences, std::vector<std::string> &names)
 {
 	assert(sequences.size() + 1 == names.size());
-	vector<string>::iterator it_seq;
+	std::vector<std::string>::iterator it_seq;
 	int i;
 	for(i=1,it_seq=sequences.begin(); it_seq!=sequences.end(); it_seq++,i++){
 		fprintf(stream, "%s:\t", names[i].c_str());
@@ -269,7 +267,7 @@ cParameter::cParameter()
 
 	iCutF = iCutR = 0;
 	bCutTail = false;
-	
+
 	bWriteMasked = false;
 	bWriteExcluded = false;
 	bFillWithNs = false;
@@ -338,10 +336,10 @@ int cParameter::ReadMatrix(const char * fileName)
 		if(iRow == 1){
 			if( (pch == NULL) || (strcmp(pch, "%") != 0) ){
 				rowNames.push_back("%");
-				bMatrix.push_back(vector<bool>(colNames.size(),false));
+				bMatrix.push_back(std::vector<bool>(colNames.size(),false));
 			}
 		}
-		vector<bool> bvec;
+		std::vector<bool> bvec;
 		if(bAdd1stCol)
 			bvec.push_back(false);
 		while(pch != NULL){
@@ -367,7 +365,7 @@ int cParameter::ReadMatrix(const char * fileName)
 	return iRet;
 }
 
-int cParameter::ReadFasta(const char * fileName, vector<string> & sequences)
+int cParameter::ReadFasta(const char * fileName, std::vector<std::string> & sequences)
 {
 	char * line = NULL;
 	size_t alloc;
@@ -377,7 +375,7 @@ int cParameter::ReadFasta(const char * fileName, vector<string> & sequences)
 	int iRet = 0;
 	int len;
 	int no = 0;
-	string seq;
+	std::string seq;
 	while( (len = getline(&line, &alloc, fp)) > 0 ){
 		if(line[0] == '>'){
 			if(no > 0){
@@ -387,7 +385,7 @@ int cParameter::ReadFasta(const char * fileName, vector<string> & sequences)
 				}
 				if((int)seq.length() > MAX_ADAPTER_LEN){
 					if( (trimMode & TRIM_ANY) == TRIM_HEAD )
-						seq.assign(seq.substr(seq.length() - MAX_ADAPTER_LEN, string::npos));
+						seq.assign(seq.substr(seq.length() - MAX_ADAPTER_LEN, std::string::npos));
 					else
 						seq.assign(seq.substr(0, MAX_ADAPTER_LEN));
 				}
@@ -414,7 +412,7 @@ int cParameter::ReadFasta(const char * fileName, vector<string> & sequences)
 	if(seq.length() > 0){
 		if((int)seq.length() > MAX_ADAPTER_LEN){
 			if( (trimMode & TRIM_ANY) == TRIM_HEAD )
-				seq.assign(seq.substr(seq.length() - MAX_ADAPTER_LEN, string::npos));
+				seq.assign(seq.substr(seq.length() - MAX_ADAPTER_LEN, std::string::npos));
 			else
 				seq.assign(seq.substr(0, MAX_ADAPTER_LEN));
 		}
@@ -1039,7 +1037,7 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 		}
 		else{
 			if(int(x_str.length()) > MAX_ADAPTER_LEN){
-				string tmpString;
+				std::string tmpString;
 				if( (trimMode & TRIM_ANY) == TRIM_HEAD )
 					tmpString.assign(x_str.c_str() + x_str.length() - MAX_ADAPTER_LEN);
 				else
@@ -1066,7 +1064,7 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 		}
 		else{
 			if(int(y_str.length()) > MAX_ADAPTER_LEN){
-				string tmpString;
+				std::string tmpString;
 				if( (trimMode & TRIM_ANY) == TRIM_HEAD )
 					tmpString.assign(y_str.c_str() + y_str.length() - MAX_ADAPTER_LEN);
 				else
@@ -1096,7 +1094,7 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 				}
 				else{
 					if(int(j_str.length()) > MAX_ADAPTER_LEN){
-						string tmpString;
+						std::string tmpString;
 						if( (trimMode & TRIM_ANY) == TRIM_HEAD )
 							tmpString.assign(j_str.c_str() + j_str.length() - MAX_ADAPTER_LEN);
 						else
@@ -1131,13 +1129,13 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 				rowNames.push_back(buffer);
 			}
 		}
-		vector<string> *pAdapter = (bShareAdapter ? &adapters : &adapters2);
+		std::vector<std::string> *pAdapter = (bShareAdapter ? &adapters : &adapters2);
 		colNames.push_back("%");
 		for(j=0; j<int(pAdapter->size()); j++){
 			sprintf(buffer, "%02d", (j+1));
 			colNames.push_back(buffer);
 		}
-		vector<bool> bvec, bvec2;
+		std::vector<bool> bvec, bvec2;
 		bvec.push_back(false);
 		bvec2.push_back(true);
 		for(j=0; j<int(colNames.size())-1; j++){
@@ -1187,21 +1185,21 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 					rowNames.push_back(buffer);
 				}
 			}
-			vector<string> *pAdapter = (bShareAdapter ? &adapters : &adapters2);
+			std::vector<std::string> *pAdapter = (bShareAdapter ? &adapters : &adapters2);
 			colNames.push_back("%");
 			for(j=0; j<int(pAdapter->size()); j++){
 				sprintf(buffer, "%02d", (j+1));
 				colNames.push_back(buffer);
 			}
-			vector<bool> bvec;
+			std::vector<bool> bvec;
 			bvec.push_back(false);
 			for(j=0; j<int(colNames.size())-1; j++){
 				bvec.push_back(true);
 			}
 			bool bStrict = bBarcode || (trimMode & TRIM_AP);
-			bMatrix.push_back(bStrict ? vector<bool>(colNames.size(), false) : bvec);
+			bMatrix.push_back(bStrict ? std::vector<bool>(colNames.size(), false) : bvec);
 			for(j=0; j<int(rowNames.size()-1); j++){
-				bMatrix.push_back(bStrict ? bvec : vector<bool>(colNames.size(), true));
+				bMatrix.push_back(bStrict ? bvec : std::vector<bool>(colNames.size(), true));
 			}
 		}
 	}
@@ -1235,15 +1233,15 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 		end = strrchr(basename, '/');
 		strcpy(trimmed, basename);
 		if( (end != NULL) && (end[1] == '\0') ){
-			string command;
-			command.assign("mkdir -p " + string(basename));
+			std::string command;
+			command.assign("mkdir -p " + std::string(basename));
 			if(system(command.c_str()) != 0){
 				sprintf(errMsg, "Can not create directory \"%s\"", basename);
 				return -2;
 			}
 			if(bQiime){
-				barcodes.assign(string(trimmed) + string("barcodes.fastq"));
-				mapfile.assign(string(trimmed) + string("mapping_file.txt"));
+				barcodes.assign(std::string(trimmed) + std::string("barcodes.fastq"));
+				mapfile.assign(std::string(trimmed) + std::string("mapping_file.txt"));
 			}
 			sprintf(trimmed + (end - basename) + 1, "%s", pDecorate);
 			sprintf(end+1, "un%s", pDecorate);
@@ -1259,8 +1257,8 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 			}
 			else{
 				if(bQiime){
-					barcodes.assign(string(trimmed) + string("-barcodes.fastq"));
-					mapfile.assign(string(trimmed) + string("-mapping_file.txt"));
+					barcodes.assign(std::string(trimmed) + std::string("-barcodes.fastq"));
+					mapfile.assign(std::string(trimmed) + std::string("-mapping_file.txt"));
 				}
 				strcat(trimmed, "-"); strcat(trimmed, pDecorate);
 				strcat(basename, "-un"); strcat(basename, pDecorate);
@@ -1282,8 +1280,8 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 			end[0] = '\0';
 			strcpy(basename, trimmed);
 			if(bQiime){
-				barcodes.assign(string(trimmed) + string("-barcodes.fastq"));
-				mapfile.assign(string(trimmed) + string("-mapping_file.txt"));
+				barcodes.assign(std::string(trimmed) + std::string("-barcodes.fastq"));
+				mapfile.assign(std::string(trimmed) + std::string("-mapping_file.txt"));
 			}
 			sprintf(end, "-%s", pDecorate);
 			sprintf(basename + (end - trimmed), "-un%s", pDecorate);
@@ -1291,30 +1289,30 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 	}
 	sprintf(logfile, "%s.log", trimmed);
 
-	string fileName, fileName2;
+	std::string fileName, fileName2;
 	if(bBarcode){
 		char buffer[MAX_PATH];
 		if(nFileCnt >= 2){
 			for(i=0; i<int(rowNames.size()); i++){
 				for(j=0; j<int(colNames.size()); j++){
 					if(!bMatrix[i][j]) continue;
-					string barcode(rowNames[i] + colNames[j]);
+					std::string barcode(rowNames[i] + colNames[j]);
 					barcodeNames.push_back(barcode);
-					fileName.assign(string(trimmed) + string("-") + barcode + string("-pair1.fastq"));
-					fileName2.assign(string(trimmed) + string("-") + barcode + string("-pair2.fastq"));
+					fileName.assign(std::string(trimmed) + std::string("-") + barcode + std::string("-pair1.fastq"));
+					fileName2.assign(std::string(trimmed) + std::string("-") + barcode + std::string("-pair2.fastq"));
 					if(outputFormat == COMPRESS_GZ){
-						fileName += string(".gz");
-						fileName2 += string(".gz");
+						fileName += std::string(".gz");
+						fileName2 += std::string(".gz");
 					}
 					output.push_back(fileName);
 					output2.push_back(fileName2);
 				}
 			}
-			untrimmed.assign(string(basename) + string("-pair1.fastq"));
-			untrimmed2.assign(string(basename) + string("-pair2.fastq"));
+			untrimmed.assign(std::string(basename) + std::string("-pair1.fastq"));
+			untrimmed2.assign(std::string(basename) + std::string("-pair2.fastq"));
 			if(outputFormat == COMPRESS_GZ){
-				untrimmed += string(".gz");
-				untrimmed2 += string(".gz");
+				untrimmed += std::string(".gz");
+				untrimmed2 += std::string(".gz");
 			}
 		}
 		else{
@@ -1322,11 +1320,11 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 				for(i=0; i<int(rowNames.size()); i++){
 					for(j=0; j<int(colNames.size()); j++){
 						if(!bMatrix[i][j]) continue;
-						string barcode(rowNames[i] + colNames[j]);
+						std::string barcode(rowNames[i] + colNames[j]);
 						barcodeNames.push_back(barcode);
-						fileName.assign(string(trimmed) + string("-") + barcode + string(".fastq"));
+						fileName.assign(std::string(trimmed) + std::string("-") + barcode + std::string(".fastq"));
 						if(outputFormat == COMPRESS_GZ){
-							fileName += string(".gz");
+							fileName += std::string(".gz");
 						}
 						output.push_back(fileName);
 					}
@@ -1335,60 +1333,60 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 			else{
 				for(i=0; i<int(adapters.size()); i++){
 					sprintf(buffer, "-%02d", (i+1));
-					barcodeNames.push_back(string(buffer));
-					fileName.assign(string(trimmed) + string(buffer) + string(".fastq"));
+					barcodeNames.push_back(std::string(buffer));
+					fileName.assign(std::string(trimmed) + std::string(buffer) + std::string(".fastq"));
 					if(outputFormat == COMPRESS_GZ){
-						fileName += string(".gz");
+						fileName += std::string(".gz");
 					}
 					output.push_back(fileName);
 				}
 			}
-			untrimmed.assign(string(basename) + string(".fastq"));
+			untrimmed.assign(std::string(basename) + std::string(".fastq"));
 			if(outputFormat == COMPRESS_GZ){
-				untrimmed += string(".gz");
+				untrimmed += std::string(".gz");
 			}
 		}
 	}
 	else{
 		if(nFileCnt >= 2){
-			fileName.assign(string(trimmed) + string("-pair1.fastq"));
-			fileName2.assign(string(trimmed) + string("-pair2.fastq"));
+			fileName.assign(std::string(trimmed) + std::string("-pair1.fastq"));
+			fileName2.assign(std::string(trimmed) + std::string("-pair2.fastq"));
 			if(outputFormat == COMPRESS_GZ){
-				fileName += string(".gz");
-				fileName2 += string(".gz");
+				fileName += std::string(".gz");
+				fileName2 += std::string(".gz");
 			}
 			output.push_back(fileName);
 			output2.push_back(fileName2);
 			if(trimMode & TRIM_AP){
-				untrimmed.assign(string(basename) + string("-pair1.fastq"));
-				untrimmed2.assign(string(basename) + string("-pair2.fastq"));
+				untrimmed.assign(std::string(basename) + std::string("-pair1.fastq"));
+				untrimmed2.assign(std::string(basename) + std::string("-pair2.fastq"));
 				if(outputFormat == COMPRESS_GZ){
-					untrimmed += string(".gz");
-					untrimmed2 += string(".gz");
+					untrimmed += std::string(".gz");
+					untrimmed2 += std::string(".gz");
 				}
 			}
 		}
 		else{
-			fileName.assign(string(trimmed) + string(".fastq"));
+			fileName.assign(std::string(trimmed) + std::string(".fastq"));
 			if(outputFormat == COMPRESS_GZ){
-				fileName += string(".gz");
+				fileName += std::string(".gz");
 			}
 			output.push_back(fileName);
 			if(trimMode & TRIM_AP){
-				untrimmed.assign(string(basename) + string(".fastq"));
+				untrimmed.assign(std::string(basename) + std::string(".fastq"));
 				if(outputFormat == COMPRESS_GZ){
-					untrimmed += string(".gz");
+					untrimmed += std::string(".gz");
 				}
 			}
 		}
-		
+
 		if (bWriteMasked) {
-			string maskedFileName, maskedFileName2;
-			maskedFileName.assign(string(trimmed) + string("-masked-pair1.fastq"));
-			maskedFileName2.assign(string(trimmed) + string("-masked-pair2.fastq"));	
+			std::string maskedFileName, maskedFileName2;
+			maskedFileName.assign(std::string(trimmed) + std::string("-masked-pair1.fastq"));
+			maskedFileName2.assign(std::string(trimmed) + std::string("-masked-pair2.fastq"));
 			if(outputFormat == COMPRESS_GZ){
-				maskedFileName += string(".gz");
-				maskedFileName2 += string(".gz");
+				maskedFileName += std::string(".gz");
+				maskedFileName2 += std::string(".gz");
 			}
 			masked.push_back(maskedFileName);
 			masked2.push_back(maskedFileName2);
@@ -1397,21 +1395,21 @@ int cParameter::GetOpt(int argc, const char *argv[], char * errMsg)
 
 	if(bWriteExcluded) {
 		if(nFileCnt >= 2){
-			string excludedFileName, excludedFileName2;
-			excludedFileName.assign(string(basename) + string("-excluded-pair1.fastq"));
-			excludedFileName2.assign(string(basename) + string("-excluded-pair2.fastq"));	 
+			std::string excludedFileName, excludedFileName2;
+			excludedFileName.assign(std::string(basename) + std::string("-excluded-pair1.fastq"));
+			excludedFileName2.assign(std::string(basename) + std::string("-excluded-pair2.fastq"));
 			if(outputFormat == COMPRESS_GZ){
-				excludedFileName += string(".gz");
-				excludedFileName2 += string(".gz");
+				excludedFileName += std::string(".gz");
+				excludedFileName2 += std::string(".gz");
 			}
 			excluded.push_back(excludedFileName);
 			excluded2.push_back(excludedFileName2);
 		}
 		else {
-			string excludedFileName;
-			excludedFileName.assign(string(basename) + string("-excluded.fastq"));	  
+			std::string excludedFileName;
+			excludedFileName.assign(std::string(basename) + std::string("-excluded.fastq"));
 			if(outputFormat == COMPRESS_GZ){
-				excludedFileName += string(".gz");
+				excludedFileName += std::string(".gz");
 			}
 			excluded.push_back(excludedFileName);
 		}

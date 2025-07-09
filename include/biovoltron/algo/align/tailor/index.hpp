@@ -5,6 +5,7 @@
 #include <biovoltron/utility/istring.hpp>
 #include <biovoltron/utility/interval.hpp>
 #include <vector>
+#include <random>
 
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
@@ -15,29 +16,27 @@ namespace biovoltron {
 
 /**
  * An FM-Index that report chromosome coordinate.
- * @note In earlier commit, FMIndex didn't need SA_INTV be a template parameter.
- *       The Class declaration was: struct Index : FMIndex<size_type, Sorter>
- *       We temporaily set SA_INTV to 1 to pass the build stage, but it should 
- *       be surveyed in the future.
  */
 template<
+  int SA_INTV = 1,
   typename size_type = std::uint32_t,
   SASorter Sorter = PsaisSorter<size_type>
 >
-struct Index : FMIndex<1, size_type, Sorter> {
+struct Index : FMIndex<SA_INTV,size_type, Sorter> {
   using char_type = std::int8_t;
   
-  using FMIndex<1, size_type, Sorter>::build;
-  using FMIndex<1, size_type, Sorter>::lf;
-  using FMIndex<1, size_type, Sorter>::sa_;
-  using FMIndex<1, size_type, Sorter>::cnt_;
-  using FMIndex<1, size_type, Sorter>::pri_;
-  using FMIndex<1, size_type, Sorter>::bwt_;
-  using FMIndex<1, size_type, Sorter>::occ_;
-  using FMIndex<1, size_type, Sorter>::lookup_;
-  using FMIndex<1, size_type, Sorter>::compute_sa;
+  using Base = FMIndex<SA_INTV, size_type, Sorter>;
+  using Base::build;
+  using Base::lf;
+  using Base::sa_;
+  using Base::cnt_;
+  using Base::pri_;
+  using Base::bwt_;
+  using Base::occ_;
+  using Base::lookup_;
+  using Base::get_offsets;
 
-  Index(int lookup_len = 14) : FMIndex<1, size_type, Sorter>{.LOOKUP_LEN = lookup_len} {}
+  Index(int lookup_len = 14) : FMIndex<SA_INTV, size_type, Sorter>{.LOOKUP_LEN = lookup_len} {}
   
 
   /**
@@ -49,6 +48,9 @@ struct Index : FMIndex<1, size_type, Sorter> {
    */
   template<bool Encoded>
   void make_index(const std::vector<FastaRecord<Encoded>>& ref) {
+    static std::random_device r;
+    // static std::default_random_engine random_engine(r());
+    // std::uniform_int_distribution<ichar> atcg_generator(0, 3);
     chr_bounds.reserve(ref.size());
     auto accu = 0;
     auto ref_seq = istring{};
@@ -60,6 +62,11 @@ struct Index : FMIndex<1, size_type, Sorter> {
       else
         ref_seq += Codec::to_istring(record.seq);
     }
+    std::ranges::transform(ref_seq, ref_seq.begin(), [&](auto& c)
+      {
+        // return c < 4 ? c : atcg_generator(random_engine);
+        return c < 4 ? c : 0;
+      });
     build(ref_seq);
   }
 
@@ -112,13 +119,7 @@ struct Index : FMIndex<1, size_type, Sorter> {
     auto intvs = std::vector<Interval>{};
     intvs.reserve(end - beg);
 
-    for (auto i = beg; i < end; i++) {
-      size_type pos;
-      // check the comment in declaration in the struct.
-      // if constexpr (SA_INTV == 1) pos = sa_[i];
-      // else pos = compute_sa(i);
-      pos = compute_sa(i);
-
+    for (auto pos : get_offsets(beg, end)) {
       auto first = std::ranges::lower_bound(
         chr_bounds, pos, {}, &ChromBound::last_elem_pos);
       auto last = std::ranges::lower_bound(
@@ -136,13 +137,7 @@ struct Index : FMIndex<1, size_type, Sorter> {
 
   auto
   save(std::ofstream& fout) const {
-    fout.write(reinterpret_cast<const char*>(&cnt_), sizeof(cnt_));
-    fout.write(reinterpret_cast<const char*>(&pri_), sizeof(pri_));
-    Serializer::save(fout, bwt_);
-    Serializer::save(fout, occ_.first);
-    Serializer::save(fout, occ_.second);
-    Serializer::save(fout, sa_);
-    Serializer::save(fout, lookup_);
+    Base::save(fout);
 
     auto oa = boost::archive::binary_oarchive{fout};
     oa << chr_bounds;
@@ -150,13 +145,8 @@ struct Index : FMIndex<1, size_type, Sorter> {
 
   auto
   load(std::ifstream& fin) {
-    fin.read(reinterpret_cast<char*>(&cnt_), sizeof(cnt_));
-    fin.read(reinterpret_cast<char*>(&pri_), sizeof(pri_));
-    Serializer::load(fin, bwt_);
-    Serializer::load(fin, occ_.first);
-    Serializer::load(fin, occ_.second);
-    Serializer::load(fin, sa_);
-    Serializer::load(fin, lookup_);
+    Base::load(fin);
+    
     auto ia = boost::archive::binary_iarchive{fin};
     ia >> chr_bounds;
     assert(fin.peek() == EOF);

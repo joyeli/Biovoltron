@@ -13,6 +13,7 @@
 #include <biovoltron/algo/align/tailor/index.hpp>
 #include <biovoltron/algo/assemble/assembler.hpp>
 #include <biovoltron/applications/adapter_trimmer/single_end/skewer/main.hpp>
+#include <biovoltron/applications/adapter_trimmer/detail/parse_file.hpp>
 
 using namespace std::literals;
 
@@ -55,7 +56,9 @@ private:
 
   AdapterAssembler assembler;
 
-  auto read_file(std::fstream& fin) -> std::vector<R> {
+  template<class IStream = std::ifstream>
+    requires std::is_base_of_v<std::ifstream, IStream>
+  auto read_file(IStream& fin) -> std::vector<R> {
     auto read = R{};
     auto reads = std::vector<R>{};
     while (fin >> read) {
@@ -259,23 +262,20 @@ public:
             const std::filesystem::path output_path,
             int thread_num = std::thread::hardware_concurrency(),
             const bool sensitive = false) {
-  
-    auto open_file = [](const std::filesystem::path& path, const bool is_input) {
-      /* check whether is exists */
-      if (!std::filesystem::exists(path)) {
-        SPDLOG_ERROR("{} doesn't exists", path.string());
-        std::exit(1);
-      }
-      std::fstream f(path, is_input ? std::ios::in : std::ios::out);
-      if (!f.is_open()) {
-        SPDLOG_ERROR("Cannot open {}", path.string());
-        std::exit(-1);
-      }
-      return f;
-    };
 
-    auto read_fin = open_file(reads_path, true);
-    auto reads = read_file(read_fin);
+    auto input_format = detail::parse_file_format(reads_path);
+    if (input_format & detail::FILE_FORMAT::ERROR) {
+      SPDLOG_ERROR("Unsupported file format: {}", reads_path.string());
+      throw std::invalid_argument("Unsupported file format");
+    }
+    auto fin = detail::open_input_file(reads_path);
+    { detail::open_output_file(output_path); }
+    auto reads = std::vector<R>{};
+    if (input_format & detail::FILE_FORMAT::BAM) {
+      reads = read_file<IBamStream>(fin);
+    } else {
+      reads = read_file<>(fin);
+    }
     print_param(sensitive, thread_num, reads.size());
     auto adapter = detect_adapter(tailor, reads, sensitive);
     call_skewer(reads_path, adapter, output_path, thread_num, sensitive);

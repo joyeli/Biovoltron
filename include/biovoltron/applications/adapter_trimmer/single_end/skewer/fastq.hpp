@@ -30,6 +30,7 @@
  */
 #pragma once
 
+#include <cstdint>
 #include <biovoltron/applications/adapter_trimmer/single_end/skewer/common.hpp>
 
 namespace skewer{
@@ -74,8 +75,8 @@ public:
 	//	int cnt;
 
 	FILE* in;
-	int64 offset;
-	int64 next_pos;
+	int64_t offset;
+	int64_t next_pos;
 	int rno;
 
 private:
@@ -91,7 +92,7 @@ public:
 	int readRecord(RECORD* pRecord = NULL);
 	//	int readRecord2Buffer();
 	//	RECORD * getLastRecord();
-	inline int64 tell() { return offset; }
+	inline int64_t tell() { return offset; }
 };
 
 typedef struct tag_CFILE {
@@ -112,7 +113,7 @@ extern const char* FASTQ_FORMAT_NAME[FASTQ_FORMAT_CNT];
 // open a file, possibly gzipped, exit on failure
 extern CFILE gzopen(const char* fileName, const char* mode);
 extern int gzclose(CFILE* f);
-extern int64 gzsize(const char* fileName);
+extern int64_t gzsize(const char* fileName);
 extern enum FASTQ_FORMAT gzformat(char* fileNames[], int nFileCnt);
 extern int gzreadlen(char* fileName);
 extern void gzstrncpy(char* dest, const char* src, int n);
@@ -164,7 +165,7 @@ inline int cFQ::read_line(LINE &l)
 	return (l.n = getline(&l.s, &l.a, in));
 }
 
-// readRecord 
+// readRecord
 // return value:
 // -1: EOF
 // -2: ERROR
@@ -188,7 +189,7 @@ int cFQ::readRecord(RECORD *pRecord)
 			if (pRecord->seq.a <= size_t(pRecord->seq.n+1)) {
 				pRecord->seq.s=(char *)realloc(pRecord->seq.s, pRecord->seq.a=(pRecord->seq.a * 3 / 2 + 64));
 			}
-			if (!isspace(c)) 
+			if (!isspace(c))
 				pRecord->seq.s[pRecord->seq.n++]=c;
 			c = fgetc(in);
 		}
@@ -294,20 +295,23 @@ int gzclose(CFILE *f)
 	return iRet;
 }
 
-int64 gzsize(const char * fileName)
+int64_t gzsize(const char * fileName)
 {
 	FILE * fp = fopen(fileName, "rb");
 	if(fp == NULL)
 		return 0L;
 	size_t len = strlen(fileName);
 	bool bCompressed = (len > 3) && (strcmp(fileName + len - 3, ".gz") == 0);
-	int64 file_length = 0L;
+	int64_t file_length = 0L;
 	if(bCompressed){
 		if(fseek(fp, -4L, SEEK_END) == 0){
-			int64 compress_length;
+			int64_t compress_length;
 			unsigned char buffer[4];
 			uint32 x;
-			fread(buffer, 1, 4, fp);
+			if (fread(buffer, 1, 4, fp) != 4) {
+                fclose(fp);
+                return 0L;
+            }
 			x = buffer[3];
 			x <<= 8;
 			x |= buffer[2];

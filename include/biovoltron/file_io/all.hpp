@@ -14,3 +14,4 @@
 #include <biovoltron/file_io/sam.hpp>
 #include <biovoltron/file_io/vcf.hpp>
 #include <biovoltron/file_io/wig.hpp>
+#include <biovoltron/file_io/bam.hpp>

@@ -3,6 +3,7 @@
 #include <catch.hpp>
 
 TEST_CASE("Haplotype") {
-  std::cout << "biovoltron/utility/haplotype/haplotype.hpp"
-            << " needs test.\n";
+    SECTION("get_overlapping_events") {
+        std::cout << "TODO: utility/haplotype/haplotype.hpp requires test: get_overlapping_events" << std::endl;
+    }
 }

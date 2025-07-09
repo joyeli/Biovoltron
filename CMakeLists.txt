@@ -44,7 +44,7 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/submodules/spdlog)
 
 # libsimdpp
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/submodules/libsimdpp)
-target_include_directories(biovoltron INTERFACE ${CMAKE_CURRENT_LIST_DIR}/submodules/libsimdpp)
+target_include_directories(biovoltron INTERFACE ${CMAKE_CURRENT_LIST_DIR}/submodules/libsimdpp ${CMAKE_CURRENT_LIST_DIR}/include)
 
 # ssw
 add_library(SSW SHARED ${CMAKE_CURRENT_LIST_DIR}/lib/ssw.cpp)
@@ -87,7 +87,7 @@ target_link_libraries(biovoltron INTERFACE spdlog)
 target_link_libraries(biovoltron INTERFACE SSW)
 target_link_libraries(biovoltron INTERFACE hts)
 target_compile_options(biovoltron INTERFACE
-  -mavx -mavx2
+  -mavx -mavx2 -mlzcnt -mbmi
   -Wno-sign-compare -Wno-nonnull -Wno-char-subscripts -Wno-narrowing)
   
 # build test

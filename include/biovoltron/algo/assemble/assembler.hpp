@@ -48,7 +48,7 @@ private:
     }
 
     SPDLOG_DEBUG("Using kmer size of {} in assembler", kmer_size);
-    return {};
+    return graph.find_paths();
   }
 
 public:

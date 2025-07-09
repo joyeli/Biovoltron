@@ -200,8 +200,12 @@ public:
     );
     return sinks;
   }
+
+  template <typename EdgeFilter>
+  auto filtered_graph(const EdgeFilter& filter) const {
+    return boost::filtered_graph<Graph, EdgeFilter>(g, filter);
+  }
+
 };
-
-
 
 } // namespace biovoltron

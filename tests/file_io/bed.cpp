@@ -26,24 +26,22 @@ TEST_CASE("bed") {
 }
 
 TEST_CASE("BED missing fields"){
-  std::cout << "biovoltron/file_io/bed.hpp::BED missing fields"
-          << " needs test.\n";
-  // BedRecord r;
-  // std::istringstream iss{
-  //     ".\t.\t.\t.\t.\t.\t.\t.\t.\t.\t.\t."};
-  // iss >> r;
-  // REQUIRE(r.chrom == ".");
-  // REQUIRE(r.start == 0);
-  // REQUIRE(r.end == 0);
-  // REQUIRE(r.name == ".");
-  // REQUIRE(r.score == 0);
-  // REQUIRE(r.strand == '.');
-  // REQUIRE(r.thick_start == 0);
-  // REQUIRE(r.thick_end == 0);
-  // REQUIRE(r.item_rgb == ".");
-  // REQUIRE(r.block_count == 0);
-  // REQUIRE(r.block_sizes == ".");
-  // REQUIRE(r.block_starts == ".");
+  BedRecord r;
+  std::istringstream iss{
+    "chr7\t127471196\t127472363\tPos1"};
+  iss >> r;
+  REQUIRE(r.chrom == "chr7");
+  REQUIRE(r.start == 127471196);
+  REQUIRE(r.end == 127472363);
+  REQUIRE(r.name == "Pos1");
+  REQUIRE(r.score == 0);
+  REQUIRE(r.strand == 0);
+  REQUIRE(r.thick_start == 0);
+  REQUIRE(r.thick_end == 0);
+  REQUIRE(r.item_rgb == "0,0,0");
+  REQUIRE(r.block_count == 0);
+  REQUIRE(r.block_sizes == "0");
+  REQUIRE(r.block_starts == "0");
 }
 
 TEST_CASE("BED Equal to Comparison"){

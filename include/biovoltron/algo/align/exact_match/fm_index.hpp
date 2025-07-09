@@ -1,6 +1,8 @@
 #pragma once
 
 #include <biovoltron/algo/sort/core/sorter.hpp>
+#include <biovoltron/algo/sort/kiss_sorter/kiss1_sorter.hpp>
+#include <biovoltron/algo/sort/kiss_sorter/kiss2_sorter.hpp>
 #include <biovoltron/algo/sort/psais_sorter.hpp>
 #include <biovoltron/container/xbit_vector.hpp>
 #include <biovoltron/utility/archive/serializer.hpp>
@@ -98,7 +100,7 @@ using namespace std::chrono;
 template<
   int SA_INTV = 1,
   typename size_type = std::uint32_t,
-  SASorter Sorter = PsaisSorter<size_type>
+  SASorter Sorter = biovoltron::PsaisSorter<size_type>
 >
 class FMIndex {
  public:
@@ -133,7 +135,7 @@ class FMIndex {
   /**
    * A sampled suffix array.
    */
-  std::vector<size_type> sa_;
+  Sorter::SA_t sa_;  // std::vector<size_type> sa_;
 
   /**
    * A bit vector recording sampled suffix array.
@@ -444,6 +446,23 @@ class FMIndex {
   }
 
   /**
+   * Implemented by kISS.
+   */
+  auto
+  get_offsets_traditional(size_type beg, size_type end) const {
+    if constexpr (SA_INTV == 1)
+      return std::span{&sa_[beg], end - beg};
+    else {
+      auto offsets = std::vector<size_type>{};
+      offsets.reserve(end - beg);
+      for (auto i = beg; i < end; i++) {
+        offsets.push_back(compute_sa(i));
+      }
+      return offsets;
+    }
+  }
+
+  /**
    * Compute the suffix array value according to the begin and end. 
    * If sa_intv is 1, this can be done at O(1).
    */
@@ -631,7 +650,7 @@ class FMIndex {
       Serializer::load(fin, b_occ_);
     }
 
-    assert(fin.peek() == EOF);
+    // assert(fin.peek() == EOF); // There are other data to be loaded for Tailor
     const auto end = high_resolution_clock::now();
     const auto dur = duration_cast<seconds>(end - start);
     SPDLOG_DEBUG("elapsed time: {} s.", dur.count());

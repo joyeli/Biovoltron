@@ -116,11 +116,7 @@ git push -f origin YOUR_BRANCH
 - Get your code merged or make necessary fixes.
 
 ## C++ Coding Guidelines {#contribute-coding-guideline}
-- Use "Almost Always Auto" (AAA) for type inference.
-- Prefer using the Standard Template Library (STL) over complex nested raw loops.
-- Declare member functions of stateless classes/structs as static.
-- Utilize const whenever possible.
-- Use move semantics instead of copying.
+For more detailed coding style guidelines, refer to the [Biovoltron Coding Style Guide](codingstyle.md).
 
 ## Git style {#contribute-git-style}
 ### Commit Message

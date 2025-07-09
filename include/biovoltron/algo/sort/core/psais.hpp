@@ -379,7 +379,7 @@ namespace psais {
       prepare<char_type, size_type>(size / BLOCK_SIZE * BLOCK_SIZE, S, SA, T, RBP);
     }
 
-    auto pool = biovoltron::ThreadPool(2);
+    auto pool = biovoltron::DeprecatedThreadPool(2);
     auto stage = std::array<std::future<void>, 2>{};
 
     // pipeline

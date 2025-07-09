@@ -1,8 +1,26 @@
-// #include <biovoltron/algo/align/inexact_match/smithwaterman_avx.hpp>
+#include <biovoltron/algo/align/inexact_match/smithwaterman_avx.hpp>
 #include <iostream> //debug
 #include <catch.hpp>
 
 TEST_CASE("Smith Waterman AVX") {
-  std::cout << "biovoltron/algo/align/inexact_match/smithwaterman_avx.hpp"
-            << " needs test.\n";
+
+    SECTION("Same reads") {
+        std::cout << "TODO: algo/align/inexact_match/smithwaterman_avx.hpp requires test: Same reads" << std::endl;
+    }
+
+    SECTION("Substitutions") {
+        std::cout << "TODO: algo/align/inexact_match/smithwaterman_avx.hpp requires test: Substitutions" << std::endl;
+    }
+
+    SECTION("Deletion") {
+        std::cout << "TODO: algo/align/inexact_match/smithwaterman_avx.hpp requires test: Deletion" << std::endl;
+    }
+
+    SECTION("Insertion") {
+        std::cout << "TODO: algo/align/inexact_match/smithwaterman_avx.hpp requires test: Insertion" << std::endl;
+    }
+
+    SECTION("Mix") {
+        std::cout << "TODO: algo/align/inexact_match/smithwaterman_avx.hpp requires test: Mix" << std::endl;
+    }
 }

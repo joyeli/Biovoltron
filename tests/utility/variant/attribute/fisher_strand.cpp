@@ -3,6 +3,12 @@
 #include <catch.hpp>
 
 TEST_CASE("Fisher strand") {
-  std::cout << "biovoltron/utility/variant/attribute/fisher_strand.hpp"
-            << " needs test.\n";
+
+    SECTION("fisher_test") {
+        std::cout << "TODO: utility/variant/attribute/fisher_strand.hpp requires test: fisher_test" << std::endl;
+    }
+
+    SECTION("annotate") {
+        std::cout << "TODO: utility/variant/attribute/fisher_strand.hpp requires test: annotate" << std::endl;
+    }
 }

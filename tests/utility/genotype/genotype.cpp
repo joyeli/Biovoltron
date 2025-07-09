@@ -3,6 +3,8 @@
 #include <catch.hpp>
 
 TEST_CASE("Genotype") {
-  std::cout << "biovoltron/utility/genotype/genotype.hpp"
-            << " needs test.\n";
+
+    SECTION("operator<<") {
+        std::cout << "TODO: utility/genotype/genotype.hpp requires test: operator<<" << std::endl;
+    }
 }

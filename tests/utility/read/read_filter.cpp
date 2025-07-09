@@ -3,7 +3,6 @@
 #include <catch.hpp>
 
 TEST_CASE("Read filter") {
-  std::cout << "biovoltron/utility/read/read_filter.hpp"
-            << " needs test.\n";
+    std::cout << "TODO: utility/read/read_filter.hpp requires test: Read filter" << std::endl;
 }
 

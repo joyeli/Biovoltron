@@ -38,7 +38,23 @@ private:
   using Edge = Graph::Edge;
   using Path = std::vector<Vertex>;
 
-  // TODO: Edge filter;
+  
+  struct cycle_detector : public boost::dfs_visitor<> {
+    cycle_detector(bool& has_cycle) : _has_cycle(has_cycle) {}
+    template <class Edge, class Graph>
+      void back_edge(Edge, Graph&) {
+        _has_cycle = true;
+      }
+    protected:
+    bool& _has_cycle;
+  };
+
+  struct EdgeFilter {
+    bool operator()(Edge e) const
+    { return (*g)[e].is_ref || (*g)[e].count >= para->PRUNE_FACTOR || g->out_degree(g->source(e)) == 1; }
+    Graph* g;
+    const Parameter* para;
+  } filter{&g, &para};
 
   Graph g;
   Vertex source{}, sink{};
@@ -271,13 +287,11 @@ public:
   }
 
   auto has_cycles() const {
-    // TODO: has_cycle
-    return true;
-    // auto has_cycle = false;
-    // auto vis = cycle_detector {has_cycle};
-    // auto fg = boost::filtered_graph<Graph, EdgeFilter>(g, filter);
-    // boost::depth_first_search(fg, boost::visitor(vis));
-    // return has_cycle;
+    auto has_cycle = false;
+    auto vis = cycle_detector {has_cycle};
+    auto fg = g.filtered_graph(filter);
+    boost::depth_first_search(fg, boost::visitor(vis));
+    return has_cycle;
   }
 
   auto unique_kmers_count() const {
