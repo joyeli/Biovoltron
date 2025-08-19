@@ -110,6 +110,11 @@ $(function(){initNavTree('classbiovoltron_1_1detail_1_1XbitIteratorBase.html',''
   <div class="headertitle"><div class="title">biovoltron::detail::XbitIteratorBase&lt; N, Block &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for Xbit iterators accessing N-bit fields.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="xbit__vector_8hpp_source.html">xbit_vector.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for biovoltron::detail::XbitIteratorBase&lt; N, Block &gt;:</div>
 <div class="dyncontent">
@@ -118,57 +123,442 @@ Inheritance diagram for biovoltron::detail::XbitIteratorBase&lt; N, Block &gt;:<
   <map id="biovoltron_3A_3Adetail_3A_3AXbitIteratorBase_3C_20N_2C_20Block_20_3E_map" name="biovoltron_3A_3Adetail_3A_3AXbitIteratorBase_3C_20N_2C_20Block_20_3E_map">
 <area href="structbiovoltron_1_1detail_1_1XbitConstIterator.html" alt="biovoltron::detail::XbitConstIterator&lt; N, block_type &gt;" shape="rect" coords="0,56,307,80"/>
 <area href="structbiovoltron_1_1detail_1_1XbitIterator.html" alt="biovoltron::detail::XbitIterator&lt; N, block_type &gt;" shape="rect" coords="317,56,624,80"/>
-<area href="structbiovoltron_1_1detail_1_1XbitConstIterator.html" alt="biovoltron::detail::XbitConstIterator&lt; N, Block &gt;" shape="rect" coords="634,56,941,80"/>
-<area href="structbiovoltron_1_1detail_1_1XbitIterator.html" alt="biovoltron::detail::XbitIterator&lt; N, Block &gt;" shape="rect" coords="951,56,1258,80"/>
+<area href="structbiovoltron_1_1detail_1_1XbitConstIterator.html" title="Random-access iterator for const N-bit elements." alt="biovoltron::detail::XbitConstIterator&lt; N, Block &gt;" shape="rect" coords="634,56,941,80"/>
+<area href="structbiovoltron_1_1detail_1_1XbitIterator.html" title="Random-access iterator for mutable N-bit elements." alt="biovoltron::detail::XbitIterator&lt; N, Block &gt;" shape="rect" coords="951,56,1258,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a7104b05a1bdabd2e0bb7613e50c720ed" id="r_a7104b05a1bdabd2e0bb7613e50c720ed"><td class="memItemLeft" align="right" valign="top"><a id="a7104b05a1bdabd2e0bb7613e50c720ed" name="a7104b05a1bdabd2e0bb7613e50c720ed"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>iterator_category</b> = std::random_access_iterator_tag</td></tr>
-<tr class="memitem:aa01a014fd95b21a538cee9d121328c8e" id="r_aa01a014fd95b21a538cee9d121328c8e"><td class="memItemLeft" align="right" valign="top"><a id="aa01a014fd95b21a538cee9d121328c8e" name="aa01a014fd95b21a538cee9d121328c8e"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = std::uint8_t</td></tr>
-<tr class="memitem:af12ae6091db27630cb0ef1d50061870b" id="r_af12ae6091db27630cb0ef1d50061870b"><td class="memItemLeft" align="right" valign="top"><a id="af12ae6091db27630cb0ef1d50061870b" name="af12ae6091db27630cb0ef1d50061870b"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>difference_type</b> = std::ptrdiff_t</td></tr>
-<tr class="memitem:a486559b934c3fc588f9f5098ba951b66" id="r_a486559b934c3fc588f9f5098ba951b66"><td class="memItemLeft" align="right" valign="top"><a id="a486559b934c3fc588f9f5098ba951b66" name="a486559b934c3fc588f9f5098ba951b66"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>pointer</b> = void</td></tr>
+<tr class="memitem:a7104b05a1bdabd2e0bb7613e50c720ed" id="r_a7104b05a1bdabd2e0bb7613e50c720ed"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7104b05a1bdabd2e0bb7613e50c720ed">iterator_category</a> = std::random_access_iterator_tag</td></tr>
+<tr class="memitem:aa01a014fd95b21a538cee9d121328c8e" id="r_aa01a014fd95b21a538cee9d121328c8e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa01a014fd95b21a538cee9d121328c8e">value_type</a> = std::uint8_t</td></tr>
+<tr class="memitem:af12ae6091db27630cb0ef1d50061870b" id="r_af12ae6091db27630cb0ef1d50061870b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af12ae6091db27630cb0ef1d50061870b">difference_type</a> = std::ptrdiff_t</td></tr>
+<tr class="memitem:a486559b934c3fc588f9f5098ba951b66" id="r_a486559b934c3fc588f9f5098ba951b66"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a486559b934c3fc588f9f5098ba951b66">pointer</a> = void</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa02ac1221ff665b779609d0a0982d7bd" id="r_aa02ac1221ff665b779609d0a0982d7bd"><td class="memItemLeft" align="right" valign="top"><a id="aa02ac1221ff665b779609d0a0982d7bd" name="aa02ac1221ff665b779609d0a0982d7bd"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitIteratorBase</b> (Block *seg, std::size_t offset) noexcept</td></tr>
-<tr class="memitem:aaae71ad5498e1ae83e4c68338ac2a1b4" id="r_aaae71ad5498e1ae83e4c68338ac2a1b4"><td class="memItemLeft" align="right" valign="top"><a id="aaae71ad5498e1ae83e4c68338ac2a1b4" name="aaae71ad5498e1ae83e4c68338ac2a1b4"></a>
-constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a> &amp;other) const noexcept=default</td></tr>
-<tr class="memitem:ac72a4b87ba9f076a97e08cf99bc55700" id="r_ac72a4b87ba9f076a97e08cf99bc55700"><td class="memItemLeft" align="right" valign="top"><a id="ac72a4b87ba9f076a97e08cf99bc55700" name="ac72a4b87ba9f076a97e08cf99bc55700"></a>
-constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=&gt;</b> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a> &amp;other) const noexcept</td></tr>
+<tr class="memitem:aa02ac1221ff665b779609d0a0982d7bd" id="r_aa02ac1221ff665b779609d0a0982d7bd"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa02ac1221ff665b779609d0a0982d7bd">XbitIteratorBase</a> (Block *seg, std::size_t offset) noexcept</td></tr>
+<tr class="memitem:aaae71ad5498e1ae83e4c68338ac2a1b4" id="r_aaae71ad5498e1ae83e4c68338ac2a1b4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaae71ad5498e1ae83e4c68338ac2a1b4">operator==</a> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a> &amp;other) const noexcept=default</td></tr>
+<tr class="memitem:ac72a4b87ba9f076a97e08cf99bc55700" id="r_ac72a4b87ba9f076a97e08cf99bc55700"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac72a4b87ba9f076a97e08cf99bc55700">operator&lt;=&gt;</a> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a> &amp;other) const noexcept</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a293608e852cab1ee567cb6611b6cc1df" id="r_a293608e852cab1ee567cb6611b6cc1df"><td class="memItemLeft" align="right" valign="top"><a id="a293608e852cab1ee567cb6611b6cc1df" name="a293608e852cab1ee567cb6611b6cc1df"></a>
-static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>xbits_per_block</b> = sizeof(Block) * CHAR_BIT / N</td></tr>
+<tr class="memitem:a293608e852cab1ee567cb6611b6cc1df" id="r_a293608e852cab1ee567cb6611b6cc1df"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a293608e852cab1ee567cb6611b6cc1df">xbits_per_block</a> = sizeof(Block) * CHAR_BIT / N</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a944fea330513439457948714360b39f5" id="r_a944fea330513439457948714360b39f5"><td class="memItemLeft" align="right" valign="top"><a id="a944fea330513439457948714360b39f5" name="a944fea330513439457948714360b39f5"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>bump_up</b> ()</td></tr>
-<tr class="memitem:a127984e17ed3abdf8a50d930a0648712" id="r_a127984e17ed3abdf8a50d930a0648712"><td class="memItemLeft" align="right" valign="top"><a id="a127984e17ed3abdf8a50d930a0648712" name="a127984e17ed3abdf8a50d930a0648712"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>bump_down</b> ()</td></tr>
-<tr class="memitem:adaaf0effdfa1b28260aa087dcc2f2998" id="r_adaaf0effdfa1b28260aa087dcc2f2998"><td class="memItemLeft" align="right" valign="top"><a id="adaaf0effdfa1b28260aa087dcc2f2998" name="adaaf0effdfa1b28260aa087dcc2f2998"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>incr</b> (difference_type n)</td></tr>
+<tr class="memitem:a944fea330513439457948714360b39f5" id="r_a944fea330513439457948714360b39f5"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a944fea330513439457948714360b39f5">bump_up</a> ()</td></tr>
+<tr class="memitem:a127984e17ed3abdf8a50d930a0648712" id="r_a127984e17ed3abdf8a50d930a0648712"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a127984e17ed3abdf8a50d930a0648712">bump_down</a> ()</td></tr>
+<tr class="memitem:adaaf0effdfa1b28260aa087dcc2f2998" id="r_adaaf0effdfa1b28260aa087dcc2f2998"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adaaf0effdfa1b28260aa087dcc2f2998">incr</a> (<a class="el" href="#af12ae6091db27630cb0ef1d50061870b">difference_type</a> n)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a8bbf2c4b411790abb064377bc63bef97" id="r_a8bbf2c4b411790abb064377bc63bef97"><td class="memItemLeft" align="right" valign="top"><a id="a8bbf2c4b411790abb064377bc63bef97" name="a8bbf2c4b411790abb064377bc63bef97"></a>
-Block *&#160;</td><td class="memItemRight" valign="bottom"><b>seg_</b></td></tr>
-<tr class="memitem:ae9775cdf90ee5cf82b2e104e4be4a4b5" id="r_ae9775cdf90ee5cf82b2e104e4be4a4b5"><td class="memItemLeft" align="right" valign="top"><a id="ae9775cdf90ee5cf82b2e104e4be4a4b5" name="ae9775cdf90ee5cf82b2e104e4be4a4b5"></a>
-std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>offset_</b></td></tr>
+<tr class="memitem:a8bbf2c4b411790abb064377bc63bef97" id="r_a8bbf2c4b411790abb064377bc63bef97"><td class="memItemLeft" align="right" valign="top">Block *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bbf2c4b411790abb064377bc63bef97">seg_</a></td></tr>
+<tr class="memitem:ae9775cdf90ee5cf82b2e104e4be4a4b5" id="r_ae9775cdf90ee5cf82b2e104e4be4a4b5"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9775cdf90ee5cf82b2e104e4be4a4b5">offset_</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a18657c569cb0178cdbad3565a617c254" id="r_a18657c569cb0178cdbad3565a617c254"><td class="memItemLeft" align="right" valign="top"><a id="a18657c569cb0178cdbad3565a617c254" name="a18657c569cb0178cdbad3565a617c254"></a>
-constexpr friend difference_type&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a> &amp;x, const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a> &amp;y)</td></tr>
+<tr class="memitem:a18657c569cb0178cdbad3565a617c254" id="r_a18657c569cb0178cdbad3565a617c254"><td class="memItemLeft" align="right" valign="top">constexpr friend <a class="el" href="#af12ae6091db27630cb0ef1d50061870b">difference_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18657c569cb0178cdbad3565a617c254">operator-</a> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a> &amp;x, const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a> &amp;y)</td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;std::size_t N, std::unsigned_integral Block&gt;<br />
+class biovoltron::detail::XbitIteratorBase&lt; N, Block &gt;</div><p>Base class for Xbit iterators accessing N-bit fields. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>Number of bits per element. </td></tr>
+    <tr><td class="paramname">Block</td><td>Unsigned integral type used as storage block. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="af12ae6091db27630cb0ef1d50061870b" name="af12ae6091db27630cb0ef1d50061870b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af12ae6091db27630cb0ef1d50061870b">&#9670;&#160;</a></span>difference_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::difference_type = std::ptrdiff_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Type for iterator differences. </p>
+
+</div>
+</div>
+<a id="a7104b05a1bdabd2e0bb7613e50c720ed" name="a7104b05a1bdabd2e0bb7613e50c720ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7104b05a1bdabd2e0bb7613e50c720ed">&#9670;&#160;</a></span>iterator_category</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::iterator_category = std::random_access_iterator_tag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Iterator category tag. </p>
+
+</div>
+</div>
+<a id="a486559b934c3fc588f9f5098ba951b66" name="a486559b934c3fc588f9f5098ba951b66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a486559b934c3fc588f9f5098ba951b66">&#9670;&#160;</a></span>pointer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::pointer = void</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer type for the iterator. </p>
+
+</div>
+</div>
+<a id="aa01a014fd95b21a538cee9d121328c8e" name="aa01a014fd95b21a538cee9d121328c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa01a014fd95b21a538cee9d121328c8e">&#9670;&#160;</a></span>value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::value_type = std::uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Type of the value pointed to by the iterator. </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa02ac1221ff665b779609d0a0982d7bd" name="aa02ac1221ff665b779609d0a0982d7bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa02ac1221ff665b779609d0a0982d7bd">&#9670;&#160;</a></span>XbitIteratorBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::XbitIteratorBase </td>
+          <td>(</td>
+          <td class="paramtype">Block *</td>          <td class="paramname"><span class="paramname"><em>seg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Construct an iterator pointing to a specific block and offset.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seg</td><td>Pointer to the current block. </td></tr>
+    <tr><td class="paramname">offset</td><td><a class="el" href="structbiovoltron_1_1Index.html">Index</a> of the N-bit element within the block. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a127984e17ed3abdf8a50d930a0648712" name="a127984e17ed3abdf8a50d930a0648712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a127984e17ed3abdf8a50d930a0648712">&#9670;&#160;</a></span>bump_down()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::bump_down </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Decrement the iterator position.</p>
+<p>Moves to the previous N-bit element. </p>
+
+</div>
+</div>
+<a id="a944fea330513439457948714360b39f5" name="a944fea330513439457948714360b39f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944fea330513439457948714360b39f5">&#9670;&#160;</a></span>bump_up()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::bump_up </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increment the iterator position.</p>
+<p>Moves to the next N-bit element. </p>
+
+</div>
+</div>
+<a id="adaaf0effdfa1b28260aa087dcc2f2998" name="adaaf0effdfa1b28260aa087dcc2f2998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaaf0effdfa1b28260aa087dcc2f2998">&#9670;&#160;</a></span>incr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::incr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af12ae6091db27630cb0ef1d50061870b">difference_type</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Increment the iterator position by n elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of elements to increment. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac72a4b87ba9f076a97e08cf99bc55700" name="ac72a4b87ba9f076a97e08cf99bc55700"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac72a4b87ba9f076a97e08cf99bc55700">&#9670;&#160;</a></span>operator&lt;=&gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::operator&lt;=&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a>&lt; N, Block &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Three-way comparison operator for iterators.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Another iterator to compare with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A value representing the comparison result. </dd></dl>
+
+</div>
+</div>
+<a id="aaae71ad5498e1ae83e4c68338ac2a1b4" name="aaae71ad5498e1ae83e4c68338ac2a1b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae71ad5498e1ae83e4c68338ac2a1b4">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a>&lt; N, Block &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Equality operator for two iterators.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Another iterator to compare with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if both iterators point to the same position, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a18657c569cb0178cdbad3565a617c254" name="a18657c569cb0178cdbad3565a617c254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18657c569cb0178cdbad3565a617c254">&#9670;&#160;</a></span>operator-</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend <a class="el" href="#af12ae6091db27630cb0ef1d50061870b">difference_type</a> operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a>&lt; N, Block &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">XbitIteratorBase</a>&lt; N, Block &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compute the distance between two iterators.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Left-hand iterator. </td></tr>
+    <tr><td class="paramname">y</td><td>Right-hand iterator. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Difference between the two iterators. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ae9775cdf90ee5cf82b2e104e4be4a4b5" name="ae9775cdf90ee5cf82b2e104e4be4a4b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9775cdf90ee5cf82b2e104e4be4a4b5">&#9670;&#160;</a></span>offset_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::offset_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Offset within the current block segment. </p>
+
+</div>
+</div>
+<a id="a8bbf2c4b411790abb064377bc63bef97" name="a8bbf2c4b411790abb064377bc63bef97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bbf2c4b411790abb064377bc63bef97">&#9670;&#160;</a></span>seg_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Block* <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::seg_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Pointer to the current block segment. </p>
+
+</div>
+</div>
+<a id="a293608e852cab1ee567cb6611b6cc1df" name="a293608e852cab1ee567cb6611b6cc1df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a293608e852cab1ee567cb6611b6cc1df">&#9670;&#160;</a></span>xbits_per_block</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classbiovoltron_1_1detail_1_1XbitIteratorBase.html">biovoltron::detail::XbitIteratorBase</a>&lt; N, Block &gt;::xbits_per_block = sizeof(Block) * CHAR_BIT / N</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Number of N-bit elements stored in one Block. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/biovoltron/container/<a class="el" href="xbit__vector_8hpp_source.html">xbit_vector.hpp</a></li>
 </ul>

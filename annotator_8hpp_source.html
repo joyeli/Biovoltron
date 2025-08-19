@@ -146,10 +146,10 @@ $(function(){initNavTree('annotator_8hpp_source.html','',''); });
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keyword">auto</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  find(<span class="keyword">const</span> <a class="code hl_struct" href="structbiovoltron_1_1Interval.html">Interval</a>&amp; interval)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">const</span> <span class="keyword">auto</span> key = std::string{interval.chrom + interval.strand};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">const</span> <span class="keyword">auto</span> key = std::string{interval.<a class="code hl_variable" href="structbiovoltron_1_1Interval.html#a03dc0fa2ab503d01ad0213882a45dedf">chrom</a> + interval.<a class="code hl_variable" href="structbiovoltron_1_1Interval.html#ac4a666fb03c61419d464eefd5efae517">strand</a>};</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span> (trees.contains(key)) {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>      <span class="keyword">const</span> <span class="keyword">auto</span>&amp; tree = trees.find(key)-&gt;second;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      <span class="keywordflow">return</span> tree.find(interval.begin, interval.end);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      <span class="keywordflow">return</span> tree.find(interval.<a class="code hl_variable" href="structbiovoltron_1_1Interval.html#a6b8934286f2eada9777fd88072d01440">begin</a>, interval.<a class="code hl_variable" href="structbiovoltron_1_1Interval.html#aed5700303fb7f94f5be29da382a35b88">end</a>);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    } <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      <span class="keywordflow">return</span> std::vector&lt;Data&gt;{};</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  }</div>
@@ -158,7 +158,11 @@ $(function(){initNavTree('annotator_8hpp_source.html','',''); });
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}  <span class="comment">// namespace biovoltron</span></div>
 <div class="ttc" id="astructbiovoltron_1_1Annotator_html"><div class="ttname"><a href="structbiovoltron_1_1Annotator.html">biovoltron::Annotator</a></div><div class="ttdoc">TBA.</div><div class="ttdef"><b>Definition</b> annotator.hpp:13</div></div>
-<div class="ttc" id="astructbiovoltron_1_1Interval_html"><div class="ttname"><a href="structbiovoltron_1_1Interval.html">biovoltron::Interval</a></div><div class="ttdef"><b>Definition</b> interval.hpp:9</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html"><div class="ttname"><a href="structbiovoltron_1_1Interval.html">biovoltron::Interval</a></div><div class="ttdoc">Genomic interval with chromosome, range, and strand.</div><div class="ttdef"><b>Definition</b> interval.hpp:31</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html_a03dc0fa2ab503d01ad0213882a45dedf"><div class="ttname"><a href="structbiovoltron_1_1Interval.html#a03dc0fa2ab503d01ad0213882a45dedf">biovoltron::Interval::chrom</a></div><div class="ttdeci">std::string chrom</div><div class="ttdef"><b>Definition</b> interval.hpp:48</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html_a6b8934286f2eada9777fd88072d01440"><div class="ttname"><a href="structbiovoltron_1_1Interval.html#a6b8934286f2eada9777fd88072d01440">biovoltron::Interval::begin</a></div><div class="ttdeci">std::uint32_t begin</div><div class="ttdef"><b>Definition</b> interval.hpp:52</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html_ac4a666fb03c61419d464eefd5efae517"><div class="ttname"><a href="structbiovoltron_1_1Interval.html#ac4a666fb03c61419d464eefd5efae517">biovoltron::Interval::strand</a></div><div class="ttdeci">char strand</div><div class="ttdef"><b>Definition</b> interval.hpp:60</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html_aed5700303fb7f94f5be29da382a35b88"><div class="ttname"><a href="structbiovoltron_1_1Interval.html#aed5700303fb7f94f5be29da382a35b88">biovoltron::Interval::end</a></div><div class="ttdeci">std::uint32_t end</div><div class="ttdef"><b>Definition</b> interval.hpp:56</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

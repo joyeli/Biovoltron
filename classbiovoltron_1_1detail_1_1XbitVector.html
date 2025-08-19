@@ -111,7 +111,7 @@ $(function(){initNavTree('classbiovoltron_1_1detail_1_1XbitVector.html','','clas
 </div><!--header-->
 <div class="contents">
 
-<p>TBA.  
+<p>Fixed-bit-width packed vector container.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="xbit__vector_8hpp_source.html">xbit_vector.hpp</a>&gt;</code></p>
@@ -121,7 +121,7 @@ Inheritance diagram for biovoltron::detail::XbitVector&lt; N, Block, Allocator &
  <div class="center">
   <img src="classbiovoltron_1_1detail_1_1XbitVector.png" usemap="#biovoltron_3A_3Adetail_3A_3AXbitVector_3C_20N_2C_20Block_2C_20Allocator_20_3E_map" alt=""/>
   <map id="biovoltron_3A_3Adetail_3A_3AXbitVector_3C_20N_2C_20Block_2C_20Allocator_20_3E_map" name="biovoltron_3A_3Adetail_3A_3AXbitVector_3C_20N_2C_20Block_2C_20Allocator_20_3E_map">
-<area href="classbiovoltron_1_1detail_1_1XbitVectorBase.html" alt="biovoltron::detail::XbitVectorBase" shape="rect" coords="0,0,303,24"/>
+<area href="classbiovoltron_1_1detail_1_1XbitVectorBase.html" title="Base class for XbitVector providing common exception helpers." alt="biovoltron::detail::XbitVectorBase" shape="rect" coords="0,0,303,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -158,66 +158,65 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>allocator_traits</b>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa51974dc81016eddf4a9415dc8bdff69" id="r_aa51974dc81016eddf4a9415dc8bdff69"><td class="memItemLeft" align="right" valign="top"><a id="aa51974dc81016eddf4a9415dc8bdff69" name="aa51974dc81016eddf4a9415dc8bdff69"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (const allocator_type &amp;a) noexcept</td></tr>
-<tr class="memitem:a13260bce6f8a574bacd9408d63209325" id="r_a13260bce6f8a574bacd9408d63209325"><td class="memItemLeft" align="right" valign="top"><a id="a13260bce6f8a574bacd9408d63209325" name="a13260bce6f8a574bacd9408d63209325"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (size_type n)</td></tr>
-<tr class="memitem:a2007335ef15d93e2f48c3b07fe386bcc" id="r_a2007335ef15d93e2f48c3b07fe386bcc"><td class="memItemLeft" align="right" valign="top"><a id="a2007335ef15d93e2f48c3b07fe386bcc" name="a2007335ef15d93e2f48c3b07fe386bcc"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (size_type n, const allocator_type &amp;a)</td></tr>
-<tr class="memitem:ae393dcc5d60ffd79830393050853fb7d" id="r_ae393dcc5d60ffd79830393050853fb7d"><td class="memItemLeft" align="right" valign="top"><a id="ae393dcc5d60ffd79830393050853fb7d" name="ae393dcc5d60ffd79830393050853fb7d"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (size_type n, const value_type &amp;x)</td></tr>
+<tr class="memitem:a4329ddccf95fb53dc7a8203a5f9c1b9e" id="r_a4329ddccf95fb53dc7a8203a5f9c1b9e"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4329ddccf95fb53dc7a8203a5f9c1b9e">XbitVector</a> () noexcept(std::is_nothrow_default_constructible_v&lt; allocator_type &gt;)</td></tr>
+<tr class="memdesc:a4329ddccf95fb53dc7a8203a5f9c1b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
+<tr class="memitem:aa51974dc81016eddf4a9415dc8bdff69" id="r_aa51974dc81016eddf4a9415dc8bdff69"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa51974dc81016eddf4a9415dc8bdff69">XbitVector</a> (const allocator_type &amp;a) noexcept</td></tr>
+<tr class="memdesc:aa51974dc81016eddf4a9415dc8bdff69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> with a specific allocator.  <br /></td></tr>
+<tr class="memitem:a54ac0e806a4dfca4686f9cab120cb465" id="r_a54ac0e806a4dfca4686f9cab120cb465"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54ac0e806a4dfca4686f9cab120cb465">~XbitVector</a> ()</td></tr>
+<tr class="memdesc:a54ac0e806a4dfca4686f9cab120cb465"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="memitem:a13260bce6f8a574bacd9408d63209325" id="r_a13260bce6f8a574bacd9408d63209325"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13260bce6f8a574bacd9408d63209325">XbitVector</a> (size_type n)</td></tr>
+<tr class="memdesc:a13260bce6f8a574bacd9408d63209325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> with n elements, each initialized to zero.  <br /></td></tr>
+<tr class="memitem:a2007335ef15d93e2f48c3b07fe386bcc" id="r_a2007335ef15d93e2f48c3b07fe386bcc"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2007335ef15d93e2f48c3b07fe386bcc">XbitVector</a> (size_type n, const allocator_type &amp;a)</td></tr>
+<tr class="memdesc:a2007335ef15d93e2f48c3b07fe386bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> with n elements (value 0) and a specific allocator.  <br /></td></tr>
+<tr class="memitem:ae393dcc5d60ffd79830393050853fb7d" id="r_ae393dcc5d60ffd79830393050853fb7d"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae393dcc5d60ffd79830393050853fb7d">XbitVector</a> (size_type n, const value_type &amp;x)</td></tr>
+<tr class="memdesc:ae393dcc5d60ffd79830393050853fb7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> with n elements, each initialized to x.  <br /></td></tr>
 <tr class="memitem:a7c84b9d51de44bb7603b329293dce3cc" id="r_a7c84b9d51de44bb7603b329293dce3cc"><td class="memItemLeft" align="right" valign="top"><a id="a7c84b9d51de44bb7603b329293dce3cc" name="a7c84b9d51de44bb7603b329293dce3cc"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (size_type n, const value_type &amp;x, const allocator_type &amp;a)</td></tr>
-<tr class="memitem:a31298ccb2aa8129f71ea8ca8bf5c5014" id="r_a31298ccb2aa8129f71ea8ca8bf5c5014"><td class="memItemLeft" align="right" valign="top"><a id="a31298ccb2aa8129f71ea8ca8bf5c5014" name="a31298ccb2aa8129f71ea8ca8bf5c5014"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (std::input_iterator auto first, std::input_iterator auto last)</td></tr>
+<tr class="memitem:a31298ccb2aa8129f71ea8ca8bf5c5014" id="r_a31298ccb2aa8129f71ea8ca8bf5c5014"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31298ccb2aa8129f71ea8ca8bf5c5014">XbitVector</a> (std::input_iterator auto first, std::input_iterator auto last)</td></tr>
+<tr class="memdesc:a31298ccb2aa8129f71ea8ca8bf5c5014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> from an input iterator range [first, last).  <br /></td></tr>
 <tr class="memitem:ac1f81e9d9e4844ced800ff4c483ed307" id="r_ac1f81e9d9e4844ced800ff4c483ed307"><td class="memItemLeft" align="right" valign="top"><a id="ac1f81e9d9e4844ced800ff4c483ed307" name="ac1f81e9d9e4844ced800ff4c483ed307"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (std::input_iterator auto first, std::input_iterator auto last, const allocator_type &amp;a)</td></tr>
-<tr class="memitem:ae181845d4b054c381c55743a305794b6" id="r_ae181845d4b054c381c55743a305794b6"><td class="memItemLeft" align="right" valign="top"><a id="ae181845d4b054c381c55743a305794b6" name="ae181845d4b054c381c55743a305794b6"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (std::forward_iterator auto first, std::forward_iterator auto last)</td></tr>
+<tr class="memitem:ae181845d4b054c381c55743a305794b6" id="r_ae181845d4b054c381c55743a305794b6"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae181845d4b054c381c55743a305794b6">XbitVector</a> (std::forward_iterator auto first, std::forward_iterator auto last)</td></tr>
+<tr class="memdesc:ae181845d4b054c381c55743a305794b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> from a forward iterator range [first, last).  <br /></td></tr>
 <tr class="memitem:a69050228d8d1cfe21a1925afffa39981" id="r_a69050228d8d1cfe21a1925afffa39981"><td class="memItemLeft" align="right" valign="top"><a id="a69050228d8d1cfe21a1925afffa39981" name="a69050228d8d1cfe21a1925afffa39981"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (std::forward_iterator auto first, std::forward_iterator auto last, const allocator_type &amp;a)</td></tr>
-<tr class="memitem:a9521ffaac4689107505350f6f484e026" id="r_a9521ffaac4689107505350f6f484e026"><td class="memItemLeft" align="right" valign="top"><a id="a9521ffaac4689107505350f6f484e026" name="a9521ffaac4689107505350f6f484e026"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;v)</td></tr>
+<tr class="memitem:a9521ffaac4689107505350f6f484e026" id="r_a9521ffaac4689107505350f6f484e026"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9521ffaac4689107505350f6f484e026">XbitVector</a> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;v)</td></tr>
+<tr class="memdesc:a9521ffaac4689107505350f6f484e026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <br /></td></tr>
 <tr class="memitem:a0a0c6caa001fcb54428b3643eea094d1" id="r_a0a0c6caa001fcb54428b3643eea094d1"><td class="memItemLeft" align="right" valign="top"><a id="a0a0c6caa001fcb54428b3643eea094d1" name="a0a0c6caa001fcb54428b3643eea094d1"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;v, const allocator_type &amp;a)</td></tr>
-<tr class="memitem:a8056053fb02e7d08ab1d426a8e88b3b9" id="r_a8056053fb02e7d08ab1d426a8e88b3b9"><td class="memItemLeft" align="right" valign="top"><a id="a8056053fb02e7d08ab1d426a8e88b3b9" name="a8056053fb02e7d08ab1d426a8e88b3b9"></a>
-constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;v)</td></tr>
-<tr class="memitem:a45f9f80b8579b99d2ac8e59dccdc2e64" id="r_a45f9f80b8579b99d2ac8e59dccdc2e64"><td class="memItemLeft" align="right" valign="top"><a id="a45f9f80b8579b99d2ac8e59dccdc2e64" name="a45f9f80b8579b99d2ac8e59dccdc2e64"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (std::initializer_list&lt; value_type &gt; il)</td></tr>
+<tr class="memitem:a8056053fb02e7d08ab1d426a8e88b3b9" id="r_a8056053fb02e7d08ab1d426a8e88b3b9"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8056053fb02e7d08ab1d426a8e88b3b9">operator=</a> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;v)</td></tr>
+<tr class="memdesc:a8056053fb02e7d08ab1d426a8e88b3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
+<tr class="memitem:a45f9f80b8579b99d2ac8e59dccdc2e64" id="r_a45f9f80b8579b99d2ac8e59dccdc2e64"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45f9f80b8579b99d2ac8e59dccdc2e64">XbitVector</a> (std::initializer_list&lt; value_type &gt; il)</td></tr>
+<tr class="memdesc:a45f9f80b8579b99d2ac8e59dccdc2e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> from an initializer list.  <br /></td></tr>
 <tr class="memitem:a7d70c1c02a071b30259269a56aef8697" id="r_a7d70c1c02a071b30259269a56aef8697"><td class="memItemLeft" align="right" valign="top"><a id="a7d70c1c02a071b30259269a56aef8697" name="a7d70c1c02a071b30259269a56aef8697"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (std::initializer_list&lt; value_type &gt; il, const allocator_type &amp;a)</td></tr>
-<tr class="memitem:a44166a677387186b27df9ccd403d8efa" id="r_a44166a677387186b27df9ccd403d8efa"><td class="memItemLeft" align="right" valign="top"><a id="a44166a677387186b27df9ccd403d8efa" name="a44166a677387186b27df9ccd403d8efa"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (<a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&amp;v) noexcept</td></tr>
-<tr class="memitem:a1f390733c14511a0e287c70231ed36db" id="r_a1f390733c14511a0e287c70231ed36db"><td class="memItemLeft" align="right" valign="top"><a id="a1f390733c14511a0e287c70231ed36db" name="a1f390733c14511a0e287c70231ed36db"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>XbitVector</b> (<a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&amp;v, const allocator_type &amp;a)</td></tr>
-<tr class="memitem:ac2ddd8851a0ed3a3c4cc3235b54b901d" id="r_ac2ddd8851a0ed3a3c4cc3235b54b901d"><td class="memItemLeft" align="right" valign="top"><a id="ac2ddd8851a0ed3a3c4cc3235b54b901d" name="ac2ddd8851a0ed3a3c4cc3235b54b901d"></a>
-constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&amp;v) noexcept(allocator_traits::propagate_on_container_move_assignment::value||allocator_traits::is_always_equal::value)</td></tr>
-<tr class="memitem:a841781bd395c96ad7c43641b06294749" id="r_a841781bd395c96ad7c43641b06294749"><td class="memItemLeft" align="right" valign="top"><a id="a841781bd395c96ad7c43641b06294749" name="a841781bd395c96ad7c43641b06294749"></a>
-constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (std::initializer_list&lt; value_type &gt; il)</td></tr>
-<tr class="memitem:a9a89ce19714c752268bea13568a292f2" id="r_a9a89ce19714c752268bea13568a292f2"><td class="memItemLeft" align="right" valign="top"><a id="a9a89ce19714c752268bea13568a292f2" name="a9a89ce19714c752268bea13568a292f2"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>assign</b> (std::input_iterator auto first, std::input_iterator auto last)</td></tr>
+<tr class="memitem:a44166a677387186b27df9ccd403d8efa" id="r_a44166a677387186b27df9ccd403d8efa"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44166a677387186b27df9ccd403d8efa">XbitVector</a> (<a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&amp;v) noexcept</td></tr>
+<tr class="memdesc:a44166a677387186b27df9ccd403d8efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
+<tr class="memitem:a1f390733c14511a0e287c70231ed36db" id="r_a1f390733c14511a0e287c70231ed36db"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f390733c14511a0e287c70231ed36db">XbitVector</a> (<a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&amp;v, const allocator_type &amp;a)</td></tr>
+<tr class="memdesc:a1f390733c14511a0e287c70231ed36db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor with specified allocator.  <br /></td></tr>
+<tr class="memitem:ac2ddd8851a0ed3a3c4cc3235b54b901d" id="r_ac2ddd8851a0ed3a3c4cc3235b54b901d"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2ddd8851a0ed3a3c4cc3235b54b901d">operator=</a> (<a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&amp;v) noexcept(allocator_traits::propagate_on_container_move_assignment::value||allocator_traits::is_always_equal::value)</td></tr>
+<tr class="memdesc:ac2ddd8851a0ed3a3c4cc3235b54b901d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
+<tr class="memitem:a841781bd395c96ad7c43641b06294749" id="r_a841781bd395c96ad7c43641b06294749"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a841781bd395c96ad7c43641b06294749">operator=</a> (std::initializer_list&lt; value_type &gt; il)</td></tr>
+<tr class="memitem:a9a89ce19714c752268bea13568a292f2" id="r_a9a89ce19714c752268bea13568a292f2"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a89ce19714c752268bea13568a292f2">assign</a> (std::input_iterator auto first, std::input_iterator auto last)</td></tr>
 <tr class="memitem:a7b540c93b8c13524724e5ce95177cd7e" id="r_a7b540c93b8c13524724e5ce95177cd7e"><td class="memItemLeft" align="right" valign="top"><a id="a7b540c93b8c13524724e5ce95177cd7e" name="a7b540c93b8c13524724e5ce95177cd7e"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>assign</b> (std::forward_iterator auto first, std::forward_iterator auto last)</td></tr>
-<tr class="memitem:add59ac16fd8daf5a56331425641d8ef0" id="r_add59ac16fd8daf5a56331425641d8ef0"><td class="memItemLeft" align="right" valign="top"><a id="add59ac16fd8daf5a56331425641d8ef0" name="add59ac16fd8daf5a56331425641d8ef0"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>assign</b> (size_type n, const value_type &amp;x)</td></tr>
+<tr class="memitem:add59ac16fd8daf5a56331425641d8ef0" id="r_add59ac16fd8daf5a56331425641d8ef0"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add59ac16fd8daf5a56331425641d8ef0">assign</a> (size_type n, const value_type &amp;x)</td></tr>
+<tr class="memdesc:add59ac16fd8daf5a56331425641d8ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns n copies of value x to the vector.  <br /></td></tr>
 <tr class="memitem:aa60cfaf6f0a1b67539fe25bad665ee2e" id="r_aa60cfaf6f0a1b67539fe25bad665ee2e"><td class="memItemLeft" align="right" valign="top"><a id="aa60cfaf6f0a1b67539fe25bad665ee2e" name="aa60cfaf6f0a1b67539fe25bad665ee2e"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>assign</b> (std::initializer_list&lt; value_type &gt; il)</td></tr>
-<tr class="memitem:a83433429c794bdda212682c4f63041c1" id="r_a83433429c794bdda212682c4f63041c1"><td class="memItemLeft" align="right" valign="top"><a id="a83433429c794bdda212682c4f63041c1" name="a83433429c794bdda212682c4f63041c1"></a>
-constexpr allocator_type&#160;</td><td class="memItemRight" valign="bottom"><b>get_allocator</b> () const noexcept</td></tr>
-<tr class="memitem:ac05ec84044eb963a1dad1546f29c0023" id="r_ac05ec84044eb963a1dad1546f29c0023"><td class="memItemLeft" align="right" valign="top"><a id="ac05ec84044eb963a1dad1546f29c0023" name="ac05ec84044eb963a1dad1546f29c0023"></a>
-constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><b>max_size</b> () const noexcept</td></tr>
-<tr class="memitem:a31b920f51c52d7d84499a57c4fff472b" id="r_a31b920f51c52d7d84499a57c4fff472b"><td class="memItemLeft" align="right" valign="top"><a id="a31b920f51c52d7d84499a57c4fff472b" name="a31b920f51c52d7d84499a57c4fff472b"></a>
-constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><b>capacity</b> () const noexcept</td></tr>
-<tr class="memitem:acfe5461c589db536e3d4cc39888f8ad3" id="r_acfe5461c589db536e3d4cc39888f8ad3"><td class="memItemLeft" align="right" valign="top"><a id="acfe5461c589db536e3d4cc39888f8ad3" name="acfe5461c589db536e3d4cc39888f8ad3"></a>
-constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const noexcept</td></tr>
-<tr class="memitem:a3813b9a1954f31eea9a206171a881ba6" id="r_a3813b9a1954f31eea9a206171a881ba6"><td class="memItemLeft" align="right" valign="top"><a id="a3813b9a1954f31eea9a206171a881ba6" name="a3813b9a1954f31eea9a206171a881ba6"></a>
-constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><b>num_blocks</b> () const noexcept</td></tr>
-<tr class="memitem:a230bf64beab897f7b02a7a1afe1394ab" id="r_a230bf64beab897f7b02a7a1afe1394ab"><td class="memItemLeft" align="right" valign="top"><a id="a230bf64beab897f7b02a7a1afe1394ab" name="a230bf64beab897f7b02a7a1afe1394ab"></a>
-constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> () const noexcept</td></tr>
-<tr class="memitem:aa5d550e872f7e99383ded617609877a0" id="r_aa5d550e872f7e99383ded617609877a0"><td class="memItemLeft" align="right" valign="top"><a id="aa5d550e872f7e99383ded617609877a0" name="aa5d550e872f7e99383ded617609877a0"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>reserve</b> (size_type n)</td></tr>
+<tr class="memitem:a83433429c794bdda212682c4f63041c1" id="r_a83433429c794bdda212682c4f63041c1"><td class="memItemLeft" align="right" valign="top">constexpr allocator_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83433429c794bdda212682c4f63041c1">get_allocator</a> () const noexcept</td></tr>
+<tr class="memitem:ac05ec84044eb963a1dad1546f29c0023" id="r_ac05ec84044eb963a1dad1546f29c0023"><td class="memItemLeft" align="right" valign="top">constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac05ec84044eb963a1dad1546f29c0023">max_size</a> () const noexcept</td></tr>
+<tr class="memdesc:ac05ec84044eb963a1dad1546f29c0023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum number of elements the container can hold.  <br /></td></tr>
+<tr class="memitem:a31b920f51c52d7d84499a57c4fff472b" id="r_a31b920f51c52d7d84499a57c4fff472b"><td class="memItemLeft" align="right" valign="top">constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31b920f51c52d7d84499a57c4fff472b">capacity</a> () const noexcept</td></tr>
+<tr class="memitem:acfe5461c589db536e3d4cc39888f8ad3" id="r_acfe5461c589db536e3d4cc39888f8ad3"><td class="memItemLeft" align="right" valign="top">constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfe5461c589db536e3d4cc39888f8ad3">size</a> () const noexcept</td></tr>
+<tr class="memitem:a3813b9a1954f31eea9a206171a881ba6" id="r_a3813b9a1954f31eea9a206171a881ba6"><td class="memItemLeft" align="right" valign="top">constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3813b9a1954f31eea9a206171a881ba6">num_blocks</a> () const noexcept</td></tr>
+<tr class="memitem:a230bf64beab897f7b02a7a1afe1394ab" id="r_a230bf64beab897f7b02a7a1afe1394ab"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a230bf64beab897f7b02a7a1afe1394ab">empty</a> () const noexcept</td></tr>
+<tr class="memitem:aa5d550e872f7e99383ded617609877a0" id="r_aa5d550e872f7e99383ded617609877a0"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5d550e872f7e99383ded617609877a0">reserve</a> (size_type n)</td></tr>
+<tr class="memdesc:aa5d550e872f7e99383ded617609877a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests a change in capacity to at least n elements.  <br /></td></tr>
 <tr class="memitem:ab85c5730091a71b1d0043c78c0c29ea6" id="r_ab85c5730091a71b1d0043c78c0c29ea6"><td class="memItemLeft" align="right" valign="top"><a id="ab85c5730091a71b1d0043c78c0c29ea6" name="ab85c5730091a71b1d0043c78c0c29ea6"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>shrink_to_fit</b> () noexcept</td></tr>
+<tr class="memdesc:ab85c5730091a71b1d0043c78c0c29ea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduces the capacity of the vector to fit its current size. <br /></td></tr>
+<tr id="pub-methods-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Iterators</div></td></tr>
 <tr class="memitem:ab69b9f9abd217923ad46bf61f3e4c20e" id="r_ab69b9f9abd217923ad46bf61f3e4c20e"><td class="memItemLeft" align="right" valign="top"><a id="ab69b9f9abd217923ad46bf61f3e4c20e" name="ab69b9f9abd217923ad46bf61f3e4c20e"></a>
 constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () noexcept</td></tr>
 <tr class="memitem:a5535c66a7879b34afab9460c972db460" id="r_a5535c66a7879b34afab9460c972db460"><td class="memItemLeft" align="right" valign="top"><a id="a5535c66a7879b34afab9460c972db460" name="a5535c66a7879b34afab9460c972db460"></a>
@@ -242,14 +241,15 @@ constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.ht
 constexpr const_reverse_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>crbegin</b> () const noexcept</td></tr>
 <tr class="memitem:af62dd830d4329acc5e612aef860724a4" id="r_af62dd830d4329acc5e612aef860724a4"><td class="memItemLeft" align="right" valign="top"><a id="af62dd830d4329acc5e612aef860724a4" name="af62dd830d4329acc5e612aef860724a4"></a>
 constexpr const_reverse_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>crend</b> () const noexcept</td></tr>
+<tr id="pub-methods-1" class="groupHeader"><td colspan="2"><div class="groupHeader">Element access</div></td></tr>
 <tr class="memitem:a7d380576a53cd069ffcd89f32c1cbed6" id="r_a7d380576a53cd069ffcd89f32c1cbed6"><td class="memItemLeft" align="right" valign="top"><a id="a7d380576a53cd069ffcd89f32c1cbed6" name="a7d380576a53cd069ffcd89f32c1cbed6"></a>
 constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitReference.html">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_type n)</td></tr>
 <tr class="memitem:a07d5d0b6beba54836ba20dab3a42596f" id="r_a07d5d0b6beba54836ba20dab3a42596f"><td class="memItemLeft" align="right" valign="top"><a id="a07d5d0b6beba54836ba20dab3a42596f" name="a07d5d0b6beba54836ba20dab3a42596f"></a>
 constexpr const_reference&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_type n) const</td></tr>
-<tr class="memitem:a23b66fb79f3562dbe04386f5650f8900" id="r_a23b66fb79f3562dbe04386f5650f8900"><td class="memItemLeft" align="right" valign="top"><a id="a23b66fb79f3562dbe04386f5650f8900" name="a23b66fb79f3562dbe04386f5650f8900"></a>
-constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitReference.html">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><b>at</b> (size_type n)</td></tr>
-<tr class="memitem:aafcab1a70114a8435d0d718ea0cfc13f" id="r_aafcab1a70114a8435d0d718ea0cfc13f"><td class="memItemLeft" align="right" valign="top"><a id="aafcab1a70114a8435d0d718ea0cfc13f" name="aafcab1a70114a8435d0d718ea0cfc13f"></a>
-constexpr const_reference&#160;</td><td class="memItemRight" valign="bottom"><b>at</b> (size_type n) const</td></tr>
+<tr class="memitem:a23b66fb79f3562dbe04386f5650f8900" id="r_a23b66fb79f3562dbe04386f5650f8900"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitReference.html">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23b66fb79f3562dbe04386f5650f8900">at</a> (size_type n)</td></tr>
+<tr class="memdesc:a23b66fb79f3562dbe04386f5650f8900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides checked access to an element at index <span class="tt">n</span>.  <br /></td></tr>
+<tr class="memitem:aafcab1a70114a8435d0d718ea0cfc13f" id="r_aafcab1a70114a8435d0d718ea0cfc13f"><td class="memItemLeft" align="right" valign="top">constexpr const_reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafcab1a70114a8435d0d718ea0cfc13f">at</a> (size_type n) const</td></tr>
+<tr class="memdesc:aafcab1a70114a8435d0d718ea0cfc13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides checked access to an element at index <span class="tt">n</span> (const version).  <br /></td></tr>
 <tr class="memitem:a55170cd34872603fd830d745fdaff6ae" id="r_a55170cd34872603fd830d745fdaff6ae"><td class="memItemLeft" align="right" valign="top"><a id="a55170cd34872603fd830d745fdaff6ae" name="a55170cd34872603fd830d745fdaff6ae"></a>
 constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitReference.html">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><b>front</b> ()</td></tr>
 <tr class="memitem:a7430e93fa05f5da8c7fa9f462eb1bf4e" id="r_a7430e93fa05f5da8c7fa9f462eb1bf4e"><td class="memItemLeft" align="right" valign="top"><a id="a7430e93fa05f5da8c7fa9f462eb1bf4e" name="a7430e93fa05f5da8c7fa9f462eb1bf4e"></a>
@@ -262,8 +262,9 @@ constexpr const_reference&#160;</td><td class="memItemRight" valign="bottom"><b>
 constexpr block_type *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> () noexcept</td></tr>
 <tr class="memitem:a08513ee17dcac9f496a7c0ac6eb0d634" id="r_a08513ee17dcac9f496a7c0ac6eb0d634"><td class="memItemLeft" align="right" valign="top"><a id="a08513ee17dcac9f496a7c0ac6eb0d634" name="a08513ee17dcac9f496a7c0ac6eb0d634"></a>
 constexpr const block_type *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> () const noexcept</td></tr>
-<tr class="memitem:a55ef37443b4787c521ec9e4b291fd7d2" id="r_a55ef37443b4787c521ec9e4b291fd7d2"><td class="memItemLeft" align="right" valign="top"><a id="a55ef37443b4787c521ec9e4b291fd7d2" name="a55ef37443b4787c521ec9e4b291fd7d2"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>push_back</b> (const value_type &amp;x)</td></tr>
+<tr id="pub-methods-2" class="groupHeader"><td colspan="2"><div class="groupHeader">Modifiers</div></td></tr>
+<tr class="memitem:a55ef37443b4787c521ec9e4b291fd7d2" id="r_a55ef37443b4787c521ec9e4b291fd7d2"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55ef37443b4787c521ec9e4b291fd7d2">push_back</a> (const value_type &amp;x)</td></tr>
+<tr class="memdesc:a55ef37443b4787c521ec9e4b291fd7d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends an element to the end of the vector.  <br /></td></tr>
 <tr class="memitem:adc0ed15506162a4a55c15e06a30d1c86" id="r_adc0ed15506162a4a55c15e06a30d1c86"><td class="memTemplParams" colspan="2"><a id="adc0ed15506162a4a55c15e06a30d1c86" name="adc0ed15506162a4a55c15e06a30d1c86"></a>
 template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:adc0ed15506162a4a55c15e06a30d1c86 template"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classbiovoltron_1_1detail_1_1XbitReference.html">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><b>emplace_back</b> (Args &amp;&amp;... args)</td></tr>
@@ -272,28 +273,30 @@ constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>pop_back</b
 <tr class="memitem:a6e0362b8661406191a64b5bac1d8cd18" id="r_a6e0362b8661406191a64b5bac1d8cd18"><td class="memTemplParams" colspan="2"><a id="a6e0362b8661406191a64b5bac1d8cd18" name="a6e0362b8661406191a64b5bac1d8cd18"></a>
 template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a6e0362b8661406191a64b5bac1d8cd18 template"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>emplace</b> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, Args &amp;&amp;... args)</td></tr>
-<tr class="memitem:a2de3c10f810c8d506e7d6be12caabc82" id="r_a2de3c10f810c8d506e7d6be12caabc82"><td class="memItemLeft" align="right" valign="top"><a id="a2de3c10f810c8d506e7d6be12caabc82" name="a2de3c10f810c8d506e7d6be12caabc82"></a>
-constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, const value_type &amp;x)</td></tr>
-<tr class="memitem:ad1c3b7a1d4dd1690e6788ccf334014e7" id="r_ad1c3b7a1d4dd1690e6788ccf334014e7"><td class="memItemLeft" align="right" valign="top"><a id="ad1c3b7a1d4dd1690e6788ccf334014e7" name="ad1c3b7a1d4dd1690e6788ccf334014e7"></a>
-constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, size_type n, const value_type &amp;x)</td></tr>
-<tr class="memitem:afc67f02c19ace16771b02ef34ccac267" id="r_afc67f02c19ace16771b02ef34ccac267"><td class="memItemLeft" align="right" valign="top"><a id="afc67f02c19ace16771b02ef34ccac267" name="afc67f02c19ace16771b02ef34ccac267"></a>
-constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, std::input_iterator auto first, std::input_iterator auto last)</td></tr>
-<tr class="memitem:a58966a7813ae9d15574af28c2c91f5ce" id="r_a58966a7813ae9d15574af28c2c91f5ce"><td class="memItemLeft" align="right" valign="top"><a id="a58966a7813ae9d15574af28c2c91f5ce" name="a58966a7813ae9d15574af28c2c91f5ce"></a>
-constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, std::forward_iterator auto first, std::forward_iterator auto last)</td></tr>
+<tr class="memitem:a2de3c10f810c8d506e7d6be12caabc82" id="r_a2de3c10f810c8d506e7d6be12caabc82"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2de3c10f810c8d506e7d6be12caabc82">insert</a> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, const value_type &amp;x)</td></tr>
+<tr class="memdesc:a2de3c10f810c8d506e7d6be12caabc82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a single element at the specified position.  <br /></td></tr>
+<tr class="memitem:ad1c3b7a1d4dd1690e6788ccf334014e7" id="r_ad1c3b7a1d4dd1690e6788ccf334014e7"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1c3b7a1d4dd1690e6788ccf334014e7">insert</a> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, size_type n, const value_type &amp;x)</td></tr>
+<tr class="memdesc:ad1c3b7a1d4dd1690e6788ccf334014e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts <span class="tt">n</span> copies of <span class="tt">x</span> at the specified position.  <br /></td></tr>
+<tr class="memitem:afc67f02c19ace16771b02ef34ccac267" id="r_afc67f02c19ace16771b02ef34ccac267"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc67f02c19ace16771b02ef34ccac267">insert</a> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, std::input_iterator auto first, std::input_iterator auto last)</td></tr>
+<tr class="memdesc:afc67f02c19ace16771b02ef34ccac267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a range of elements [first, last) at the specified position (input iterator version).  <br /></td></tr>
+<tr class="memitem:a58966a7813ae9d15574af28c2c91f5ce" id="r_a58966a7813ae9d15574af28c2c91f5ce"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58966a7813ae9d15574af28c2c91f5ce">insert</a> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, std::forward_iterator auto first, std::forward_iterator auto last)</td></tr>
+<tr class="memdesc:a58966a7813ae9d15574af28c2c91f5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a range of elements [first, last) at the specified position (forward iterator version).  <br /></td></tr>
 <tr class="memitem:a4fc1b68db48b8d5d857c256176ab010a" id="r_a4fc1b68db48b8d5d857c256176ab010a"><td class="memItemLeft" align="right" valign="top"><a id="a4fc1b68db48b8d5d857c256176ab010a" name="a4fc1b68db48b8d5d857c256176ab010a"></a>
 constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position, std::initializer_list&lt; value_type &gt; il)</td></tr>
-<tr class="memitem:a320255748db2e6e145c9c61c9c148cb5" id="r_a320255748db2e6e145c9c61c9c148cb5"><td class="memItemLeft" align="right" valign="top"><a id="a320255748db2e6e145c9c61c9c148cb5" name="a320255748db2e6e145c9c61c9c148cb5"></a>
-constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>erase</b> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position)</td></tr>
-<tr class="memitem:adf312c3c4d4b01b203fd40756cc18fc9" id="r_adf312c3c4d4b01b203fd40756cc18fc9"><td class="memItemLeft" align="right" valign="top"><a id="adf312c3c4d4b01b203fd40756cc18fc9" name="adf312c3c4d4b01b203fd40756cc18fc9"></a>
-constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>erase</b> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> first, <a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> last)</td></tr>
+<tr class="memitem:a320255748db2e6e145c9c61c9c148cb5" id="r_a320255748db2e6e145c9c61c9c148cb5"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a320255748db2e6e145c9c61c9c148cb5">erase</a> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> position)</td></tr>
+<tr class="memdesc:a320255748db2e6e145c9c61c9c148cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the element at the specified position.  <br /></td></tr>
+<tr class="memitem:adf312c3c4d4b01b203fd40756cc18fc9" id="r_adf312c3c4d4b01b203fd40756cc18fc9"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structbiovoltron_1_1detail_1_1XbitIterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf312c3c4d4b01b203fd40756cc18fc9">erase</a> (<a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> first, <a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a> last)</td></tr>
+<tr class="memdesc:adf312c3c4d4b01b203fd40756cc18fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes elements in the range [first, last).  <br /></td></tr>
 <tr class="memitem:a8f495ae230ff5a57b59ada37cab2f9e2" id="r_a8f495ae230ff5a57b59ada37cab2f9e2"><td class="memItemLeft" align="right" valign="top"><a id="a8f495ae230ff5a57b59ada37cab2f9e2" name="a8f495ae230ff5a57b59ada37cab2f9e2"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> () noexcept</td></tr>
-<tr class="memitem:afb66ec6ae5e9057b10c033708913354c" id="r_afb66ec6ae5e9057b10c033708913354c"><td class="memItemLeft" align="right" valign="top"><a id="afb66ec6ae5e9057b10c033708913354c" name="afb66ec6ae5e9057b10c033708913354c"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;) noexcept</td></tr>
-<tr class="memitem:adee8685d3bf47c5046b284663b65a51f" id="r_adee8685d3bf47c5046b284663b65a51f"><td class="memItemLeft" align="right" valign="top"><a id="adee8685d3bf47c5046b284663b65a51f" name="adee8685d3bf47c5046b284663b65a51f"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>resize</b> (size_type sz, value_type x=0)</td></tr>
+<tr class="memitem:afb66ec6ae5e9057b10c033708913354c" id="r_afb66ec6ae5e9057b10c033708913354c"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb66ec6ae5e9057b10c033708913354c">swap</a> (<a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;) noexcept</td></tr>
+<tr class="memdesc:afb66ec6ae5e9057b10c033708913354c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the contents of this vector with another.  <br /></td></tr>
+<tr class="memitem:adee8685d3bf47c5046b284663b65a51f" id="r_adee8685d3bf47c5046b284663b65a51f"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adee8685d3bf47c5046b284663b65a51f">resize</a> (size_type sz, value_type x=0)</td></tr>
+<tr class="memdesc:adee8685d3bf47c5046b284663b65a51f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the vector to contain <span class="tt">sz</span> elements.  <br /></td></tr>
 <tr class="memitem:aca8271820c63a6faeb9220a2ea8676aa" id="r_aca8271820c63a6faeb9220a2ea8676aa"><td class="memItemLeft" align="right" valign="top"><a id="aca8271820c63a6faeb9220a2ea8676aa" name="aca8271820c63a6faeb9220a2ea8676aa"></a>
 constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>flip</b> () noexcept</td></tr>
+<tr class="memdesc:aca8271820c63a6faeb9220a2ea8676aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips all bits in the vector. <br /></td></tr>
+<tr id="pub-methods-3" class="groupHeader"><td colspan="2"><div class="groupHeader">Comparisons</div></td></tr>
 <tr class="memitem:aca555d9868be9318e17494eb9f9df81c" id="r_aca555d9868be9318e17494eb9f9df81c"><td class="memItemLeft" align="right" valign="top"><a id="aca555d9868be9318e17494eb9f9df81c" name="aca555d9868be9318e17494eb9f9df81c"></a>
 constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp;other) const</td></tr>
 <tr class="memitem:a7a1a2f4178a1e5240711a1301b026dfa" id="r_a7a1a2f4178a1e5240711a1301b026dfa"><td class="memItemLeft" align="right" valign="top"><a id="a7a1a2f4178a1e5240711a1301b026dfa" name="a7a1a2f4178a1e5240711a1301b026dfa"></a>
@@ -307,8 +310,1342 @@ static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt;<br />
 requires (!std::same_as&lt;Block, bool&gt;)<br />
-class biovoltron::detail::XbitVector&lt; N, Block, Allocator &gt;</div><p>TBA. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+class biovoltron::detail::XbitVector&lt; N, Block, Allocator &gt;</div><p>Fixed-bit-width packed vector container. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">N</td><td>Bits per element. </td></tr>
+    <tr><td class="paramname">Block</td><td>Unsigned integral type used as storage block. </td></tr>
+    <tr><td class="paramname">Allocator</td><td>Allocator type for block storage. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4329ddccf95fb53dc7a8203a5f9c1b9e" name="a4329ddccf95fb53dc7a8203a5f9c1b9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4329ddccf95fb53dc7a8203a5f9c1b9e">&#9670;&#160;</a></span>XbitVector() <span class="overload">[1/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+<p>Default constructor.</p>
+<p>Constructs an empty <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> with zero capacity and size. The allocator is default-constructed. </p>
+
+</div>
+</div>
+<a id="aa51974dc81016eddf4a9415dc8bdff69" name="aa51974dc81016eddf4a9415dc8bdff69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa51974dc81016eddf4a9415dc8bdff69">&#9670;&#160;</a></span>XbitVector() <span class="overload">[2/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype">const allocator_type &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs an empty <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> with a specific allocator. </p>
+<p>Constructor with allocator.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Allocator to use for memory allocation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54ac0e806a4dfca4686f9cab120cb465" name="a54ac0e806a4dfca4686f9cab120cb465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54ac0e806a4dfca4686f9cab120cb465">&#9670;&#160;</a></span>~XbitVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::~<a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+<p>Destructor.</p>
+<p>Releases all allocated storage and invalidates all iterators. </p>
+
+</div>
+</div>
+<a id="a13260bce6f8a574bacd9408d63209325" name="a13260bce6f8a574bacd9408d63209325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13260bce6f8a574bacd9408d63209325">&#9670;&#160;</a></span>XbitVector() <span class="overload">[3/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype">size_type</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> with n elements, each initialized to zero. </p>
+<p>Constructors for various initializations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of elements to create. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2007335ef15d93e2f48c3b07fe386bcc" name="a2007335ef15d93e2f48c3b07fe386bcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2007335ef15d93e2f48c3b07fe386bcc">&#9670;&#160;</a></span>XbitVector() <span class="overload">[4/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype">size_type</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const allocator_type &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> with n elements (value 0) and a specific allocator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of elements to create. </td></tr>
+    <tr><td class="paramname">a</td><td>Allocator to use. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae393dcc5d60ffd79830393050853fb7d" name="ae393dcc5d60ffd79830393050853fb7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae393dcc5d60ffd79830393050853fb7d">&#9670;&#160;</a></span>XbitVector() <span class="overload">[5/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype">size_type</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const value_type &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> with n elements, each initialized to x. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of elements. </td></tr>
+    <tr><td class="paramname">x</td><td>Value to initialize each element with. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a31298ccb2aa8129f71ea8ca8bf5c5014" name="a31298ccb2aa8129f71ea8ca8bf5c5014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31298ccb2aa8129f71ea8ca8bf5c5014">&#9670;&#160;</a></span>XbitVector() <span class="overload">[6/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype">std::input_iterator auto</td>          <td class="paramname"><span class="paramname"><em>first</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::input_iterator auto</td>          <td class="paramname"><span class="paramname"><em>last</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> from an input iterator range [first, last). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">InputIt</td><td>Input iterator type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>Iterator to the first element to copy. </td></tr>
+    <tr><td class="paramname">last</td><td>Iterator past the last element to copy.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Any</td><td>exception thrown by element copy or memory allocation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae181845d4b054c381c55743a305794b6" name="ae181845d4b054c381c55743a305794b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae181845d4b054c381c55743a305794b6">&#9670;&#160;</a></span>XbitVector() <span class="overload">[7/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype">std::forward_iterator auto</td>          <td class="paramname"><span class="paramname"><em>first</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::forward_iterator auto</td>          <td class="paramname"><span class="paramname"><em>last</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> from a forward iterator range [first, last). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ForwardIt</td><td>Forward iterator type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>Iterator to the first element. </td></tr>
+    <tr><td class="paramname">last</td><td>Iterator past the last element. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9521ffaac4689107505350f6f484e026" name="a9521ffaac4689107505350f6f484e026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9521ffaac4689107505350f6f484e026">&#9670;&#160;</a></span>XbitVector() <span class="overload">[8/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Source vector to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a45f9f80b8579b99d2ac8e59dccdc2e64" name="a45f9f80b8579b99d2ac8e59dccdc2e64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f9f80b8579b99d2ac8e59dccdc2e64">&#9670;&#160;</a></span>XbitVector() <span class="overload">[9/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; value_type &gt;</td>          <td class="paramname"><span class="paramname"><em>il</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> from an initializer list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">il</td><td>Initializer list of elements. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a44166a677387186b27df9ccd403d8efa" name="a44166a677387186b27df9ccd403d8efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44166a677387186b27df9ccd403d8efa">&#9670;&#160;</a></span>XbitVector() <span class="overload">[10/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor. </p>
+<p>Move constructor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Source vector to move from.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Moves the contents of another <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> into this one.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Source vector to move. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1f390733c14511a0e287c70231ed36db" name="a1f390733c14511a0e287c70231ed36db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f390733c14511a0e287c70231ed36db">&#9670;&#160;</a></span>XbitVector() <span class="overload">[11/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::XbitVector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const allocator_type &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor with specified allocator. </p>
+<p>Moves the contents if the allocator matches; otherwise, copies elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Source vector to move. </td></tr>
+    <tr><td class="paramname">a</td><td>Allocator to use. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="add59ac16fd8daf5a56331425641d8ef0" name="add59ac16fd8daf5a56331425641d8ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add59ac16fd8daf5a56331425641d8ef0">&#9670;&#160;</a></span>assign() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::assign </td>
+          <td>(</td>
+          <td class="paramtype">size_type</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const value_type &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns n copies of value x to the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of elements. </td></tr>
+    <tr><td class="paramname">x</td><td>Value to fill. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a89ce19714c752268bea13568a292f2" name="a9a89ce19714c752268bea13568a292f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a89ce19714c752268bea13568a292f2">&#9670;&#160;</a></span>assign() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::assign </td>
+          <td>(</td>
+          <td class="paramtype">std::input_iterator auto</td>          <td class="paramname"><span class="paramname"><em>first</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::input_iterator auto</td>          <td class="paramname"><span class="paramname"><em>last</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Assigns new contents to the vector. </p>
+
+</div>
+</div>
+<a id="a23b66fb79f3562dbe04386f5650f8900" name="a23b66fb79f3562dbe04386f5650f8900"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b66fb79f3562dbe04386f5650f8900">&#9670;&#160;</a></span>at() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt;::reference <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">size_type</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Provides checked access to an element at index <span class="tt">n</span>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td><a class="el" href="structbiovoltron_1_1Index.html">Index</a> of the element. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the element at position <span class="tt">n</span>.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if n &gt;= <a class="el" href="#acfe5461c589db536e3d4cc39888f8ad3">size()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aafcab1a70114a8435d0d718ea0cfc13f" name="aafcab1a70114a8435d0d718ea0cfc13f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafcab1a70114a8435d0d718ea0cfc13f">&#9670;&#160;</a></span>at() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt;::const_reference <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::at </td>
+          <td>(</td>
+          <td class="paramtype">size_type</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Provides checked access to an element at index <span class="tt">n</span> (const version). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td><a class="el" href="structbiovoltron_1_1Index.html">Index</a> of the element. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the element at position <span class="tt">n</span>.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if n &gt;= <a class="el" href="#acfe5461c589db536e3d4cc39888f8ad3">size()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a31b920f51c52d7d84499a57c4fff472b" name="a31b920f51c52d7d84499a57c4fff472b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b920f51c52d7d84499a57c4fff472b">&#9670;&#160;</a></span>capacity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_type <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::capacity </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the number of elements that can be held without reallocation. </p>
+
+</div>
+</div>
+<a id="a230bf64beab897f7b02a7a1afe1394ab" name="a230bf64beab897f7b02a7a1afe1394ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230bf64beab897f7b02a7a1afe1394ab">&#9670;&#160;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::empty </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Checks if the vector is empty.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the vector contains no elements, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="adf312c3c4d4b01b203fd40756cc18fc9" name="adf312c3c4d4b01b203fd40756cc18fc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf312c3c4d4b01b203fd40756cc18fc9">&#9670;&#160;</a></span>erase() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt;::iterator <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::erase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a></td>          <td class="paramname"><span class="paramname"><em>first</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a></td>          <td class="paramname"><span class="paramname"><em>last</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes elements in the range [first, last). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">first</td><td>Start of the range to remove. </td></tr>
+    <tr><td class="paramname">last</td><td>End of the range to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterator pointing to the element following the last removed one. </dd></dl>
+
+</div>
+</div>
+<a id="a320255748db2e6e145c9c61c9c148cb5" name="a320255748db2e6e145c9c61c9c148cb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a320255748db2e6e145c9c61c9c148cb5">&#9670;&#160;</a></span>erase() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt;::iterator <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::erase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a></td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the element at the specified position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Iterator pointing to the element to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterator pointing to the element following the erased one. </dd></dl>
+
+</div>
+</div>
+<a id="a83433429c794bdda212682c4f63041c1" name="a83433429c794bdda212682c4f63041c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83433429c794bdda212682c4f63041c1">&#9670;&#160;</a></span>get_allocator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">allocator_type <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::get_allocator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the allocator used by the vector.</p>
+<dl class="section return"><dt>Returns</dt><dd>Allocator used by the vector. </dd></dl>
+
+</div>
+</div>
+<a id="a2de3c10f810c8d506e7d6be12caabc82" name="a2de3c10f810c8d506e7d6be12caabc82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2de3c10f810c8d506e7d6be12caabc82">&#9670;&#160;</a></span>insert() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt;::iterator <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a></td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const value_type &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts a single element at the specified position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Iterator pointing to the insertion position. </td></tr>
+    <tr><td class="paramname">x</td><td>Element to insert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterator pointing to the inserted element. </dd></dl>
+
+</div>
+</div>
+<a id="ad1c3b7a1d4dd1690e6788ccf334014e7" name="ad1c3b7a1d4dd1690e6788ccf334014e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1c3b7a1d4dd1690e6788ccf334014e7">&#9670;&#160;</a></span>insert() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt;::iterator <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a></td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_type</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const value_type &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts <span class="tt">n</span> copies of <span class="tt">x</span> at the specified position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Iterator pointing to the insertion position. </td></tr>
+    <tr><td class="paramname">n</td><td>Number of copies to insert. </td></tr>
+    <tr><td class="paramname">x</td><td>Element to insert. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterator pointing to the first of the newly inserted elements. </dd></dl>
+
+</div>
+</div>
+<a id="a58966a7813ae9d15574af28c2c91f5ce" name="a58966a7813ae9d15574af28c2c91f5ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58966a7813ae9d15574af28c2c91f5ce">&#9670;&#160;</a></span>insert() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt;::iterator <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a></td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::forward_iterator auto</td>          <td class="paramname"><span class="paramname"><em>first</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::forward_iterator auto</td>          <td class="paramname"><span class="paramname"><em>last</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts a range of elements [first, last) at the specified position (forward iterator version). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Iterator pointing to the insertion position. </td></tr>
+    <tr><td class="paramname">first</td><td>Start of the forward range. </td></tr>
+    <tr><td class="paramname">last</td><td>End of the forward range. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterator pointing to the first of the newly inserted elements. </dd></dl>
+
+</div>
+</div>
+<a id="afc67f02c19ace16771b02ef34ccac267" name="afc67f02c19ace16771b02ef34ccac267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc67f02c19ace16771b02ef34ccac267">&#9670;&#160;</a></span>insert() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt;::iterator <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1detail_1_1XbitConstIterator.html">const_iterator</a></td>          <td class="paramname"><span class="paramname"><em>position</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::input_iterator auto</td>          <td class="paramname"><span class="paramname"><em>first</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::input_iterator auto</td>          <td class="paramname"><span class="paramname"><em>last</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts a range of elements [first, last) at the specified position (input iterator version). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Iterator pointing to the insertion position. </td></tr>
+    <tr><td class="paramname">first</td><td>Start of the input range. </td></tr>
+    <tr><td class="paramname">last</td><td>End of the input range. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterator pointing to the first of the newly inserted elements. </dd></dl>
+
+</div>
+</div>
+<a id="ac05ec84044eb963a1dad1546f29c0023" name="ac05ec84044eb963a1dad1546f29c0023"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac05ec84044eb963a1dad1546f29c0023">&#9670;&#160;</a></span>max_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt;::size_type <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::max_size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the maximum number of elements the container can hold. </p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum possible element count. </dd></dl>
+
+</div>
+</div>
+<a id="a3813b9a1954f31eea9a206171a881ba6" name="a3813b9a1954f31eea9a206171a881ba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3813b9a1954f31eea9a206171a881ba6">&#9670;&#160;</a></span>num_blocks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_type <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::num_blocks </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the number of storage blocks used. </p>
+
+</div>
+</div>
+<a id="a8056053fb02e7d08ab1d426a8e88b3b9" name="a8056053fb02e7d08ab1d426a8e88b3b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8056053fb02e7d08ab1d426a8e88b3b9">&#9670;&#160;</a></span>operator=() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt; &amp; <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment operator. </p>
+<p>Copy assignment operator.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Source vector to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this vector.</dd></dl>
+<p>Replaces the contents of this vector with a copy of another.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Source vector to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this vector. </dd></dl>
+
+</div>
+</div>
+<a id="a841781bd395c96ad7c43641b06294749" name="a841781bd395c96ad7c43641b06294749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841781bd395c96ad7c43641b06294749">&#9670;&#160;</a></span>operator=() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a> &amp; <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; value_type &gt;</td>          <td class="paramname"><span class="paramname"><em>il</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Replaces contents with elements from initializer list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">il</td><td>Initializer list to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this vector. </dd></dl>
+
+</div>
+</div>
+<a id="ac2ddd8851a0ed3a3c4cc3235b54b901d" name="ac2ddd8851a0ed3a3c4cc3235b54b901d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2ddd8851a0ed3a3c4cc3235b54b901d">&#9670;&#160;</a></span>operator=() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt; &amp; <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment operator. </p>
+<p>Move assignment operator.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Source vector to move from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this vector.</dd></dl>
+<p>Moves the contents from another vector or copies if allocators differ.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Source vector to move. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this vector. </dd></dl>
+
+</div>
+</div>
+<a id="a55ef37443b4787c521ec9e4b291fd7d2" name="a55ef37443b4787c521ec9e4b291fd7d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55ef37443b4787c521ec9e4b291fd7d2">&#9670;&#160;</a></span>push_back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::push_back </td>
+          <td>(</td>
+          <td class="paramtype">const value_type &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Appends an element to the end of the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Element to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa5d550e872f7e99383ded617609877a0" name="aa5d550e872f7e99383ded617609877a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5d550e872f7e99383ded617609877a0">&#9670;&#160;</a></span>reserve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::reserve </td>
+          <td>(</td>
+          <td class="paramtype">size_type</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Requests a change in capacity to at least n elements. </p>
+<p>If n exceeds current capacity, storage is reallocated and elements moved.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Minimum capacity requested. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adee8685d3bf47c5046b284663b65a51f" name="adee8685d3bf47c5046b284663b65a51f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adee8685d3bf47c5046b284663b65a51f">&#9670;&#160;</a></span>resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype">size_type</td>          <td class="paramname"><span class="paramname"><em>sz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">value_type</td>          <td class="paramname"><span class="paramname"><em>x</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resizes the vector to contain <span class="tt">sz</span> elements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sz</td><td>New size of the vector. </td></tr>
+    <tr><td class="paramname">x</td><td>Value to use for new elements if the vector grows. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acfe5461c589db536e3d4cc39888f8ad3" name="acfe5461c589db536e3d4cc39888f8ad3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfe5461c589db536e3d4cc39888f8ad3">&#9670;&#160;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_type <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the number of stored elements. </p>
+
+</div>
+</div>
+<a id="afb66ec6ae5e9057b10c033708913354c" name="afb66ec6ae5e9057b10c033708913354c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb66ec6ae5e9057b10c033708913354c">&#9670;&#160;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N, std::unsigned_integral Block, std::copy_constructible Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">biovoltron::detail::XbitVector</a>&lt; N, Block, Allocator &gt;::swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html">XbitVector</a>&lt; N, Block, Allocator &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Swaps the contents of this vector with another. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Vector to swap with. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/biovoltron/container/<a class="el" href="xbit__vector_8hpp_source.html">xbit_vector.hpp</a></li>
 </ul>
 </div><!-- contents -->

@@ -110,6 +110,11 @@ $(function(){initNavTree('structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html',
   <div class="headertitle"><div class="title">biovoltron::BurrowWheelerAligner::Aln Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a> result for a single read.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="burrow__wheeler__aligner_8hpp_source.html">burrow_wheeler_aligner.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -122,37 +127,52 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=&gt;</b>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a8bd59678d2261c3b0ab16b2289768aaa" id="r_a8bd59678d2261c3b0ab16b2289768aaa"><td class="memItemLeft" align="right" valign="top"><a id="a8bd59678d2261c3b0ab16b2289768aaa" name="a8bd59678d2261c3b0ab16b2289768aaa"></a>
 std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b> {}</td></tr>
+<tr class="memdesc:a8bd59678d2261c3b0ab16b2289768aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">0-based reference position. <br /></td></tr>
 <tr class="memitem:af0250f322889b320cb65603f994dc45e" id="r_af0250f322889b320cb65603f994dc45e"><td class="memItemLeft" align="right" valign="top"><a id="af0250f322889b320cb65603f994dc45e" name="af0250f322889b320cb65603f994dc45e"></a>
 std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>score</b> {}</td></tr>
+<tr class="memdesc:af0250f322889b320cb65603f994dc45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Best alignment score. <br /></td></tr>
 <tr class="memitem:ac8a359e7a910bfa4c44ea833c30837e7" id="r_ac8a359e7a910bfa4c44ea833c30837e7"><td class="memItemLeft" align="right" valign="top"><a id="ac8a359e7a910bfa4c44ea833c30837e7" name="ac8a359e7a910bfa4c44ea833c30837e7"></a>
 std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>score2</b> {}</td></tr>
+<tr class="memdesc:ac8a359e7a910bfa4c44ea833c30837e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Secondary alignment score. <br /></td></tr>
 <tr class="memitem:aa52bc5f41efeb3bc46c3f12b7557c664" id="r_aa52bc5f41efeb3bc46c3f12b7557c664"><td class="memItemLeft" align="right" valign="top"><a id="aa52bc5f41efeb3bc46c3f12b7557c664" name="aa52bc5f41efeb3bc46c3f12b7557c664"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b> {1}</td></tr>
+<tr class="memdesc:aa52bc5f41efeb3bc46c3f12b7557c664"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strand: true=forward, false=reverse. <br /></td></tr>
 <tr class="memitem:ac635d53e2163565cf54f776bc43f94a0" id="r_ac635d53e2163565cf54f776bc43f94a0"><td class="memItemLeft" align="right" valign="top"><a id="ac635d53e2163565cf54f776bc43f94a0" name="ac635d53e2163565cf54f776bc43f94a0"></a>
 std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>read_end</b> {}</td></tr>
+<tr class="memdesc:ac635d53e2163565cf54f776bc43f94a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read end index in alignment. <br /></td></tr>
 <tr class="memitem:ad25fd600f348dcd575c5c9f173d6bda0" id="r_ad25fd600f348dcd575c5c9f173d6bda0"><td class="memItemLeft" align="right" valign="top"><a id="ad25fd600f348dcd575c5c9f173d6bda0" name="ad25fd600f348dcd575c5c9f173d6bda0"></a>
 std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ref_end</b> {}</td></tr>
+<tr class="memdesc:ad25fd600f348dcd575c5c9f173d6bda0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference end index in alignment. <br /></td></tr>
 <tr class="memitem:adf05634b4a43bea3ccfa52fbfa31e4fe" id="r_adf05634b4a43bea3ccfa52fbfa31e4fe"><td class="memItemLeft" align="right" valign="top"><a id="adf05634b4a43bea3ccfa52fbfa31e4fe" name="adf05634b4a43bea3ccfa52fbfa31e4fe"></a>
 std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>find_cnt</b> {}</td></tr>
+<tr class="memdesc:adf05634b4a43bea3ccfa52fbfa31e4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matched k-mer count. <br /></td></tr>
 <tr class="memitem:a16e1a9378b2b20bf345d50341dd86059" id="r_a16e1a9378b2b20bf345d50341dd86059"><td class="memItemLeft" align="right" valign="top"><a id="a16e1a9378b2b20bf345d50341dd86059" name="a16e1a9378b2b20bf345d50341dd86059"></a>
 std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>align_len</b> {}</td></tr>
+<tr class="memdesc:a16e1a9378b2b20bf345d50341dd86059"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a> length for MAPQ. <br /></td></tr>
 <tr class="memitem:ac78da606956a081ef24e64933d9419ee" id="r_ac78da606956a081ef24e64933d9419ee"><td class="memItemLeft" align="right" valign="top"><a id="ac78da606956a081ef24e64933d9419ee" name="ac78da606956a081ef24e64933d9419ee"></a>
 std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>mapq</b> {}</td></tr>
+<tr class="memdesc:ac78da606956a081ef24e64933d9419ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapping quality score. <br /></td></tr>
 <tr class="memitem:aed47a060f56db3479e6008462bf4891f" id="r_aed47a060f56db3479e6008462bf4891f"><td class="memItemLeft" align="right" valign="top"><a id="aed47a060f56db3479e6008462bf4891f" name="aed47a060f56db3479e6008462bf4891f"></a>
 std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>sub_score</b> {}</td></tr>
+<tr class="memdesc:aed47a060f56db3479e6008462bf4891f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suboptimal alignment score. <br /></td></tr>
 <tr class="memitem:ae097f1c8e0342bd45d2d908c5be55d65" id="r_ae097f1c8e0342bd45d2d908c5be55d65"><td class="memItemLeft" align="right" valign="top"><a id="ae097f1c8e0342bd45d2d908c5be55d65" name="ae097f1c8e0342bd45d2d908c5be55d65"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>rescued</b> {}</td></tr>
+<tr class="memdesc:ae097f1c8e0342bd45d2d908c5be55d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if obtained via rescue. <br /></td></tr>
 <tr class="memitem:a395e22009780c79ee970efe47c799312" id="r_a395e22009780c79ee970efe47c799312"><td class="memItemLeft" align="right" valign="top"><a id="a395e22009780c79ee970efe47c799312" name="a395e22009780c79ee970efe47c799312"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>cigar</b></td></tr>
+<tr class="memdesc:a395e22009780c79ee970efe47c799312"><td class="mdescLeft">&#160;</td><td class="mdescRight">CIGAR string. <br /></td></tr>
 <tr class="memitem:a41df6a6dcd3672da78dde0ce3d08b5f5" id="r_a41df6a6dcd3672da78dde0ce3d08b5f5"><td class="memItemLeft" align="right" valign="top"><a id="a41df6a6dcd3672da78dde0ce3d08b5f5" name="a41df6a6dcd3672da78dde0ce3d08b5f5"></a>
 istring&#160;</td><td class="memItemRight" valign="bottom"><b>rev_comp</b></td></tr>
+<tr class="memdesc:a41df6a6dcd3672da78dde0ce3d08b5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse-complement sequence if needed. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a02b36c3c91110f1681b39e9487322107" id="r_a02b36c3c91110f1681b39e9487322107"><td class="memItemLeft" align="right" valign="top"><a id="a02b36c3c91110f1681b39e9487322107" name="a02b36c3c91110f1681b39e9487322107"></a>
 auto &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, <a class="el" href="structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html">Aln</a> aln)</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a> result for a single read. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/applications/burrow_wheeler_aligner/<a class="el" href="burrow__wheeler__aligner_8hpp_source.html">burrow_wheeler_aligner.hpp</a></li>
 </ul>
 </div><!-- contents -->

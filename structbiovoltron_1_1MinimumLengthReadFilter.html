@@ -107,21 +107,92 @@ $(function(){initNavTree('structbiovoltron_1_1MinimumLengthReadFilter.html','','
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">biovoltron::MinimumLengthReadFilter Struct Reference</div></div>
+  <div class="headertitle"><div class="title">biovoltron::MinimumLengthReadFilter Struct Reference<div class="ingroups"><a class="el" href="group__utility.html">utility</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Filter reads shorter than the minimum length.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="read__filter_8hpp_source.html">read_filter.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4d7cd9ee6f6958f5766e87511174d2ce" id="r_a4d7cd9ee6f6958f5766e87511174d2ce"><td class="memTemplParams" colspan="2"><a id="a4d7cd9ee6f6958f5766e87511174d2ce" name="a4d7cd9ee6f6958f5766e87511174d2ce"></a>
-template&lt;bool Encoded = false&gt; </td></tr>
-<tr class="memitem:a4d7cd9ee6f6958f5766e87511174d2ce template"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (const <a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;record) const noexcept</td></tr>
+<tr class="memitem:a4d7cd9ee6f6958f5766e87511174d2ce" id="r_a4d7cd9ee6f6958f5766e87511174d2ce"><td class="memTemplParams" colspan="2">template&lt;bool Encoded = false&gt; </td></tr>
+<tr class="memitem:a4d7cd9ee6f6958f5766e87511174d2ce template"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d7cd9ee6f6958f5766e87511174d2ce">operator()</a> (const <a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;record) const noexcept</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a2cb26b6430a906fc05d2ebdfeba3997a" id="r_a2cb26b6430a906fc05d2ebdfeba3997a"><td class="memItemLeft" align="right" valign="top"><a id="a2cb26b6430a906fc05d2ebdfeba3997a" name="a2cb26b6430a906fc05d2ebdfeba3997a"></a>
-static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>MINIMUM_READ_LENGTH_AFTER_TRIMMING</b> = 10</td></tr>
+<tr class="memitem:a2cb26b6430a906fc05d2ebdfeba3997a" id="r_a2cb26b6430a906fc05d2ebdfeba3997a"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cb26b6430a906fc05d2ebdfeba3997a">MINIMUM_READ_LENGTH_AFTER_TRIMMING</a> = 10</td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Filter reads shorter than the minimum length. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a4d7cd9ee6f6958f5766e87511174d2ce" name="a4d7cd9ee6f6958f5766e87511174d2ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d7cd9ee6f6958f5766e87511174d2ce">&#9670;&#160;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool Encoded = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::MinimumLengthReadFilter::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>record</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Filters out reads shorter than the minimum length.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Encoded</td><td>Whether the read is encoded (default is false). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">record</td><td>The SAM record to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the read is shorter than the minimum length, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a2cb26b6430a906fc05d2ebdfeba3997a" name="a2cb26b6430a906fc05d2ebdfeba3997a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb26b6430a906fc05d2ebdfeba3997a">&#9670;&#160;</a></span>MINIMUM_READ_LENGTH_AFTER_TRIMMING</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::MinimumLengthReadFilter::MINIMUM_READ_LENGTH_AFTER_TRIMMING = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Minimum read length after trimming. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/utility/read/<a class="el" href="read__filter_8hpp_source.html">read_filter.hpp</a></li>
 </ul>

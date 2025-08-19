@@ -110,6 +110,11 @@ $(function(){initNavTree('classbiovoltron_1_1detail_1_1XbitVectorBase.html','','
   <div class="headertitle"><div class="title">biovoltron::detail::XbitVectorBase Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> providing common exception helpers.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="xbit__vector_8hpp_source.html">xbit_vector.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for biovoltron::detail::XbitVectorBase:</div>
 <div class="dyncontent">
@@ -120,17 +125,111 @@ Inheritance diagram for biovoltron::detail::XbitVectorBase:</div>
 <area href="classbiovoltron_1_1detail_1_1XbitVector.html" alt="biovoltron::detail::XbitVector&lt; 2, Block, Allocator &gt;" shape="rect" coords="456,56,902,80"/>
 <area href="classbiovoltron_1_1detail_1_1XbitVector.html" alt="biovoltron::detail::XbitVector&lt; 4, Block, Allocator &gt;" shape="rect" coords="912,56,1358,80"/>
 <area href="classbiovoltron_1_1detail_1_1XbitVector.html" alt="biovoltron::detail::XbitVector&lt; 1, std::uint64_t, std::allocator&lt; std::uint64_t &gt; &gt;" shape="rect" coords="1368,56,1814,80"/>
-<area href="classbiovoltron_1_1detail_1_1XbitVector.html" title="TBA." alt="biovoltron::detail::XbitVector&lt; N, Block, Allocator &gt;" shape="rect" coords="1824,56,2270,80"/>
+<area href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container." alt="biovoltron::detail::XbitVector&lt; N, Block, Allocator &gt;" shape="rect" coords="1824,56,2270,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a9d05eca3463cf8120322f32f5bfe73f5" id="r_a9d05eca3463cf8120322f32f5bfe73f5"><td class="memItemLeft" align="right" valign="top"><a id="a9d05eca3463cf8120322f32f5bfe73f5" name="a9d05eca3463cf8120322f32f5bfe73f5"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>throw_length_error</b> () const</td></tr>
-<tr class="memitem:adbb67b89f06ef0a460139301b026d6e4" id="r_adbb67b89f06ef0a460139301b026d6e4"><td class="memItemLeft" align="right" valign="top"><a id="adbb67b89f06ef0a460139301b026d6e4" name="adbb67b89f06ef0a460139301b026d6e4"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>throw_out_of_range</b> () const</td></tr>
+<tr class="memitem:a4b245b03d3cf1f2b65a5a8c50d492604" id="r_a4b245b03d3cf1f2b65a5a8c50d492604"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b245b03d3cf1f2b65a5a8c50d492604">XbitVectorBase</a> ()=default</td></tr>
+<tr class="memitem:a9d05eca3463cf8120322f32f5bfe73f5" id="r_a9d05eca3463cf8120322f32f5bfe73f5"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d05eca3463cf8120322f32f5bfe73f5">throw_length_error</a> () const</td></tr>
+<tr class="memitem:adbb67b89f06ef0a460139301b026d6e4" id="r_adbb67b89f06ef0a460139301b026d6e4"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbb67b89f06ef0a460139301b026d6e4">throw_out_of_range</a> () const</td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for <a class="el" href="classbiovoltron_1_1detail_1_1XbitVector.html" title="Fixed-bit-width packed vector container.">XbitVector</a> providing common exception helpers. </p>
+<p>Defines utility methods for throwing standard exceptions in runtime (suppressed during constant evaluation). </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4b245b03d3cf1f2b65a5a8c50d492604" name="a4b245b03d3cf1f2b65a5a8c50d492604"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b245b03d3cf1f2b65a5a8c50d492604">&#9670;&#160;</a></span>XbitVectorBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">biovoltron::detail::XbitVectorBase::XbitVectorBase </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Default constructor. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a9d05eca3463cf8120322f32f5bfe73f5" name="a9d05eca3463cf8120322f32f5bfe73f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d05eca3463cf8120322f32f5bfe73f5">&#9670;&#160;</a></span>throw_length_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void biovoltron::detail::XbitVectorBase::throw_length_error </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Throw std::length_error if not evaluated at compile time.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::length_error</td><td>Always throws at runtime. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adbb67b89f06ef0a460139301b026d6e4" name="adbb67b89f06ef0a460139301b026d6e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbb67b89f06ef0a460139301b026d6e4">&#9670;&#160;</a></span>throw_out_of_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void biovoltron::detail::XbitVectorBase::throw_out_of_range </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Throw std::out_of_range if not evaluated at compile time.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>Always throws at runtime. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/biovoltron/container/<a class="el" href="xbit__vector_8hpp_source.html">xbit_vector.hpp</a></li>
 </ul>

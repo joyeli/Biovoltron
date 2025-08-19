@@ -107,22 +107,153 @@ $(function(){initNavTree('structbiovoltron_1_1ReadClipper.html','','structbiovol
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">biovoltron::ReadClipper Struct Reference</div></div>
+  <div class="headertitle"><div class="title">biovoltron::ReadClipper Struct Reference<div class="ingroups"><a class="el" href="group__utility.html">utility</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Utility class for clipping reads based on CIGAR operations.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="read__clipper_8hpp_source.html">read_clipper.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a88e338b0557b1d00881b744a1a1bd57c" id="r_a88e338b0557b1d00881b744a1a1bd57c"><td class="memTemplParams" colspan="2"><a id="a88e338b0557b1d00881b744a1a1bd57c" name="a88e338b0557b1d00881b744a1a1bd57c"></a>
-template&lt;bool Encoded = false&gt; </td></tr>
-<tr class="memitem:a88e338b0557b1d00881b744a1a1bd57c template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><b>hard_clip_soft_clipped_bases</b> (<a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;read)</td></tr>
-<tr class="memitem:adf159c145363d2fde608eb18a14c1c78" id="r_adf159c145363d2fde608eb18a14c1c78"><td class="memTemplParams" colspan="2"><a id="adf159c145363d2fde608eb18a14c1c78" name="adf159c145363d2fde608eb18a14c1c78"></a>
-template&lt;bool Encoded = false&gt; </td></tr>
-<tr class="memitem:adf159c145363d2fde608eb18a14c1c78 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><b>revert_soft_clipped_bases</b> (<a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;read)</td></tr>
-<tr class="memitem:ae8dbfcd288fc9562e1a2350a31da2f2a" id="r_ae8dbfcd288fc9562e1a2350a31da2f2a"><td class="memTemplParams" colspan="2"><a id="ae8dbfcd288fc9562e1a2350a31da2f2a" name="ae8dbfcd288fc9562e1a2350a31da2f2a"></a>
-template&lt;bool Encoded = false&gt; </td></tr>
-<tr class="memitem:ae8dbfcd288fc9562e1a2350a31da2f2a template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><b>hard_clip_to_interval</b> (<a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;read, const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;interval)</td></tr>
+<tr class="memitem:a88e338b0557b1d00881b744a1a1bd57c" id="r_a88e338b0557b1d00881b744a1a1bd57c"><td class="memTemplParams" colspan="2">template&lt;bool Encoded = false&gt; </td></tr>
+<tr class="memitem:a88e338b0557b1d00881b744a1a1bd57c template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88e338b0557b1d00881b744a1a1bd57c">hard_clip_soft_clipped_bases</a> (<a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;read)</td></tr>
+<tr class="memitem:adf159c145363d2fde608eb18a14c1c78" id="r_adf159c145363d2fde608eb18a14c1c78"><td class="memTemplParams" colspan="2">template&lt;bool Encoded = false&gt; </td></tr>
+<tr class="memitem:adf159c145363d2fde608eb18a14c1c78 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf159c145363d2fde608eb18a14c1c78">revert_soft_clipped_bases</a> (<a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;read)</td></tr>
+<tr class="memitem:ae8dbfcd288fc9562e1a2350a31da2f2a" id="r_ae8dbfcd288fc9562e1a2350a31da2f2a"><td class="memTemplParams" colspan="2">template&lt;bool Encoded = false&gt; </td></tr>
+<tr class="memitem:ae8dbfcd288fc9562e1a2350a31da2f2a template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8dbfcd288fc9562e1a2350a31da2f2a">hard_clip_to_interval</a> (<a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;read, const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;interval)</td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Utility class for clipping reads based on CIGAR operations. </p>
+<p>This class provides methods to hard clip soft-clipped bases, revert soft-clipped bases and hard clip to a specific interval in SAM records. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a88e338b0557b1d00881b744a1a1bd57c" name="a88e338b0557b1d00881b744a1a1bd57c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e338b0557b1d00881b744a1a1bd57c">&#9670;&#160;</a></span>hard_clip_soft_clipped_bases()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool Encoded = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void biovoltron::ReadClipper::hard_clip_soft_clipped_bases </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>read</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Remove bases marked as soft-clipped from both ends of a read.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Encoded</td><td>Whether the read is encoded (default is false). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">read</td><td>The SAM record to modify. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae8dbfcd288fc9562e1a2350a31da2f2a" name="ae8dbfcd288fc9562e1a2350a31da2f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8dbfcd288fc9562e1a2350a31da2f2a">&#9670;&#160;</a></span>hard_clip_to_interval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool Encoded = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void biovoltron::ReadClipper::hard_clip_to_interval </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>read</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>interval</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Hard clips a read to fit within a specified interval.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Encoded</td><td>Whether the read is encoded (default is false). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">read</td><td>The SAM record to modify. </td></tr>
+    <tr><td class="paramname">interval</td><td>The interval to hard clip the read to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adf159c145363d2fde608eb18a14c1c78" name="adf159c145363d2fde608eb18a14c1c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf159c145363d2fde608eb18a14c1c78">&#9670;&#160;</a></span>revert_soft_clipped_bases()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool Encoded = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void biovoltron::ReadClipper::revert_soft_clipped_bases </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a>&lt; Encoded &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>read</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Reverts soft-clipped bases at the beginning and end of a read.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Encoded</td><td>Whether the read is encoded (default is false). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">read</td><td>The SAM record to modify. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/utility/read/<a class="el" href="read__clipper_8hpp_source.html">read_clipper.hpp</a></li>
 </ul>

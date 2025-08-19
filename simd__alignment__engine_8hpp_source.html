@@ -144,16 +144,16 @@ $(function(){initNavTree('simd__alignment__engine_8hpp_source.html','',''); });
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                        <span class="keyword">const</span> simdpp::int16&lt;16&gt; (&amp;masks)[N]) {</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      simdpp::int16&lt;16&gt; m;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      m = simdpp::add(a, penalties[0]);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      a = simdpp::max(a, masks[0] | simdpp::slli&lt;2&gt;(m));</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      a = simdpp::max(a, masks[0] | m &lt;&lt; 2);</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      m = simdpp::add(a, penalties[1]);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      a = simdpp::max(a, masks[1] | simdpp::slli&lt;4&gt;(m));</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      a = simdpp::max(a, masks[1] | m &lt;&lt; 4);</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      m = simdpp::add(a, penalties[2]);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      a = simdpp::max(a, masks[2] | simdpp::slli&lt;8&gt;(m));</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      a = simdpp::max(a, masks[2] | m &lt;&lt; 8);</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      m = simdpp::add(a, penalties[3]);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      a = simdpp::max(a, masks[3] | simdpp::slli&lt;16&gt;(m));</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      a = simdpp::max(a, masks[3] | m &lt;&lt; 16);</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  }</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#elif defined(__SSE2__)</span><span class="preprocessor"></span></div>
@@ -169,13 +169,13 @@ $(function(){initNavTree('simd__alignment__engine_8hpp_source.html','',''); });
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                        <span class="keyword">const</span> simdpp::int16&lt;8&gt; (&amp;masks)[N]) {</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      simdpp::int16&lt;8&gt; m;</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      m = simdpp::add(a, penalties[0]);</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      a = simdpp::max(a, masks[0] | simdpp::slli&lt;2&gt;(m));</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      a = simdpp::max(a, masks[0] | m &lt;&lt; 2);</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>      m = simdpp::add(a, penalties[1]);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      a = simdpp::max(a, masks[1] | simdpp::slli&lt;4&gt;(m));</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      a = simdpp::max(a, masks[1] | m &lt;&lt; 4);</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>      m = simdpp::add(a, penalties[2]);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>      a = simdpp::max(a, masks[2] | simdpp::slli&lt;8&gt;(m));</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>      a = simdpp::max(a, masks[2] | m &lt;&lt; 8);</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  }</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#else</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">  #error &quot;Unsupported SIMD instruction set&quot;</span></div>
@@ -579,7 +579,7 @@ $(function(){initNavTree('simd__alignment__engine_8hpp_source.html','',''); });
 <div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>    }</div>
 <div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span> </div>
 <div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>    masks[4] = simdpp::load(unpacked);</div>
-<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>    masks[4] = simdpp::slli&lt;LSS&gt;(masks[4]);</div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>    masks[4] = masks[4] &lt;&lt; LSS;</div>
 <div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>    </div>
 <div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span> </div>
 <div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>    <span class="comment">// first</span></div>
@@ -623,7 +623,7 @@ $(function(){initNavTree('simd__alignment__engine_8hpp_source.html','',''); });
 <div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>        }</div>
 <div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>      }</div>
 <div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span> </div>
-<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>      x = simdpp::srli&lt;RSS&gt;(kNegSimd);</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>      x = kNegSimd &gt;&gt; RSS;</div>
 <div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>      <span class="keywordflow">for</span> (std::uint64_t j = 0; j &lt; matrix_width; j += T_NUM) {</div>
 <div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>        <span class="comment">// Check the previous cell in the same row, implementing &quot;H_row[j] = std::max(static_cast&lt;int16_t&gt;(H_row[j - 1] + g), H_row[j])&quot; as in a scalar (SISD) context.</span></div>
 <div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>        a = simdpp::load(H_row + j);</div>
@@ -632,7 +632,7 @@ $(function(){initNavTree('simd__alignment__engine_8hpp_source.html','',''); });
 <div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>        prefix_max(a, penalties, masks);</div>
 <div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span> </div>
 <div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>        tmp = simdpp::add(a, gap);</div>
-<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>        x = simdpp::srli&lt;RSS&gt;(tmp);</div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>        x = tmp &gt;&gt; LSS;</div>
 <div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>        simdpp::store(H_row + j, a);</div>
 <div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>      }</div>
 <div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span> </div>
@@ -846,7 +846,7 @@ $(function(){initNavTree('simd__alignment__engine_8hpp_source.html','',''); });
 <div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span> </div>
 <div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>        E_row_simd = simdpp::add(</div>
 <div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>          simdpp::add(</div>
-<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>            simdpp::slli&lt;LSS&gt;(H_row_simd) | simdpp::srli&lt;RSS&gt;(x),</div>
+<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>            H_row_simd &lt;&lt; LSS | x &gt;&gt; RSS,</div>
 <div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>            gap</div>
 <div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span>          ),</div>
 <div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span>          extend</div>
@@ -1011,7 +1011,7 @@ $(function(){initNavTree('simd__alignment__engine_8hpp_source.html','',''); });
 <div class="ttc" id="aclassbiovoltron_1_1SimdAlignmentEngine_html_a27fd7db2fefe5857dd804dcbd9858614"><div class="ttname"><a href="classbiovoltron_1_1SimdAlignmentEngine.html#a27fd7db2fefe5857dd804dcbd9858614">biovoltron::SimdAlignmentEngine::Align</a></div><div class="ttdeci">Alignment Align(const char *sequence, std::uint32_t sequence_len, const Graph &amp;graph, std::int32_t *score)</div><div class="ttdef"><b>Definition</b> simd_alignment_engine.hpp:436</div></div>
 <div class="ttc" id="aclassbiovoltron_1_1SimdAlignmentEngine_html_a4b2b645faf9d7d4c7337efcbb444088e"><div class="ttname"><a href="classbiovoltron_1_1SimdAlignmentEngine.html#a4b2b645faf9d7d4c7337efcbb444088e">biovoltron::SimdAlignmentEngine::Realloc</a></div><div class="ttdeci">void Realloc(std::uint64_t matrix_width, std::uint64_t matrix_height, std::uint8_t num_codes)</div><div class="ttdef"><b>Definition</b> simd_alignment_engine.hpp:310</div></div>
 <div class="ttc" id="aclassbiovoltron_1_1SimdAlignmentEngine_html_add9fdb73a174a5f4b58964dc4dc24f46"><div class="ttname"><a href="classbiovoltron_1_1SimdAlignmentEngine.html#add9fdb73a174a5f4b58964dc4dc24f46">biovoltron::SimdAlignmentEngine::Prealloc</a></div><div class="ttdeci">void Prealloc(std::uint32_t max_sequence_len, std::uint8_t alphabet_size)</div><div class="ttdef"><b>Definition</b> simd_alignment_engine.hpp:288</div></div>
-<div class="ttc" id="astructbiovoltron_1_1Alignment_html"><div class="ttname"><a href="structbiovoltron_1_1Alignment.html">biovoltron::Alignment</a></div><div class="ttdef"><b>Definition</b> alignment.hpp:26</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Alignment_html"><div class="ttname"><a href="structbiovoltron_1_1Alignment.html">biovoltron::Alignment</a></div><div class="ttdef"><b>Definition</b> alignment.hpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

@@ -110,45 +110,70 @@ $(function(){initNavTree('structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters
   <div class="headertitle"><div class="title">biovoltron::BurrowWheelerAligner::Parameters Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Algorithm parameters and heuristics.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="burrow__wheeler__aligner_8hpp_source.html">burrow_wheeler_aligner.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a85efdae68c86a7fb652c4d5f3a1d1e0c" id="r_a85efdae68c86a7fb652c4d5f3a1d1e0c"><td class="memItemLeft" align="right" valign="top"><a id="a85efdae68c86a7fb652c4d5f3a1d1e0c" name="a85efdae68c86a7fb652c4d5f3a1d1e0c"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>INSERT_MEAN</b> = 550</td></tr>
+<tr class="memdesc:a85efdae68c86a7fb652c4d5f3a1d1e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mean insert size (bp). <br /></td></tr>
 <tr class="memitem:a11c8d928a7ffff6454bc866c08d671e3" id="r_a11c8d928a7ffff6454bc866c08d671e3"><td class="memItemLeft" align="right" valign="top"><a id="a11c8d928a7ffff6454bc866c08d671e3" name="a11c8d928a7ffff6454bc866c08d671e3"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>INSERT_VAR</b> = 150</td></tr>
+<tr class="memdesc:a11c8d928a7ffff6454bc866c08d671e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert size variance (bp^2). <br /></td></tr>
 <tr class="memitem:aee9d107e08b6d3101fe61e13843a23c2" id="r_aee9d107e08b6d3101fe61e13843a23c2"><td class="memItemLeft" align="right" valign="top"><a id="aee9d107e08b6d3101fe61e13843a23c2" name="aee9d107e08b6d3101fe61e13843a23c2"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>PAIR_DIST</b> = INSERT_MEAN + 4 * INSERT_VAR + 50</td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>PAIR_DIST</b> = <a class="el" href="#a85efdae68c86a7fb652c4d5f3a1d1e0c">INSERT_MEAN</a> + 4 * <a class="el" href="#a11c8d928a7ffff6454bc866c08d671e3">INSERT_VAR</a> + 50</td></tr>
+<tr class="memdesc:aee9d107e08b6d3101fe61e13843a23c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max pairing distance. <br /></td></tr>
 <tr class="memitem:a667f53ddddcbefbc33ca607e255fe865" id="r_a667f53ddddcbefbc33ca607e255fe865"><td class="memItemLeft" align="right" valign="top"><a id="a667f53ddddcbefbc33ca607e255fe865" name="a667f53ddddcbefbc33ca607e255fe865"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_HIT_CNT</b> = 512</td></tr>
+<tr class="memdesc:a667f53ddddcbefbc33ca607e255fe865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max FM-index hits per seed. <br /></td></tr>
 <tr class="memitem:a5f99436f78e51144ddc44431d5ae9a78" id="r_a5f99436f78e51144ddc44431d5ae9a78"><td class="memItemLeft" align="right" valign="top"><a id="a5f99436f78e51144ddc44431d5ae9a78" name="a5f99436f78e51144ddc44431d5ae9a78"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_EM_CNT</b> = 128</td></tr>
+<tr class="memdesc:a5f99436f78e51144ddc44431d5ae9a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max exact match candidates kept. <br /></td></tr>
 <tr class="memitem:a5c39090505fbeb087213c458c0f696df" id="r_a5c39090505fbeb087213c458c0f696df"><td class="memItemLeft" align="right" valign="top"><a id="a5c39090505fbeb087213c458c0f696df" name="a5c39090505fbeb087213c458c0f696df"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_SW_CNT</b> = 32</td></tr>
+<tr class="memdesc:a5c39090505fbeb087213c458c0f696df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max SW candidates kept. <br /></td></tr>
 <tr class="memitem:a1390fc0ab0dbc91a7eb1470c9c016b6f" id="r_a1390fc0ab0dbc91a7eb1470c9c016b6f"><td class="memItemLeft" align="right" valign="top"><a id="a1390fc0ab0dbc91a7eb1470c9c016b6f" name="a1390fc0ab0dbc91a7eb1470c9c016b6f"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_RESCUE_CNT</b> = 128</td></tr>
+<tr class="memdesc:a1390fc0ab0dbc91a7eb1470c9c016b6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max rescue attempts per mate. <br /></td></tr>
 <tr class="memitem:a1c575baedcb3be0db0770bd2d3b05d3d" id="r_a1c575baedcb3be0db0770bd2d3b05d3d"><td class="memItemLeft" align="right" valign="top"><a id="a1c575baedcb3be0db0770bd2d3b05d3d" name="a1c575baedcb3be0db0770bd2d3b05d3d"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_SEED_CNT</b> = 4</td></tr>
+<tr class="memdesc:a1c575baedcb3be0db0770bd2d3b05d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max seeds used after filtering. <br /></td></tr>
 <tr class="memitem:a72030b76834f0d2d857c47e7989d5928" id="r_a72030b76834f0d2d857c47e7989d5928"><td class="memItemLeft" align="right" valign="top"><a id="a72030b76834f0d2d857c47e7989d5928" name="a72030b76834f0d2d857c47e7989d5928"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>SEED_LEN</b> = 19</td></tr>
+<tr class="memdesc:a72030b76834f0d2d857c47e7989d5928"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed length for FM-index. <br /></td></tr>
 <tr class="memitem:ad63bc3136996cf90f64bf200b65477d9" id="r_ad63bc3136996cf90f64bf200b65477d9"><td class="memItemLeft" align="right" valign="top"><a id="ad63bc3136996cf90f64bf200b65477d9" name="ad63bc3136996cf90f64bf200b65477d9"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>SEED_OVERLAP</b> = 4</td></tr>
+<tr class="memdesc:ad63bc3136996cf90f64bf200b65477d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overlap between seeds. <br /></td></tr>
 <tr class="memitem:afc225672c93f13698e5ba887002df230" id="r_afc225672c93f13698e5ba887002df230"><td class="memItemLeft" align="right" valign="top"><a id="afc225672c93f13698e5ba887002df230" name="afc225672c93f13698e5ba887002df230"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>EXTEND</b> = 100</td></tr>
+<tr class="memdesc:afc225672c93f13698e5ba887002df230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra flanking bases for SW. <br /></td></tr>
 <tr class="memitem:ae64f9622508c535a64f1240ccabcfb96" id="r_ae64f9622508c535a64f1240ccabcfb96"><td class="memItemLeft" align="right" valign="top"><a id="ae64f9622508c535a64f1240ccabcfb96" name="ae64f9622508c535a64f1240ccabcfb96"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>SW_THRESHOLD</b> = 30</td></tr>
+<tr class="memdesc:ae64f9622508c535a64f1240ccabcfb96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum SW score to keep. <br /></td></tr>
 <tr class="memitem:aad1d2ac640e74bd8547a9a05399484fc" id="r_aad1d2ac640e74bd8547a9a05399484fc"><td class="memItemLeft" align="right" valign="top"><a id="aad1d2ac640e74bd8547a9a05399484fc" name="aad1d2ac640e74bd8547a9a05399484fc"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>KMER_SIZE</b> = 8</td></tr>
+<tr class="memdesc:aad1d2ac640e74bd8547a9a05399484fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">K-mer size for filtering. <br /></td></tr>
 <tr class="memitem:a43352749dbef0351f16b477b64ec241c" id="r_a43352749dbef0351f16b477b64ec241c"><td class="memItemLeft" align="right" valign="top"><a id="a43352749dbef0351f16b477b64ec241c" name="a43352749dbef0351f16b477b64ec241c"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_FIND_CNT</b> = 4</td></tr>
+<tr class="memdesc:a43352749dbef0351f16b477b64ec241c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min matched k-mers to keep a window. <br /></td></tr>
 <tr class="memitem:a38e5575b16f48ed5434806d3e240c140" id="r_a38e5575b16f48ed5434806d3e240c140"><td class="memItemLeft" align="right" valign="top"><a id="a38e5575b16f48ed5434806d3e240c140" name="a38e5575b16f48ed5434806d3e240c140"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_FIND_CNT_DIFF</b> = 4</td></tr>
+<tr class="memdesc:a38e5575b16f48ed5434806d3e240c140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max difference in k-mer count allowed. <br /></td></tr>
 <tr class="memitem:a239ba97998f96f38b1dc087ce5ff56ed" id="r_a239ba97998f96f38b1dc087ce5ff56ed"><td class="memItemLeft" align="right" valign="top"><a id="a239ba97998f96f38b1dc087ce5ff56ed" name="a239ba97998f96f38b1dc087ce5ff56ed"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_SW_DIFF</b> = 30</td></tr>
+<tr class="memdesc:a239ba97998f96f38b1dc087ce5ff56ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max SW score diff from best. <br /></td></tr>
 <tr class="memitem:a279247ee0eda8f48124653111127302d" id="r_a279247ee0eda8f48124653111127302d"><td class="memItemLeft" align="right" valign="top"><a id="a279247ee0eda8f48124653111127302d" name="a279247ee0eda8f48124653111127302d"></a>
 const int&#160;</td><td class="memItemRight" valign="bottom"><b>PEN_UNPAIRED</b> = 19</td></tr>
+<tr class="memdesc:a279247ee0eda8f48124653111127302d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Penalty for unpaired alignments. <br /></td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Algorithm parameters and heuristics. </p>
+<p>Controls insert-size, seeding, SW thresholds, and scoring settings. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/applications/burrow_wheeler_aligner/<a class="el" href="burrow__wheeler__aligner_8hpp_source.html">burrow_wheeler_aligner.hpp</a></li>
 </ul>
 </div><!-- contents -->

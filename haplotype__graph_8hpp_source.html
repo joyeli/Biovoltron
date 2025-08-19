@@ -131,7 +131,7 @@ $(function(){initNavTree('haplotype__graph_8hpp_source.html','',''); });
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1HaplotypeGraph_1_1Parameter.html">   18</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structbiovoltron_1_1HaplotypeGraph_1_1Parameter.html">Parameter</a> {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">const</span> std::size_t DEFAULT_NUM_PATHS = 128;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">const</span> std::size_t MIN_BASE_QUALITY = 10 + QualityUtils::ASCII_OFFSET;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">const</span> std::size_t MIN_BASE_QUALITY = 10 + <a class="code hl_variable" href="structbiovoltron_1_1QualityUtils.html#a8c6513b7ba5b9ed613c8aa54c067ea8a">QualityUtils::ASCII_OFFSET</a>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">const</span> std::size_t PRUNE_FACTOR = 2;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  } para;</div>
 </div>
@@ -331,7 +331,7 @@ $(function(){initNavTree('haplotype__graph_8hpp_source.html','',''); });
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    }</div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; h : haplotypes) {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>      <span class="keyword">auto</span> [align_begin, cigar] = SmithWaterman::align(ref, h.seq);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>      <span class="keyword">auto</span> [align_begin, cigar] = <a class="code hl_function" href="structbiovoltron_1_1SmithWaterman.html#a224191adc54b070c40579a46044d109e">SmithWaterman::align</a>(ref, h.seq);</div>
 <div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>      <span class="comment">// SPDLOG_DEBUG(&quot;Adding haplotype {} from graph with kmer {}&quot;, cigar, kmer_size);</span></div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>      h.align_begin_wrt_ref = align_begin;</div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>      h.cigar = std::move(cigar);</div>
@@ -426,6 +426,8 @@ $(function(){initNavTree('haplotype__graph_8hpp_source.html','',''); });
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>} <span class="comment">// namespace biovoltron</span></div>
 <div class="ttc" id="astructbiovoltron_1_1HaplotypeGraph_1_1Parameter_html"><div class="ttname"><a href="structbiovoltron_1_1HaplotypeGraph_1_1Parameter.html">biovoltron::HaplotypeGraph::Parameter</a></div><div class="ttdef"><b>Definition</b> haplotype_graph.hpp:18</div></div>
+<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html_a8c6513b7ba5b9ed613c8aa54c067ea8a"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html#a8c6513b7ba5b9ed613c8aa54c067ea8a">biovoltron::QualityUtils::ASCII_OFFSET</a></div><div class="ttdeci">static constexpr char ASCII_OFFSET</div><div class="ttdoc">ASCII offset for FASTQ quality (&#39;!&#39;).</div><div class="ttdef"><b>Definition</b> quality_utils.hpp:17</div></div>
+<div class="ttc" id="astructbiovoltron_1_1SmithWaterman_html_a224191adc54b070c40579a46044d109e"><div class="ttname"><a href="structbiovoltron_1_1SmithWaterman.html#a224191adc54b070c40579a46044d109e">biovoltron::SmithWaterman::align</a></div><div class="ttdeci">static auto align(std::string_view ref, std::string_view alt, Parameters params=NEW_SW_PARAMETERS)</div><div class="ttdoc">Aligns two sequences using Smith-Waterman and returns the alignment offset and CIGAR string.</div><div class="ttdef"><b>Definition</b> smithwaterman.hpp:244</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

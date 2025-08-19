@@ -149,7 +149,7 @@ $(function(){initNavTree('fasta_8hpp_source.html','',''); });
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="keyword">auto</span> line = std::string{};</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  std::getline(is, line);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  record.name = line.substr(1, line.find_first_of(<span class="stringliteral">&quot; \t&quot;</span>, 1) - 1);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  record.name = line.substr(1);</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <span class="keywordflow">for</span> (record.seq.clear(); std::getline(is, line);) {</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (R::encoded)</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      record.seq += <a class="code hl_function" href="structbiovoltron_1_1Codec.html#ae3dbafb19c969e68b01e2a87417cc512">Codec::to_istring</a>(line);</div>

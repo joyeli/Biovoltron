@@ -14,11 +14,13 @@ var searchData=
   ['development_20workflow_11',['Development Workflow',['../contribute.html#contribute-development-workflow',1,'']]],
   ['devin_12',['Wiki from Devin',['../wiki.html',1,'']]],
   ['dibitvector_13',['DibitVector',['../group__container.html#gaf9bcb277b4b500c1c4eaea27037aeba3',1,'biovoltron']]],
-  ['dna4_14',['dna4',['../classbiovoltron_1_1dna4.html',1,'biovoltron']]],
-  ['dna5_15',['dna5',['../classbiovoltron_1_1dna5.html',1,'biovoltron']]],
-  ['documentation_20building_20dependencies_16',['Documentation Building Dependencies',['../contribute.html#autotoc_md28',1,'']]],
-  ['doxygen_20comment_20guidelines_17',['Doxygen Comment Guidelines',['../contribute.html#contribute-doxygen',1,'']]],
-  ['doxygen_20s_20comment_20style_18',['5.1. Using doxygen&apos;s comment style',['../codingstyle.html#autotoc_md17',1,'']]],
-  ['duplicate_5fread_19',['duplicate_read',['../structbiovoltron_1_1SamRecord.html#affddfdd9fe2a0b7ec22c1e25d10017cc',1,'biovoltron::SamRecord']]],
-  ['duplicatereadfilter_20',['DuplicateReadFilter',['../structbiovoltron_1_1DuplicateReadFilter.html',1,'biovoltron']]]
+  ['difference_5ftype_14',['difference_type',['../classbiovoltron_1_1detail_1_1XbitIteratorBase.html#af12ae6091db27630cb0ef1d50061870b',1,'biovoltron::detail::XbitIteratorBase']]],
+  ['dist_15',['dist',['../structbiovoltron_1_1BurrowWheelerAligner_1_1AlnPair.html#aeb7ecab9bd8bfaa37e46fb4afcb120c6',1,'biovoltron::BurrowWheelerAligner::AlnPair']]],
+  ['dna4_16',['dna4',['../classbiovoltron_1_1dna4.html',1,'biovoltron']]],
+  ['dna5_17',['dna5',['../classbiovoltron_1_1dna5.html',1,'biovoltron']]],
+  ['documentation_20building_20dependencies_18',['Documentation Building Dependencies',['../contribute.html#autotoc_md28',1,'']]],
+  ['doxygen_20comment_20guidelines_19',['Doxygen Comment Guidelines',['../contribute.html#contribute-doxygen',1,'']]],
+  ['doxygen_20s_20comment_20style_20',['5.1. Using doxygen&apos;s comment style',['../codingstyle.html#autotoc_md17',1,'']]],
+  ['duplicate_5fread_21',['duplicate_read',['../structbiovoltron_1_1SamRecord.html#affddfdd9fe2a0b7ec22c1e25d10017cc',1,'biovoltron::SamRecord']]],
+  ['duplicatereadfilter_22',['DuplicateReadFilter',['../structbiovoltron_1_1DuplicateReadFilter.html',1,'biovoltron']]]
 ];

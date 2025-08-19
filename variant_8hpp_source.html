@@ -164,7 +164,7 @@ $(function(){initNavTree('variant_8hpp_source.html','',''); });
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keyword">auto</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  to_string()<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">auto</span> oss = std::ostringstream{};</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    oss &lt;&lt; location.chrom &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; location.begin + 1 &lt;&lt; <span class="stringliteral">&quot;\t.\t&quot;</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    oss &lt;&lt; location.<a class="code hl_variable" href="structbiovoltron_1_1Interval.html#a03dc0fa2ab503d01ad0213882a45dedf">chrom</a> &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; location.begin + 1 &lt;&lt; <span class="stringliteral">&quot;\t.\t&quot;</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        &lt;&lt; (alleles.empty() ? <span class="stringliteral">&quot;.&quot;</span> : alleles.front()) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span>;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">auto</span> alts = alleles | std::views::drop(1);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">if</span> (alts.empty())</div>
@@ -189,7 +189,8 @@ $(function(){initNavTree('variant_8hpp_source.html','',''); });
 </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}  <span class="comment">// namespace biovoltron</span></div>
-<div class="ttc" id="astructbiovoltron_1_1Interval_html"><div class="ttname"><a href="structbiovoltron_1_1Interval.html">biovoltron::Interval</a></div><div class="ttdef"><b>Definition</b> interval.hpp:9</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html"><div class="ttname"><a href="structbiovoltron_1_1Interval.html">biovoltron::Interval</a></div><div class="ttdoc">Genomic interval with chromosome, range, and strand.</div><div class="ttdef"><b>Definition</b> interval.hpp:31</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html_a03dc0fa2ab503d01ad0213882a45dedf"><div class="ttname"><a href="structbiovoltron_1_1Interval.html#a03dc0fa2ab503d01ad0213882a45dedf">biovoltron::Interval::chrom</a></div><div class="ttdeci">std::string chrom</div><div class="ttdef"><b>Definition</b> interval.hpp:48</div></div>
 <div class="ttc" id="astructbiovoltron_1_1Variant_html"><div class="ttname"><a href="structbiovoltron_1_1Variant.html">biovoltron::Variant</a></div><div class="ttdef"><b>Definition</b> variant.hpp:9</div></div>
 <div class="ttc" id="astructbiovoltron_1_1VcfRecord_html"><div class="ttname"><a href="structbiovoltron_1_1VcfRecord.html">biovoltron::VcfRecord</a></div><div class="ttdoc">VCF file: Files of variant calling format store only variantions along with reference genome.</div><div class="ttdef"><b>Definition</b> vcf.hpp:93</div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -107,26 +107,171 @@ $(function(){initNavTree('structbiovoltron_1_1QualityUtils.html','','structbiovo
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">biovoltron::QualityUtils Struct Reference</div></div>
+  <div class="headertitle"><div class="title">biovoltron::QualityUtils Struct Reference<div class="ingroups"><a class="el" href="group__utility.html">utility</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Utilities for quality score conversions.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="quality__utils_8hpp_source.html">quality_utils.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0536c568aa8c66f587f8d980caa43eb0" id="r_a0536c568aa8c66f587f8d980caa43eb0"><td class="memItemLeft" align="right" valign="top"><a id="a0536c568aa8c66f587f8d980caa43eb0" name="a0536c568aa8c66f587f8d980caa43eb0"></a>
-static double&#160;</td><td class="memItemRight" valign="bottom"><b>qual_to_error_prob</b> (char qual)</td></tr>
-<tr class="memitem:ae6606441543f7a06043599b7465c37de" id="r_ae6606441543f7a06043599b7465c37de"><td class="memItemLeft" align="right" valign="top"><a id="ae6606441543f7a06043599b7465c37de" name="ae6606441543f7a06043599b7465c37de"></a>
-static auto&#160;</td><td class="memItemRight" valign="bottom"><b>qual_to_error_prob_log10</b> (double qual)</td></tr>
-<tr class="memitem:a2821fca1092745d57104442a02b9c579" id="r_a2821fca1092745d57104442a02b9c579"><td class="memItemLeft" align="right" valign="top"><a id="a2821fca1092745d57104442a02b9c579" name="a2821fca1092745d57104442a02b9c579"></a>
-static auto&#160;</td><td class="memItemRight" valign="bottom"><b>qual_to_prob_log10</b> (double qual)</td></tr>
-<tr class="memitem:a5a6ee368af1b4bd811035dc4043e0b7c" id="r_a5a6ee368af1b4bd811035dc4043e0b7c"><td class="memItemLeft" align="right" valign="top"><a id="a5a6ee368af1b4bd811035dc4043e0b7c" name="a5a6ee368af1b4bd811035dc4043e0b7c"></a>
-static auto&#160;</td><td class="memItemRight" valign="bottom"><b>phred_scale_error_rate</b> (double error_rate)</td></tr>
+<tr class="memitem:a0536c568aa8c66f587f8d980caa43eb0" id="r_a0536c568aa8c66f587f8d980caa43eb0"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0536c568aa8c66f587f8d980caa43eb0">qual_to_error_prob</a> (char qual)</td></tr>
+<tr class="memdesc:a0536c568aa8c66f587f8d980caa43eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a quality score character to its error probability.  <br /></td></tr>
+<tr class="memitem:ae6606441543f7a06043599b7465c37de" id="r_ae6606441543f7a06043599b7465c37de"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6606441543f7a06043599b7465c37de">qual_to_error_prob_log10</a> (double qual)</td></tr>
+<tr class="memdesc:ae6606441543f7a06043599b7465c37de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a quality score to its error probability in log10 scale.  <br /></td></tr>
+<tr class="memitem:a2821fca1092745d57104442a02b9c579" id="r_a2821fca1092745d57104442a02b9c579"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2821fca1092745d57104442a02b9c579">qual_to_prob_log10</a> (double qual)</td></tr>
+<tr class="memdesc:a2821fca1092745d57104442a02b9c579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a quality score to its probability in log10 scale.  <br /></td></tr>
+<tr class="memitem:a5a6ee368af1b4bd811035dc4043e0b7c" id="r_a5a6ee368af1b4bd811035dc4043e0b7c"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a6ee368af1b4bd811035dc4043e0b7c">phred_scale_error_rate</a> (double error_rate)</td></tr>
+<tr class="memdesc:a5a6ee368af1b4bd811035dc4043e0b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an error rate to a quality score.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a8c6513b7ba5b9ed613c8aa54c067ea8a" id="r_a8c6513b7ba5b9ed613c8aa54c067ea8a"><td class="memItemLeft" align="right" valign="top"><a id="a8c6513b7ba5b9ed613c8aa54c067ea8a" name="a8c6513b7ba5b9ed613c8aa54c067ea8a"></a>
 static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>ASCII_OFFSET</b> = '!'</td></tr>
+<tr class="memdesc:a8c6513b7ba5b9ed613c8aa54c067ea8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ASCII offset for FASTQ quality ('!'). <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Utilities for quality score conversions. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a5a6ee368af1b4bd811035dc4043e0b7c" name="a5a6ee368af1b4bd811035dc4043e0b7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a6ee368af1b4bd811035dc4043e0b7c">&#9670;&#160;</a></span>phred_scale_error_rate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::QualityUtils::phred_scale_error_rate </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>error_rate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert an error rate to a quality score. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error_rate</td><td>Error rate (0.0 &lt;= error_rate &lt;= 1.0). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Quality score corresponding to the error rate. </dd></dl>
+
+</div>
+</div>
+<a id="a0536c568aa8c66f587f8d980caa43eb0" name="a0536c568aa8c66f587f8d980caa43eb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0536c568aa8c66f587f8d980caa43eb0">&#9670;&#160;</a></span>qual_to_error_prob()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double biovoltron::QualityUtils::qual_to_error_prob </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>qual</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert a quality score character to its error probability. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">qual</td><td>Quality score character (e.g., '!' for Q = 0). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error probability corresponding to the quality score. </dd></dl>
+
+</div>
+</div>
+<a id="ae6606441543f7a06043599b7465c37de" name="ae6606441543f7a06043599b7465c37de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6606441543f7a06043599b7465c37de">&#9670;&#160;</a></span>qual_to_error_prob_log10()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::QualityUtils::qual_to_error_prob_log10 </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>qual</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert a quality score to its error probability in log10 scale. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">qual</td><td>Quality score. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error probability in log10 scale corresponding to the quality score. </dd></dl>
+
+</div>
+</div>
+<a id="a2821fca1092745d57104442a02b9c579" name="a2821fca1092745d57104442a02b9c579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2821fca1092745d57104442a02b9c579">&#9670;&#160;</a></span>qual_to_prob_log10()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::QualityUtils::qual_to_prob_log10 </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>qual</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert a quality score to its probability in log10 scale. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">qual</td><td>Quality score. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Probability in log10 scale corresponding to the quality score. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/utility/read/<a class="el" href="quality__utils_8hpp_source.html">quality_utils.hpp</a></li>
 </ul>

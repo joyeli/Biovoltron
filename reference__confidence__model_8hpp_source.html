@@ -132,13 +132,13 @@ $(function(){initNavTree('reference__confidence__model_8hpp_source.html','','');
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">auto</span> reference_likelihood = 0.0, non_ref_likelihood = 0.0;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">// is_alt</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">if</span> (read_base != ref_base) {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      non_ref_likelihood = QualityUtils::qual_to_prob_log10(qual);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      non_ref_likelihood = <a class="code hl_function" href="structbiovoltron_1_1QualityUtils.html#a2821fca1092745d57104442a02b9c579">QualityUtils::qual_to_prob_log10</a>(qual);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>      reference_likelihood</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        = QualityUtils::qual_to_error_prob_log10(qual) + LOG10_ONE_THIRD;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        = <a class="code hl_function" href="structbiovoltron_1_1QualityUtils.html#ae6606441543f7a06043599b7465c37de">QualityUtils::qual_to_error_prob_log10</a>(qual) + LOG10_ONE_THIRD;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      reference_likelihood = QualityUtils::qual_to_prob_log10(qual);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>      reference_likelihood = <a class="code hl_function" href="structbiovoltron_1_1QualityUtils.html#a2821fca1092745d57104442a02b9c579">QualityUtils::qual_to_prob_log10</a>(qual);</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      non_ref_likelihood</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        = QualityUtils::qual_to_error_prob_log10(qual) + LOG10_ONE_THIRD;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        = <a class="code hl_function" href="structbiovoltron_1_1QualityUtils.html#ae6606441543f7a06043599b7465c37de">QualityUtils::qual_to_error_prob_log10</a>(qual) + LOG10_ONE_THIRD;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    genotype_likelihoods[0] += reference_likelihood + LOG10_PLOIDY;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    genotype_likelihoods[2] += non_ref_likelihood + LOG10_PLOIDY;</div>
@@ -168,6 +168,8 @@ $(function(){initNavTree('reference__confidence__model_8hpp_source.html','','');
 </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}  <span class="comment">// namespace biovoltron</span></div>
+<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html_a2821fca1092745d57104442a02b9c579"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html#a2821fca1092745d57104442a02b9c579">biovoltron::QualityUtils::qual_to_prob_log10</a></div><div class="ttdeci">static auto qual_to_prob_log10(double qual)</div><div class="ttdoc">Convert a quality score to its probability in log10 scale.</div><div class="ttdef"><b>Definition</b> quality_utils.hpp:49</div></div>
+<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html_ae6606441543f7a06043599b7465c37de"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html#ae6606441543f7a06043599b7465c37de">biovoltron::QualityUtils::qual_to_error_prob_log10</a></div><div class="ttdeci">static auto qual_to_error_prob_log10(double qual)</div><div class="ttdoc">Convert a quality score to its error probability in log10 scale.</div><div class="ttdef"><b>Definition</b> quality_utils.hpp:38</div></div>
 <div class="ttc" id="astructbiovoltron_1_1ReferenceConfidenceModel_html"><div class="ttname"><a href="structbiovoltron_1_1ReferenceConfidenceModel.html">biovoltron::ReferenceConfidenceModel</a></div><div class="ttdef"><b>Definition</b> reference_confidence_model.hpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

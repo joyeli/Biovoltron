@@ -1,16 +1,14 @@
 var searchData=
 [
-  ['sa_5f_0',['sa_',['../classbiovoltron_1_1FMIndex.html#a8e35eedacb48ff050fef5e0c39ed7149',1,'biovoltron::FMIndex::sa_'],['../structbiovoltron_1_1Index.html#a8e35eedacb48ff050fef5e0c39ed7149',1,'biovoltron::Index::sa_']]],
-  ['samples_1',['samples',['../structbiovoltron_1_1VcfRecord.html#a5647534f71fd010d9a14544cec8cb0ff',1,'biovoltron::VcfRecord']]],
-  ['score_2',['score',['../structbiovoltron_1_1BedRecord.html#ad8c70836d40babac3167011883e26513',1,'biovoltron::BedRecord::score'],['../structbiovoltron_1_1BedGraphRecord.html#ac807ff2de5619f3e225c4968f616fd85',1,'biovoltron::BedGraphRecord::score'],['../structbiovoltron_1_1GffRecord.html#aa26482219b8fce4587d15fabe79d57da',1,'biovoltron::GffRecord::score']]],
-  ['seq_3',['seq',['../structbiovoltron_1_1FastaRecord.html#acf2684a999d11e2bb520b78a842ff769',1,'biovoltron::FastaRecord::seq'],['../structbiovoltron_1_1SamRecord.html#ae7e099e7321e7b14ecd3f4f71094b947',1,'biovoltron::SamRecord::seq']]],
-  ['seqid_4',['seqid',['../structbiovoltron_1_1GffRecord.html#a33d61a7ed77fb7f6332118bb6f35924a',1,'biovoltron::GffRecord']]],
-  ['size_5',['size',['../structbiovoltron_1_1Cigar_1_1Element.html#a420d3e83b21c2dd11c3966047466575d',1,'biovoltron::Cigar::Element']]],
-  ['sort_5flen_6',['sort_len',['../structbiovoltron_1_1StableSorter.html#a30f342a668edeb923281784b141ae17b',1,'biovoltron::StableSorter']]],
-  ['source_7',['source',['../structbiovoltron_1_1GffRecord.html#a11c907c41e0f7a01c895b72b5af7ba40',1,'biovoltron::GffRecord']]],
-  ['start_8',['start',['../structbiovoltron_1_1BedRecord.html#a988c5c5010ddce31421c8323099edfdd',1,'biovoltron::BedRecord::start'],['../structbiovoltron_1_1BedGraphRecord.html#ae8e43e5273bca7062e528d55403654bb',1,'biovoltron::BedGraphRecord::start'],['../structbiovoltron_1_1GffRecord.html#a3ca0b9a2ebb64219aaf335a57027a237',1,'biovoltron::GffRecord::start']]],
-  ['start_5fsymbol_9',['START_SYMBOL',['../structbiovoltron_1_1FastaRecord.html#a8dedf9352d86349c17b3f9f0ee08813f',1,'biovoltron::FastaRecord::START_SYMBOL'],['../structbiovoltron_1_1FastqRecord.html#aacd299e921133d2845cd5043d320f34e',1,'biovoltron::FastqRecord::START_SYMBOL']]],
-  ['start_5fsymbols_10',['START_SYMBOLS',['../structbiovoltron_1_1SamHeader.html#adc1c77a9610ddbac4948aff5f9256180',1,'biovoltron::SamHeader']]],
-  ['stop_5fduration_11',['stop_duration',['../classbiovoltron_1_1Worker.html#ab26767a2e16955772ed38833cf7b36fb',1,'biovoltron::Worker']]],
-  ['strand_12',['strand',['../structbiovoltron_1_1BedRecord.html#a7c5952b0d6307ede18e0b884ccf3cbfb',1,'biovoltron::BedRecord::strand'],['../structbiovoltron_1_1GffRecord.html#a14e859edc1165cc18d69a61a2d864495',1,'biovoltron::GffRecord::strand']]]
+  ['read_5fend_0',['read_end',['../structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#ac635d53e2163565cf54f776bc43f94a0',1,'biovoltron::BurrowWheelerAligner::Aln']]],
+  ['ref_1',['ref',['../structbiovoltron_1_1BurrowWheelerAligner.html#a392f2725b605cd48b48ad00e6bddfb91',1,'biovoltron::BurrowWheelerAligner::ref'],['../structbiovoltron_1_1VcfRecord.html#acf12e9c657b404a4fbc995ad570c9980',1,'biovoltron::VcfRecord::ref']]],
+  ['ref_5fend_2',['ref_end',['../structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#ad25fd600f348dcd575c5c9f173d6bda0',1,'biovoltron::BurrowWheelerAligner::Aln']]],
+  ['ref_5fpos_3',['ref_pos',['../structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html#a0f289584b94408ff07b75a7bb49733bb',1,'biovoltron::BurrowWheelerAligner::Anchor']]],
+  ['repeat_4',['repeat',['../structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html#a6624317f46caa0be4795d3bea0e1f4bc',1,'biovoltron::BurrowWheelerAligner::Anchor']]],
+  ['rescued_5',['rescued',['../structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#ae097f1c8e0342bd45d2d908c5be55d65',1,'biovoltron::BurrowWheelerAligner::Aln']]],
+  ['rev_5fcomp_6',['rev_comp',['../structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#a41df6a6dcd3672da78dde0ce3d08b5f5',1,'biovoltron::BurrowWheelerAligner::Aln']]],
+  ['rname_7',['rname',['../structbiovoltron_1_1SamRecord.html#a21c889ad41fc50ed36410f9fba5884d5',1,'biovoltron::SamRecord']]],
+  ['rnext_8',['rnext',['../structbiovoltron_1_1SamRecord.html#abcf0bc860e322f1dc6f346e375697f4e',1,'biovoltron::SamRecord']]],
+  ['run_5fcv_9',['run_cv',['../classbiovoltron_1_1Worker.html#ad10498431e46b7d4b05805d4b2a221ea',1,'biovoltron::Worker']]],
+  ['running_10',['running',['../classbiovoltron_1_1Worker.html#a67f3f4fbcc3c4d88322d6791f25b6cd9',1,'biovoltron::Worker']]]
 ];

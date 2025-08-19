@@ -107,48 +107,39 @@ $(function(){initNavTree('structbiovoltron_1_1Interval.html','','structbiovoltro
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">biovoltron::Interval Struct Reference</div></div>
+  <div class="headertitle"><div class="title">biovoltron::Interval Struct Reference<div class="ingroups"><a class="el" href="group__utility.html">utility</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Genomic interval with chromosome, range, and strand.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="interval_8hpp_source.html">interval.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a93176d34382b6e0fd2bea4f0fe441f17" id="r_a93176d34382b6e0fd2bea4f0fe441f17"><td class="memItemLeft" align="right" valign="top"><a id="a93176d34382b6e0fd2bea4f0fe441f17" name="a93176d34382b6e0fd2bea4f0fe441f17"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Interval</b> (std::string chrom, std::uint32_t begin, std::uint32_t end, char strand='+')</td></tr>
-<tr class="memitem:a6d9f06cc43793d318d1832679e86d4cb" id="r_a6d9f06cc43793d318d1832679e86d4cb"><td class="memItemLeft" align="right" valign="top"><a id="a6d9f06cc43793d318d1832679e86d4cb" name="a6d9f06cc43793d318d1832679e86d4cb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Interval</b> (std::convertible_to&lt; const std::string &amp; &gt; auto const &amp;interval_string)</td></tr>
-<tr class="memitem:ab91de60a5f6b8fd505ed018fdcc76781" id="r_ab91de60a5f6b8fd505ed018fdcc76781"><td class="memItemLeft" align="right" valign="top"><a id="ab91de60a5f6b8fd505ed018fdcc76781" name="ab91de60a5f6b8fd505ed018fdcc76781"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const noexcept</td></tr>
-<tr class="memitem:a65809303543f0c3cd6e3a7d0ebcfffdb" id="r_a65809303543f0c3cd6e3a7d0ebcfffdb"><td class="memItemLeft" align="right" valign="top"><a id="a65809303543f0c3cd6e3a7d0ebcfffdb" name="a65809303543f0c3cd6e3a7d0ebcfffdb"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> () const noexcept</td></tr>
-<tr class="memitem:af031496ee16961097d508ff9765992d8" id="r_af031496ee16961097d508ff9765992d8"><td class="memItemLeft" align="right" valign="top"><a id="af031496ee16961097d508ff9765992d8" name="af031496ee16961097d508ff9765992d8"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>overlaps</b> (const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;other) const noexcept</td></tr>
-<tr class="memitem:a1e93cea20f8f2acfa2fb22039ade25b5" id="r_a1e93cea20f8f2acfa2fb22039ade25b5"><td class="memItemLeft" align="right" valign="top"><a id="a1e93cea20f8f2acfa2fb22039ade25b5" name="a1e93cea20f8f2acfa2fb22039ade25b5"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>contains</b> (const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;other) const noexcept</td></tr>
-<tr class="memitem:aea0177e042070f6c5b328a610c424f72" id="r_aea0177e042070f6c5b328a610c424f72"><td class="memItemLeft" align="right" valign="top"><a id="aea0177e042070f6c5b328a610c424f72" name="aea0177e042070f6c5b328a610c424f72"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>span_with</b> (const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;other) const</td></tr>
-<tr class="memitem:a3f89bfcb46c32e111eedb6a285876256" id="r_a3f89bfcb46c32e111eedb6a285876256"><td class="memItemLeft" align="right" valign="top"><a id="a3f89bfcb46c32e111eedb6a285876256" name="a3f89bfcb46c32e111eedb6a285876256"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>expand_with</b> (std::uint32_t padding) const</td></tr>
-<tr class="memitem:a5473981bcef1769859cf06426956e80a" id="r_a5473981bcef1769859cf06426956e80a"><td class="memItemLeft" align="right" valign="top"><a id="a5473981bcef1769859cf06426956e80a" name="a5473981bcef1769859cf06426956e80a"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> () const</td></tr>
-<tr class="memitem:a050bbf7d4009db115086c01671ae05dc" id="r_a050bbf7d4009db115086c01671ae05dc"><td class="memItemLeft" align="right" valign="top"><a id="a050bbf7d4009db115086c01671ae05dc" name="a050bbf7d4009db115086c01671ae05dc"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=&gt;</b> (const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;) const noexcept=default</td></tr>
+<tr class="memitem:a90f698f578a714b3c692fc2aa2645c37" id="r_a90f698f578a714b3c692fc2aa2645c37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90f698f578a714b3c692fc2aa2645c37">Interval</a> ()=default</td></tr>
+<tr class="memitem:a93176d34382b6e0fd2bea4f0fe441f17" id="r_a93176d34382b6e0fd2bea4f0fe441f17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93176d34382b6e0fd2bea4f0fe441f17">Interval</a> (std::string <a class="el" href="#a03dc0fa2ab503d01ad0213882a45dedf">chrom</a>, std::uint32_t <a class="el" href="#a6b8934286f2eada9777fd88072d01440">begin</a>, std::uint32_t <a class="el" href="#aed5700303fb7f94f5be29da382a35b88">end</a>, char <a class="el" href="#ac4a666fb03c61419d464eefd5efae517">strand</a>='+')</td></tr>
+<tr class="memitem:a6d9f06cc43793d318d1832679e86d4cb" id="r_a6d9f06cc43793d318d1832679e86d4cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d9f06cc43793d318d1832679e86d4cb">Interval</a> (std::convertible_to&lt; const std::string &amp; &gt; auto const &amp;interval_string)</td></tr>
+<tr class="memitem:ab91de60a5f6b8fd505ed018fdcc76781" id="r_ab91de60a5f6b8fd505ed018fdcc76781"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab91de60a5f6b8fd505ed018fdcc76781">size</a> () const noexcept</td></tr>
+<tr class="memitem:a65809303543f0c3cd6e3a7d0ebcfffdb" id="r_a65809303543f0c3cd6e3a7d0ebcfffdb"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65809303543f0c3cd6e3a7d0ebcfffdb">empty</a> () const noexcept</td></tr>
+<tr class="memitem:af031496ee16961097d508ff9765992d8" id="r_af031496ee16961097d508ff9765992d8"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af031496ee16961097d508ff9765992d8">overlaps</a> (const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;other) const noexcept</td></tr>
+<tr class="memitem:a1e93cea20f8f2acfa2fb22039ade25b5" id="r_a1e93cea20f8f2acfa2fb22039ade25b5"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e93cea20f8f2acfa2fb22039ade25b5">contains</a> (const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;other) const noexcept</td></tr>
+<tr class="memitem:aea0177e042070f6c5b328a610c424f72" id="r_aea0177e042070f6c5b328a610c424f72"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea0177e042070f6c5b328a610c424f72">span_with</a> (const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;other) const</td></tr>
+<tr class="memitem:a3f89bfcb46c32e111eedb6a285876256" id="r_a3f89bfcb46c32e111eedb6a285876256"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f89bfcb46c32e111eedb6a285876256">expand_with</a> (std::uint32_t padding) const</td></tr>
+<tr class="memitem:a5473981bcef1769859cf06426956e80a" id="r_a5473981bcef1769859cf06426956e80a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5473981bcef1769859cf06426956e80a">to_string</a> () const</td></tr>
+<tr class="memitem:a050bbf7d4009db115086c01671ae05dc" id="r_a050bbf7d4009db115086c01671ae05dc"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a050bbf7d4009db115086c01671ae05dc">operator&lt;=&gt;</a> (const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;) const noexcept=default</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a03dc0fa2ab503d01ad0213882a45dedf" id="r_a03dc0fa2ab503d01ad0213882a45dedf"><td class="memItemLeft" align="right" valign="top"><a id="a03dc0fa2ab503d01ad0213882a45dedf" name="a03dc0fa2ab503d01ad0213882a45dedf"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>chrom</b></td></tr>
-<tr class="memitem:a6b8934286f2eada9777fd88072d01440" id="r_a6b8934286f2eada9777fd88072d01440"><td class="memItemLeft" align="right" valign="top"><a id="a6b8934286f2eada9777fd88072d01440" name="a6b8934286f2eada9777fd88072d01440"></a>
-std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> {}</td></tr>
-<tr class="memitem:aed5700303fb7f94f5be29da382a35b88" id="r_aed5700303fb7f94f5be29da382a35b88"><td class="memItemLeft" align="right" valign="top"><a id="aed5700303fb7f94f5be29da382a35b88" name="aed5700303fb7f94f5be29da382a35b88"></a>
-std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> {}</td></tr>
-<tr class="memitem:ac4a666fb03c61419d464eefd5efae517" id="r_ac4a666fb03c61419d464eefd5efae517"><td class="memItemLeft" align="right" valign="top"><a id="ac4a666fb03c61419d464eefd5efae517" name="ac4a666fb03c61419d464eefd5efae517"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>strand</b> = '+'</td></tr>
+<tr class="memitem:a03dc0fa2ab503d01ad0213882a45dedf" id="r_a03dc0fa2ab503d01ad0213882a45dedf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03dc0fa2ab503d01ad0213882a45dedf">chrom</a></td></tr>
+<tr class="memitem:a6b8934286f2eada9777fd88072d01440" id="r_a6b8934286f2eada9777fd88072d01440"><td class="memItemLeft" align="right" valign="top">std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b8934286f2eada9777fd88072d01440">begin</a> {}</td></tr>
+<tr class="memitem:aed5700303fb7f94f5be29da382a35b88" id="r_aed5700303fb7f94f5be29da382a35b88"><td class="memItemLeft" align="right" valign="top">std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed5700303fb7f94f5be29da382a35b88">end</a> {}</td></tr>
+<tr class="memitem:ac4a666fb03c61419d464eefd5efae517" id="r_ac4a666fb03c61419d464eefd5efae517"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4a666fb03c61419d464eefd5efae517">strand</a> = '+'</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a5b1ca450e60c98f9c70a072b19081f25" id="r_a5b1ca450e60c98f9c70a072b19081f25"><td class="memItemLeft" align="right" valign="top"><a id="a5b1ca450e60c98f9c70a072b19081f25" name="a5b1ca450e60c98f9c70a072b19081f25"></a>
-static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>CHROM_SEPARATOR</b> = ':'</td></tr>
+<tr class="memitem:a5b1ca450e60c98f9c70a072b19081f25" id="r_a5b1ca450e60c98f9c70a072b19081f25"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b1ca450e60c98f9c70a072b19081f25">CHROM_SEPARATOR</a> = ':'</td></tr>
 <tr class="memitem:a566e23568c4f3eb58043e73b2df2fac9" id="r_a566e23568c4f3eb58043e73b2df2fac9"><td class="memItemLeft" align="right" valign="top"><a id="a566e23568c4f3eb58043e73b2df2fac9" name="a566e23568c4f3eb58043e73b2df2fac9"></a>
 static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>BEGIN_END_SEPARATOR</b> = '-'</td></tr>
 <tr class="memitem:a1a458284c9176c4e62b18a465b7f7f9d" id="r_a1a458284c9176c4e62b18a465b7f7f9d"><td class="memItemLeft" align="right" valign="top"><a id="a1a458284c9176c4e62b18a465b7f7f9d" name="a1a458284c9176c4e62b18a465b7f7f9d"></a>
@@ -156,6 +147,479 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>END_
 <tr class="memitem:adfd4c4ad602b3f55ecae888e0e886216" id="r_adfd4c4ad602b3f55ecae888e0e886216"><td class="memItemLeft" align="right" valign="top"><a id="adfd4c4ad602b3f55ecae888e0e886216" name="adfd4c4ad602b3f55ecae888e0e886216"></a>
 static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>DIGIT_SEPARATOR</b> = ','</td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Genomic interval with chromosome, range, and strand. </p>
+<p>Example: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/utility/interval.hpp&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">    <span class="keyword">using namespace </span>biovoltron;</div>
+<div class="line">    <a class="code hl_function" href="#a90f698f578a714b3c692fc2aa2645c37">Interval</a> iv1{<span class="stringliteral">&quot;chr1&quot;</span>, 100, 200};       <span class="comment">// + strand by default</span></div>
+<div class="line">    <a class="code hl_struct" href="structbiovoltron_1_1Interval.html">Interval</a> iv2{<span class="stringliteral">&quot;-chr2:500-600&quot;</span>};        <span class="comment">// parse from string</span></div>
+<div class="line">    <span class="keywordflow">if</span> (iv1.<a class="code hl_function" href="#af031496ee16961097d508ff9765992d8">overlaps</a>(iv2)) {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Intervals overlap.\n&quot;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Intervals do not overlap.\n&quot;</span>;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html"><div class="ttname"><a href="structbiovoltron_1_1Interval.html">biovoltron::Interval</a></div><div class="ttdoc">Genomic interval with chromosome, range, and strand.</div><div class="ttdef"><b>Definition</b> interval.hpp:31</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html_a90f698f578a714b3c692fc2aa2645c37"><div class="ttname"><a href="#a90f698f578a714b3c692fc2aa2645c37">biovoltron::Interval::Interval</a></div><div class="ttdeci">Interval()=default</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html_af031496ee16961097d508ff9765992d8"><div class="ttname"><a href="#af031496ee16961097d508ff9765992d8">biovoltron::Interval::overlaps</a></div><div class="ttdeci">auto overlaps(const Interval &amp;other) const noexcept</div><div class="ttdef"><b>Definition</b> interval.hpp:159</div></div>
+</div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a90f698f578a714b3c692fc2aa2645c37" name="a90f698f578a714b3c692fc2aa2645c37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f698f578a714b3c692fc2aa2645c37">&#9670;&#160;</a></span>Interval() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">biovoltron::Interval::Interval </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Default constructor. </p>
+
+</div>
+</div>
+<a id="a93176d34382b6e0fd2bea4f0fe441f17" name="a93176d34382b6e0fd2bea4f0fe441f17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93176d34382b6e0fd2bea4f0fe441f17">&#9670;&#160;</a></span>Interval() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">biovoltron::Interval::Interval </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>chrom</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint32_t</td>          <td class="paramname"><span class="paramname"><em>begin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint32_t</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>strand</em></span><span class="paramdefsep"> = </span><span class="paramdefval">'+'</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor with chromosome, begin, end, and strand.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chrom</td><td>Chromosome name. </td></tr>
+    <tr><td class="paramname">begin</td><td>Start position (inclusive). </td></tr>
+    <tr><td class="paramname">end</td><td>End position (exclusive). </td></tr>
+    <tr><td class="paramname">strand</td><td>Strand of the interval ('+' or '-'). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If strand is invalid or end &lt; begin. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6d9f06cc43793d318d1832679e86d4cb" name="a6d9f06cc43793d318d1832679e86d4cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9f06cc43793d318d1832679e86d4cb">&#9670;&#160;</a></span>Interval() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">biovoltron::Interval::Interval </td>
+          <td>(</td>
+          <td class="paramtype">std::convertible_to&lt; const std::string &amp; &gt; auto const &amp;</td>          <td class="paramname"><span class="paramname"><em>interval_string</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor from a string representation of an interval.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interval_string</td><td><a class="el" href="structbiovoltron_1_1Interval.html" title="Genomic interval with chromosome, range, and strand.">Interval</a> in string form (e.g., "+chr1:100-200"). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If the interval string is invalid. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a1e93cea20f8f2acfa2fb22039ade25b5" name="a1e93cea20f8f2acfa2fb22039ade25b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e93cea20f8f2acfa2fb22039ade25b5">&#9670;&#160;</a></span>contains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::Interval::contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Checks if the interval contains another interval.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other interval to check against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if this interval contains the other interval, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a65809303543f0c3cd6e3a7d0ebcfffdb" name="a65809303543f0c3cd6e3a7d0ebcfffdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65809303543f0c3cd6e3a7d0ebcfffdb">&#9670;&#160;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::Interval::empty </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Checks if the interval is empty.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the interval is empty, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a3f89bfcb46c32e111eedb6a285876256" name="a3f89bfcb46c32e111eedb6a285876256"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f89bfcb46c32e111eedb6a285876256">&#9670;&#160;</a></span>expand_with()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::Interval::expand_with </td>
+          <td>(</td>
+          <td class="paramtype">std::uint32_t</td>          <td class="paramname"><span class="paramname"><em>padding</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Expand the interval by a specified padding.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">padding</td><td>The amount to expand the interval on both sides. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new interval expanded by the specified padding. </dd></dl>
+
+</div>
+</div>
+<a id="a050bbf7d4009db115086c01671ae05dc" name="a050bbf7d4009db115086c01671ae05dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a050bbf7d4009db115086c01671ae05dc">&#9670;&#160;</a></span>operator&lt;=&gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::Interval::operator&lt;=&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Comparison operator for intervals. </p>
+
+</div>
+</div>
+<a id="af031496ee16961097d508ff9765992d8" name="af031496ee16961097d508ff9765992d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af031496ee16961097d508ff9765992d8">&#9670;&#160;</a></span>overlaps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::Interval::overlaps </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Checks if the interval overlaps with another interval.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other interval to check against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the intervals overlap, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ab91de60a5f6b8fd505ed018fdcc76781" name="ab91de60a5f6b8fd505ed018fdcc76781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91de60a5f6b8fd505ed018fdcc76781">&#9670;&#160;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::Interval::size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get interval length.</p>
+<dl class="section return"><dt>Returns</dt><dd>Length of the interval (end - begin). </dd></dl>
+
+</div>
+</div>
+<a id="aea0177e042070f6c5b328a610c424f72" name="aea0177e042070f6c5b328a610c424f72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0177e042070f6c5b328a610c424f72">&#9670;&#160;</a></span>span_with()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::Interval::span_with </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structbiovoltron_1_1Interval.html">Interval</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Return a new interval that spans both this interval and another interval. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Other interval. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new interval spanning both. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If chromosomes or strands differ. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5473981bcef1769859cf06426956e80a" name="a5473981bcef1769859cf06426956e80a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5473981bcef1769859cf06426956e80a">&#9670;&#160;</a></span>to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::Interval::to_string </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Convert the interval to a string representation.</p>
+<dl class="section return"><dt>Returns</dt><dd>A string representation of the interval. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a6b8934286f2eada9777fd88072d01440" name="a6b8934286f2eada9777fd88072d01440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b8934286f2eada9777fd88072d01440">&#9670;&#160;</a></span>begin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uint32_t biovoltron::Interval::begin {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start position of the interval (inclusive, 0-based). </p>
+
+</div>
+</div>
+<a id="a03dc0fa2ab503d01ad0213882a45dedf" name="a03dc0fa2ab503d01ad0213882a45dedf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03dc0fa2ab503d01ad0213882a45dedf">&#9670;&#160;</a></span>chrom</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string biovoltron::Interval::chrom</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Chromosome name. </p>
+
+</div>
+</div>
+<a id="a5b1ca450e60c98f9c70a072b19081f25" name="a5b1ca450e60c98f9c70a072b19081f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b1ca450e60c98f9c70a072b19081f25">&#9670;&#160;</a></span>CHROM_SEPARATOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::Interval::CHROM_SEPARATOR = ':'</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Separators for genomic intervals.</p><ul>
+<li>CHROM_SEPARATOR: Separator between chromosome and positions (e.g., "chr1:100-200").</li>
+<li>BEGIN_END_SEPARATOR: Separator between begin and end positions.</li>
+<li>END_OF_CHROM: Symbol for the end of chromosome.</li>
+<li>DIGIT_SEPARATOR: Digit separator (ignored during parsing). </li>
+</ul>
+
+</div>
+</div>
+<a id="aed5700303fb7f94f5be29da382a35b88" name="aed5700303fb7f94f5be29da382a35b88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed5700303fb7f94f5be29da382a35b88">&#9670;&#160;</a></span>end</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uint32_t biovoltron::Interval::end {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>End position of the interval (exclusive, 0-based). </p>
+
+</div>
+</div>
+<a id="ac4a666fb03c61419d464eefd5efae517" name="ac4a666fb03c61419d464eefd5efae517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4a666fb03c61419d464eefd5efae517">&#9670;&#160;</a></span>strand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char biovoltron::Interval::strand = '+'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Strand of the interval, either '+' or '-', Default is '+'. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/utility/<a class="el" href="interval_8hpp_source.html">interval.hpp</a></li>
 </ul>

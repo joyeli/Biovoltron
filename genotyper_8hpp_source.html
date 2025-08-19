@@ -295,7 +295,7 @@ $(function(){initNavTree('genotyper_8hpp_source.html','',''); });
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>      <span class="keywordflow">if</span> (spanning_events.empty())</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        result[0].push_back(h.rank);</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>      <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; event : spanning_events) {</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordflow">if</span> (event.location.begin == begin) {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordflow">if</span> (event.location.<a class="code hl_variable" href="structbiovoltron_1_1Interval.html#a6b8934286f2eada9777fd88072d01440">begin</a> == begin) {</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>          <span class="keywordflow">if</span> (event.ref.size() == ref_allele.size())</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            result[RangeUtils::index_of(alleles, event.alt)].push_back(h.rank);</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (event.ref.size() &lt; ref_allele.size())</div>
@@ -524,7 +524,7 @@ $(function(){initNavTree('genotyper_8hpp_source.html','',''); });
 <div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>      SPDLOG_DEBUG(<span class="stringliteral">&quot;events:&quot;</span>);</div>
 <div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>      <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; event : events) SPDLOG_DEBUG(<span class="stringliteral">&quot;{}&quot;</span>, event.to_string());</div>
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span> </div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>      replace_span_dels(events, ref[begin - padded_region.begin], begin);</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>      replace_span_dels(events, ref[begin - padded_region.<a class="code hl_variable" href="structbiovoltron_1_1Interval.html#a6b8934286f2eada9777fd88072d01440">begin</a>], begin);</div>
 <div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>      <span class="keyword">auto</span> [alleles, alleles_loc] = get_compatible_alleles(events);</div>
 <div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span> </div>
 <div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>      SPDLOG_DEBUG(<span class="stringliteral">&quot;alleles:&quot;</span>);</div>
@@ -622,7 +622,8 @@ $(function(){initNavTree('genotyper_8hpp_source.html','',''); });
 <div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>}  <span class="comment">// namespace biovoltron</span></div>
 <div class="ttc" id="aclassbiovoltron_1_1Genotyper_html"><div class="ttname"><a href="classbiovoltron_1_1Genotyper.html">biovoltron::Genotyper</a></div><div class="ttdef"><b>Definition</b> genotyper.hpp:16</div></div>
 <div class="ttc" id="astructbiovoltron_1_1Haplotype_html"><div class="ttname"><a href="structbiovoltron_1_1Haplotype.html">biovoltron::Haplotype</a></div><div class="ttdef"><b>Definition</b> haplotype.hpp:11</div></div>
-<div class="ttc" id="astructbiovoltron_1_1Interval_html"><div class="ttname"><a href="structbiovoltron_1_1Interval.html">biovoltron::Interval</a></div><div class="ttdef"><b>Definition</b> interval.hpp:9</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html"><div class="ttname"><a href="structbiovoltron_1_1Interval.html">biovoltron::Interval</a></div><div class="ttdoc">Genomic interval with chromosome, range, and strand.</div><div class="ttdef"><b>Definition</b> interval.hpp:31</div></div>
+<div class="ttc" id="astructbiovoltron_1_1Interval_html_a6b8934286f2eada9777fd88072d01440"><div class="ttname"><a href="structbiovoltron_1_1Interval.html#a6b8934286f2eada9777fd88072d01440">biovoltron::Interval::begin</a></div><div class="ttdeci">std::uint32_t begin</div><div class="ttdef"><b>Definition</b> interval.hpp:52</div></div>
 <div class="ttc" id="astructbiovoltron_1_1SamRecord_html"><div class="ttname"><a href="structbiovoltron_1_1SamRecord.html">biovoltron::SamRecord</a></div><div class="ttdoc">A class that save the alignment section of SAM file.</div><div class="ttdef"><b>Definition</b> sam.hpp:187</div></div>
 <div class="ttc" id="astructbiovoltron_1_1Variant_html"><div class="ttname"><a href="structbiovoltron_1_1Variant.html">biovoltron::Variant</a></div><div class="ttdef"><b>Definition</b> variant.hpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->

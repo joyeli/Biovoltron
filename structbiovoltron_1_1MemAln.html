@@ -110,23 +110,36 @@ $(function(){initNavTree('structbiovoltron_1_1MemAln.html','','structbiovoltron_
   <div class="headertitle"><div class="title">biovoltron::MemAln Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Container for alignment scoring metrics used in MAPQ computation.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="mapq_8hpp_source.html">mapq.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a86581e951bf724efcbb59cdf90cb9a1b" id="r_a86581e951bf724efcbb59cdf90cb9a1b"><td class="memItemLeft" align="right" valign="top"><a id="a86581e951bf724efcbb59cdf90cb9a1b" name="a86581e951bf724efcbb59cdf90cb9a1b"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>score</b> {}</td></tr>
+<tr class="memdesc:a86581e951bf724efcbb59cdf90cb9a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local best Smith–Waterman score. <br /></td></tr>
 <tr class="memitem:af64e5267f943354b86da42bf3c24321c" id="r_af64e5267f943354b86da42bf3c24321c"><td class="memItemLeft" align="right" valign="top"><a id="af64e5267f943354b86da42bf3c24321c" name="af64e5267f943354b86da42bf3c24321c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>score2</b> {}</td></tr>
+<tr class="memdesc:af64e5267f943354b86da42bf3c24321c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local second-best SW <a class="el" href="#a86581e951bf724efcbb59cdf90cb9a1b" title="Local best Smith–Waterman score.">score(within same region)</a>. <br /></td></tr>
 <tr class="memitem:a17530330930a4c4413091e2a5f302089" id="r_a17530330930a4c4413091e2a5f302089"><td class="memItemLeft" align="right" valign="top"><a id="a17530330930a4c4413091e2a5f302089" name="a17530330930a4c4413091e2a5f302089"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>sub_score</b> {}</td></tr>
+<tr class="memdesc:a17530330930a4c4413091e2a5f302089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global second-best SW <a class="el" href="#a86581e951bf724efcbb59cdf90cb9a1b" title="Local best Smith–Waterman score.">score(across all regions)</a>. <br /></td></tr>
 <tr class="memitem:ab8d35714f71e6c934bb24225d08658b8" id="r_ab8d35714f71e6c934bb24225d08658b8"><td class="memItemLeft" align="right" valign="top"><a id="ab8d35714f71e6c934bb24225d08658b8" name="ab8d35714f71e6c934bb24225d08658b8"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>align_len</b> {}</td></tr>
+<tr class="memdesc:ab8d35714f71e6c934bb24225d08658b8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a> length in bases. <br /></td></tr>
 <tr class="memitem:a2532c6bbfeac9ea312a8c66780279a65" id="r_a2532c6bbfeac9ea312a8c66780279a65"><td class="memItemLeft" align="right" valign="top"><a id="a2532c6bbfeac9ea312a8c66780279a65" name="a2532c6bbfeac9ea312a8c66780279a65"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>sub_n</b> {}</td></tr>
+<tr class="memdesc:a2532c6bbfeac9ea312a8c66780279a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of alignments with global second-best score. <br /></td></tr>
 <tr class="memitem:a916aa7f52179a1ea9d3d4b92a01afb58" id="r_a916aa7f52179a1ea9d3d4b92a01afb58"><td class="memItemLeft" align="right" valign="top"><a id="a916aa7f52179a1ea9d3d4b92a01afb58" name="a916aa7f52179a1ea9d3d4b92a01afb58"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>frac_rep</b> {}</td></tr>
+<tr class="memdesc:a916aa7f52179a1ea9d3d4b92a01afb58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction of repetitive k-mers in alignment region. <br /></td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Container for alignment scoring metrics used in MAPQ computation. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/algo/align/mapq/<a class="el" href="mapq_8hpp_source.html">mapq.hpp</a></li>
 </ul>
 </div><!-- contents -->

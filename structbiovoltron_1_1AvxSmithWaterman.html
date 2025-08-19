@@ -111,19 +111,85 @@ $(function(){initNavTree('structbiovoltron_1_1AvxSmithWaterman.html','','structb
 </div><!--header-->
 <div class="contents">
 
-<p>TBA.  
+<p>AVX2-accelerated Smith–Waterman wrapper.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="smithwaterman__avx_8hpp_source.html">smithwaterman_avx.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a33cb5087cbd1027652cba2839495c4a9" id="r_a33cb5087cbd1027652cba2839495c4a9"><td class="memItemLeft" align="right" valign="top"><a id="a33cb5087cbd1027652cba2839495c4a9" name="a33cb5087cbd1027652cba2839495c4a9"></a>
-static auto&#160;</td><td class="memItemRight" valign="bottom"><b>align</b> (std::string_view ref, std::string_view alt, <a class="el" href="structbiovoltron_1_1SmithWaterman_1_1Parameters.html">SmithWaterman::Parameters</a> params=SmithWaterman::NEW_SW_PARAMETERS)</td></tr>
+<tr class="memitem:a33cb5087cbd1027652cba2839495c4a9" id="r_a33cb5087cbd1027652cba2839495c4a9"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33cb5087cbd1027652cba2839495c4a9">align</a> (std::string_view ref, std::string_view alt, <a class="el" href="structbiovoltron_1_1SmithWaterman_1_1Parameters.html">SmithWaterman::Parameters</a> params=<a class="el" href="structbiovoltron_1_1SmithWaterman.html#a148ec7e2a9703a8aadee75d3649d4568">SmithWaterman::NEW_SW_PARAMETERS</a>)</td></tr>
+<tr class="memdesc:a33cb5087cbd1027652cba2839495c4a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align two sequences using AVX2-accelerated Smith–Waterman.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>TBA. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<div class="textblock"><p>AVX2-accelerated Smith–Waterman wrapper. </p>
+<p>This struct provides a C++ wrapper for an AVX2-optimized Smith–Waterman alignment implementation (<span class="tt">runSWOnePairBT_avx2</span>). It performs local alignment with affine gap penalties between two sequences and returns both the alignment offset and CIGAR string.</p>
+<p>It uses the same scoring parameters (<span class="tt"><a class="el" href="structbiovoltron_1_1SmithWaterman_1_1Parameters.html" title="Parameters for scoring alignment.">SmithWaterman::Parameters</a></span>) as the scalar <a class="el" href="structbiovoltron_1_1SmithWaterman.html" title="Implements the Smith-Waterman local alignment algorithm with affine gap penalties.">SmithWaterman</a> implementation in this project but offloads computation to AVX2 SIMD intrinsics for faster execution. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a33cb5087cbd1027652cba2839495c4a9" name="a33cb5087cbd1027652cba2839495c4a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33cb5087cbd1027652cba2839495c4a9">&#9670;&#160;</a></span>align()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::AvxSmithWaterman::align </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>ref</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>alt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbiovoltron_1_1SmithWaterman_1_1Parameters.html">SmithWaterman::Parameters</a></td>          <td class="paramname"><span class="paramname"><em>params</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="structbiovoltron_1_1SmithWaterman.html#a148ec7e2a9703a8aadee75d3649d4568">SmithWaterman::NEW_SW_PARAMETERS</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Align two sequences using AVX2-accelerated Smith–Waterman. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ref</td><td>Reference sequence (as a <span class="tt">std::string_view</span>). </td></tr>
+    <tr><td class="paramname">alt</td><td>Alternate/query sequence (as a <span class="tt">std::string_view</span>). </td></tr>
+    <tr><td class="paramname">params</td><td>Scoring parameters (match, mismatch, gap open, gap extend). Defaults to <span class="tt"><a class="el" href="structbiovoltron_1_1SmithWaterman.html#a148ec7e2a9703a8aadee75d3649d4568" title="Custom scoring used in Biovoltron&#39;s newer SW implementation.">SmithWaterman::NEW_SW_PARAMETERS</a></span>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <span class="tt">std::pair&lt;int, <a class="el" href="structbiovoltron_1_1Cigar.html" title="A format to represent an alignment of a sequence to a reference genome by encoding a sequence of even...">Cigar</a>&gt;</span> where:<ul>
+<li>First element: alignment offset (position in the reference where alignment starts).</li>
+<li>Second element: CIGAR string describing the alignment.</li>
+</ul>
+</dd></dl>
+<ul>
+<li>If the reference and alternate are the same length and differ by no more than <span class="tt"><a class="el" href="structbiovoltron_1_1SmithWaterman.html#a0bb0e4ba028da1d4f609cb4165d3cbfb" title="Threshold for how many mismatches are allowed to be considered a &quot;good match&quot;.">SmithWaterman::MAX_MISMATCHES</a></span>, the result is returned directly as a perfect match (<span class="tt">M</span>).</li>
+<li>Otherwise, the AVX2 routine <span class="tt">runSWOnePairBT_avx2</span> is called with:<ul>
+<li>Match score: <span class="tt">params.w_match</span></li>
+<li><a class="el" href="structbiovoltron_1_1Mismatch.html">Mismatch</a> penalty: <span class="tt">params.w_mismatch</span></li>
+<li>Gap open penalty: <span class="tt">params.w_open</span></li>
+<li>Gap extend penalty: <span class="tt">params.w_extend</span></li>
+<li>Input sequences as raw <span class="tt">uint8_t*</span></li>
+<li><span class="tt">cigarArray</span> buffer large enough for up to <span class="tt">2 * max(refLength, altLength)</span> operations</li>
+</ul>
+</li>
+<li>The resulting CIGAR is built from the <span class="tt">cigarArray</span> buffer.</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>Requires CPU support for AVX2 instructions. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/algo/align/inexact_match/<a class="el" href="smithwaterman__avx_8hpp_source.html">smithwaterman_avx.hpp</a></li>
 </ul>
 </div><!-- contents -->

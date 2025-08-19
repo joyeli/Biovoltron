@@ -113,14 +113,10 @@ $(function(){initNavTree('structbiovoltron_1_1ReferenceRecord.html','','structbi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a411ea84f8bddcd5e1c821749400ac2a2" id="r_a411ea84f8bddcd5e1c821749400ac2a2"><td class="memItemLeft" align="right" valign="top"><a id="a411ea84f8bddcd5e1c821749400ac2a2" name="a411ea84f8bddcd5e1c821749400ac2a2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="structbiovoltron_1_1ReferenceRecord.html">ReferenceRecord</a> &amp;other) const =default</td></tr>
-<tr class="memitem:a50c59f0abb75968f34dac6a7113f7d35" id="r_a50c59f0abb75968f34dac6a7113f7d35"><td class="memItemLeft" align="right" valign="top"><a id="a50c59f0abb75968f34dac6a7113f7d35" name="a50c59f0abb75968f34dac6a7113f7d35"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>origin_seq</b> ()</td></tr>
-<tr class="memitem:aadf4d469c3f22e9af4135e55fb21020c" id="r_aadf4d469c3f22e9af4135e55fb21020c"><td class="memItemLeft" align="right" valign="top"><a id="aadf4d469c3f22e9af4135e55fb21020c" name="aadf4d469c3f22e9af4135e55fb21020c"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> (std::ofstream &amp;fout) const</td></tr>
-<tr class="memitem:a6e2e0bc918b416b64078dd76c4990c1a" id="r_a6e2e0bc918b416b64078dd76c4990c1a"><td class="memItemLeft" align="right" valign="top"><a id="a6e2e0bc918b416b64078dd76c4990c1a" name="a6e2e0bc918b416b64078dd76c4990c1a"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (std::ifstream &amp;fin)</td></tr>
+<tr class="memitem:a411ea84f8bddcd5e1c821749400ac2a2" id="r_a411ea84f8bddcd5e1c821749400ac2a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a411ea84f8bddcd5e1c821749400ac2a2">operator==</a> (const <a class="el" href="structbiovoltron_1_1ReferenceRecord.html">ReferenceRecord</a> &amp;other) const =default</td></tr>
+<tr class="memitem:a50c59f0abb75968f34dac6a7113f7d35" id="r_a50c59f0abb75968f34dac6a7113f7d35"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50c59f0abb75968f34dac6a7113f7d35">origin_seq</a> ()</td></tr>
+<tr class="memitem:aadf4d469c3f22e9af4135e55fb21020c" id="r_aadf4d469c3f22e9af4135e55fb21020c"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadf4d469c3f22e9af4135e55fb21020c">save</a> (std::ofstream &amp;fout) const</td></tr>
+<tr class="memitem:a6e2e0bc918b416b64078dd76c4990c1a" id="r_a6e2e0bc918b416b64078dd76c4990c1a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e2e0bc918b416b64078dd76c4990c1a">load</a> (std::ifstream &amp;fin)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -146,6 +142,132 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:ae473348303e516a2ae08055a9292f03f" id="r_ae473348303e516a2ae08055a9292f03f"><td class="memItemLeft" align="right" valign="top"><a id="ae473348303e516a2ae08055a9292f03f" name="ae473348303e516a2ae08055a9292f03f"></a>
 static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><b>encoded</b> = Encoded</td></tr>
 </table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a6e2e0bc918b416b64078dd76c4990c1a" name="a6e2e0bc918b416b64078dd76c4990c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e2e0bc918b416b64078dd76c4990c1a">&#9670;&#160;</a></span>load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool Encoded = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="structbiovoltron_1_1ReferenceRecord.html">biovoltron::ReferenceRecord</a>&lt; Encoded &gt;::load </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream &amp;</td>          <td class="paramname"><span class="paramname"><em>fin</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Load the reference genome data from a binary input stream.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fin</td><td>Input stream to read the binary reference data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a411ea84f8bddcd5e1c821749400ac2a2" name="a411ea84f8bddcd5e1c821749400ac2a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a411ea84f8bddcd5e1c821749400ac2a2">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool Encoded = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="structbiovoltron_1_1ReferenceRecord.html">biovoltron::ReferenceRecord</a>&lt; Encoded &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structbiovoltron_1_1ReferenceRecord.html">ReferenceRecord</a>&lt; Encoded &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Equality operator for <a class="el" href="structbiovoltron_1_1ReferenceRecord.html">ReferenceRecord</a>. </p>
+
+</div>
+</div>
+<a id="a50c59f0abb75968f34dac6a7113f7d35" name="a50c59f0abb75968f34dac6a7113f7d35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50c59f0abb75968f34dac6a7113f7d35">&#9670;&#160;</a></span>origin_seq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool Encoded = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="structbiovoltron_1_1ReferenceRecord.html">biovoltron::ReferenceRecord</a>&lt; Encoded &gt;::origin_seq </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Recover original sequence with 'N' in unknown regions.</p>
+<dl class="section return"><dt>Returns</dt><dd>The original sequence with 'N' in unknown intervals. </dd></dl>
+
+</div>
+</div>
+<a id="aadf4d469c3f22e9af4135e55fb21020c" name="aadf4d469c3f22e9af4135e55fb21020c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadf4d469c3f22e9af4135e55fb21020c">&#9670;&#160;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool Encoded = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="structbiovoltron_1_1ReferenceRecord.html">biovoltron::ReferenceRecord</a>&lt; Encoded &gt;::save </td>
+          <td>(</td>
+          <td class="paramtype">std::ofstream &amp;</td>          <td class="paramname"><span class="paramname"><em>fout</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Save the reference genome data to a binary output stream.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fout</td><td>Output stream to write the binary reference data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="a8d6e43fefe11a200c228fe37acb4947b" name="a8d6e43fefe11a200c228fe37acb4947b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d6e43fefe11a200c228fe37acb4947b">&#9670;&#160;</a></span>substitute</h2>
@@ -163,7 +285,8 @@ template&lt;bool Encoded = false&gt; </div>
 <b>Initial value:</b><div class="fragment"><div class="line">= [](<span class="keywordtype">char</span> &amp;ch) { <span class="keywordflow">return</span> (ch == <span class="charliteral">&#39;N&#39;</span> or ch == <span class="charliteral">&#39;n&#39;</span>) ? </div>
 <div class="line">      <a class="code hl_function" href="structbiovoltron_1_1Codec.html#a66577e735c847e8256e6c266d78464d9">Codec::to_char</a>(std::experimental::randint(0, 3)) : static_cast&lt;char&gt;(std::toupper(ch)); }</div>
 <div class="ttc" id="astructbiovoltron_1_1Codec_html_a66577e735c847e8256e6c266d78464d9"><div class="ttname"><a href="structbiovoltron_1_1Codec.html#a66577e735c847e8256e6c266d78464d9">biovoltron::Codec::to_char</a></div><div class="ttdeci">static constexpr auto to_char(int i) noexcept</div><div class="ttdef"><b>Definition</b> istring.hpp:79</div></div>
-</div><!-- fragment -->
+</div><!-- fragment --><p>Substitute function for unencoded sequence. Converts 'N' or 'n' to a random base, and uppercases all characters. </p>
+
 </div>
 </div>
 <a id="af2e8a1213917b334f0dc977ee7c17cd7" name="af2e8a1213917b334f0dc977ee7c17cd7"></a>
@@ -181,7 +304,8 @@ template&lt;bool Encoded = false&gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= [](std::int8_t &amp;ch) { <span class="keywordflow">return</span> (ch &gt; 3) ? </div>
 <div class="line">      <span class="keyword">static_cast&lt;</span>std::int8_t<span class="keyword">&gt;</span>(std::experimental::randint(0, 3)) : ch; }</div>
-</div><!-- fragment -->
+</div><!-- fragment --><p>Substitution function for encoded sequence. Converts bases greater than 3 to a random base (0-3). </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>

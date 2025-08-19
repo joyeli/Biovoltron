@@ -119,35 +119,45 @@ $(function(){initNavTree('smithwaterman__avx_8hpp_source.html','',''); });
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>biovoltron {</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1AvxSmithWaterman.html">   15</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structbiovoltron_1_1AvxSmithWaterman.html">AvxSmithWaterman</a> {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keyword">static</span> <span class="keyword">auto</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  align(std::string_view ref, std::string_view alt,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_struct" href="structbiovoltron_1_1SmithWaterman_1_1Parameters.html">SmithWaterman::Parameters</a> params = SmithWaterman::NEW_SW_PARAMETERS) {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    assert(!ref.empty() &amp;&amp; !alt.empty());</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">if</span> (alt.size() == ref.size() &amp;&amp; SmithWaterman::well_match(ref, alt))</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      <span class="keywordflow">return</span> std::pair{0, <a class="code hl_struct" href="structbiovoltron_1_1Cigar.html">Cigar</a>(std::to_string(ref.size()) + <span class="charliteral">&#39;M&#39;</span>)};</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> <span class="keyword">auto</span> [match, mismatch, open, extend] = params;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">const</span> <span class="keyword">auto</span> refLength = ref.length();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> <span class="keyword">auto</span> altLength = alt.length();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">auto</span> cigarArray</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      = std::make_unique&lt;char[]&gt;(2 * std::max(refLength, altLength));</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">auto</span> count = 0;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> std::pair{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      runSWOnePairBT_avx2(match, mismatch, open, extend, (uint8_t*)ref.data(),</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                          (uint8_t*)alt.data(), refLength, altLength, 9,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                          cigarArray.get(), (int16_t*)&amp;count),</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      <a class="code hl_struct" href="structbiovoltron_1_1Cigar.html">Cigar</a>(cigarArray.get())};</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1AvxSmithWaterman.html">   24</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structbiovoltron_1_1AvxSmithWaterman.html">AvxSmithWaterman</a> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keyword">static</span> <span class="keyword">auto</span></div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1AvxSmithWaterman.html#a33cb5087cbd1027652cba2839495c4a9">   53</a></span>  <a class="code hl_function" href="structbiovoltron_1_1AvxSmithWaterman.html#a33cb5087cbd1027652cba2839495c4a9">align</a>(std::string_view ref, std::string_view alt,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <a class="code hl_struct" href="structbiovoltron_1_1SmithWaterman_1_1Parameters.html">SmithWaterman::Parameters</a> params = <a class="code hl_variable" href="structbiovoltron_1_1SmithWaterman.html#a148ec7e2a9703a8aadee75d3649d4568">SmithWaterman::NEW_SW_PARAMETERS</a>) {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    assert(!ref.empty() &amp;&amp; !alt.empty());</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// Fast path for nearly perfect matches</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">if</span> (alt.size() == ref.size() &amp;&amp; <a class="code hl_function" href="structbiovoltron_1_1SmithWaterman.html#a12163c49bd01d516e5b316956dbea485">SmithWaterman::well_match</a>(ref, alt))</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>      <span class="keywordflow">return</span> std::pair{0, <a class="code hl_struct" href="structbiovoltron_1_1Cigar.html">Cigar</a>(std::to_string(ref.size()) + <span class="charliteral">&#39;M&#39;</span>)};</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">const</span> <span class="keyword">auto</span> [match, mismatch, open, extend] = params;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">const</span> <span class="keyword">auto</span> refLength = ref.length();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">const</span> <span class="keyword">auto</span> altLength = alt.length();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// Allocate buffer for CIGAR output</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">auto</span> cigarArray</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>      = std::make_unique&lt;char[]&gt;(2 * std::max(refLength, altLength));</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">auto</span> count = 0;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">return</span> std::pair{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      runSWOnePairBT_avx2(match, mismatch, open, extend,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                          (uint8_t*)ref.data(), (uint8_t*)alt.data(),</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                          refLength, altLength, 9,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                          cigarArray.get(), (int16_t*)&amp;count),</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      <a class="code hl_struct" href="structbiovoltron_1_1Cigar.html">Cigar</a>(cigarArray.get())};</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  }</div>
 </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}  <span class="comment">// namespace biovoltron</span></div>
-<div class="ttc" id="astructbiovoltron_1_1AvxSmithWaterman_html"><div class="ttname"><a href="structbiovoltron_1_1AvxSmithWaterman.html">biovoltron::AvxSmithWaterman</a></div><div class="ttdoc">TBA.</div><div class="ttdef"><b>Definition</b> smithwaterman_avx.hpp:15</div></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}  <span class="comment">// namespace biovoltron</span></div>
+<div class="ttc" id="astructbiovoltron_1_1AvxSmithWaterman_html"><div class="ttname"><a href="structbiovoltron_1_1AvxSmithWaterman.html">biovoltron::AvxSmithWaterman</a></div><div class="ttdoc">AVX2-accelerated Smith–Waterman wrapper.</div><div class="ttdef"><b>Definition</b> smithwaterman_avx.hpp:24</div></div>
+<div class="ttc" id="astructbiovoltron_1_1AvxSmithWaterman_html_a33cb5087cbd1027652cba2839495c4a9"><div class="ttname"><a href="structbiovoltron_1_1AvxSmithWaterman.html#a33cb5087cbd1027652cba2839495c4a9">biovoltron::AvxSmithWaterman::align</a></div><div class="ttdeci">static auto align(std::string_view ref, std::string_view alt, SmithWaterman::Parameters params=SmithWaterman::NEW_SW_PARAMETERS)</div><div class="ttdoc">Align two sequences using AVX2-accelerated Smith–Waterman.</div><div class="ttdef"><b>Definition</b> smithwaterman_avx.hpp:53</div></div>
 <div class="ttc" id="astructbiovoltron_1_1Cigar_html"><div class="ttname"><a href="structbiovoltron_1_1Cigar.html">biovoltron::Cigar</a></div><div class="ttdoc">A format to represent an alignment of a sequence to a reference genome by encoding a sequence of even...</div><div class="ttdef"><b>Definition</b> cigar.hpp:14</div></div>
-<div class="ttc" id="astructbiovoltron_1_1SmithWaterman_1_1Parameters_html"><div class="ttname"><a href="structbiovoltron_1_1SmithWaterman_1_1Parameters.html">biovoltron::SmithWaterman::Parameters</a></div><div class="ttdef"><b>Definition</b> smithwaterman.hpp:15</div></div>
+<div class="ttc" id="astructbiovoltron_1_1SmithWaterman_1_1Parameters_html"><div class="ttname"><a href="structbiovoltron_1_1SmithWaterman_1_1Parameters.html">biovoltron::SmithWaterman::Parameters</a></div><div class="ttdoc">Parameters for scoring alignment.</div><div class="ttdef"><b>Definition</b> smithwaterman.hpp:23</div></div>
+<div class="ttc" id="astructbiovoltron_1_1SmithWaterman_html_a12163c49bd01d516e5b316956dbea485"><div class="ttname"><a href="structbiovoltron_1_1SmithWaterman.html#a12163c49bd01d516e5b316956dbea485">biovoltron::SmithWaterman::well_match</a></div><div class="ttdeci">static auto well_match(std::string_view ref, std::string_view alt)</div><div class="ttdoc">Quickly checks whether two strings differ by at most MAX_MISMATCHES.</div><div class="ttdef"><b>Definition</b> smithwaterman.hpp:53</div></div>
+<div class="ttc" id="astructbiovoltron_1_1SmithWaterman_html_a148ec7e2a9703a8aadee75d3649d4568"><div class="ttname"><a href="structbiovoltron_1_1SmithWaterman.html#a148ec7e2a9703a8aadee75d3649d4568">biovoltron::SmithWaterman::NEW_SW_PARAMETERS</a></div><div class="ttdeci">static constexpr auto NEW_SW_PARAMETERS</div><div class="ttdoc">Custom scoring used in Biovoltron&#39;s newer SW implementation.</div><div class="ttdef"><b>Definition</b> smithwaterman.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

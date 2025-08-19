@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lookup_5flen_0',['LOOKUP_LEN',['../classbiovoltron_1_1FMIndex.html#a38b4dc6bae3fe74f934419732130a818',1,'biovoltron::FMIndex']]]
+  ['kmer_5fsize_0',['KMER_SIZE',['../structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters.html#aad1d2ac640e74bd8547a9a05399484fc',1,'biovoltron::BurrowWheelerAligner::Parameters']]]
 ];

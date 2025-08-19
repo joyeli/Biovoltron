@@ -62,8 +62,9 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
@@ -74,7 +75,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structbiovoltron_1_1GffRecord.html#a80ec5313bf229b7f6cbc8ae9504d8204"
+"structbiovoltron_1_1AvxSmithWaterman.html",
+"structbiovoltron_1_1SamRecord.html#a1c17386ed9d6d173adc749e0f2ad1fd4"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

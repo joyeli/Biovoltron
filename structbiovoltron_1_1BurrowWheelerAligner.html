@@ -111,41 +111,195 @@ $(function(){initNavTree('structbiovoltron_1_1BurrowWheelerAligner.html','','str
 </div><!--header-->
 <div class="contents">
 
+<p>Paired-end short-read aligner (~150bp) optimized for hs37d5 using FM-index and SSE SW.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="burrow__wheeler__aligner_8hpp_source.html">burrow_wheeler_aligner.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Aln" id="r_Aln"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html">Aln</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a> result for a single read.  <a href="structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#details">More...</a><br /></td></tr>
 <tr class="memitem:AlnPair" id="r_AlnPair"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbiovoltron_1_1BurrowWheelerAligner_1_1AlnPair.html">AlnPair</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paired-end alignment result.  <a href="structbiovoltron_1_1BurrowWheelerAligner_1_1AlnPair.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Anchor" id="r_Anchor"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html">Anchor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed match anchor.  <a href="structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Parameters" id="r_Parameters"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters.html">Parameters</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithm parameters and heuristics.  <a href="structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters.html#details">More...</a><br /></td></tr>
 <tr class="memitem:SeedSpan" id="r_SeedSpan"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html">SeedSpan</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed sequence and its FM-index span.  <a href="structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5813f759f91915fbf23b170a40fc7090" id="r_a5813f759f91915fbf23b170a40fc7090"><td class="memItemLeft" align="right" valign="top"><a id="a5813f759f91915fbf23b170a40fc7090" name="a5813f759f91915fbf23b170a40fc7090"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
-<tr class="memitem:a3dd87a50160fc0620054f336b76053e6" id="r_a3dd87a50160fc0620054f336b76053e6"><td class="memItemLeft" align="right" valign="top"><a id="a3dd87a50160fc0620054f336b76053e6" name="a3dd87a50160fc0620054f336b76053e6"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>map</b> (std::string_view read1, std::string_view read2) const</td></tr>
-<tr class="memitem:ab7a7d529389e811017b8d086f58f597c" id="r_ab7a7d529389e811017b8d086f58f597c"><td class="memItemLeft" align="right" valign="top"><a id="ab7a7d529389e811017b8d086f58f597c" name="ab7a7d529389e811017b8d086f58f597c"></a>
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>generate_sam</b> (const std::pair&lt; <a class="el" href="structbiovoltron_1_1FastqRecord.html">FastqRecord</a>&lt;&gt;, <a class="el" href="structbiovoltron_1_1FastqRecord.html">FastqRecord</a>&lt;&gt; &gt; &amp;read) const</td></tr>
+<tr class="memdesc:a5813f759f91915fbf23b170a40fc7090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints current parameters to debug log. <br /></td></tr>
+<tr class="memitem:a3dd87a50160fc0620054f336b76053e6" id="r_a3dd87a50160fc0620054f336b76053e6"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dd87a50160fc0620054f336b76053e6">map</a> (std::string_view read1, std::string_view read2) const</td></tr>
+<tr class="memdesc:a3dd87a50160fc0620054f336b76053e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map two ASCII reads (A/C/G/T) by converting to internal encoding.  <br /></td></tr>
+<tr class="memitem:ab7a7d529389e811017b8d086f58f597c" id="r_ab7a7d529389e811017b8d086f58f597c"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7a7d529389e811017b8d086f58f597c">generate_sam</a> (const std::pair&lt; <a class="el" href="structbiovoltron_1_1FastqRecord.html">FastqRecord</a>&lt;&gt;, <a class="el" href="structbiovoltron_1_1FastqRecord.html">FastqRecord</a>&lt;&gt; &gt; &amp;read) const</td></tr>
+<tr class="memdesc:ab7a7d529389e811017b8d086f58f597c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Align paired-end FASTQ reads and produce SAM records.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a392f2725b605cd48b48ad00e6bddfb91" id="r_a392f2725b605cd48b48ad00e6bddfb91"><td class="memItemLeft" align="right" valign="top"><a id="a392f2725b605cd48b48ad00e6bddfb91" name="a392f2725b605cd48b48ad00e6bddfb91"></a>
 const <a class="el" href="structbiovoltron_1_1FastaRecord.html">FastaRecord</a>&lt; true &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ref</b></td></tr>
+<tr class="memdesc:a392f2725b605cd48b48ad00e6bddfb91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference genome sequence. <br /></td></tr>
 <tr class="memitem:a0b1af5472fcb9ee4fb66166ec06df04b" id="r_a0b1af5472fcb9ee4fb66166ec06df04b"><td class="memItemLeft" align="right" valign="top"><a id="a0b1af5472fcb9ee4fb66166ec06df04b" name="a0b1af5472fcb9ee4fb66166ec06df04b"></a>
 const <a class="el" href="classbiovoltron_1_1FMIndex.html">FMIndex</a>&lt; 1, uint32_t, <a class="el" href="structbiovoltron_1_1StableSorter.html">StableSorter</a>&lt; uint32_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>index</b></td></tr>
+<tr class="memdesc:a0b1af5472fcb9ee4fb66166ec06df04b"><td class="mdescLeft">&#160;</td><td class="mdescRight">FM-index of reference. <br /></td></tr>
 <tr class="memitem:a9218828c565d36c5538abfa3ce506251" id="r_a9218828c565d36c5538abfa3ce506251"><td class="memItemLeft" align="right" valign="top"><a id="a9218828c565d36c5538abfa3ce506251" name="a9218828c565d36c5538abfa3ce506251"></a>
 const <a class="el" href="structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters.html">Parameters</a>&#160;</td><td class="memItemRight" valign="bottom"><b>args</b></td></tr>
+<tr class="memdesc:a9218828c565d36c5538abfa3ce506251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithm parameters. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A highly optimized Aligner (implement using modern C++20) specifically for paired-end short read alignment with read length ~150 bp.</p>
+<div class="textblock"><p>Paired-end short-read aligner (~150bp) optimized for hs37d5 using FM-index and SSE SW. </p>
+<p>A highly optimized Aligner (implemented using modern C++20) specifically for paired-end short read alignment with read length ~150 bp.</p>
 <p><b>This aligner is highly optimized on the following sequencing characteristic (other datasets are not recommended)</b>:</p><ul>
 <li>read length: <b>148~150bp</b></li>
 </ul>
-<p>If you know the mean and variance of the insert size of the sequencing data, we highly recommend you pass it into the aligner. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<p>If you know the mean and variance of the insert size of the sequencing data, we highly recommend you pass it into the aligner.</p>
+<p>Example: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;biovoltron/applications/burrow_wheeler_aligner/burrow_wheeler_aligner.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/file_io/fasta.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/file_io/fastq.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/file_io/sam.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>biovoltron;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
+<div class="line">  <span class="keywordflow">if</span> (argc != 4) {</div>
+<div class="line">    std::cerr &lt;&lt; <span class="stringliteral">&quot;Usage: &quot;</span> &lt;&lt; argv[0]</div>
+<div class="line">              &lt;&lt; <span class="stringliteral">&quot; &lt;reference.fasta&gt; &lt;reads_1.fq&gt; &lt;reads_2.fq&gt;\n&quot;</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> 1;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Input file paths</span></div>
+<div class="line">  <span class="keyword">const</span> std::string fasta_path = argv[1];</div>
+<div class="line">  <span class="keyword">const</span> std::string fastq1_path = argv[2];</div>
+<div class="line">  <span class="keyword">const</span> std::string fastq2_path = argv[3];</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Load reference FASTA</span></div>
+<div class="line">  <span class="keyword">auto</span> <a class="code hl_variable" href="#a392f2725b605cd48b48ad00e6bddfb91">ref</a> = <a class="code hl_struct" href="structbiovoltron_1_1FastaRecord.html">FastaRecord&lt;true&gt;</a>{};</div>
+<div class="line">  std::ifstream{fasta_path} &gt;&gt; <a class="code hl_variable" href="#a392f2725b605cd48b48ad00e6bddfb91">ref</a>;</div>
+<div class="line">  std::ranges::transform(<a class="code hl_variable" href="#a392f2725b605cd48b48ad00e6bddfb91">ref</a>.seq, <a class="code hl_variable" href="#a392f2725b605cd48b48ad00e6bddfb91">ref</a>.seq.begin(),</div>
+<div class="line">                         [](<span class="keyword">auto</span> c) { return c &lt; 4 ? c : 0; });</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Build FM-index</span></div>
+<div class="line">  <span class="keyword">auto</span> <a class="code hl_variable" href="#a0b1af5472fcb9ee4fb66166ec06df04b">index</a> = FMIndex&lt;1, uint32_t, StableSorter&lt;uint32_t&gt;&gt;{};</div>
+<div class="line">  <a class="code hl_variable" href="#a0b1af5472fcb9ee4fb66166ec06df04b">index</a>.build(<a class="code hl_variable" href="#a392f2725b605cd48b48ad00e6bddfb91">ref</a>.seq);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Construct aligner</span></div>
+<div class="line">  BurrowWheelerAligner bwa{<a class="code hl_variable" href="#a392f2725b605cd48b48ad00e6bddfb91">ref</a>, <a class="code hl_variable" href="#a0b1af5472fcb9ee4fb66166ec06df04b">index</a>};</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Load paired-end reads</span></div>
+<div class="line">  <span class="keyword">auto</span> r1 = FastqRecord&lt;true&gt;{};</div>
+<div class="line">  <span class="keyword">auto</span> r2 = FastqRecord&lt;true&gt;{};</div>
+<div class="line">  std::ifstream{fastq1_path} &gt;&gt; r1;</div>
+<div class="line">  std::ifstream{fastq2_path} &gt;&gt; r2;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Run alignment</span></div>
+<div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> [sam1, sam2] = bwa.<a class="code hl_function" href="#ab7a7d529389e811017b8d086f58f597c">generate_sam</a>({r1, r2});</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Print alignment results</span></div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Position1: &quot;</span> &lt;&lt; sam1.pos   &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Cigar1: &quot;</span>    &lt;&lt; sam1.cigar &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Mapq1: &quot;</span>     &lt;&lt; sam1.mapq  &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Flag1: &quot;</span>     &lt;&lt; sam1.flag  &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Position2: &quot;</span> &lt;&lt; sam2.pos   &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Cigar2: &quot;</span>    &lt;&lt; sam2.cigar &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Mapq2: &quot;</span>     &lt;&lt; sam2.mapq  &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Flag2: &quot;</span>     &lt;&lt; sam2.flag  &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="astructbiovoltron_1_1BurrowWheelerAligner_html_a0b1af5472fcb9ee4fb66166ec06df04b"><div class="ttname"><a href="#a0b1af5472fcb9ee4fb66166ec06df04b">biovoltron::BurrowWheelerAligner::index</a></div><div class="ttdeci">const FMIndex&lt; 1, uint32_t, StableSorter&lt; uint32_t &gt; &gt; index</div><div class="ttdoc">FM-index of reference.</div><div class="ttdef"><b>Definition</b> burrow_wheeler_aligner.hpp:126</div></div>
+<div class="ttc" id="astructbiovoltron_1_1BurrowWheelerAligner_html_a392f2725b605cd48b48ad00e6bddfb91"><div class="ttname"><a href="#a392f2725b605cd48b48ad00e6bddfb91">biovoltron::BurrowWheelerAligner::ref</a></div><div class="ttdeci">const FastaRecord&lt; true &gt; ref</div><div class="ttdoc">Reference genome sequence.</div><div class="ttdef"><b>Definition</b> burrow_wheeler_aligner.hpp:125</div></div>
+<div class="ttc" id="astructbiovoltron_1_1BurrowWheelerAligner_html_ab7a7d529389e811017b8d086f58f597c"><div class="ttname"><a href="#ab7a7d529389e811017b8d086f58f597c">biovoltron::BurrowWheelerAligner::generate_sam</a></div><div class="ttdeci">auto generate_sam(const std::pair&lt; FastqRecord&lt;&gt;, FastqRecord&lt;&gt; &gt; &amp;read) const</div><div class="ttdoc">Align paired-end FASTQ reads and produce SAM records.</div><div class="ttdef"><b>Definition</b> burrow_wheeler_aligner.hpp:1168</div></div>
+<div class="ttc" id="astructbiovoltron_1_1FastaRecord_html"><div class="ttname"><a href="structbiovoltron_1_1FastaRecord.html">biovoltron::FastaRecord</a></div><div class="ttdoc">Stores data from FASTA files, facilitating the parsing and manipulation of nucleotide sequences.</div><div class="ttdef"><b>Definition</b> fasta.hpp:13</div></div>
+</div><!-- fragment --> </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ab7a7d529389e811017b8d086f58f597c" name="ab7a7d529389e811017b8d086f58f597c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7a7d529389e811017b8d086f58f597c">&#9670;&#160;</a></span>generate_sam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::BurrowWheelerAligner::generate_sam </td>
+          <td>(</td>
+          <td class="paramtype">const std::pair&lt; <a class="el" href="structbiovoltron_1_1FastqRecord.html">FastqRecord</a>&lt;&gt;, <a class="el" href="structbiovoltron_1_1FastqRecord.html">FastqRecord</a>&lt;&gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>read</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Align paired-end FASTQ reads and produce SAM records. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">read</td><td>Pair of FASTQ records (first = read1, second = read2). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair of <a class="el" href="structbiovoltron_1_1SamRecord.html">SamRecord</a> entries (for read1, read2).</dd></dl>
+<ul>
+<li>Computes SAM flags (paired, strand, proper-pair), 1-based positions, MAPQ, and CIGAR.</li>
+<li>Emits '=' for RNEXT when both mates map to the same reference contig.</li>
+<li>Adds optional tags: <span class="tt">AS</span> (best score), <span class="tt">XS</span> (suboptimal), <span class="tt">RG</span>, and rescue tag <span class="tt">rs:i:1</span>.</li>
+<li>Outputs '*' and unmapped flags when an alignment is missing. </li>
+</ul>
+
+</div>
+</div>
+<a id="a3dd87a50160fc0620054f336b76053e6" name="a3dd87a50160fc0620054f336b76053e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd87a50160fc0620054f336b76053e6">&#9670;&#160;</a></span>map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto biovoltron::BurrowWheelerAligner::map </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>read1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>read2</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map two ASCII reads (A/C/G/T) by converting to internal encoding. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">read1</td><td>Read 1 sequence as ASCII string. </td></tr>
+    <tr><td class="paramname">read2</td><td>Read 2 sequence as ASCII string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair of <a class="el" href="structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html">Aln</a> for read1 and read2.</dd></dl>
+<p>Convenience wrapper that performs encoding and calls the internal pipeline. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/applications/burrow_wheeler_aligner/<a class="el" href="burrow__wheeler__aligner_8hpp_source.html">burrow_wheeler_aligner.hpp</a></li>
 </ul>
 </div><!-- contents -->

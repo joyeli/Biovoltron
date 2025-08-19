@@ -8,7 +8,7 @@ var searchData=
   ['bedheader_5',['BedHeader',['../structbiovoltron_1_1BedHeader.html',1,'biovoltron']]],
   ['bedrecord_6',['BedRecord',['../structbiovoltron_1_1BedRecord.html',1,'biovoltron']]],
   ['bedsixrecord_7',['BedSixRecord',['../structbiovoltron_1_1BedSixRecord.html',1,'biovoltron']]],
-  ['begin_8',['begin',['../structbiovoltron_1_1Cigar.html#a0fc1a7df06c97f72f0c4fad40341ab29',1,'biovoltron::Cigar::begin()'],['../structbiovoltron_1_1Cigar.html#acf6555cdd617dc546f3a248879c05327',1,'biovoltron::Cigar::begin() const'],['../structbiovoltron_1_1SamRecord.html#a21824292182864ab15b55121095a3bd3',1,'biovoltron::SamRecord::begin()']]],
+  ['begin_8',['begin',['../structbiovoltron_1_1Interval.html#a6b8934286f2eada9777fd88072d01440',1,'biovoltron::Interval::begin'],['../structbiovoltron_1_1Cigar.html#a0fc1a7df06c97f72f0c4fad40341ab29',1,'biovoltron::Cigar::begin()'],['../structbiovoltron_1_1Cigar.html#acf6555cdd617dc546f3a248879c05327',1,'biovoltron::Cigar::begin() const'],['../structbiovoltron_1_1SamRecord.html#a21824292182864ab15b55121095a3bd3',1,'biovoltron::SamRecord::begin()']]],
   ['benchmark_9',['Benchmark',['../benchmark.html',1,'']]],
   ['biovoltron_10',['Introducing Biovoltron',['../index.html#autotoc_md31',1,'']]],
   ['biovoltron_20at_20a_20glance_11',['Biovoltron at a Glance',['../index.html#autotoc_md33',1,'']]],
@@ -21,7 +21,9 @@ var searchData=
   ['build_18',['build',['../classbiovoltron_1_1FMIndex.html#a768c4a28edb577622735fd5227465c25',1,'biovoltron::FMIndex::build()'],['../structbiovoltron_1_1Index.html#a768c4a28edb577622735fd5227465c25',1,'biovoltron::Index::build()']]],
   ['building_20dependencies_19',['Documentation Building Dependencies',['../contribute.html#autotoc_md28',1,'']]],
   ['building_20your_20first_20example_20',['Building Your First Example',['../installation.html#installation-first-example',1,'']]],
-  ['burrow_20wheeler_20aligner_21',['Burrow Wheeler Aligner',['../benchmark.html#autotoc_md0',1,'']]],
-  ['burrowwheeleraligner_22',['BurrowWheelerAligner',['../structbiovoltron_1_1BurrowWheelerAligner.html',1,'biovoltron']]],
-  ['bwt_5f_23',['bwt_',['../classbiovoltron_1_1FMIndex.html#a04071e964060795936b444efd029eb68',1,'biovoltron::FMIndex::bwt_'],['../structbiovoltron_1_1Index.html#a04071e964060795936b444efd029eb68',1,'biovoltron::Index::bwt_']]]
+  ['bump_5fdown_21',['bump_down',['../classbiovoltron_1_1detail_1_1XbitIteratorBase.html#a127984e17ed3abdf8a50d930a0648712',1,'biovoltron::detail::XbitIteratorBase']]],
+  ['bump_5fup_22',['bump_up',['../classbiovoltron_1_1detail_1_1XbitIteratorBase.html#a944fea330513439457948714360b39f5',1,'biovoltron::detail::XbitIteratorBase']]],
+  ['burrow_20wheeler_20aligner_23',['Burrow Wheeler Aligner',['../benchmark.html#autotoc_md0',1,'']]],
+  ['burrowwheeleraligner_24',['BurrowWheelerAligner',['../structbiovoltron_1_1BurrowWheelerAligner.html',1,'biovoltron']]],
+  ['bwt_5f_25',['bwt_',['../classbiovoltron_1_1FMIndex.html#a04071e964060795936b444efd029eb68',1,'biovoltron::FMIndex::bwt_'],['../structbiovoltron_1_1Index.html#a04071e964060795936b444efd029eb68',1,'biovoltron::Index::bwt_']]]
 ];

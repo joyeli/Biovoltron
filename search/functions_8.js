@@ -1,8 +1,11 @@
 var searchData=
 [
   ['ibamstream_0',['IBamStream',['../structbiovoltron_1_1IBamStream.html#a23d5edcfa031310da65966193e655f06',1,'biovoltron::IBamStream']]],
-  ['insertion_5fgop_1',['insertion_gop',['../structbiovoltron_1_1SamRecord.html#a0ddaf300d15af3e1df5edd2dd6cc4920',1,'biovoltron::SamRecord']]],
-  ['is_5fopen_2',['is_open',['../structbiovoltron_1_1IBamStream.html#a1aac8101272bc13429b40637e45c1109',1,'biovoltron::IBamStream::is_open()'],['../structbiovoltron_1_1OBamStream.html#aee82619dcc97b697ecef77dd19ee62ae',1,'biovoltron::OBamStream::is_open()']]],
-  ['is_5frunning_3',['is_running',['../classbiovoltron_1_1Worker.html#a58ed4292326eebd27c9c4b707c647b93',1,'biovoltron::Worker']]],
-  ['is_5fvalid_4',['is_valid',['../structbiovoltron_1_1Codec.html#ac8d38749b04833ace597712a2a02cd49',1,'biovoltron::Codec']]]
+  ['incr_1',['incr',['../classbiovoltron_1_1detail_1_1XbitIteratorBase.html#adaaf0effdfa1b28260aa087dcc2f2998',1,'biovoltron::detail::XbitIteratorBase']]],
+  ['insert_2',['insert',['../classbiovoltron_1_1detail_1_1XbitVector.html#a2de3c10f810c8d506e7d6be12caabc82',1,'biovoltron::detail::XbitVector::insert(const_iterator position, const value_type &amp;x)'],['../classbiovoltron_1_1detail_1_1XbitVector.html#ad1c3b7a1d4dd1690e6788ccf334014e7',1,'biovoltron::detail::XbitVector::insert(const_iterator position, size_type n, const value_type &amp;x)'],['../classbiovoltron_1_1detail_1_1XbitVector.html#afc67f02c19ace16771b02ef34ccac267',1,'biovoltron::detail::XbitVector::insert(const_iterator position, std::input_iterator auto first, std::input_iterator auto last)'],['../classbiovoltron_1_1detail_1_1XbitVector.html#a58966a7813ae9d15574af28c2c91f5ce',1,'biovoltron::detail::XbitVector::insert(const_iterator position, std::forward_iterator auto first, std::forward_iterator auto last)']]],
+  ['insertion_5fgop_3',['insertion_gop',['../structbiovoltron_1_1SamRecord.html#a0ddaf300d15af3e1df5edd2dd6cc4920',1,'biovoltron::SamRecord']]],
+  ['interval_4',['Interval',['../structbiovoltron_1_1Interval.html#a90f698f578a714b3c692fc2aa2645c37',1,'biovoltron::Interval::Interval()=default'],['../structbiovoltron_1_1Interval.html#a93176d34382b6e0fd2bea4f0fe441f17',1,'biovoltron::Interval::Interval(std::string chrom, std::uint32_t begin, std::uint32_t end, char strand=&apos;+&apos;)'],['../structbiovoltron_1_1Interval.html#a6d9f06cc43793d318d1832679e86d4cb',1,'biovoltron::Interval::Interval(std::convertible_to&lt; const std::string &amp; &gt; auto const &amp;interval_string)']]],
+  ['is_5fopen_5',['is_open',['../structbiovoltron_1_1IBamStream.html#a1aac8101272bc13429b40637e45c1109',1,'biovoltron::IBamStream::is_open()'],['../structbiovoltron_1_1OBamStream.html#aee82619dcc97b697ecef77dd19ee62ae',1,'biovoltron::OBamStream::is_open()']]],
+  ['is_5frunning_6',['is_running',['../classbiovoltron_1_1Worker.html#a58ed4292326eebd27c9c4b707c647b93',1,'biovoltron::Worker']]],
+  ['is_5fvalid_7',['is_valid',['../structbiovoltron_1_1Codec.html#ac8d38749b04833ace597712a2a02cd49',1,'biovoltron::Codec']]]
 ];

@@ -116,43 +116,58 @@ $(function(){initNavTree('quality__utils_8hpp_source.html','',''); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span>biovoltron {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1QualityUtils.html">    8</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structbiovoltron_1_1QualityUtils.html">QualityUtils</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> ASCII_OFFSET = <span class="charliteral">&#39;!&#39;</span>;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <span class="keyword">static</span> <span class="keywordtype">double</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  qual_to_error_prob(<span class="keywordtype">char</span> qual) {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">return</span> qual_to_error_prob_cache[qual];</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  }</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keyword">static</span> <span class="keyword">auto</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  qual_to_error_prob_log10(<span class="keywordtype">double</span> qual) {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">return</span> qual / -10.0;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  }</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">static</span> <span class="keyword">auto</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  qual_to_prob_log10(<span class="keywordtype">double</span> qual) {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">return</span> std::log10(1 - qual_to_error_prob(qual));</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  }</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keyword">static</span> <span class="keyword">auto</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  phred_scale_error_rate(<span class="keywordtype">double</span> error_rate) {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">return</span> -10.0 * std::log10(error_rate);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  }</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> qual_to_error_prob_cache = [] {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">auto</span> qual_to_error_prob_cache = std::array&lt;double, 128&gt;{};</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> qual = 0; qual &lt; qual_to_error_prob_cache.size(); qual++)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      qual_to_error_prob_cache[qual] = std::pow(10, qual / -10.0);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> qual_to_error_prob_cache;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  }();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1QualityUtils.html">   12</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structbiovoltron_1_1QualityUtils.html">QualityUtils</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1QualityUtils.html#a8c6513b7ba5b9ed613c8aa54c067ea8a">   17</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="structbiovoltron_1_1QualityUtils.html#a8c6513b7ba5b9ed613c8aa54c067ea8a">ASCII_OFFSET</a> = <span class="charliteral">&#39;!&#39;</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keyword">static</span> <span class="keywordtype">double</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1QualityUtils.html#a0536c568aa8c66f587f8d980caa43eb0">   26</a></span>  <a class="code hl_function" href="structbiovoltron_1_1QualityUtils.html#a0536c568aa8c66f587f8d980caa43eb0">qual_to_error_prob</a>(<span class="keywordtype">char</span> qual) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">return</span> qual_to_error_prob_cache[qual];</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  }</div>
 </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}  <span class="comment">// namespace biovoltron</span></div>
-<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html">biovoltron::QualityUtils</a></div><div class="ttdef"><b>Definition</b> quality_utils.hpp:8</div></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keyword">static</span> <span class="keyword">auto</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1QualityUtils.html#ae6606441543f7a06043599b7465c37de">   38</a></span>  <a class="code hl_function" href="structbiovoltron_1_1QualityUtils.html#ae6606441543f7a06043599b7465c37de">qual_to_error_prob_log10</a>(<span class="keywordtype">double</span> qual) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">return</span> qual / -10.0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  }</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keyword">static</span> <span class="keyword">auto</span></div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1QualityUtils.html#a2821fca1092745d57104442a02b9c579">   49</a></span>  <a class="code hl_function" href="structbiovoltron_1_1QualityUtils.html#a2821fca1092745d57104442a02b9c579">qual_to_prob_log10</a>(<span class="keywordtype">double</span> qual) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">return</span> std::log10(1 - <a class="code hl_function" href="structbiovoltron_1_1QualityUtils.html#a0536c568aa8c66f587f8d980caa43eb0">qual_to_error_prob</a>(qual));</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  }</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keyword">static</span> <span class="keyword">auto</span></div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structbiovoltron_1_1QualityUtils.html#a5a6ee368af1b4bd811035dc4043e0b7c">   60</a></span>  <a class="code hl_function" href="structbiovoltron_1_1QualityUtils.html#a5a6ee368af1b4bd811035dc4043e0b7c">phred_scale_error_rate</a>(<span class="keywordtype">double</span> error_rate) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">return</span> -10.0 * std::log10(error_rate);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  }</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> qual_to_error_prob_cache = [] {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">auto</span> qual_to_error_prob_cache = std::array&lt;double, 128&gt;{};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> qual = 0; qual &lt; qual_to_error_prob_cache.size(); qual++)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      qual_to_error_prob_cache[qual] = std::pow(10, qual / -10.0);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> qual_to_error_prob_cache;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  }();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>};</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}  <span class="comment">// namespace biovoltron</span></div>
+<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html">biovoltron::QualityUtils</a></div><div class="ttdoc">Utilities for quality score conversions.</div><div class="ttdef"><b>Definition</b> quality_utils.hpp:12</div></div>
+<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html_a0536c568aa8c66f587f8d980caa43eb0"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html#a0536c568aa8c66f587f8d980caa43eb0">biovoltron::QualityUtils::qual_to_error_prob</a></div><div class="ttdeci">static double qual_to_error_prob(char qual)</div><div class="ttdoc">Convert a quality score character to its error probability.</div><div class="ttdef"><b>Definition</b> quality_utils.hpp:26</div></div>
+<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html_a2821fca1092745d57104442a02b9c579"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html#a2821fca1092745d57104442a02b9c579">biovoltron::QualityUtils::qual_to_prob_log10</a></div><div class="ttdeci">static auto qual_to_prob_log10(double qual)</div><div class="ttdoc">Convert a quality score to its probability in log10 scale.</div><div class="ttdef"><b>Definition</b> quality_utils.hpp:49</div></div>
+<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html_a5a6ee368af1b4bd811035dc4043e0b7c"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html#a5a6ee368af1b4bd811035dc4043e0b7c">biovoltron::QualityUtils::phred_scale_error_rate</a></div><div class="ttdeci">static auto phred_scale_error_rate(double error_rate)</div><div class="ttdoc">Convert an error rate to a quality score.</div><div class="ttdef"><b>Definition</b> quality_utils.hpp:60</div></div>
+<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html_a8c6513b7ba5b9ed613c8aa54c067ea8a"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html#a8c6513b7ba5b9ed613c8aa54c067ea8a">biovoltron::QualityUtils::ASCII_OFFSET</a></div><div class="ttdeci">static constexpr char ASCII_OFFSET</div><div class="ttdoc">ASCII offset for FASTQ quality (&#39;!&#39;).</div><div class="ttdef"><b>Definition</b> quality_utils.hpp:17</div></div>
+<div class="ttc" id="astructbiovoltron_1_1QualityUtils_html_ae6606441543f7a06043599b7465c37de"><div class="ttname"><a href="structbiovoltron_1_1QualityUtils.html#ae6606441543f7a06043599b7465c37de">biovoltron::QualityUtils::qual_to_error_prob_log10</a></div><div class="ttdeci">static auto qual_to_error_prob_log10(double qual)</div><div class="ttdoc">Convert a quality score to its error probability in log10 scale.</div><div class="ttdef"><b>Definition</b> quality_utils.hpp:38</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

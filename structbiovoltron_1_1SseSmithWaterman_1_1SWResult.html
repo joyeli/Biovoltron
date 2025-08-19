@@ -110,6 +110,11 @@ $(function(){initNavTree('structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html'
   <div class="headertitle"><div class="title">biovoltron::SseSmithWaterman::SWResult Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Result of a single SW alignment.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="smithwaterman__sse_8hpp_source.html">smithwaterman_sse.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -130,7 +135,22 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>ref_end2</b> {}</td></
 <tr class="memitem:a6bd568db7293d2e64d1e6e049d7f9d00" id="r_a6bd568db7293d2e64d1e6e049d7f9d00"><td class="memItemLeft" align="right" valign="top"><a id="a6bd568db7293d2e64d1e6e049d7f9d00" name="a6bd568db7293d2e64d1e6e049d7f9d00"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>cigar</b></td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Result of a single SW alignment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">score</td><td>Best local alignment score. </td></tr>
+    <tr><td class="paramname">score2</td><td>Secondary best score (as returned by SSW). </td></tr>
+    <tr><td class="paramname">ref_beg</td><td>0-based start on the reference of the best alignment. </td></tr>
+    <tr><td class="paramname">ref_end</td><td>0-based end on the reference (inclusive). </td></tr>
+    <tr><td class="paramname">read_beg</td><td>0-based start on the read of the best alignment. </td></tr>
+    <tr><td class="paramname">read_end</td><td>0-based end on the read (inclusive). </td></tr>
+    <tr><td class="paramname">ref_end2</td><td>Reference end position for the suboptimal alignment. </td></tr>
+    <tr><td class="paramname">cigar</td><td>CIGAR string including soft clips for overhangs (if any). </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/biovoltron/algo/align/inexact_match/<a class="el" href="smithwaterman__sse_8hpp_source.html">smithwaterman_sse.hpp</a></li>
 </ul>
 </div><!-- contents -->
