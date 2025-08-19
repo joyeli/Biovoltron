@@ -85,7 +85,7 @@ inline auto &operator>>(std::istream &is, R &record) {
 
   auto line = std::string{};
   std::getline(is, line);
-  record.name = line.substr(1, line.find_first_of(" \t", 1) - 1);
+  record.name = line.substr(1);
   for (record.seq.clear(); std::getline(is, line);) {
     if constexpr (R::encoded)
       record.seq += Codec::to_istring(line);

@@ -1,11 +1,25 @@
 #pragma once
-
+#include <cassert>
 #include <biovoltron/file_io/sam.hpp>
 #include <biovoltron/utility/interval.hpp>
 
 namespace biovoltron {
 
+/**
+ * @ingroup utility
+ * @brief Utility class for clipping reads based on CIGAR operations.
+ *
+ * This class provides methods to hard clip soft-clipped bases, revert
+ * soft-clipped bases and hard clip to a specific interval in SAM records.
+ */
 struct ReadClipper {
+
+  /**
+   * Remove bases marked as soft-clipped from both ends of a read.
+   *
+   * @tparam Encoded Whether the read is encoded (default is false).
+   * @param read The SAM record to modify.
+   */
   template<bool Encoded = false>
   static void
   hard_clip_soft_clipped_bases(SamRecord<Encoded>& read) {
@@ -26,6 +40,12 @@ struct ReadClipper {
     }
   }
 
+  /**
+   * Reverts soft-clipped bases at the beginning and end of a read.
+   *
+   * @tparam Encoded Whether the read is encoded (default is false).
+   * @param read The SAM record to modify.
+   */
   template<bool Encoded = false>
   static void
   revert_soft_clipped_bases(SamRecord<Encoded>& read) {
@@ -57,6 +77,13 @@ struct ReadClipper {
     }
   }
 
+  /**
+   * Hard clips a read to fit within a specified interval.
+   *
+   * @tparam Encoded Whether the read is encoded (default is false).
+   * @param read The SAM record to modify.
+   * @param interval The interval to hard clip the read to.
+   */
   template<bool Encoded = false>
   static void
   hard_clip_to_interval(SamRecord<Encoded>& read, const Interval& interval) {

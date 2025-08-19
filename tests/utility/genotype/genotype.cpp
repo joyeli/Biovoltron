@@ -1,10 +1,13 @@
 #include <biovoltron/utility/genotype/genotype.hpp>
 #include <iostream> //debug
 #include <catch.hpp>
-
+#include <sstream>
 TEST_CASE("Genotype") {
 
     SECTION("operator<<") {
-        std::cout << "TODO: utility/genotype/genotype.hpp requires test: operator<<" << std::endl;
+        const auto genotype = biovoltron::Genotype{1, 2};
+        std::ostringstream ss;
+        ss << genotype;
+        REQUIRE(ss.str() == "1|2");
     }
 }

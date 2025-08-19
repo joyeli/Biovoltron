@@ -1,6 +1,6 @@
 #pragma once
 
-#include <biovoltron/algo/align/inexact_match/pairhmm_avx.hpp>
+#include <biovoltron/algo/align/inexact_match/pairhmm.hpp>
 #include <biovoltron/algo/assemble/assembler.hpp>
 #include <biovoltron/applications/haplotypecaller/genotype/genotyper.hpp>
 #include <biovoltron/file_io/fasta.hpp>

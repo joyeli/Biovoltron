@@ -9,26 +9,48 @@ namespace biovoltron {
 /**
  * @ingroup align
  *
- * @brief TBA
+ * @brief Implements the Smith-Waterman local alignment algorithm with affine gap penalties.
+ *
+ * This structure supports local sequence alignment of two DNA strings (reference and alternative),
+ * generating a CIGAR string representing the optimal alignment path.
  */
 struct SmithWaterman {
+  /**
+   * @brief Parameters for scoring alignment.
+   *
+   * Includes match reward, mismatch penalty, gap opening penalty, and gap extension penalty.
+   */
   struct Parameters {
-    int w_match;
-    int w_mismatch;
-    int w_open;
-    int w_extend;
+    int w_match;   ///< Score for a match
+    int w_mismatch;///< Penalty for a mismatch
+    int w_open;    ///< Penalty for opening a gap
+    int w_extend;  ///< Penalty for extending a gap
   };
 
-  // match=1, mismatch = -1/3, gap=-(1+k/3)
+  /// Original BWA-style parameters: match = +3, mismatch = -1, gap = -1 - k
   static constexpr auto ORIGINAL_DEFAULT = Parameters{3, -1, -4, -3};
+
+  /// Standard NGS alignment scoring scheme
   static constexpr auto STANDARD_NGS = Parameters{25, -50, -110, -6};
+
+  /// Custom scoring used in Biovoltron's newer SW implementation
   static constexpr auto NEW_SW_PARAMETERS = Parameters{200, -150, -260, -11};
+
+  /// Parameters used for alignment to the best haplotype
   static constexpr auto ALIGNMENT_TO_BEST_HAPLOTYPE_SW_PARAMETERS
     = Parameters{10, -15, -30, -5};
+
+  /// Threshold for how many mismatches are allowed to be considered a "good match"
   static constexpr auto MAX_MISMATCHES = 2;
 
-  static auto
-  well_match(std::string_view ref, std::string_view alt) {
+  /**
+   * @brief Quickly checks whether two strings differ by at most MAX_MISMATCHES.
+   *
+   * @param ref Reference string
+   * @param alt Alternate string
+   * @return true if they differ by <= MAX_MISMATCHES, false otherwise
+   */
+  static auto well_match(std::string_view ref, std::string_view alt) {
     auto mismatch = 0;
     for (auto i = 0; mismatch <= MAX_MISMATCHES && i < ref.size(); i++)
       if (alt[i] != ref[i])
@@ -37,6 +59,15 @@ struct SmithWaterman {
   }
 
  private:
+  /**
+   * @brief Populates scoring and traceback matrices using the Smith-Waterman algorithm.
+   *
+   * @param ref Reference sequence
+   * @param alt Alternate sequence
+   * @param score Matrix to hold alignment scores
+   * @param trace Matrix to hold traceback directions
+   * @param params Alignment scoring parameters
+   */
   static auto
   calculate_matrix(std::string_view ref, std::string_view alt,
                    std::vector<std::vector<int>>& score,
@@ -44,6 +75,7 @@ struct SmithWaterman {
     const auto row_size = score.size();
     const auto col_size = score[0].size();
 
+    // Gap tracking vectors for affine penalties
     auto gap_size_down = std::vector(col_size + 1, 0);
     auto best_gap_down
       = std::vector(col_size + 1, std::numeric_limits<int>::min() / 2);
@@ -54,12 +86,12 @@ struct SmithWaterman {
     const auto [w_match, w_mismatch, w_open, w_extend] = params;
     for (auto i = 1; i < row_size; i++) {
       for (auto j = 1; j < col_size; j++) {
-        // step diag
+        // Diagonal (match or mismatch)
         const auto step_diag
           = score[i - 1][j - 1]
             + (ref[i - 1] == alt[j - 1] ? w_match : w_mismatch);
 
-        // step down
+        // Gap in ref (down)
         const auto gap_open_down = score[i - 1][j] + w_open;
         best_gap_down[j] += w_extend;
         if (gap_open_down > best_gap_down[j]) {
@@ -70,7 +102,7 @@ struct SmithWaterman {
         const auto step_down = best_gap_down[j];
         const auto step_down_size = gap_size_down[j];
 
-        // step right
+        // Gap in alt (right)
         const auto gap_open_right = score[i][j - 1] + w_open;
         best_gap_right[i] += w_extend;
         if (gap_open_right > best_gap_right[i]) {
@@ -81,21 +113,28 @@ struct SmithWaterman {
         const auto step_right = best_gap_right[i];
         const auto step_right_size = gap_size_right[i];
 
-        // priority here will be step diagonal, step down, step right
+        // Select the best move. The priority is diagonal > right > down.
         if (step_diag >= step_down && step_diag >= step_right) {
           score[i][j] = step_diag;
-          trace[i][j] = 0;
+          trace[i][j] = 0;  // Diagonal move
         } else if (step_right >= step_down) {
           score[i][j] = step_right;
-          trace[i][j] = -step_right_size;
+          trace[i][j] = -step_right_size;  // Insertion
         } else {
           score[i][j] = step_down;
-          trace[i][j] = step_down_size;
+          trace[i][j] = step_down_size;  // Deletion
         }
       }
     }
   }
 
+  /**
+   * @brief Performs traceback from the optimal cell to construct a CIGAR string.
+   *
+   * @param score Filled scoring matrix
+   * @param trace Filled trace matrix
+   * @return A pair containing the alignment offset and resulting CIGAR object
+   */
   static auto
   calculate_cigar(std::vector<std::vector<int>>& score,
                   std::vector<std::vector<int>>& trace) {
@@ -130,17 +169,17 @@ struct SmithWaterman {
         pos_j = j;
         // end of alternate is overhanging; we will just record it as 'M'
         // segment
-        segment_len = alt_size - j;
+        segment_len = alt_size - j;  // Soft clip overhangs
       }
     }
 
     auto cigar = Cigar{};
     if (segment_len > 0) {
-      cigar.emplace_back(segment_len, 'S');
+      cigar.emplace_back(segment_len, 'S');  // soft-clip at the end
       segment_len = 0;
     }
 
-    auto state = 'M';
+    auto state = 'M';  // initial assumed state
     do {
       const auto cur_trace = trace[pos_i][pos_j];
       const auto [new_state, step_size] = [cur_trace] {
@@ -152,7 +191,7 @@ struct SmithWaterman {
           return std::pair{'M', 1};
       }();
 
-      // move to next best location in the sw matrix
+      // Update position based on move
       switch (new_state) {
         case 'M':
           pos_i--;
@@ -168,6 +207,7 @@ struct SmithWaterman {
           break;
       }
 
+      // Build CIGAR operation
       if (new_state == state)
         segment_len += step_size;
       else {
@@ -179,14 +219,27 @@ struct SmithWaterman {
 
     cigar.emplace_back(segment_len, state);
     auto align_offset = pos_i;
+
     if (pos_j > 0)
-      cigar.emplace_back(pos_j, 'S');
+      cigar.emplace_back(pos_j, 'S');  // soft-clip at the beginning
 
     cigar.reverse();
     return std::pair{align_offset, cigar};
   }
 
  public:
+  /**
+   * @brief Aligns two sequences using Smith-Waterman and returns the alignment offset and CIGAR string.
+   *
+   * If the sequences are of equal length and differ by at most 2 mismatches,
+   * the function will directly return a simple match CIGAR string (e.g., "150M")
+   * without performing full Smith-Waterman alignment.
+   *
+   * @param ref Reference sequence.
+   * @param alt Alternate (query) sequence.
+   * @param params Alignment parameters (optional).
+   * @return Pair of alignment offset and CIGAR string.
+   */
   static auto
   align(std::string_view ref, std::string_view alt,
         Parameters params = NEW_SW_PARAMETERS) {

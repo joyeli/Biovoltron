@@ -1,4 +1,4 @@
-// #include <biovoltron/algo/align/spoa/simd_alignment_engine.hpp>
+#include <biovoltron/algo/align/spoa/simd_alignment_engine.hpp>
 #include <iostream> //debug
 #include <catch.hpp>
 

@@ -314,7 +314,7 @@ https://www.gencodegenes.org/pages/data_format.html
       if (line.at(0) == '#') continue;
       std::vector<std::string> content = split(line, "\t");
       std::vector<std::string> split_gene_type = split(content[8], "gene_type \"");
-      std::vector<std::string> split_gene_name = split(content[8], "gene_name \"");
+      std::vector<std::string> split_gene_name = split(content[8], "transcript_id \"");
       std::string gene_type = split(split_gene_type[1], "_")[0];
       std::string gene_name = split(split_gene_name[1], "\";")[0];
       std::string strand = content[6];
@@ -383,7 +383,7 @@ https://www.gencodegenes.org/pages/data_format.html
       if (line.at(0) == '#') continue;
       std::vector<std::string> content = split(line, "\t");
       std::vector<std::string> split_gene_type = split(content[8], "gene_type=");
-      std::vector<std::string> split_gene_name = split(content[8], "gene_name=");
+      std::vector<std::string> split_gene_name = split(content[8], "transcript_id=");
       std::string gene_type = split(split_gene_type[1], "_")[0];
       std::string gene_name = split(split_gene_name[1], ";")[0];
       std::string strand = content[6];
@@ -421,6 +421,79 @@ https://www.gencodegenes.org/pages/data_format.html
   bedsix_v read_gencode_trna_gff_into(Path&& input_file_path) {
     bedsix_v results;
     read_gencode_trna_gff(input_file_path, results);
+    return results;
+  }
+
+  template<class Path>
+  void read_GtRNAdb_trna_bed(Path&& input_file_path, bedsix_v& container) {
+    /// bed example from GtRNAdb
+    /**
+     * chr1	4913786	4913856	tRX-Arg-NNN-482-1	1000	+	4913786	4913856	0	1	70,	0,
+     * chr1	9553154	9553222	tRX-Und-NNN-49-1	1000	-	9553154	9553222	0	1	68,	0,
+     * chr1	34434811	34434883	tRNA-Glu-TTC-2-1	1000	-	34434811	34434883	0	1	72,	0,
+     */
+    if (!std::filesystem::exists(input_file_path)) {
+      std::string file_name = input_file_path;
+      throw std::runtime_error("read_GtRNAdb_trna_bed file " + file_name + " does not exist!!");
+    }
+    std::ifstream file(input_file_path);
+    std::string line;
+    std::string tips_msg = R"(
+Start reading the GtRNAdb bed annotation file.
+If any `ERROR` or `Segmentation fault` occurred, 
+the reason might be the breaking change of the file format of the annotation.
+Please check the URL of GtRNAdb: https://gtrnadb.ucsc.edu/faq.html
+    )";
+
+    std::cout << tips_msg << std::endl;
+    while(std::getline(file, line)) {
+      if (line.empty()) continue;
+      if (line.at(0) == '#') continue;
+      std::vector<std::string> content = split(line, "\t");
+      if (content[0].starts_with("chrUn")) continue;
+      std::vector<std::string> split_gene_name_parts = split(content[3], "-");
+      if (split_gene_name_parts.size() < 3) {
+        throw std::runtime_error("read_GtRNAdb_trna_bed tRNA name " + content[3] + " is not valid!");
+      }
+      std::string gene_name = split_gene_name_parts[1] + '-' + split_gene_name_parts[2];
+      for(int i = 3; i < split_gene_name_parts.size(); ++i){
+        gene_name += ("_" + split_gene_name_parts[i]);
+      }
+
+      std::string strand = content[5];
+      std::size_t start = std::stoul(content[1]); // 0-based (bed)
+      std::size_t end = std::stoul(content[2]); // 0-based (bed)
+      std::size_t mid = (end - start) / 2 + start;
+      container.emplace_back( 
+        bedsix {
+          {}, // for Record
+          content[0],
+          static_cast<uint32_t>(start),
+          static_cast<uint32_t>(mid),
+          strand.front(),
+          "tRF",
+          gene_name + (strand == "+" ? "-5p" : "-3p")
+        }
+      );
+      container.emplace_back( 
+        bedsix {
+          {}, // for Record
+          content[0],
+          static_cast<uint32_t>(mid),
+          static_cast<uint32_t>(end),
+          strand.front(),
+          "tRF",
+          gene_name + (strand == "+" ? "-3p" : "-5p")
+        }
+      );
+    }
+    file.close();
+  }
+
+  template<class Path>
+  bedsix_v read_GtRNAdb_trna_bed_into(Path&& input_file_path) {
+    bedsix_v results;
+    read_GtRNAdb_trna_bed(input_file_path, results);
     return results;
   }
 } // namespace bedsixreader

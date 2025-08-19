@@ -3,7 +3,7 @@
 #include <biovoltron/file_io/fasta.hpp> 
 #include <biovoltron/file_io/fastq.hpp> 
 #include <catch.hpp>
-#include <iostream>
+#include <string>
 
 namespace ranges = std::ranges;
 using namespace biovoltron;
@@ -19,7 +19,6 @@ SCENARIO("Tailor: single match") {
 
   auto read = FastqRecord<>{};
   read.name = "read";
-  read.qual = "!!!!!!!!!!!!!!!!!!!!";
 
   auto index = Index{5};
   index.make_index(ref);
@@ -35,6 +34,7 @@ SCENARIO("Tailor: single match") {
 
   SECTION("Unqulified read: too short (< seed_len)") {
     read.seq = "GATTGTTGC";
+    read.qual = std::string(read.seq.size(), 'I');
     assert(read.seq.size() < tailor.seed_len);
     const auto aln = tailor.search(read);
     CHECK(aln.first.hits.empty());
@@ -42,14 +42,16 @@ SCENARIO("Tailor: single match") {
 
   SECTION("Unqulified reads: with 'N' base.") {
     read.seq = "NNNNNNAATTGATTGATTGATTGATTGTTGC";
+    read.qual = std::string(read.seq.size(), 'I');
     assert(read.seq.size() >= tailor.seed_len);
     const auto aln = tailor.search(read);
     CHECK(aln.first.hits.empty());
   }
 
   GIVEN("One mismatch at seed region") {
-    read.seq = ref.front().seq.substr(2, 25);
+    read.seq = ref[0].seq.substr(2, 25);
     read.seq[4] = Codec::comp(read.seq[4]);
+    read.qual = std::string(read.seq.size(), 'I');
     WHEN("Turn off allow_seed_mismatch") {
       tailor.allow_seed_mismatch = false;
       const auto aln = tailor.search(read);
@@ -61,6 +63,7 @@ SCENARIO("Tailor: single match") {
 
   SECTION("Exact match, no tail") {
     read.seq = ref.front().seq.substr(2, 25);
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
 
     CHECK(aln.first.name == read.name);
@@ -78,6 +81,7 @@ SCENARIO("Tailor: single match") {
   SECTION("Exact match to reverse strand, no tail") {
     read.seq = ref.front().seq.substr(2, 25);
     read.seq = Codec::rev_comp(read.seq);
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
 
     CHECK(aln.second.name == read.name);
@@ -89,13 +93,13 @@ SCENARIO("Tailor: single match") {
 
     REQUIRE(aln.second.hits.size() == 1);
     CHECK(aln.second.hits.front().mismatches.empty());
-    // std::cout << aln.second.hits.front().intv.to_string() << "\n";
     CHECK(aln.second.hits.front().intv == Interval{"chr1", 2, 27, '-'});
   }
 
   SECTION("Tail len 1") {
-    read.seq = ref.front().seq.substr(2, 26);
+    read.seq = ref[0].seq.substr(2, 26);
     read.seq.back() = Codec::comp(read.seq.back());
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
 
     CHECK(aln.first.name == read.name);
@@ -113,6 +117,7 @@ SCENARIO("Tailor: single match") {
   SECTION("One mismatch at non-seed region, no tail") {
     read.seq = ref.front().seq.substr(2, 25);
     read.seq[20] = Codec::comp(read.seq[20]);
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
 
     CHECK(aln.first.name == read.name);
@@ -132,6 +137,7 @@ SCENARIO("Tailor: single match") {
     read.seq = ref.front().seq.substr(2, 30);
     read.seq[25] = Codec::comp(read.seq[25]);
     read.seq[27] = Codec::comp(read.seq[27]);
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
 
     CHECK(aln.first.name == read.name);
@@ -149,6 +155,7 @@ SCENARIO("Tailor: single match") {
   SECTION("One mismatch at seed region, perfect match at non-seed, no tail") {
     read.seq = ref.front().seq.substr(2, 25);
     read.seq[4] = Codec::comp(read.seq[4]);
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
 
     CHECK(aln.first.name == read.name);
@@ -168,6 +175,7 @@ SCENARIO("Tailor: single match") {
     read.seq = ref.front().seq.substr(2, 26);
     read.seq[4] = Codec::comp(read.seq[4]);
     read.seq[25] = Codec::comp(read.seq[25]);
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
 
     CHECK(aln.first.name == read.name);
@@ -187,6 +195,7 @@ SCENARIO("Tailor: single match") {
     read.seq = ref.front().seq.substr(2, 25);
     read.seq[4] = Codec::comp(read.seq[4]);
     read.seq[20] = Codec::comp(read.seq[20]);
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
 
     CHECK(aln.first.name == read.name);
@@ -210,6 +219,7 @@ SCENARIO("Tailor: single match") {
     //tail
     read.seq[25] = Codec::comp(read.seq[25]);
     read.seq[27] = Codec::comp(read.seq[27]);
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
 
     CHECK(aln.first.name == read.name);
@@ -231,6 +241,7 @@ SCENARIO("Tailor: single match") {
     read.seq[20] = Codec::comp(read.seq[20]);
     //tail
     read.seq += "AAAA";
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln_no_strict = tailor.search(read);
     CHECK(aln_no_strict.first.name == read.name);
     CHECK(aln_no_strict.first.tail_pos == 20);
@@ -254,6 +265,7 @@ SCENARIO("Tailor: single match") {
     read.seq = ref.front().seq.substr(2, 25);
     read.seq[4] = Codec::comp(read.seq[4]);
     read.seq[8] = Codec::comp(read.seq[8]);
+    read.qual = std::string(read.seq.size(), 'I');
     const auto aln = tailor.search(read);
     CHECK(aln.first.hits.empty());
   }
@@ -265,6 +277,7 @@ SCENARIO("Tailor: single match") {
     *second_T_itr = 'C';
     auto third_T_itr = ranges::find(second_T_itr + 1, read.seq.end(), 'T');
     *third_T_itr = 'C';
+    read.qual = std::string(read.seq.size(), 'I');
 
     /// first search failed
     const auto aln = tailor.search(read);
@@ -296,6 +309,53 @@ SCENARIO("Tailor: single match") {
     REQUIRE(*(++t2c_site_itr) == 9);
     CHECK(tc_aln.first.hits.front().intv == Interval{"chr1", 2, 22});
   }
+
+  SECTION("Finding both head and tail") {
+    const std::string seq = ref[0].seq.substr(21, 32);
+    const std::string head = "AGTACCC";
+    const std::string tail = "AAGCTCT";
+    read.seq = head + seq + tail;
+    read.qual = std::string(read.seq.size(), 'I');
+
+    WHEN("The parapeter max_5adapter_len is equal to the head length") {
+      tailor.max_5adapter_len = 7;
+      auto aln = tailor.search_with_extend5(read);
+      THEN("One hit without any mismatches") {
+        CHECK(aln.name == read.name);
+        CHECK(aln.seq == read.seq);
+        CHECK(aln.qual == read.qual);
+        CHECK(aln.tail_pos == head.size() + seq.size());
+        CHECK(aln.head_pos == head.size());
+        REQUIRE(aln.hits.size() == 1);
+        CHECK(aln.hits.front().mismatches.empty());
+        CHECK(aln.hits.front().intv == Interval{"chr1", 21, 53});
+      }
+    }
+
+    WHEN("The parapeter max_5adapter_len is greater than the head length") {
+      tailor.max_5adapter_len = 8;
+      auto aln = tailor.search_with_extend5(read);
+      THEN("One hit without any mismatches") {
+        CHECK(aln.name == read.name);
+        CHECK(aln.seq == read.seq);
+        CHECK(aln.qual == read.qual);
+        CHECK(aln.tail_pos == head.size() + seq.size());
+        CHECK(aln.head_pos == head.size());
+        REQUIRE(aln.hits.size() == 1);
+        CHECK(aln.hits.front().mismatches.empty());
+        CHECK(aln.hits.front().intv == Interval{"chr1", 21, 53});
+      }
+    }
+
+    WHEN("The parapeter max_5adapter_len is less than the head length") {
+      tailor.max_5adapter_len = 6;
+      auto aln = tailor.search_with_extend5(read);
+      THEN("No hits") {
+        CHECK(aln.name == read.name);
+        CHECK(aln.hits.size() == 0);
+      }
+    }
+  }
 }
 
 SCENARIO("Tailor: multiple matching occurs") {
@@ -309,12 +369,12 @@ SCENARIO("Tailor: multiple matching occurs") {
 
   auto read = FastqRecord<>{};
   read.name = "read";
-  read.qual = "!!!!!!!!!!!!!!!!!!!!";
 
   WHEN("Found 2 perfect match (with non-seed mismatch, but different base substitution) and 1 match with tail.") {
     std::copy_n(ref[0].seq.begin() + 2, 25, ref[1].seq.begin() + 5);
     std::copy_n(ref[0].seq.begin() + 2, 25, ref[2].seq.begin() + 6);
     read.seq = ref[0].seq.substr(2, 25);
+    read.qual = std::string(read.seq.size(), 'I');
 
     auto mismatch_pos = 20;
     auto correct_base1 = 'A';
@@ -368,6 +428,7 @@ SCENARIO("Tailor: multiple matching occurs") {
     std::copy_n(ref[0].seq.begin() + 2, 25, ref[1].seq.begin() + 5);
     std::copy_n(ref[0].seq.begin() + 2, 25, ref[2].seq.begin() + 6);
     read.seq = ref[0].seq.substr(2, 25);
+    read.qual = std::string(read.seq.size(), 'I');
 
     auto mismatch_pos1 = 3;
     auto mismatch_pos2 = 4;
@@ -411,6 +472,7 @@ SCENARIO("Tailor: multiple matching occurs") {
     WHEN("Reverse report perfect match, forward report 1 tail match") {
       read.seq = ref[0].seq.substr(0, 26);
       read.seq.back() = Codec::comp(read.seq.back());
+      read.qual = std::string(read.seq.size(), 'I');
       auto rc_read = Codec::rev_comp(read.seq);
 
       ranges::copy(rc_read, ref[1].seq.end() - rc_read.size());
@@ -448,6 +510,7 @@ SCENARIO("Tailor: multiple matching occurs") {
       auto rc_read = Codec::rev_comp(read.seq);
       ranges::copy(rc_read, ref[1].seq.end() - rc_read.size());
       read.seq.back() = Codec::comp(read.seq.back());
+      read.qual = std::string(read.seq.size(), 'I');
 
       auto index = Index{5};
       index.make_index(ref);
@@ -478,12 +541,12 @@ SCENARIO("Tailor: multiple matching occurs") {
 
     WHEN("Forward and reverse report same tail length and same number of mismatch") {
       read.seq = ref[0].seq.substr(0, 26);
-
       read.seq[3] = Codec::comp(read.seq[3]);
       read.seq[5] = Codec::comp(read.seq[5]);
       auto rc_read = Codec::rev_comp(read.seq);
       ranges::copy(rc_read, ref[1].seq.end() - rc_read.size());
       read.seq[5] = Codec::comp(read.seq[5]);
+      read.qual = std::string(read.seq.size(), 'I');
 
       auto index = Index{5};
       index.make_index(ref);
@@ -514,6 +577,7 @@ SCENARIO("Tailor: multiple matching occurs") {
 
     WHEN("Forward and reverse report same tail length, same number of mismatch, and same position of mismatch") {
       read.seq = ref[0].seq.substr(0, 25);
+      read.qual = std::string(read.seq.size(), 'I');
       auto rc_read = Codec::rev_comp(read.seq);
       ranges::copy(rc_read, ref[1].seq.end() - rc_read.size());
 
@@ -551,6 +615,7 @@ SCENARIO("Tailor: multiple matching occurs") {
       std::copy_n(ref[0].seq.begin(), 25, ref[i].seq.end() - 25);
     }
     read.seq = ref[0].seq.substr(0, 25);
+    read.qual = std::string(read.seq.size(), 'I');
 
     auto index = Index{5};
     index.make_index(ref);

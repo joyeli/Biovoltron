@@ -154,8 +154,13 @@ public:
   auto size() const noexcept {
     return pool_size;
   }
-};
 
+  bool all_workers_idle() const noexcept {
+    return std::none_of(workers.begin(), workers.end(), [](auto& worker) {
+      return worker.is_running();
+    });
+  }
+};
 
 /**
  * @brief An api for making thread pool

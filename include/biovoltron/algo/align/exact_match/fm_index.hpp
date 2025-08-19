@@ -658,6 +658,11 @@ class FMIndex {
 
   bool
   operator==(const FMIndex& other) const = default;
+
+  auto
+  get_occ_value(char_type c, size_type i) const {
+    return compute_occ(c, i);
+  }
 };
 
 }  // namespace biovoltron

@@ -2,6 +2,7 @@
 
 #include <biovoltron/utility/istring.hpp>
 #include <biovoltron/file_io/fasta.hpp>
+#include <biovoltron/container/xbit_vector.hpp>
 #include <biovoltron/utility/archive/serializer.hpp>
 #include <biovoltron/utility/istring.hpp>
 #include <experimental/random>
@@ -58,7 +59,7 @@ namespace biovoltron {
  *   auto load_ref = ReferenceRecord<false>{};
  *   {
  *     auto fin = std::ifstream{"GRCh38.bfa", std::ios::binary};
- *     load.ref.load(fin);
+ *     load_ref.load(fin);
  *     fin.close();
  *   }
  *
@@ -79,9 +80,17 @@ struct ReferenceRecord {
   std::vector<std::string> chr_names {};
   std::conditional_t<Encoded, istring, std::string> seq {};
   
+  /**
+   * Substitute function for unencoded sequence.
+   * Converts 'N' or 'n' to a random base, and uppercases all characters.
+   */
   char (*substitute)(char&) = [](char &ch) { return (ch == 'N' or ch == 'n') ? 
       Codec::to_char(std::experimental::randint(0, 3)) : static_cast<char>(std::toupper(ch)); };
 
+  /**
+   * Substitution function for encoded sequence.
+   * Converts bases greater than 3 to a random base (0-3).
+   */
   std::int8_t (*substitute_encoded)(std::int8_t&) = [](std::int8_t &ch) { return (ch > 3) ? 
       static_cast<std::int8_t>(std::experimental::randint(0, 3)) : ch; };
   
@@ -89,9 +98,17 @@ struct ReferenceRecord {
   std::vector<std::uint32_t> chr_end_pos {};
   std::vector<std::array<std::uint32_t, 2>> unknown_intervals {}; //[begin, end)
 
+  /**
+   * Equality operator for ReferenceRecord.
+   */
   bool
   operator==(const ReferenceRecord &other) const = default;
 
+  /**
+   * Recover original sequence with 'N' in unknown regions.
+   * 
+   * @return The original sequence with 'N' in unknown intervals.
+   */
   auto
   origin_seq() {
     std::conditional_t<Encoded, istring, std::string> o_seq {};
@@ -115,6 +132,11 @@ struct ReferenceRecord {
     return o_seq;
   }
 
+  /**
+   * Save the reference genome data to a binary output stream.
+   *
+   * @param fout Output stream to write the binary reference data.
+   */
   auto
   save(std::ofstream &fout) const {
     auto Dibit = DibitVector<std::uint8_t> {};
@@ -139,6 +161,11 @@ struct ReferenceRecord {
     }
   }
 
+  /**
+   * Load the reference genome data from a binary input stream.
+   *
+   * @param fin Input stream to read the binary reference data.
+   */
   auto
   load(std::ifstream &fin) {
     auto Dibit = DibitVector<std::uint8_t> {};
@@ -163,10 +190,18 @@ struct ReferenceRecord {
 
 };
 
+/**
+ * Parse a reference genome from a FASTA input stream.
+ *
+ * @tparam Encoded If true, sequence will be stored in encoded format.
+ * @param is Input stream containing FASTA records.
+ * @param record ReferenceRecord to populate.
+ * @return Reference to the modified input stream.
+ */
 template<bool Encoded>
 inline auto&
 operator>>(std::istream &is, ReferenceRecord<Encoded> &record) {
-  record.base_cnt = std::vector<std::uint32_t> (5, 0);
+  record.base_cnt = std::vector<std::uint32_t> (5, 0);  // Initialize base counts: 0:A, 1:C, 2:G, 3:T, 4:N
   auto ref = FastaRecord<Encoded>{};
   auto last_chr_pos = std::uint32_t {0};
   std::conditional_t<Encoded, std::int8_t, char> ch {};
@@ -195,6 +230,8 @@ operator>>(std::istream &is, ReferenceRecord<Encoded> &record) {
       ch = ref.seq[i];
     }
     last_chr_pos = record.chr_end_pos.back();
+    
+    // Substitute bases in the sequence
     if constexpr (Encoded) {
       std::transform(ref.seq.begin(), ref.seq.end(), ref.seq.begin(), record.substitute_encoded );
     }

@@ -19,7 +19,11 @@ namespace biovoltron {
 
 /**
  * @ingroup applications
- * A highly optimized Aligner (implement using modern C++20) 
+ * 
+ * @brief Paired-end short-read aligner (~150bp) optimized for hs37d5 using FM-index and SSE SW.
+ * 
+ * @details 
+ * A highly optimized Aligner (implemented using modern C++20) 
  * specifically for paired-end short read alignment with read 
  * length ~150 bp.
  *
@@ -29,33 +33,102 @@ namespace biovoltron {
  * 
  * If you know the mean and variance of the insert size of the 
  * sequencing data, we highly recommend you pass it into the aligner.
+ *
+ * Example:
+ * ```cpp
+ * #include <biovoltron/applications/burrow_wheeler_aligner/burrow_wheeler_aligner.hpp>
+ * #include <biovoltron/file_io/fasta.hpp>
+ * #include <biovoltron/file_io/fastq.hpp>
+ * #include <biovoltron/file_io/sam.hpp>
+ * #include <fstream>
+ * #include <iostream>
+ *
+ * using namespace biovoltron;
+ *
+ * int main(int argc, char* argv[]) {
+ *   if (argc != 4) {
+ *     std::cerr << "Usage: " << argv[0]
+ *               << " <reference.fasta> <reads_1.fq> <reads_2.fq>\n";
+ *     return 1;
+ *   }
+ *
+ *   // Input file paths
+ *   const std::string fasta_path = argv[1];
+ *   const std::string fastq1_path = argv[2];
+ *   const std::string fastq2_path = argv[3];
+ *
+ *   // Load reference FASTA
+ *   auto ref = FastaRecord<true>{};
+ *   std::ifstream{fasta_path} >> ref;
+ *   std::ranges::transform(ref.seq, ref.seq.begin(),
+ *                          [](auto c) { return c < 4 ? c : 0; });
+ *
+ *   // Build FM-index
+ *   auto index = FMIndex<1, uint32_t, StableSorter<uint32_t>>{};
+ *   index.build(ref.seq);
+ *
+ *   // Construct aligner
+ *   BurrowWheelerAligner bwa{ref, index};
+ *
+ *   // Load paired-end reads
+ *   auto r1 = FastqRecord<true>{};
+ *   auto r2 = FastqRecord<true>{};
+ *   std::ifstream{fastq1_path} >> r1;
+ *   std::ifstream{fastq2_path} >> r2;
+ *
+ *   // Run alignment
+ *   const auto [sam1, sam2] = bwa.generate_sam({r1, r2});
+ *
+ *   // Print alignment results
+ *   std::cout << "Position1: " << sam1.pos   << "\n";
+ *   std::cout << "Cigar1: "    << sam1.cigar << "\n";
+ *   std::cout << "Mapq1: "     << sam1.mapq  << "\n";
+ *   std::cout << "Flag1: "     << sam1.flag  << "\n";
+ *
+ *   std::cout << "Position2: " << sam2.pos   << "\n";
+ *   std::cout << "Cigar2: "    << sam2.cigar << "\n";
+ *   std::cout << "Mapq2: "     << sam2.mapq  << "\n";
+ *   std::cout << "Flag2: "     << sam2.flag  << "\n";
+ *
+ *   return 0;
+ * }
+ * ```
  */
+
 struct BurrowWheelerAligner {
+  /**
+   * @brief Algorithm parameters and heuristics.
+   * @details Controls insert-size, seeding, SW thresholds, and scoring settings.
+   */
   struct Parameters {
-    const int INSERT_MEAN = 550;
-    const int INSERT_VAR = 150;
-    const int PAIR_DIST = INSERT_MEAN + 4 * INSERT_VAR + 50;
+    const int INSERT_MEAN = 550;   ///< Mean insert size (bp).
+    const int INSERT_VAR = 150;    ///< Insert size variance (bp^2).
+    const int PAIR_DIST = INSERT_MEAN + 4 * INSERT_VAR + 50; ///< Max pairing distance.
 
-    const int MAX_HIT_CNT = 512;
-    const int MAX_EM_CNT = 128;
-    const int MAX_SW_CNT = 32;
-    const int MAX_RESCUE_CNT = 128;
-    const int MAX_SEED_CNT = 4;
+    const int MAX_HIT_CNT = 512;   ///< Max FM-index hits per seed.
+    const int MAX_EM_CNT = 128;    ///< Max exact match candidates kept.
+    const int MAX_SW_CNT = 32;     ///< Max SW candidates kept.
+    const int MAX_RESCUE_CNT = 128;///< Max rescue attempts per mate.
+    const int MAX_SEED_CNT = 4;    ///< Max seeds used after filtering.
 
-    const int SEED_LEN = 19;
-    const int SEED_OVERLAP = 4;
-    const int EXTEND = 100;
-    const int SW_THRESHOLD = 30;
-    const int KMER_SIZE = 8;
-    const int MIN_FIND_CNT = 4;
-    const int MAX_FIND_CNT_DIFF = 4;
-    const int MAX_SW_DIFF = 30;
-    const int PEN_UNPAIRED = 19;
+    const int SEED_LEN = 19;       ///< Seed length for FM-index.
+    const int SEED_OVERLAP = 4;    ///< Overlap between seeds.
+    const int EXTEND = 100;        ///< Extra flanking bases for SW.
+    const int SW_THRESHOLD = 30;   ///< Minimum SW score to keep.
+    const int KMER_SIZE = 8;       ///< K-mer size for filtering.
+    const int MIN_FIND_CNT = 4;    ///< Min matched k-mers to keep a window.
+    const int MAX_FIND_CNT_DIFF = 4; ///< Max difference in k-mer count allowed.
+    const int MAX_SW_DIFF = 30;    ///< Max SW score diff from best.
+    const int PEN_UNPAIRED = 19;   ///< Penalty for unpaired alignments.
   };
-  const FastaRecord<true> ref;
-  const FMIndex<1, uint32_t, StableSorter<uint32_t>> index;
-  const Parameters args;
 
+  const FastaRecord<true> ref; ///< Reference genome sequence.
+  const FMIndex<1, uint32_t, StableSorter<uint32_t>> index; ///< FM-index of reference.
+  const Parameters args; ///< Algorithm parameters.
+
+  /**
+   * @brief Prints current parameters to debug log.
+   */
   auto
   print() {
     SPDLOG_DEBUG("================== argument ==================");
@@ -79,22 +152,25 @@ struct BurrowWheelerAligner {
     SPDLOG_DEBUG("PAIR_DIST: {}", args.PAIR_DIST);
   }
 
+  /**
+   * @brief Alignment result for a single read.
+   */
   struct Aln {
-    std::uint32_t pos{};
-    std::uint8_t score{};
-    std::uint8_t score2{};
-    bool forward{1};
-    std::uint8_t read_end{};
-    std::uint32_t ref_end{};
-    std::uint8_t find_cnt{};
-    std::uint8_t align_len{};
-    std::uint8_t mapq{};
-    std::uint8_t sub_score{};
-    bool rescued{};
-    std::string cigar;
-    istring rev_comp;
+    std::uint32_t pos{};    ///< 0-based reference position.
+    std::uint8_t score{};   ///< Best alignment score.
+    std::uint8_t score2{};  ///< Secondary alignment score.
+    bool forward{1};        ///< Strand: true=forward, false=reverse.
+    std::uint8_t read_end{};///< Read end index in alignment.
+    std::uint32_t ref_end{};///< Reference end index in alignment.
+    std::uint8_t find_cnt{};///< Matched k-mer count.
+    std::uint8_t align_len{};///< Alignment length for MAPQ.
+    std::uint8_t mapq{};    ///< Mapping quality score.
+    std::uint8_t sub_score{};///< Suboptimal alignment score.
+    bool rescued{};         ///< True if obtained via rescue.
+    std::string cigar;      ///< CIGAR string.
+    istring rev_comp;       ///< Reverse-complement sequence if needed.
 
-    friend auto&
+    friend auto& 
     operator<<(std::ostream& os, Aln aln) {
       return os << "(pos: " << aln.pos << (aln.forward ? "(->)" : "(<-)")
                 << ", score: " << +aln.score << ", score2: "
@@ -104,14 +180,13 @@ struct BurrowWheelerAligner {
                 << ", rescued:" << aln.rescued << ", mapq:" << +aln.mapq << ")";
     }
 
-    auto
-    operator==(const Aln& other) const {
-      return pos == other.pos && forward == other.forward;
+    auto 
+    operator==(const Aln& other) const { 
+      return pos == other.pos && forward == other.forward; 
     }
-
-    auto
+    auto 
     operator<=>(const Aln& other) const {
-      if (auto cmp = pos <=> other.pos; cmp != 0)
+      if (auto cmp = pos <=> other.pos; cmp != 0) 
         return cmp;
       if (auto cmp = forward <=> other.forward; cmp != 0)
         return cmp;
@@ -121,56 +196,70 @@ struct BurrowWheelerAligner {
     }
   };
 
+  /**
+   * @brief Seed match anchor.
+   */
   struct Anchor {
-    std::uint32_t ref_pos{};
-    std::uint8_t seed_pos{};
-    std::uint8_t seed_size{};
-    bool forward{};
-    bool repeat{};
+    std::uint32_t ref_pos{}; ///< Reference position of seed.
+    std::uint8_t seed_pos{}; ///< Position of seed in read.
+    std::uint8_t seed_size{};///< Length of seed.
+    bool forward{};          ///< Strand orientation.
+    bool repeat{};           ///< True if in repeat region.
 
-    auto
+    auto 
     operator<=>(const Anchor& other) const noexcept = default;
-    friend auto&
+    friend auto& 
     operator<<(std::ostream& os, const Anchor& an) {
       return os << "(" << +an.seed_pos << ": " << an.ref_pos << ", "
                 << +an.seed_size << ")";
     }
   };
 
+  /**
+   * @brief Paired-end alignment result.
+   */
   struct AlnPair {
-    Aln aln1;
-    Aln aln2;
-    auto
-    dist() const noexcept {
+    Aln aln1; ///< Alignment for read 1.
+    Aln aln2; ///< Alignment for read 2.
+    auto 
+    dist() const noexcept { 
       return DIFF(aln1.pos, aln2.pos);
-    }
-    auto
-    score() const noexcept {
-      return aln1.score + aln2.score;
-    }
+    } ///< Genomic distance.
+    auto 
+    score() const noexcept { 
+      return aln1.score + aln2.score; 
+    } ///< Combined score.
   };
 
+  /**
+   * @brief Seed sequence and its FM-index span.
+   */
   struct SeedSpan {
-    istring_view seed;
-    std::span<const std::uint32_t> span;
+    istring_view seed; ///< Seed sequence.
+    std::span<const std::uint32_t> span; ///< Candidate reference positions.
 
-    auto
+    auto 
     operator<=>(const SeedSpan& other) const noexcept {
-      if (auto cmp = span.size() <=> other.span.size(); cmp != nullptr)
+      if (auto cmp = span.size() <=> other.span.size(); cmp != 0)
         return cmp;
       return other.seed.size() <=> seed.size();
     }
-    bool
+    bool 
     operator==(const SeedSpan& other) const noexcept {
-      return seed.size() == other.seed.size()
+      return seed.size() == other.seed.size() 
              && span.size() == other.span.size();
     }
   };
 
  private:
+  /// Helper to compute absolute difference between two values.
   constexpr static auto DIFF
     = [](auto a, auto b) { return (a > b) ? (a - b) : (b - a); };
 
+  /**
+   * @brief Filters alignments within score threshold from the best.
+   * @details Keeps alignments within MAX_SW_DIFF from best score.
+   */
   auto
   filter_alns(std::vector<Aln>& alns) const {
     const auto best_score = alns.front().score;
@@ -189,6 +278,10 @@ struct BurrowWheelerAligner {
     }
   }
 
+  /**
+   * @brief Finalizes alignments by deduplication and filtering.
+   * @details Removes duplicates, sorts, and applies score filtering.
+   */
   auto
   finalize_alns(std::vector<Aln>& alns) const {
     if (alns.size() <= 1)
@@ -200,12 +293,19 @@ struct BurrowWheelerAligner {
     filter_alns(alns);
   }
 
+  /**
+   * @brief Prints a list of alignments for debugging.
+   */
   static auto
   print_alns(const std::vector<Aln>& alns) {
     for (auto i = 0; const auto& aln : alns | std::views::take(32))
       SPDLOG_DEBUG("[{}] {}", i++, aln);
   }
 
+  /**
+   * @brief Splits a read at ambiguous bases into fragments.
+   * @details Discards fragments shorter than SEED_LEN.
+   */
   auto
   split_read(istring_view read) const {
     constexpr auto npos = istring_view::npos;
@@ -221,6 +321,9 @@ struct BurrowWheelerAligner {
     return frags;
   }
 
+  /**
+   * @brief Checks if read should be reversed based on mismatches.
+   */
   static auto
   need_revert(istring_view read, istring_view ref) {
     const auto max_mis_cnt = (read.size() + 4) / 5;
@@ -231,6 +334,10 @@ struct BurrowWheelerAligner {
     return mis_cnt <= max_mis_cnt;
   }
 
+  /**
+   * @brief Sets CIGAR for an alignment using SW.
+   * @details Runs Smith–Waterman refinement on candidate region.
+   */
   auto
   set_cigar(Aln& aln, istring_view read, auto& profile) const {
     SPDLOG_DEBUG("============== compute cigar ==============");
@@ -265,6 +372,9 @@ struct BurrowWheelerAligner {
     SPDLOG_DEBUG("raw cigar: {}", aln.cigar);
   }
 
+  /**
+   * @brief Displays seed chains for debugging.
+   */
   auto
   display_chains(const auto& chains) const {
     SPDLOG_DEBUG("************ seed chain ************");
@@ -281,6 +391,10 @@ struct BurrowWheelerAligner {
     }
   }
 
+  /**
+   * @brief Attempts fast exact match with limited soft clipping.
+   * @return Pair of (score, CIGAR). Score=0 if no match found.
+   */
   static auto
   get_score(istring_view read, istring_view ref, bool forward)
     -> std::pair<std::uint16_t, Cigar> {
@@ -354,6 +468,10 @@ struct BurrowWheelerAligner {
     return {score, std::move(cigar)};
   }
 
+  /**
+   * @brief Computes mapping quality for single-end alignments.
+   * @return Pair of (MAPQ, suboptimal score).
+   */
   static auto
   compute_se_mapq(const std::vector<Aln>& alns, float frac_rep) {
     const auto [opt_score, sub_score, sub_cnt]
@@ -364,6 +482,9 @@ struct BurrowWheelerAligner {
     return std::pair{mapq, sub_score};
   }
 
+  /**
+   * @brief Gets the best single-end alignment and updates MAPQ/sub-score.
+   */
   auto
   get_best_one(const std::vector<Aln>& alns, istring_view read,
                istring_view rread, auto& profile, auto& rprofile,
@@ -379,7 +500,11 @@ struct BurrowWheelerAligner {
     return aln;
   }
 
-  // O(NlogN) pairing
+  /**
+   * @brief Pairs alignments from two reads based on genomic distance.
+   * @details Uses PAIR_DIST threshold; sorts by combined score.
+   * @note This is an O(NlogN) operation.
+   */
   auto
   pairing2(std::vector<Aln> alns1, std::vector<Aln> alns2) const {
     std::ranges::sort(alns1);
@@ -420,6 +545,10 @@ struct BurrowWheelerAligner {
     return span.subspan(begin - span.begin(), end - begin);
   }
 
+  /**
+   * @brief Gets FM-index seed spans for a read.
+   * @details Merges repetitive seeds; may backtrack for extension.
+   */
   auto
   get_spans(istring_view read) const {
     auto seed_spans = std::vector<SeedSpan>{};
@@ -494,6 +623,9 @@ struct BurrowWheelerAligner {
     return std::pair{std::move(seed_spans), repeat_size};
   }
 
+  /**
+   * @brief Seeds one orientation of a read.
+   */
   auto
   seeding_impl(istring_view read, bool forward) const {
     const auto frags = split_read(read);
@@ -536,6 +668,9 @@ struct BurrowWheelerAligner {
     return std::pair{std::move(chains), repeats};
   }
 
+  /**
+   * @brief Seeds both orientations and merges chains.
+   */
   auto
   seeding(istring_view read, istring_view rread) const {
     auto [chains, repeats] = seeding_impl(read, true);
@@ -554,6 +689,9 @@ struct BurrowWheelerAligner {
     return std::tuple{std::move(chains), repeats, rrepeats};
   }
 
+  /**
+   * @brief Attempts exact match for chains; returns remaining for SW.
+   */
   auto
   exact_match(auto& chains, istring_view read, istring_view rread,
               int find_cnt) const {
@@ -588,6 +726,9 @@ struct BurrowWheelerAligner {
     return std::pair{std::move(alns), std::move(sw_chains)};
   }
 
+  /**
+   * @brief Generates overlapping k-mers from a read.
+   */
   auto
   get_kmers(istring_view read) const {
     auto kmers = std::vector<std::uint32_t>{};
@@ -599,6 +740,9 @@ struct BurrowWheelerAligner {
     return kmers;
   }
 
+  /**
+   * @brief Counts matching k-mers in a reference segment.
+   */
   auto
   find_kmers(const std::vector<std::uint32_t>& kmers, istring_view ref,
              std::vector<bool>& table) const {
@@ -613,6 +757,9 @@ struct BurrowWheelerAligner {
     return find_cnt;
   }
 
+  /**
+   * @brief Selects SW alignment candidates based on k-mer filtering.
+   */
   auto
   get_sw_alns(const auto& chains, int read_size,
               const std::vector<std::uint32_t>& kmers,
@@ -640,6 +787,9 @@ struct BurrowWheelerAligner {
     return std::pair{std::move(alns), min_find_cnt};
   }
 
+  /**
+   * @brief Chooses which chains to send to SW extension.
+   */
   auto
   get_sw_candidates(bool alns_empty, const auto& chains, int read_size,
                     const std::vector<std::uint32_t>& kmers,
@@ -658,6 +808,10 @@ struct BurrowWheelerAligner {
     }
   }
 
+  /**
+   * @brief Runs SSE Smith–Waterman extension on candidate windows.
+   * @return Forward and reverse SW profiles for reuse.
+   */
   auto
   extending(std::vector<Aln>& alns, const std::vector<Aln>& sw_alns,
             istring_view read, istring_view rread) const {
@@ -688,12 +842,18 @@ struct BurrowWheelerAligner {
     return std::pair{std::move(profile), std::move(rprofile)};
   }
 
+  /**
+   * @brief Releases vector memory.
+   */
   static auto
   release_memory(auto& v) {
     v.clear();
     v.shrink_to_fit();
   }
 
+  /**
+   * @brief Attempts to align mate using the other's best hits.
+   */
   auto
   rescue(const std::vector<Aln>& alns1, const std::vector<Aln>& alns2,
          istring_view read2, istring_view rread2, auto& profile2,
@@ -761,6 +921,9 @@ struct BurrowWheelerAligner {
     return rescues;
   }
 
+  /**
+   * @brief Shrinks SW candidate list if too large.
+   */
   auto
   shrink_sw_size(int em_size1, auto& sw_alns1, int em_size2,
                  auto& sw_alns2) const {
@@ -794,6 +957,9 @@ struct BurrowWheelerAligner {
     }
   }
 
+  /**
+   * @brief Computes insert size penalty for pairing.
+   */
   auto
   insert_penalty(int dist) const {
     const auto ns
@@ -801,6 +967,9 @@ struct BurrowWheelerAligner {
     return static_cast<int>(std::pow(ns, 2));
   }
 
+  /**
+   * @brief Chooses best paired or two single-end alignments.
+   */
   auto
   get_best_pair(const std::vector<Aln>& alns1, const std::vector<Aln>& alns2,
                 const std::vector<AlnPair>& aln_pairs, istring_view read1,
@@ -854,6 +1023,14 @@ struct BurrowWheelerAligner {
     return AlnPair{std::move(aln1), std::move(aln2)};
   }
 
+  /**
+   * @brief Full mapping pipeline on encoded reads (forward + reverse-complement).
+   * @param read1  Encoded forward read 1.
+   * @param rread1 Encoded reverse-complement of read 1.
+   * @param read2  Encoded forward read 2.
+   * @param rread2 Encoded reverse-complement of read 2.
+   * @return Best paired alignment (or two SE alignments if pairing fails).
+   */
   auto
   map(istring_view read1, istring_view rread1, istring_view read2,
       istring_view rread2) const -> AlnPair {
@@ -958,6 +1135,13 @@ struct BurrowWheelerAligner {
   }
 
  public:
+  /**
+   * @brief Map two ASCII reads (A/C/G/T) by converting to internal encoding.
+   * @param read1 Read 1 sequence as ASCII string.
+   * @param read2 Read 2 sequence as ASCII string.
+   * @return Pair of @ref Aln for read1 and read2.
+   * @details Convenience wrapper that performs encoding and calls the internal pipeline.
+   */
   auto
   map(std::string_view read1, std::string_view read2) const {
     auto iread1 = Codec::to_istring(read1);
@@ -970,6 +1154,16 @@ struct BurrowWheelerAligner {
     return std::pair{std::move(aln1), std::move(aln2)};
   }
 
+  /**
+   * @brief Align paired-end FASTQ reads and produce SAM records.
+   * @param read Pair of FASTQ records (first = read1, second = read2).
+   * @return Pair of @ref SamRecord entries (for read1, read2).
+   * @details
+   *  - Computes SAM flags (paired, strand, proper-pair), 1-based positions, MAPQ, and CIGAR.
+   *  - Emits '=' for RNEXT when both mates map to the same reference contig.
+   *  - Adds optional tags: `AS` (best score), `XS` (suboptimal), `RG`, and rescue tag `rs:i:1`.
+   *  - Outputs '*' and unmapped flags when an alignment is missing.
+   */
   auto
   generate_sam(const std::pair<FastqRecord<>, FastqRecord<>>& read) const {
     const auto& name = read.first.name;

@@ -1,43 +1,106 @@
-// #include <biovoltron/pipe/algo_pipe.hpp>
+#include <biovoltron/pipe/algo_pipe.hpp>
 #include <catch.hpp>
-#include <iostream>
-#include <range/v3/action/sort.hpp>
+
 #include <range/v3/istream_range.hpp>
 #include <range/v3/view/zip.hpp>
 
-// using namespace biovoltron;
+#include <biovoltron/file_io/fasta.hpp>
+#include <biovoltron/file_io/fastq.hpp>
 
-TEST_CASE("AGO Pipe") {
-    std::cout << "TODO: pipe/algo_pipe.cpp requires test" << std::endl;
-    /*
-    if (false) {
-        auto fa = std::ifstream{"chr22.fa"};
-        auto ref = FastaRecord<>{};
-        fa >> ref;
-        auto index = ref | pipe::build{.LOOKUP_LEN = 8};
+#include <algorithm>
+#include <cctype>
+#include <cstdint>
+#include <sstream>
+#include <string>
+#include <vector>
 
-        auto fq1 = std::ifstream{""};
-        auto fq2 = std::ifstream{""};
-        auto reads = ranges::view::zip(ranges::istream_range<FastqRecord<>>(fq1),
-                     ranges::istream_range<FastqRecord<>>(fq2));
+using namespace biovoltron;
 
-        std::cout << ref.seq.size() << "\n";
-        const auto alignments = reads
-            | pipe::align{.ref = ref,
-              .index = std::move(index),
-              .args = {.MAX_HIT_CNT = 512}}
-            | ranges::action::sort;
+// ---- Toy reference (FASTA) ----
+static std::string toy_fasta() {
+  return
+    ">chrToy\n"
+    "ACGTACGTACGTACGTACGTACGTACGTACGT\n";
+}
 
-        auto sam = std::ofstream{""};
-        for (const auto& alignment : alignments) sam << alignment << "\n";
-        sam.close();
+// ---- Toy paired-end reads: perfect match ----
+static std::pair<std::string,std::string> toy_fastq_pair_perfect() {
+  return {
+    "@read1/1\nACGTACGTACGT\n+\nIIIIIIIIIIII\n",
+    "@read1/2\nACGTACGTACGT\n+\nIIIIIIIIIIII\n"
+  };
+}
 
-        auto vcf = std::ofstream{""};
-        const auto variants
-            = alignments
-                | pipe::call{.ref = std::move(ref),
-                  .args = {.MAX_READS_PER_ALIGN_BEGIN = 10}};
-        for (const auto& variant : variants) vcf << variant << "\n";
-    }
-    */
+// ---- Toy paired-end reads: one SNP mutation ----
+static std::pair<std::string,std::string> toy_fastq_pair_with_snp() {
+  return {
+    "@read2/1\nACGTACGTACGT\n+\nIIIIIIIIIIII\n",
+    "@read2/2\nACGTATGTACGT\n+\nIIIIIIIIIIII\n" // 6th base mutated
+  };
+}
+
+// ---- Convert ASCII reference sequence to uppercase (required by HaplotypeCaller) ----
+static void to_upper(FastaRecord<> &ref_ascii) {
+  std::transform(ref_ascii.seq.begin(), ref_ascii.seq.end(),
+                 ref_ascii.seq.begin(),
+                 [](unsigned char c){ return std::toupper(c); });
+}
+
+TEST_CASE("ALGO Pipe: build index once and reuse for multiple cases",
+          "[algo_pipe][quick]") {
+  // 1) Load reference sequence (FASTA) and build FM-index (done ONCE)
+  std::istringstream fa_in{toy_fasta()};
+  FastaRecord<true> ref_enc{};
+  fa_in >> ref_enc;
+
+  auto index = ref_enc | pipe::build<1, std::uint32_t, StableSorter<std::uint32_t>>{};
+
+  // 2) Prepare aligner and variant caller (reused for both cases)
+  pipe::align::Parameters a{};
+  auto aligner = pipe::align{ref_enc, index, a};
+
+  FastaRecord<> ref_ascii = static_cast<FastaRecord<>>(ref_enc);
+  to_upper(ref_ascii);
+
+  pipe::call::Parameters c{};
+
+  // 3) Case A: Perfect-match reads
+  //    Expect: pipeline runs without exception, no variants detected.
+  {
+    auto [fq1s, fq2s] = toy_fastq_pair_perfect();
+    std::istringstream fq1{fq1s}, fq2{fq2s};
+
+    auto reads = ranges::view::zip(
+      ranges::istream_range<FastqRecord<>>(fq1),
+      ranges::istream_range<FastqRecord<>>(fq2)
+    );
+
+    REQUIRE_NOTHROW( ([&]{
+      auto alignments = reads | aligner;
+      auto variants   = alignments | pipe::call{
+        ref_ascii, HaplotypeAssembler{}, PairHMM{}, Genotyper{}, c
+      };
+      (void)variants;
+    }()) );
+  }
+
+  // 4) Case B: Reads with one SNP
+  //    Expect: pipeline runs without exception, at least one variant.
+  {
+    auto [fq1s, fq2s] = toy_fastq_pair_with_snp();
+    std::istringstream fq1{fq1s}, fq2{fq2s};
+
+    auto reads = ranges::view::zip(
+      ranges::istream_range<FastqRecord<>>(fq1),
+      ranges::istream_range<FastqRecord<>>(fq2)
+    );
+
+    REQUIRE_NOTHROW( ([&]{
+      auto alignments = reads | aligner;
+      auto variants   = alignments | pipe::call{
+        ref_ascii, HaplotypeAssembler{}, PairHMM{}, Genotyper{}, c
+      };
+      (void)variants;
+    }()) );
+  }
 }

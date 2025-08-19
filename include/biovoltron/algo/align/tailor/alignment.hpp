@@ -6,6 +6,8 @@
 #include <cassert>
 #include <numeric>
 #include <set>
+#include <vector>
+#include <utility>
 
 namespace biovoltron {
 
@@ -21,6 +23,8 @@ struct Hit {
   // The positions on the original read where T to C conversion happened.
   std::set<std::uint32_t> tc_set{};
   Interval intv;
+  // ranges is only used when extending toward the 5' end.
+  std::vector<std::pair<std::uint32_t, std::uint32_t>> ranges{};
 };
 
 struct Alignment {
@@ -28,9 +32,11 @@ struct Alignment {
   std::string seq;
   std::string qual;
   bool forward;
-  int tail_pos{}; // We use -1 for no tail.
+  std::uint32_t tail_pos{};   // -1 for no tail.
   std::vector<Hit> hits{};
   std::uint32_t counts{};
+  // head_pos is only used when extending toward the 5' end.
+  std::uint32_t head_pos{};   // -1 for no head.
 };
 
 // Note: If map to reverse strand:

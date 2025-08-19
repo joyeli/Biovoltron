@@ -2,8 +2,10 @@
 
 #include <biovoltron/algo/align/tailor/alignment.hpp>
 #include <biovoltron/algo/align/tailor/index.hpp>
-#include <biovoltron/file_io/fasta.hpp>
+#include <biovoltron/file_io/fastq.hpp>
 #include <biovoltron/utility/istring.hpp>
+#include <ranges>
+#include <mutex>
 
 namespace biovoltron {
 
@@ -62,12 +64,13 @@ struct Tailor {
   bool enable_c2t = false;
   size_type seed_len = 18;
   size_type max_multi = 10;
+  size_type max_5adapter_len = 0;
 
  private:
   struct Raw {
     bool forward;
     size_type hit_pos;
-    range_type rng;
+    std::vector<range_type> ranges;
     std::vector<Mismatch> mismatches;
     std::set<std::uint32_t> tc_set;
 
@@ -83,6 +86,10 @@ struct Tailor {
               &Mismatch::pos);
     }
   };
+
+  std::once_flag ranges_init_flag;
+  std::array<range_type, 4> base_ranges_fwd, base_ranges_rev;
+  std::array<std::array<range_type, 4>, 4> window_ranges_fwd, window_ranges_rev;
 
   auto exact_match(istring_view read, bool forward) const {
     auto rngs = std::vector<range_type>{};
@@ -108,7 +115,7 @@ struct Tailor {
   auto further_scan(
     istring_view read,
     size_type mismatch_pos,
-    range_type rng,
+    std::vector<range_type>& ranges,
     bool forward,
     std::vector<Mismatch> mismatches = {}
   ) const {
@@ -117,8 +124,8 @@ struct Tailor {
       for (auto chr = 0; chr < 4; chr++) {
         if (chr == read[mismatch_pos]) continue;
 
-        auto beg = index.lf_mapping(chr, rng.first);
-        auto end = index.lf_mapping(chr, rng.second);
+        auto beg = index.lf_mapping(chr, ranges.back().first);
+        auto end = index.lf_mapping(chr, ranges.back().second);
         if (end <= beg) continue;
 
         auto prev_rng = range_type{};
@@ -127,7 +134,7 @@ struct Tailor {
         while (!read_cpy.empty()) {
           if (end <= beg) break;
           else {
-            prev_rng.first = beg; 
+            prev_rng.first = beg;
             prev_rng.second = end;
           }
           beg = index.lf_mapping(read_cpy.back(), beg);
@@ -138,7 +145,13 @@ struct Tailor {
         auto hit_pos = (end <= beg) ? read_cpy.size() + 1 : read_cpy.size();
         if (end <= beg) std::tie(beg, end) = prev_rng;
 
-        auto raw = Raw{forward, hit_pos, {beg, end}, {}};
+        auto raw = max_5adapter_len > 0
+          ? Raw{forward, hit_pos, [&] {
+              auto new_ranges = ranges;
+              new_ranges.emplace_back(beg, end);
+              return std::move(new_ranges);
+            }(), {}}
+          : Raw{forward, hit_pos, {{beg, end}}, {}};
         std::ranges::copy(mismatches, std::back_inserter(raw.mismatches));
         raw.mismatches.emplace_back(mismatch_pos, Codec::to_char(chr));
         candidates.emplace_back(std::move(raw));
@@ -157,7 +170,7 @@ struct Tailor {
     auto candidates = std::vector<Raw>{};
     for (; mismatch_pos < read.size(); mismatch_pos++) {
       std::ranges::move(
-        further_scan(read, mismatch_pos, match_history.back(), forward),
+        further_scan(read, mismatch_pos, match_history, forward),
         std::back_inserter(candidates)
       );
       match_history.pop_back();
@@ -190,10 +203,10 @@ struct Tailor {
 
     auto candidates = std::vector<Raw>{};
     if (hit_pos < read.size() - local_seed_len)
-      candidates.emplace_back(forward, hit_pos, match_history.back());
+      candidates.emplace_back(forward, hit_pos, match_history);
     else if (allow_seed_mismatch)
       std::ranges::move(
-        backtrack(read, hit_pos-1, match_history, forward, local_seed_len),
+        backtrack(read, hit_pos - 1, match_history, forward, local_seed_len),
         std::back_inserter(candidates)
       );
 
@@ -204,16 +217,18 @@ struct Tailor {
     for (auto& candidate : candidates) {
       auto results = further_scan(
         read, 
-        candidate.hit_pos-1, // Mismatch pos.
-        candidate.rng, 
+        candidate.hit_pos - 1, // Mismatch pos.
+        candidate.ranges, 
         forward, 
-        candidate.mismatches);
+        candidate.mismatches
+      );
 
       auto hit_zero = [](size_type hit_pos) { return hit_pos == 0; };
       if (std::ranges::none_of(results, hit_zero, &Raw::hit_pos))
         // Found tail.
         final_candidates.emplace_back(
-          forward, candidate.hit_pos, candidate.rng, candidate.mismatches);
+          forward, candidate.hit_pos, candidate.ranges, candidate.mismatches
+        );
       else
         std::ranges::move(results, std::back_inserter(final_candidates));
     }
@@ -296,11 +311,11 @@ struct Tailor {
 
     // Reverse the result back.
     aln.forward = !forward;
-    aln.tail_pos = (hit_pos == 0 ) ? -1 : get_reverse(hit_pos-1, read_len);
+    aln.tail_pos = (hit_pos == 0 ) ? -1 : get_reverse(hit_pos - 1, read_len);
     const auto interval_len = (aln.tail_pos == -1) ? read_len : aln.tail_pos;
 
     for (auto& raw : raws) {
-      const auto [beg, end] = raw.rng;
+      const auto& [beg, end] = raw.ranges.back();
       for (auto& iv : index.get_intervals(beg, end, interval_len)) {
         // Reverse the result back.
         if (aln.forward) {
@@ -316,7 +331,11 @@ struct Tailor {
           mm.pos = get_reverse(mm.pos, read_len);
         }
 
-        aln.hits.emplace_back(raw.mismatches, raw.tc_set, iv);
+        if (max_5adapter_len > 0) {
+            aln.hits.emplace_back(raw.mismatches, raw.tc_set, iv, raw.ranges);
+        } else {
+            aln.hits.emplace_back(raw.mismatches, raw.tc_set, iv);
+        }
       }
     }
     return aln;
@@ -368,6 +387,21 @@ struct Tailor {
           read[idx] = 'C';
       } while (std::ranges::prev_permutation(list).found);
     }
+  }
+
+  // Use binary search to find the first index i in BWT[begin, end),
+  // where occ(base, i) == target, representing the index of the (order-th) occurrence of base.
+  inline auto bwt_lower_bound(const index_type& index, size_type begin, size_type end, int8_t base, size_type order) const {
+    auto low = begin, high = end;
+    while (index.bwt_[low] != base || low == index.pri_) ++low;
+    ++low, ++high;
+    const auto target = index.get_occ_value(base, low) + order;
+    while (low < high) {
+      size_t mid = std::midpoint(low, high);
+      if (index.get_occ_value(base, mid) >= target) high = mid;
+      else low = mid + 1;
+    }
+    return low - 1;
   }
 
  public:
@@ -446,6 +480,93 @@ struct Tailor {
       return make_fallback_return(false);
 
     return std::make_pair(aln_forward, aln_reverse);
+  }
+
+  template <bool Encoded>
+  auto search_with_extend5(FastqRecord<Encoded>& record) {
+    auto skipped_seq = record.seq.substr(0, max_5adapter_len);
+    auto skipped_qual = record.qual.substr(0, max_5adapter_len);
+
+    auto alignment_pair = search(FastqRecord<Encoded>{
+      record.name,
+      record.seq.substr(max_5adapter_len),
+      record.qual.substr(max_5adapter_len)
+    });
+    const bool hit_in_first = !alignment_pair.first.hits.empty();
+    auto &alignment = hit_in_first ? alignment_pair.first : alignment_pair.second;
+
+    if (alignment.hits.empty()) {
+      alignment.seq = skipped_seq + alignment.seq;
+      alignment.qual = skipped_qual + alignment.qual;
+      return alignment;
+    }
+
+    std::call_once(ranges_init_flag, [&]() {
+      for (int i = 0; i < 4; ++i) {
+        auto [beg_fwd, end_fwd, len_fwd] = fmi.get_range(biovoltron::istring({i}));
+        base_ranges_fwd[i] = {beg_fwd, end_fwd};
+        auto [beg_rev, end_rev, len_rev] = rc_fmi.get_range(biovoltron::istring({i}));
+        base_ranges_rev[i] = {beg_rev, end_rev};
+      }
+      for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+          auto window = biovoltron::istring({i, j});
+          auto [beg_fwd, end_fwd, len_fwd] = fmi.get_range(window);
+          auto [beg_rev, end_rev, len_rev] = rc_fmi.get_range(window);
+          window_ranges_fwd[i][j] = {beg_fwd, end_fwd};
+          window_ranges_rev[i][j] = {beg_rev, end_rev};
+        }
+      }
+    });
+    
+    const auto &index = hit_in_first ? rc_fmi : fmi;
+    const auto &base_ranges = hit_in_first ? base_ranges_rev : base_ranges_fwd;
+    const auto &window_ranges = hit_in_first ? window_ranges_rev : window_ranges_fwd;
+
+    const auto seq = alignment.seq.substr(0, alignment.tail_pos);
+    // Currenly, only the first element of hits is used.
+    alignment.hits.resize(1);
+    const auto& ranges = alignment.hits.front().ranges;
+
+    const auto size = ranges.size();
+    const auto comp_seq{seq | std::views::transform(biovoltron::Codec::comp)};
+
+    size_t order = 0, idx = order + ranges.back().first;
+    for (auto i = size - 1; i > 0; --i) {
+        const auto& [beg, end] = ranges[i - 1];
+        if (end - beg == 1) {
+          idx = beg;
+          continue;
+        }
+        const auto base = biovoltron::Codec::to_int(comp_seq[i]);
+        idx = bwt_lower_bound(index, beg, end, biovoltron::Codec::to_int(comp_seq[i]), order);
+        order = idx - beg;
+    }
+
+    const auto lastBase = biovoltron::Codec::to_int(comp_seq[0]);
+    biovoltron::istring window = {lastBase, lastBase};
+    const auto comp_skipped_seq{skipped_seq | std::views::transform(biovoltron::Codec::comp)};
+    const auto skipped_size = comp_skipped_seq.size();
+    
+    for (int i = skipped_size - 1; i >= 0; --i) {
+      window[0] = window[1];
+      window[1] = biovoltron::Codec::to_int(comp_skipped_seq[i]);
+      auto [beg, end] = window_ranges[window[0]][window[1]];
+      if (beg >= end || idx < beg || idx >= end) {
+        alignment.head_pos = i + 1;
+        break;
+      }
+      const auto order = idx - beg;
+      const auto& [base_beg, base_end] = base_ranges[window[1]];
+      idx = bwt_lower_bound(index, base_beg, base_end, window[0], order);
+    }
+
+    alignment.seq = skipped_seq + alignment.seq;
+    alignment.qual = skipped_qual + alignment.qual;
+    alignment.tail_pos += max_5adapter_len;
+    alignment.hits.front().intv.begin -= max_5adapter_len - alignment.head_pos;
+
+    return alignment;
   }
 };
 

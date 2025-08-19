@@ -10,6 +10,9 @@
 /// mirna expression type constructor
 
 using namespace biovoltron;
+using biovoltron::Alignment;
+using biovoltron::Hit;
+namespace mirna = biovoltron::mirna;
 ///                           value, lens
 auto total_value = 10.0;
 auto a_tail = mirna::TailExp { 1.0, { {18, {0.5}}, {19, {0.5}} } };
@@ -319,33 +322,263 @@ TEST_CASE("MirExp: transform from tail based exp to len based exp") {
   CHECK(len_18_exp[3] == 0);
   CHECK(len_18_exp[4] == 0);
   CHECK(len_18_exp[5] == 2.5);
-
 }
 
-TEST_CASE("use case: expression matrix") {
+namespace{
+  Hit hit_92a1{{}, {}, {"chr13", 91351361, 91351383}};
+  Hit hit_92a2{{}, {}, {"chrX", 134169544, 134169566, '-'}};
+  Hit hit_21_5p{{}, {}, {"chr17", 59841273, 59841295}};
+  // canoncial
+  Alignment r1{
+    "read1", "UGAGGUAGUAGGUUGUAUAGUU", 
+    std::string(22,'!'), true, -1, {hit_92a1, hit_92a2}, 1
+  };
+
+  Alignment r2{
+    "read2", "UGAGGUAGUAGGUUGUAUAGUUAAA",  
+    std::string(25,'!'), true, 22, {hit_92a2}, 1
+  };
+  // 3' nucleotide addition A-tail
+  Alignment r3{
+    "read3", "UGAGGUAGUAGGUUGUAUAGUUA",  
+    std::string(23,'!'), true, 22, {hit_92a1}, 1
+  };
+  // 3' nucleotide addition U-tail
+  Alignment r4{
+    "read4", "UGAGGUAGUAGGUUGUAUAGUUU",
+    std::string(23, '!'), true, 22, {hit_92a1, hit_92a2, hit_21_5p}, 1
+  };
+  // 3' upstream, 少 １ nt
+  Alignment r5{
+    "read5", "UGAGGUAGUAGGUUGUAUAGU",
+    std::string(21, '!'), true, -1, {hit_92a1}, 1
+  };   
+  // 3' downstream, 長 1 nt, 模板 nt, 歸 -1 (M)
+  Alignment r6{
+    "read6", "UGAGGUAGUAGGUUGUAUAGUUC",  
+    std::string(23,'!'), true, -1, {hit_92a1, hit_92a2}, 1
+  };
+  // heteropolymeric tail
+  Alignment r7{
+  "read7", "UGAGGUAGUAGGUUGUAUAGUUAC",
+  std::string(24,'!'), true, 22, {hit_92a1}, 1
+  };
+  // 5' trimming
+  Alignment r8{
+    "read8", "GAGGUAGUAGGUUGUAUAGUU",
+    std::string(21,'!'), true, -1, {hit_92a1}, 1
+  };
+  // 5' addition
+  Alignment r9{
+    "read9", "CUGAGGUAGUAGGUUGUAUAGUU",
+    std::string(23,'!'), true, -1, {hit_92a1, hit_92a2}, 1
+  };
+
+  auto m1 = mirna::MirExp::init_from_alignment(r1);
+  auto m2 = mirna::MirExp::init_from_alignment(r2);
+  auto m3 = mirna::MirExp::init_from_alignment(r3);
+  auto m4 = mirna::MirExp::init_from_alignment(r4);
+  auto m5 = mirna::MirExp::init_from_alignment(r5);
+  auto m6 = mirna::MirExp::init_from_alignment(r6);
+  auto m7 = mirna::MirExp::init_from_alignment(r7);
+  auto m8 = mirna::MirExp::init_from_alignment(r8);
+  auto m9 = mirna::MirExp::init_from_alignment(r9);
   
+
+  static auto matrix_92a() -> mirna::ExpressionMatrix<mirna::MirExp>{
+    mirna::ExpressionMatrix<mirna::MirExp> exp_mat;
+    exp_mat["miR92a-1-3p"] += m1;
+    exp_mat["miR92a-1-3p"] += m3;
+    exp_mat["miR92a-1-3p"] += m4;
+    exp_mat["miR92a-1-3p"] += m5;
+    exp_mat["miR92a-1-3p"] += m6;
+    exp_mat["miR92a-1-3p"] += m7;
+    exp_mat["miR92a-1-3p"] += m8;
+    exp_mat["miR92a-1-3p"] += m9;
+    return exp_mat;
+  }
+} // namespace
+
+TEST_CASE("use case: expression matrix") {
   SECTION("use case: canonical mirna expression") {
-    std::cout << "TODO: utility/expression/mirna/mirna_exp.cpp requires test: use case: canonical mirna expression\n";
+    mirna::ExpressionMatrix<mirna::MirExp> exp_mat;
+    exp_mat["miR92a-1-3p"] += m1;
+    exp_mat["miR92a-2-3p"] += m1;
+    exp_mat["miR92a-1-3p"] += m2;
+    exp_mat["miR92a-1-3p"] += m3;
+    exp_mat["miR-21-5p"] += m2;
+    exp_mat["miR-21-5p"] += m4;
 
-    /// TODO: use case: canonical mirna expression
-    // mirna::ExpressionMatrix<mirna::MirExp> exp_mat;
-    // exp_mat["miR92a-1-3p"] = mirna::MirExp{
+    const auto& mir92a1 = exp_mat.at("miR92a-1-3p");
+    auto mir92a1_copy = mir92a1;
+    auto len_base_mir92a1 = mir92a1_copy.get_len_based_exp();
+    CHECK(mir92a1.value                       == Approx(2.5));
+    CHECK(mir92a1.tails[0].value              == Approx(2.0));
+    CHECK(mir92a1.tails[0].lens.at(22).value  == Approx(2.0));
+    CHECK(mir92a1.tails[3].value              == Approx(0.0));
+    CHECK(mir92a1.tails[5].value              == Approx(0.5));
+    CHECK(mir92a1.tails[5].lens.at(22).value  == Approx(0.5));
+    CHECK(len_base_mir92a1.at(22)[0]          == Approx(2.0));
+    CHECK(len_base_mir92a1.at(22)[3]          == Approx(0.0));
+    CHECK(len_base_mir92a1.at(22)[5]          == Approx(0.5));
+    CHECK(mir92a1_copy.get_partial_exp()      == Approx(2.0));
+
+    const auto& mir92a2 = exp_mat.at("miR92a-2-3p");
+    auto mir92a2_copy = mir92a2;
+    auto len_base_mir92a2 = mir92a2_copy.get_len_based_exp();
+    CHECK(mir92a2.value                      == Approx(0.5));
+    CHECK(mir92a2.tails[5].value             == Approx(0.5));
+    CHECK(mir92a2.tails[5].lens.at(22).value == Approx(0.5));
+    CHECK(len_base_mir92a2.at(22)[5]         == Approx(0.5));
+    CHECK(mir92a2_copy.get_partial_exp()     == Approx(0.0));
+
+    const auto& mir21_5p = exp_mat.at("miR-21-5p");
+    auto mir21_5p_copy = mir21_5p;
+    auto len_base_mir21_5p = mir21_5p_copy.get_len_based_exp();
+    CHECK(mir21_5p.value                      == Approx(4.0/3.0));
+    CHECK(mir21_5p.tails[0].value             == Approx(1.0));
+    CHECK(mir21_5p.tails[3].value             == Approx(1.0/3.0));
+    CHECK(mir21_5p.tails[0].lens.at(22).value == Approx(1.0));
+    CHECK(mir21_5p.tails[3].lens.at(22).value == Approx(1.0/3.0));
+    CHECK(len_base_mir21_5p.at(22)[0]         == Approx(1.0));
+    CHECK(len_base_mir21_5p.at(22)[3]         == Approx(1.0/3.0));
+    CHECK(mir21_5p_copy.get_partial_exp()     == Approx(4.0/3.0));
   }
+  // 3' 
   SECTION("use case: isomir expression") {
-    std::cout << "TODO: utility/expression/mirna/mirna_exp.cpp requires test: use case: isomir expression\n";
+    mirna::ExpressionMatrix<mirna::MirExp> exp_mat; 
+    exp_mat["miR92a-1-3p"] += m1;
+    exp_mat["miR92a-1-3p"] += m3;
+    exp_mat["miR92a-1-3p"] += m4;
+    exp_mat["miR92a-1-3p"] += m5;
+    exp_mat["miR92a-1-3p"] += m6;
+    exp_mat["miR92a-1-3p"] += m7;
+    const auto& mexp = exp_mat.at("miR92a-1-3p");
 
-    /// TODO: use case: isomir expression
+    REQUIRE(!mexp.tails[0].lens.empty());
+    REQUIRE(mexp.tails[2].lens.empty());
+    REQUIRE(!mexp.tails[3].lens.empty());
+    REQUIRE(!mexp.tails[4].lens.empty());
+    REQUIRE(!mexp.tails[5].lens.empty());
+
+    CHECK(mexp.tails[5].lens.at(22).value == Approx(0.5));   // r1
+    CHECK(mexp.tails[0].lens.at(22).value == Approx(1.0));   // r3
+    CHECK(mexp.tails[3].lens.at(22).value == Approx(1.0/3.0)); // r4
+    CHECK(mexp.tails[5].lens.at(21).value == Approx(1.0));   // r5
+    CHECK(mexp.tails[5].lens.at(23).value == Approx(0.5));   // r6
+    CHECK(mexp.tails[4].lens.at(22).value == Approx(1.0)); // r7
+
+    double sum = 0.0;
+    for (int t = 0; t < (int)mexp.tails.size(); ++t){
+      for(auto&& [len, lexp] : mexp.tails[t].lens){
+        sum += lexp.value;
+      }
+    }
+    CHECK(sum == Approx(mexp.value).margin(1e-12));
   }
+  // 5' change seed, 3' unchange seed
   SECTION("use case: isomir expression with mirna seed") {
-    std::cout << "TODO: utility/expression/mirna/mirna_exp.cpp requires test: use case: isomir expression with mirna seed\n";
+    auto exp_mat = matrix_92a();
 
-    /// TODO: use case: isomir expression with mirna seed
+    // 3' 歸到同一 seed
+    // 5' (trimming, addition) 分別應歸不同 seed
+    auto seed_of = [](const Alignment& aln) -> std::string{
+      return aln.seq.substr(1, 7);
+    };
+    std::map<std::string, double> seed_bucket;
+    // 加到各桶
+    auto add_to_bucket = [&](const Alignment& aln) {
+      seed_bucket[seed_of(aln)] += 1.0 / static_cast<double>(aln.hits.size());
+    };
+
+    add_to_bucket(r1);
+    add_to_bucket(r3);
+    add_to_bucket(r4);
+    add_to_bucket(r5);
+    add_to_bucket(r6);
+    add_to_bucket(r7);
+    add_to_bucket(r8);
+    add_to_bucket(r9);
+
+    const std::string seed_canonical = "GAGGUAG";   // r1
+    const std::string seed_5p_trimming = "AGGUAGU"; // r8
+    const std::string seed_5p_addition = "UGAGGUA"; // r9
+
+    CHECK(seed_bucket[seed_canonical] == Approx(13.0/3.0));
+    CHECK(seed_bucket[seed_5p_trimming] == Approx(1.0));
+    CHECK(seed_bucket[seed_5p_addition] == Approx(0.5));
+
+    double total = 0.0;
+    for(auto& [k, v] : seed_bucket) total += v;
+    const auto& mexp = exp_mat.at("miR92a-1-3p");
+    CHECK(total == Approx(mexp.value));
   }
 
 }
 
 TEST_CASE("use case: sized normalization") {
-  std::cout << "TODO: utility/expression/mirna/mirna_exp.cpp requires test: use case: sized normalization\n";
-    
-  /// TODO: use case: sized normalization
+  auto exp_mat = matrix_92a();
+
+  // T_l = Σ(miRNA) Σ(tail) x_{l, t}
+  auto len_totals = [](const mirna::ExpressionMatrix<mirna::MirExp>& mat){
+    std::map<int, double> totals;
+    for(auto&& [id, m] : mat){
+      for(const auto& tail : m.tails){
+        for(const auto& [len, lexp] : tail.lens){
+          totals[len] += lexp.value;
+        }
+      }
+    }
+    return totals;
+  };
+
+  const auto totals = len_totals(exp_mat);
+
+  // 產生每個長度的 weight
+  double mean = 0.0;
+  for(auto& [_, v] : totals) mean += v;
+  mean /= totals.size();
+  std::map<int,double> w;
+  for (auto& [len, v] : totals) w[len] = (v == 0.0) ? 1.0 : (mean / v);
+
+  // 將 w_l 乘回所有 mirna 在該長度的數值
+  auto exp_norm = exp_mat;
+  for (auto& [id, m] : exp_norm) {
+    double total = 0.0;
+    for (auto& tail : m.tails) {
+      double tail_sum = 0.0;
+      for (auto& [len, lexp] : tail.lens) {
+        const double factor = w.count(len) ? w[len] : 1.0;
+        lexp.value *= factor;
+        tail_sum += lexp.value;
+      }
+      tail.value = tail_sum;
+      total += tail_sum;
+    }
+    m.value = total;
+  }
+
+  // 驗等化
+  const auto totals_after = len_totals(exp_norm);
+  REQUIRE(totals_after.size() == totals.size());
+  for (const auto& [len, val] : totals_after) {
+    CHECK(val == Approx(mean).margin(1e-12));
+  }
+  // 驗同長度 tail 比例不變
+  auto frac_at = [](const mirna::MirExp& m, int L){
+    std::array<double,6> f{}; double s = 0.0;
+    for (int t = 0; t < 6; ++t){
+      if (auto it = m.tails[t].lens.find(L); it != m.tails[t].lens.end()){
+        s += (f[t] = it->second.value);
+      }
+    }
+    if (s > 0.0) for (auto& v : f) v /= s;
+    return f;
+  };
+  
+  const std::string mir_id = "miR92a-1-3p";
+  const int L = 22;
+  const auto before = frac_at(exp_mat.at(mir_id), L);
+  const auto after = frac_at(exp_norm.at(mir_id), L);
+  for(int t = 0; t < 6; t++) CHECK(after[t] == Approx(before[t]).margin(1e-12));
 }
