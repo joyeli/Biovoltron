@@ -1,27 +1,38 @@
 var group__file__io =
 [
-    [ "biovoltron::IBamStream", "structbiovoltron_1_1IBamStream.html", [
+    [ "IBamStream", "structbiovoltron_1_1IBamStream.html", [
       [ "IBamStream", "structbiovoltron_1_1IBamStream.html#a23d5edcfa031310da65966193e655f06", null ],
+      [ "IBamStream", "structbiovoltron_1_1IBamStream.html#a01337060064761d50fc69af13624df4c", null ],
       [ "~IBamStream", "structbiovoltron_1_1IBamStream.html#a3f4095e7b8d73d6bf5926cd082bc0494", null ],
       [ "close", "structbiovoltron_1_1IBamStream.html#ae70dca4d86c7d8cebe4f3451f2ccfcee", null ],
       [ "eof", "structbiovoltron_1_1IBamStream.html#a88ff96680a2e4161e0397cbad0ffc202", null ],
+      [ "is_indexed", "structbiovoltron_1_1IBamStream.html#a1a91a40a4f37b713c95cf4e7e319280f", null ],
       [ "is_open", "structbiovoltron_1_1IBamStream.html#a1aac8101272bc13429b40637e45c1109", null ],
       [ "load_index", "structbiovoltron_1_1IBamStream.html#a000f104892c00ca4e8856f6f3d4aa8c9", null ],
       [ "on_ranged", "structbiovoltron_1_1IBamStream.html#a1183b05ebbca3cc8393f28ace007f260", null ],
       [ "on_sequential", "structbiovoltron_1_1IBamStream.html#a4d27fa4bb7ebf4c383f95e1d4a5158be", null ],
       [ "on_unmapped", "structbiovoltron_1_1IBamStream.html#a974efae6dd0bfd85e5661c8da2ce45a1", null ],
+      [ "open", "structbiovoltron_1_1IBamStream.html#a0614d8286025116c3601b28798d5777a", null ],
+      [ "operator bool", "structbiovoltron_1_1IBamStream.html#a6c44c6210ca76c81f3b1be68ab48b98e", null ],
+      [ "operator!", "structbiovoltron_1_1IBamStream.html#a9be6ab7c36fc9916045390451b0909b7", null ],
       [ "set_region", "structbiovoltron_1_1IBamStream.html#a13f3350278a2f4c11dccc679b0c2a379", null ],
       [ "set_sequential", "structbiovoltron_1_1IBamStream.html#abd050b8217331b4fae5c1c06d58a3fd0", null ],
       [ "set_unmapped", "structbiovoltron_1_1IBamStream.html#a5426f3a2d918d921baba42fd67fa57ed", null ],
       [ "to_begin", "structbiovoltron_1_1IBamStream.html#a6c5a8fc8c8b4feffd011a0595474bc82", null ],
-      [ "operator>>", "structbiovoltron_1_1IBamStream.html#aacb1c87af59f9d61983f118f82e0ba59", null ],
-      [ "operator>>", "structbiovoltron_1_1IBamStream.html#ab035643dabfff0ae2440fb69c3805632", null ]
+      [ "operator>>", "structbiovoltron_1_1IBamStream.html#abcba16fe9305899467fb1b43538f642e", null ],
+      [ "operator>>", "structbiovoltron_1_1IBamStream.html#a0599c0302794e85754579039fc5a90cc", null ]
     ] ],
-    [ "biovoltron::BedSixRecord", "structbiovoltron_1_1BedSixRecord.html", [
+    [ "BedSixRecord", "structbiovoltron_1_1BedSixRecord.html", [
+      [ "operator auto", "structbiovoltron_1_1BedSixRecord.html#a700e0e69ee14514a730092433bc4372c", null ],
+      [ "operator<=>", "structbiovoltron_1_1BedSixRecord.html#a4e5a525472cd6e8edd84cf625714f029", null ],
+      [ "end", "structbiovoltron_1_1BedSixRecord.html#a52b12ae9ac7735533e08ddab171637f6", null ],
       [ "gene_name", "structbiovoltron_1_1BedSixRecord.html#a87cdc975dd80a4e759bc104f48159542", null ],
-      [ "gene_type", "structbiovoltron_1_1BedSixRecord.html#a22ebf96b57dd0363dbfe965870cbe63b", null ]
+      [ "gene_type", "structbiovoltron_1_1BedSixRecord.html#a22ebf96b57dd0363dbfe965870cbe63b", null ],
+      [ "seqid", "structbiovoltron_1_1BedSixRecord.html#a31e461c47e4c360dacd91c6fefa0ed7d", null ],
+      [ "start", "structbiovoltron_1_1BedSixRecord.html#a29663858f9816e2761d1331d3ed4660b", null ],
+      [ "strand", "structbiovoltron_1_1BedSixRecord.html#a5b2ffbc35a75eead6edb6dd22a5d409f", null ]
     ] ],
-    [ "biovoltron::Cigar", "structbiovoltron_1_1Cigar.html", [
+    [ "Cigar", "structbiovoltron_1_1Cigar.html", [
       [ "Element", "structbiovoltron_1_1Cigar_1_1Element.html", [
         [ "operator std::string", "structbiovoltron_1_1Cigar_1_1Element.html#a1bb32dc8df9a1cd2a370a25b4c960b7c", null ],
         [ "operator==", "structbiovoltron_1_1Cigar_1_1Element.html#ad8454332917d74742bfda64f59a4e989", null ],
@@ -31,10 +42,11 @@ var group__file__io =
       [ "Cigar", "structbiovoltron_1_1Cigar.html#aaa7d6f7be47d5b7773b28d2b485d5061", null ],
       [ "Cigar", "structbiovoltron_1_1Cigar.html#a7439514fb4f3185be87564860e2d20a3", null ],
       [ "append", "structbiovoltron_1_1Cigar.html#a0d5d66e54cbf1e52d2d6c90e4b6e8002", null ],
-      [ "back", "structbiovoltron_1_1Cigar.html#a7754559caa82b55e6304dfcd1099224a", null ],
-      [ "back", "structbiovoltron_1_1Cigar.html#ada753b67594d9278eb1048bac7d45dcc", null ],
+      [ "back", "structbiovoltron_1_1Cigar.html#aa3a64aa68141f2f9f60d8fb9e6c97020", null ],
+      [ "back", "structbiovoltron_1_1Cigar.html#a83bbd658349bd7c557e59c1f72600f25", null ],
       [ "begin", "structbiovoltron_1_1Cigar.html#a0fc1a7df06c97f72f0c4fad40341ab29", null ],
       [ "begin", "structbiovoltron_1_1Cigar.html#acf6555cdd617dc546f3a248879c05327", null ],
+      [ "clear", "structbiovoltron_1_1Cigar.html#a365fba8bb1dc3fbc0273db6675549864", null ],
       [ "clip_size", "structbiovoltron_1_1Cigar.html#ac739999d9b64d99e7e44cb197ffdc8d5", null ],
       [ "compact", "structbiovoltron_1_1Cigar.html#ab38ab50b479c22cef69eb4722d681c49", null ],
       [ "contains", "structbiovoltron_1_1Cigar.html#aead3540e5850693bcb94386938b97fd1", null ],
@@ -42,13 +54,13 @@ var group__file__io =
       [ "emplace_back", "structbiovoltron_1_1Cigar.html#ab27c816455e19f15d9d5a6596c7d4cfc", null ],
       [ "end", "structbiovoltron_1_1Cigar.html#ae0ac12ef4a6807c101d09528fd6f2c92", null ],
       [ "end", "structbiovoltron_1_1Cigar.html#a7a8ae40b41bf98c987a6af6a707970b8", null ],
-      [ "front", "structbiovoltron_1_1Cigar.html#aa73414d7ded225e909797b437593466a", null ],
-      [ "front", "structbiovoltron_1_1Cigar.html#a92cc2ca4ace16b1d3966ca62c1cf6f67", null ],
+      [ "front", "structbiovoltron_1_1Cigar.html#add5fdc30c32d801805ff1a2fdb80659a", null ],
+      [ "front", "structbiovoltron_1_1Cigar.html#aa52c09f3cb577328795ce8dd79c3c36a", null ],
       [ "operator std::string", "structbiovoltron_1_1Cigar.html#aae892991b5cdd7db17558765bb70e69a", null ],
-      [ "operator=", "structbiovoltron_1_1Cigar.html#a890ed39e1c05d4c480995e0b1badbbe6", null ],
+      [ "operator=", "structbiovoltron_1_1Cigar.html#a3c8c4dae45335a7a41ef04faa2ec8b97", null ],
       [ "operator==", "structbiovoltron_1_1Cigar.html#aeb32080e18e645674458ad5dde3e80a0", null ],
-      [ "operator[]", "structbiovoltron_1_1Cigar.html#a6db084b09f826f58d51dfc2c807f76a0", null ],
-      [ "operator[]", "structbiovoltron_1_1Cigar.html#a35a261f79d5cd4eef61bb133df6e12bb", null ],
+      [ "operator[]", "structbiovoltron_1_1Cigar.html#a70b1ad1916e07a703ae293c0dab8c765", null ],
+      [ "operator[]", "structbiovoltron_1_1Cigar.html#ab19199d3513bafdecfa012b37d4d57fc", null ],
       [ "pop_back", "structbiovoltron_1_1Cigar.html#a9819f464a6b661d502f1ea8e2e1e5fa7", null ],
       [ "pop_front", "structbiovoltron_1_1Cigar.html#a213de556c20cf804d8ac315267474000", null ],
       [ "push_back", "structbiovoltron_1_1Cigar.html#aaa898e6405e58f750c0c2df994596f56", null ],
@@ -57,19 +69,19 @@ var group__file__io =
       [ "reverse", "structbiovoltron_1_1Cigar.html#ac60e2ac5c577aa5859d5aa53256a9e26", null ],
       [ "size", "structbiovoltron_1_1Cigar.html#a9e7b8d3e7a0369a5bbf8a08751116762", null ],
       [ "swap", "structbiovoltron_1_1Cigar.html#a482af65c74136e221f476be8f516fd69", null ],
-      [ "operator<<", "structbiovoltron_1_1Cigar.html#acadefd531267c55c968c4ca402afb29d", null ],
-      [ "operator>>", "structbiovoltron_1_1Cigar.html#af1dd795bb0921f1b6b93d2950d009c71", null ]
+      [ "operator<<", "structbiovoltron_1_1Cigar.html#a373402d0ef8da6afc0c9e4b88b6b5063", null ],
+      [ "operator>>", "structbiovoltron_1_1Cigar.html#a7563c8114123a2a56d8edceb0b673a53", null ]
     ] ],
-    [ "biovoltron::FastaRecord< Encoded >", "structbiovoltron_1_1FastaRecord.html", [
+    [ "FastaRecord", "structbiovoltron_1_1FastaRecord.html", [
       [ "operator auto", "structbiovoltron_1_1FastaRecord.html#af6fd26cf3daac2b6dd62c8a47a5ab24c", null ],
       [ "name", "structbiovoltron_1_1FastaRecord.html#ad6cad4e0e9c48a135bc17cb1f28218f6", null ],
       [ "seq", "structbiovoltron_1_1FastaRecord.html#acf2684a999d11e2bb520b78a842ff769", null ]
     ] ],
-    [ "biovoltron::FastqRecord< Encoded >", "structbiovoltron_1_1FastqRecord.html", [
+    [ "FastqRecord", "structbiovoltron_1_1FastqRecord.html", [
       [ "operator auto", "structbiovoltron_1_1FastqRecord.html#a940a29a893e0d9bcdd38e04d0667d51d", null ],
       [ "qual", "structbiovoltron_1_1FastqRecord.html#a5b3fdc8addc40ff9f064e4658a6916a3", null ]
     ] ],
-    [ "biovoltron::GffRecord", "structbiovoltron_1_1GffRecord.html", [
+    [ "GffRecord", "structbiovoltron_1_1GffRecord.html", [
       [ "operator auto", "structbiovoltron_1_1GffRecord.html#ad1a7b2a541fcd3f86d2b0fe65a67ac9f", null ],
       [ "operator<=>", "structbiovoltron_1_1GffRecord.html#a20fc66d05696ac1959e3f93b80feb0be", null ],
       [ "attrs", "structbiovoltron_1_1GffRecord.html#afd2ce8e23af19324eb91abac25292cec", null ],
@@ -82,7 +94,22 @@ var group__file__io =
       [ "strand", "structbiovoltron_1_1GffRecord.html#a14e859edc1165cc18d69a61a2d864495", null ],
       [ "type", "structbiovoltron_1_1GffRecord.html#a1d725456afb7b8796af8956f6e77d0e5", null ]
     ] ],
-    [ "biovoltron::SamUtil", "structbiovoltron_1_1SamUtil.html", [
+    [ "ReferenceRecord", "structbiovoltron_1_1ReferenceRecord.html", [
+      [ "load", "structbiovoltron_1_1ReferenceRecord.html#a6e2e0bc918b416b64078dd76c4990c1a", null ],
+      [ "operator==", "structbiovoltron_1_1ReferenceRecord.html#a411ea84f8bddcd5e1c821749400ac2a2", null ],
+      [ "origin_seq", "structbiovoltron_1_1ReferenceRecord.html#a50c59f0abb75968f34dac6a7113f7d35", null ],
+      [ "save", "structbiovoltron_1_1ReferenceRecord.html#aadf4d469c3f22e9af4135e55fb21020c", null ],
+      [ "base_cnt", "structbiovoltron_1_1ReferenceRecord.html#af130ff26f794b315a2244ef714e2ba2f", null ],
+      [ "chr_end_pos", "structbiovoltron_1_1ReferenceRecord.html#a518c53b5191861ebde52ba85ed1898f8", null ],
+      [ "chr_names", "structbiovoltron_1_1ReferenceRecord.html#a8df59e47077545f2be6ca32af27b4d65", null ],
+      [ "chr_num", "structbiovoltron_1_1ReferenceRecord.html#a332fcf2b717791b9d5a8ee8c0e54648f", null ],
+      [ "seq", "structbiovoltron_1_1ReferenceRecord.html#ab2846d3ed40188010a03336e435a2946", null ],
+      [ "species", "structbiovoltron_1_1ReferenceRecord.html#ae4b91dd91296426fa7fbb85d1aacfc2c", null ],
+      [ "substitute", "structbiovoltron_1_1ReferenceRecord.html#a8d6e43fefe11a200c228fe37acb4947b", null ],
+      [ "substitute_encoded", "structbiovoltron_1_1ReferenceRecord.html#af2e8a1213917b334f0dc977ee7c17cd7", null ],
+      [ "unknown_intervals", "structbiovoltron_1_1ReferenceRecord.html#a9499f9988c5c1bf1e190e3c495f042e6", null ]
+    ] ],
+    [ "SamUtil", "structbiovoltron_1_1SamUtil.html", [
       [ "Flag", "structbiovoltron_1_1SamUtil.html#a179a559cd63f4b84b0c25a15383aee7a", [
         [ "READ_PAIRED", "structbiovoltron_1_1SamUtil.html#a179a559cd63f4b84b0c25a15383aee7aab44e3a93a197a6da7447cb40270dda68", null ],
         [ "PROPER_PAIR", "structbiovoltron_1_1SamUtil.html#a179a559cd63f4b84b0c25a15383aee7aa4bfb0a4ca6841d9e968c00f144cb6963", null ],
@@ -104,8 +131,8 @@ var group__file__io =
         [ "RF", "structbiovoltron_1_1SamUtil.html#a21c38d1eb1a14bdeb6fd840589659c62a54891be5c15f0e6043ff2e178b369e0d", null ]
       ] ]
     ] ],
-    [ "biovoltron::SamHeader", "structbiovoltron_1_1SamHeader.html", null ],
-    [ "biovoltron::SamRecord< Encoded >", "structbiovoltron_1_1SamRecord.html", [
+    [ "SamHeader", "structbiovoltron_1_1SamHeader.html", null ],
+    [ "SamRecord", "structbiovoltron_1_1SamRecord.html", [
       [ "begin", "structbiovoltron_1_1SamRecord.html#a21824292182864ab15b55121095a3bd3", null ],
       [ "deletion_gop", "structbiovoltron_1_1SamRecord.html#a8d3c8fe70f2bc2d868fb2d251cc00ebc", null ],
       [ "duplicate_read", "structbiovoltron_1_1SamRecord.html#affddfdd9fe2a0b7ec22c1e25d10017cc", null ],
@@ -128,6 +155,7 @@ var group__file__io =
       [ "secondary_alignment", "structbiovoltron_1_1SamRecord.html#ad84b23fd324abad38021b937130745e7", null ],
       [ "size", "structbiovoltron_1_1SamRecord.html#add88beb8afa2fb104d837d7509bbf05d", null ],
       [ "supplementary_alignment", "structbiovoltron_1_1SamRecord.html#a63b9586ade151a16577e90ddcdf15848", null ],
+      [ "tlen_well_defined", "structbiovoltron_1_1SamRecord.html#a9b020e623b1fe9eb7e03539bf34d39ae", null ],
       [ "cigar", "structbiovoltron_1_1SamRecord.html#a2b6884c2b848d75e785dcfe56bd92f39", null ],
       [ "flag", "structbiovoltron_1_1SamRecord.html#acf3a58a4bc2982b8b0fd96fdd58f2b44", null ],
       [ "header", "structbiovoltron_1_1SamRecord.html#a5fa05a127d636e5e9af97de8a0ac73b3", null ],
@@ -142,8 +170,8 @@ var group__file__io =
       [ "seq", "structbiovoltron_1_1SamRecord.html#ae7e099e7321e7b14ecd3f4f71094b947", null ],
       [ "tlen", "structbiovoltron_1_1SamRecord.html#ad2cc0eb95a2355c243022422f84f64ae", null ]
     ] ],
-    [ "biovoltron::VcfHeader", "structbiovoltron_1_1VcfHeader.html", null ],
-    [ "biovoltron::VcfRecord", "structbiovoltron_1_1VcfRecord.html", [
+    [ "VcfHeader", "structbiovoltron_1_1VcfHeader.html", null ],
+    [ "VcfRecord", "structbiovoltron_1_1VcfRecord.html", [
       [ "operator auto", "structbiovoltron_1_1VcfRecord.html#a2355d5d84d1bdd618b2ddf9a965f262d", null ],
       [ "operator<=>", "structbiovoltron_1_1VcfRecord.html#a9381a92ad4d9175e6c54fbf69d1833a8", null ],
       [ "alt", "structbiovoltron_1_1VcfRecord.html#a03a582fdcf4de770cea2d0e5622cd5f2", null ],
@@ -158,7 +186,14 @@ var group__file__io =
       [ "ref", "structbiovoltron_1_1VcfRecord.html#acf12e9c657b404a4fbc995ad570c9980", null ],
       [ "samples", "structbiovoltron_1_1VcfRecord.html#a5647534f71fd010d9a14544cec8cb0ff", null ]
     ] ],
-    [ "biovoltron::WigHeader", "structbiovoltron_1_1WigHeader.html", null ],
-    [ "biovoltron::WigVarStepRecord", "structbiovoltron_1_1WigVarStepRecord.html", null ],
-    [ "biovoltron::WigFixedStepRecord", "structbiovoltron_1_1WigFixedStepRecord.html", null ]
+    [ "WigHeader", "structbiovoltron_1_1WigHeader.html", null ],
+    [ "WigVarStepRecord", "structbiovoltron_1_1WigVarStepRecord.html", [
+      [ "header", "structbiovoltron_1_1WigVarStepRecord.html#ad2a96050b5f9efaf88605b02dd010349", null ],
+      [ "start", "structbiovoltron_1_1WigVarStepRecord.html#abc90e7ede1256c0ebe1805b384cdc230", null ],
+      [ "value", "structbiovoltron_1_1WigVarStepRecord.html#ad32b1ef90ea90e57a89d23b3c3d39d22", null ]
+    ] ],
+    [ "WigFixedStepRecord", "structbiovoltron_1_1WigFixedStepRecord.html", [
+      [ "header", "structbiovoltron_1_1WigFixedStepRecord.html#a6eaf4d8bf657a980a541623f9ccb4583", null ],
+      [ "value", "structbiovoltron_1_1WigFixedStepRecord.html#ac8a4c1a97685cc9b175e69aaac5af03d", null ]
+    ] ]
 ];

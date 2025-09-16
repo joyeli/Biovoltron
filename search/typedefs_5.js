@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_5ftype_0',['value_type',['../classbiovoltron_1_1detail_1_1XbitIteratorBase.html#aa01a014fd95b21a538cee9d121328c8e',1,'biovoltron::detail::XbitIteratorBase']]]
+  ['sa_5ft_953',['SA_t',['../structbiovoltron_1_1StableSorter.html#aa9a09abf3b6a5071e86d0b682d0e4ec1',1,'biovoltron::StableSorter']]]
 ];

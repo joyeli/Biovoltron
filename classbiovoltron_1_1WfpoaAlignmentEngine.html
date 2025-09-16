@@ -1,0 +1,347 @@
+<!-- HTML header for doxygen 1.9.4-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Biovoltron: biovoltron::WfpoaAlignmentEngine Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript">
+  DoxygenAwesomeParagraphLink.icon = "¶"
+  DoxygenAwesomeFragmentCopyButton.init()
+  DoxygenAwesomeDarkModeToggle.init()
+  DoxygenAwesomeParagraphLink.init()
+  DoxygenAwesomeInteractiveToc.init()
+</script>
+</head>
+<body>
+<a href="https://github.com/JHHLAB/Biovoltron" class="github-corner" title="View source on GitHub" target="_blank">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Biovoltron<span id="projectnumber">&#160;v0.1.0</span>
+   </div>
+   <div id="projectbrief">Bioinformatic tools library using modern C++.</div>
+  </td>
+ </tr>
+   <!--BEGIN FULL_SIDEBAR-->
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td></tr>
+   <!--END FULL_SIDEBAR-->
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classbiovoltron_1_1WfpoaAlignmentEngine.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="classbiovoltron_1_1WfpoaAlignmentEngine-members.html">List of all members</a>  </div>
+  <div class="headertitle">
+<div class="title">biovoltron::WfpoaAlignmentEngine Class Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa7cf94d05cd623b323764822a4d381ec"><td class="memItemLeft" align="right" valign="top"><a id="aa7cf94d05cd623b323764822a4d381ec"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>WfpoaAlignmentEngine</b> (const <a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &amp;)=delete</td></tr>
+<tr class="separator:aa7cf94d05cd623b323764822a4d381ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac585d65048479054b44cee6ad6a719b8"><td class="memItemLeft" align="right" valign="top"><a id="ac585d65048479054b44cee6ad6a719b8"></a>
+<a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &amp;)=delete</td></tr>
+<tr class="separator:ac585d65048479054b44cee6ad6a719b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a155adc981841c0ff38c60d102a7ca7"><td class="memItemLeft" align="right" valign="top"><a id="a4a155adc981841c0ff38c60d102a7ca7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>WfpoaAlignmentEngine</b> (<a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:a4a155adc981841c0ff38c60d102a7ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e99022fcb0b58149a77fd04d0b6bb25"><td class="memItemLeft" align="right" valign="top"><a id="a8e99022fcb0b58149a77fd04d0b6bb25"></a>
+<a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:a8e99022fcb0b58149a77fd04d0b6bb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad736f4f54efffa3787cb3c7f6d7800b9"><td class="memItemLeft" align="right" valign="top"><a id="ad736f4f54efffa3787cb3c7f6d7800b9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCutThreshold</b> (int cut)</td></tr>
+<tr class="separator:ad736f4f54efffa3787cb3c7f6d7800b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4175efe2d1f8f8feb6471f43a943bfd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html#a4175efe2d1f8f8feb6471f43a943bfd4">Prealloc</a> (std::uint32_t max_sequence_len, std::uint8_t alphabet_size)</td></tr>
+<tr class="separator:a4175efe2d1f8f8feb6471f43a943bfd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9705bebc9f37113ca1c4d462894332f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html#a9705bebc9f37113ca1c4d462894332f3">Realloc</a> (std::uint64_t matrix_width, std::uint64_t matrix_height, std::uint8_t num_codes)</td></tr>
+<tr class="separator:a9705bebc9f37113ca1c4d462894332f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd5267598c9efc0e621f1556594732d0"><td class="memItemLeft" align="right" valign="top"><a id="afd5267598c9efc0e621f1556594732d0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>wf_Realloc_Init</b> (const <a class="el" href="classbiovoltron_1_1WfGraph.html">WfGraph</a> &amp;graph, int matrix_height)</td></tr>
+<tr class="separator:afd5267598c9efc0e621f1556594732d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcd358f3756bd6538942bdc2538ecd85"><td class="memItemLeft" align="right" valign="top"><a id="adcd358f3756bd6538942bdc2538ecd85"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialize</b> (const char *sequence, std::uint32_t sequence_len, const <a class="el" href="classbiovoltron_1_1WfGraph.html">WfGraph</a> &amp;graph) noexcept</td></tr>
+<tr class="separator:adcd358f3756bd6538942bdc2538ecd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d9b5826bbc42087eecccf5b6678d6b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html#a9d9b5826bbc42087eecccf5b6678d6b9">Align</a> (const char *sequence, std::uint32_t sequence_len, const <a class="el" href="classbiovoltron_1_1WfGraph.html">WfGraph</a> &amp;graph, std::int32_t *score, int method)</td></tr>
+<tr class="separator:a9d9b5826bbc42087eecccf5b6678d6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee390b4635d2b177d6ef7d7d65e786a9"><td class="memItemLeft" align="right" valign="top"><a id="aee390b4635d2b177d6ef7d7d65e786a9"></a>
+<a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Align</b> (const std::string &amp;sequence, const <a class="el" href="classbiovoltron_1_1WfGraph.html">WfGraph</a> &amp;graph, int method)</td></tr>
+<tr class="separator:aee390b4635d2b177d6ef7d7d65e786a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac2c81105424c370a59db36c2377948"><td class="memItemLeft" align="right" valign="top"><a id="acac2c81105424c370a59db36c2377948"></a>
+<a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Align</b> (const std::string &amp;sequence, const <a class="el" href="classbiovoltron_1_1WfGraph.html">WfGraph</a> &amp;graph, int method, std::int32_t *score)</td></tr>
+<tr class="separator:acac2c81105424c370a59db36c2377948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59b579828d2eaa7ade78fabe2f910a95"><td class="memItemLeft" align="right" valign="top"><a id="a59b579828d2eaa7ade78fabe2f910a95"></a>
+std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><b>WorstCaseAlignmentScore</b> (std::int64_t i, std::int64_t j) const</td></tr>
+<tr class="separator:a59b579828d2eaa7ade78fabe2f910a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a91c5e5d1b41908950b052d4f7dbaccc4"><td class="memItemLeft" align="right" valign="top"><a id="a91c5e5d1b41908950b052d4f7dbaccc4"></a>
+static std::unique_ptr&lt; <a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (AlignmentType type, std::int8_t m, std::int8_t n, std::int8_t g)</td></tr>
+<tr class="separator:a91c5e5d1b41908950b052d4f7dbaccc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf6469995ff7507b4fc7b7a249ba4c3"><td class="memItemLeft" align="right" valign="top"><a id="acaf6469995ff7507b4fc7b7a249ba4c3"></a>
+static std::unique_ptr&lt; <a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (AlignmentType type, std::int8_t m, std::int8_t n, std::int8_t g, std::int8_t e)</td></tr>
+<tr class="separator:acaf6469995ff7507b4fc7b7a249ba4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefaa6b8d727a965446c7c6e84fa9599f"><td class="memItemLeft" align="right" valign="top"><a id="aefaa6b8d727a965446c7c6e84fa9599f"></a>
+static std::unique_ptr&lt; <a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (AlignmentType type, std::int8_t m, std::int8_t n, std::int8_t g, std::int8_t e, std::int8_t q, std::int8_t c)</td></tr>
+<tr class="separator:aefaa6b8d727a965446c7c6e84fa9599f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e3745fe32762cad03bb216c624c02d4"><td class="memItemLeft" align="right" valign="top"><a id="a6e3745fe32762cad03bb216c624c02d4"></a>
+static std::unique_ptr&lt; <a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (AlignmentType type, AlignmentSubtype subtype, std::int8_t m, std::int8_t n, std::int8_t g, std::int8_t e, std::int8_t q, std::int8_t c)</td></tr>
+<tr class="separator:a6e3745fe32762cad03bb216c624c02d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a9d58b575de912965dfad7e38d933c2d1"><td class="memItemLeft" align="right" valign="top"><a id="a9d58b575de912965dfad7e38d933c2d1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>acc_bench</b> = false</td></tr>
+<tr class="separator:a9d58b575de912965dfad7e38d933c2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8530538109f063d2befeb8411bf956ce"><td class="memItemLeft" align="right" valign="top"><a id="a8530538109f063d2befeb8411bf956ce"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>total_time_measure_spoa_fulltable</b> = 0</td></tr>
+<tr class="separator:a8530538109f063d2befeb8411bf956ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a947ef8baddac8d025f3b0ea8f10a4bf3"><td class="memItemLeft" align="right" valign="top"><a id="a947ef8baddac8d025f3b0ea8f10a4bf3"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>total_time_measure_spoa_wavefront</b> = 0</td></tr>
+<tr class="separator:a947ef8baddac8d025f3b0ea8f10a4bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9d9b5826bbc42087eecccf5b6678d6b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d9b5826bbc42087eecccf5b6678d6b9">&#9670;&nbsp;</a></span>Align()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a> biovoltron::WfpoaAlignmentEngine::Align </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint32_t&#160;</td>
+          <td class="paramname"><em>sequence_len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classbiovoltron_1_1WfGraph.html">WfGraph</a> &amp;&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::int32_t *&#160;</td>
+          <td class="paramname"><em>score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>method</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="structbiovoltron_1_1Alignment.html">Alignment</a> engine dispatcher </p>
+
+</div>
+</div>
+<a id="a4175efe2d1f8f8feb6471f43a943bfd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4175efe2d1f8f8feb6471f43a943bfd4">&#9670;&nbsp;</a></span>Prealloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void biovoltron::WfpoaAlignmentEngine::Prealloc </td>
+          <td>(</td>
+          <td class="paramtype">std::uint32_t&#160;</td>
+          <td class="paramname"><em>max_sequence_len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint8_t&#160;</td>
+          <td class="paramname"><em>alphabet_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if the resource is enough. If the resource is enough, call Reallocate to allocate the space of DP table. </p>
+
+</div>
+</div>
+<a id="a9705bebc9f37113ca1c4d462894332f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9705bebc9f37113ca1c4d462894332f3">&#9670;&nbsp;</a></span>Realloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void biovoltron::WfpoaAlignmentEngine::Realloc </td>
+          <td>(</td>
+          <td class="paramtype">std::uint64_t&#160;</td>
+          <td class="paramname"><em>matrix_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint64_t&#160;</td>
+          <td class="paramname"><em>matrix_height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint8_t&#160;</td>
+          <td class="paramname"><em>num_codes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>allocate the DP table </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/biovoltron/algo/align/wfpoa/<a class="el" href="alignment__engine_8hpp_source.html">alignment_engine.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacebiovoltron.html">biovoltron</a></li><li class="navelem"><a class="el" href="classbiovoltron_1_1WfpoaAlignmentEngine.html">WfpoaAlignmentEngine</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

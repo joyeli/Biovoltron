@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['sort_0',['sort',['../group__sort.html',1,'']]],
-  ['suffix_5fsorter_1',['suffix_sorter',['../group__suffix__sorter.html',1,'']]]
+  ['mirna_20expression_20data_20structures_968',['miRNA expression data structures',['../group__mirna__expr.html',1,'']]]
 ];

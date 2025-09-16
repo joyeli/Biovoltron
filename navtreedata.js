@@ -47,15 +47,37 @@ var NAVTREE =
       [ "Bug Reporting", "contribute.html#contribute-bug-reporting", null ],
       [ "Environment Setup", "contribute.html#contribute-setup", null ],
       [ "Development Workflow", "contribute.html#contribute-development-workflow", null ],
-      [ "C++ Coding Guidelines", "codingstyle.html", null ],
       [ "Git style", "contribute.html#contribute-git-style", null ],
       [ "Doxygen Comment Guidelines", "contribute.html#contribute-doxygen", null ]
+    ] ],
+    [ "C++ Coding Style Guidelines", "codingstyle.html", [
+      [ "Introduction", "codingstyle.html#codingstyle-introduction", null ],
+      [ "File Organization", "codingstyle.html#codingstyle-file-organization", null ],
+      [ "Naming Conventions", "codingstyle.html#codingstyle-naming-conventions", null ],
+      [ "Formatting", "codingstyle.html#codingstyle-formatting", null ],
+      [ "Comments", "codingstyle.html#codingstyle-comments", null ],
+      [ "Classes and Structs", "codingstyle.html#codingstyle-classes-and-structs", null ],
+      [ "Templates", "codingstyle.html#codingstyle-templates", null ],
+      [ "Miscellaneous", "codingstyle.html#codingstyle-miscellaneous", null ]
+    ] ],
+    [ "Testing Guide", "testing.html", [
+      [ "Importance of Testing", "testing.html#testing-importance", null ],
+      [ "Writing Effective Tests", "testing.html#testing-writing-tests", null ],
+      [ "Compiling for Coverage", "testing.html#testing-compiling", null ],
+      [ "Running Tests", "testing.html#testing-running-tests", null ],
+      [ "Generating Coverage Reports", "testing.html#testing-coverage-reports", null ],
+      [ "CI/CD Integration", "testing.html#testing-ci-cd", null ]
     ] ],
     [ "Benchmark", "benchmark.html", null ],
     [ "Release Notes", "release_notes.html", null ],
     [ "Wiki from Devin", "wiki.html", null ],
-    [ "API Documentation", "topics.html", "topics" ],
-    [ "Concepts", "concepts.html", "concepts" ],
+    [ "Modules", "modules.html", "modules" ],
+    [ "Namespace Members", "namespacemembers.html", [
+      [ "All", "namespacemembers.html", null ],
+      [ "Functions", "namespacemembers_func.html", null ],
+      [ "Variables", "namespacemembers_vars.html", null ],
+      [ "Typedefs", "namespacemembers_type.html", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -66,7 +88,7 @@ var NAVTREE =
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
-        [ "Related Symbols", "functions_rela.html", null ]
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ]
   ] ]
@@ -75,10 +97,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structbiovoltron_1_1AvxSmithWaterman.html",
-"structbiovoltron_1_1SamRecord.html#a1c17386ed9d6d173adc749e0f2ad1fd4"
+"classbiovoltron_1_1igzstream.html#a1d34faf3831d0d1a1a2f8d23dcc50b46",
+"functions_func_d.html",
+"structbiovoltron_1_1GffRecord.html#a11c907c41e0f7a01c895b72b5af7ba40",
+"structbiovoltron_1_1SIMDAlignment.html#ae27832629b0805a610c111804cf44631",
+"structbiovoltron_1_1mirna_1_1MirExp.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
-var LISTOFALLMEMBERS = 'List of all members';
+var SYNCONMSG = 'click to disable panel synchronisation';
+var SYNCOFFMSG = 'click to enable panel synchronisation';

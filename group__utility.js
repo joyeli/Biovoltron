@@ -1,7 +1,7 @@
 var group__utility =
 [
-    [ "biovoltron::Serializer", "structbiovoltron_1_1Serializer.html", null ],
-    [ "biovoltron::Interval", "structbiovoltron_1_1Interval.html", [
+    [ "Serializer", "structbiovoltron_1_1Serializer.html", null ],
+    [ "Interval", "structbiovoltron_1_1Interval.html", [
       [ "Interval", "structbiovoltron_1_1Interval.html#a90f698f578a714b3c692fc2aa2645c37", null ],
       [ "Interval", "structbiovoltron_1_1Interval.html#a93176d34382b6e0fd2bea4f0fe441f17", null ],
       [ "Interval", "structbiovoltron_1_1Interval.html#a6d9f06cc43793d318d1832679e86d4cb", null ],
@@ -18,23 +18,26 @@ var group__utility =
       [ "end", "structbiovoltron_1_1Interval.html#aed5700303fb7f94f5be29da382a35b88", null ],
       [ "strand", "structbiovoltron_1_1Interval.html#ac4a666fb03c61419d464eefd5efae517", null ]
     ] ],
-    [ "biovoltron::Codec", "structbiovoltron_1_1Codec.html", null ],
-    [ "biovoltron::QualityUtils", "structbiovoltron_1_1QualityUtils.html", null ],
-    [ "biovoltron::ReadClipper", "structbiovoltron_1_1ReadClipper.html", null ],
-    [ "biovoltron::MappingQualityReadFilter", "structbiovoltron_1_1MappingQualityReadFilter.html", [
+    [ "Codec", "structbiovoltron_1_1Codec.html", null ],
+    [ "QualityUtils", "structbiovoltron_1_1QualityUtils.html", null ],
+    [ "ReadClipper", "structbiovoltron_1_1ReadClipper.html", null ],
+    [ "MappingQualityReadFilter", "structbiovoltron_1_1MappingQualityReadFilter.html", [
       [ "operator()", "structbiovoltron_1_1MappingQualityReadFilter.html#a3525180722af5d2093dff541a9edbb69", null ]
     ] ],
-    [ "biovoltron::DuplicateReadFilter", "structbiovoltron_1_1DuplicateReadFilter.html", [
+    [ "DuplicateReadFilter", "structbiovoltron_1_1DuplicateReadFilter.html", [
       [ "operator()", "structbiovoltron_1_1DuplicateReadFilter.html#ac00676c58a90c691d652a8234f2f13ec", null ]
     ] ],
-    [ "biovoltron::SecondaryAlignmentReadFilter", "structbiovoltron_1_1SecondaryAlignmentReadFilter.html", [
+    [ "SecondaryAlignmentReadFilter", "structbiovoltron_1_1SecondaryAlignmentReadFilter.html", [
       [ "operator()", "structbiovoltron_1_1SecondaryAlignmentReadFilter.html#a0aeb0c59d2ab8400cc8b3ed60b8fd163", null ]
     ] ],
-    [ "biovoltron::MinimumLengthReadFilter", "structbiovoltron_1_1MinimumLengthReadFilter.html", [
+    [ "MinimumLengthReadFilter", "structbiovoltron_1_1MinimumLengthReadFilter.html", [
       [ "operator()", "structbiovoltron_1_1MinimumLengthReadFilter.html#a4d7cd9ee6f6958f5766e87511174d2ce", null ]
     ] ],
-    [ "biovoltron::MateOnSameContigReadFilter", "structbiovoltron_1_1MateOnSameContigReadFilter.html", [
+    [ "MateOnSameContigReadFilter", "structbiovoltron_1_1MateOnSameContigReadFilter.html", [
       [ "operator()", "structbiovoltron_1_1MateOnSameContigReadFilter.html#a16c224540d4267f3cb8d4a6dd783b52b", null ]
     ] ],
-    [ "biovoltron::DeprecatedThreadPool", "classbiovoltron_1_1DeprecatedThreadPool.html", null ]
+    [ "DeprecatedThreadPool", "classbiovoltron_1_1DeprecatedThreadPool.html", [
+      [ "DeprecatedThreadPool", "classbiovoltron_1_1DeprecatedThreadPool.html#a835db71968f60e4c430280e212f1187c", null ],
+      [ "enqueue", "classbiovoltron_1_1DeprecatedThreadPool.html#ae99d01dc6d6261d7ba2e729932349243", null ]
+    ] ]
 ];

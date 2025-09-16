@@ -1,7 +1,30 @@
 var structbiovoltron_1_1GraphWrapper =
 [
+    [ "Edge", "structbiovoltron_1_1GraphWrapper.html#a685c15a01cc4ca46495e05f4eb03cb21", null ],
+    [ "EdgePredicate", "structbiovoltron_1_1GraphWrapper.html#aac688936af77adf45244249877ce38ee", null ],
+    [ "Graph", "structbiovoltron_1_1GraphWrapper.html#aaae23ec358fbc7f97beeaf4148a00ca1", null ],
+    [ "Path", "structbiovoltron_1_1GraphWrapper.html#a8da0822ea2e99db2178edb412e9f1b81", null ],
+    [ "Vertex", "structbiovoltron_1_1GraphWrapper.html#a59b352c90ca09d66539d3e7b2327353f", null ],
     [ "create_edge", "structbiovoltron_1_1GraphWrapper.html#a9f512f680b0badc8d7e54528914fb912", null ],
     [ "create_vertex", "structbiovoltron_1_1GraphWrapper.html#ac706d34141d12d63773a35e3207d5736", null ],
+    [ "edge", "structbiovoltron_1_1GraphWrapper.html#acf891355cdf4ac0edd61dbc458178560", null ],
+    [ "edges", "structbiovoltron_1_1GraphWrapper.html#aa527a70ed548ce6bb028343e66ca9440", null ],
+    [ "filtered_graph", "structbiovoltron_1_1GraphWrapper.html#a67bdf1cc25fc926608dab55cb00e6521", null ],
     [ "find_paths", "structbiovoltron_1_1GraphWrapper.html#a88bcf19ba385c36e3c3a77a897542595", null ],
-    [ "out_degree", "structbiovoltron_1_1GraphWrapper.html#ac6fd289459431604ff1877071c44a84e", null ]
+    [ "get_sinks", "structbiovoltron_1_1GraphWrapper.html#a72c0794938aa74e902dc3df5df1dbd2f", null ],
+    [ "get_sources", "structbiovoltron_1_1GraphWrapper.html#ac8b7bac9c74237e79f678f0f76c38234", null ],
+    [ "in_degree", "structbiovoltron_1_1GraphWrapper.html#a9367e6e3418f7f76d327724a1bf74ab5", null ],
+    [ "in_edges", "structbiovoltron_1_1GraphWrapper.html#ab0aa32fdbd5a49ea59f247d6cb69d23f", null ],
+    [ "is_sink", "structbiovoltron_1_1GraphWrapper.html#a7859851a7fde0a58256b9866e9d70765", null ],
+    [ "is_source", "structbiovoltron_1_1GraphWrapper.html#a7717bfb1c71bb7c9e2fc1fcc52f2be91", null ],
+    [ "operator[]", "structbiovoltron_1_1GraphWrapper.html#a11d00c30555806fa0bf5bcfdc446198a", null ],
+    [ "operator[]", "structbiovoltron_1_1GraphWrapper.html#a7f8e7db1c0a65a2f45a1de16210b43d7", null ],
+    [ "out_degree", "structbiovoltron_1_1GraphWrapper.html#ac6fd289459431604ff1877071c44a84e", null ],
+    [ "out_edges", "structbiovoltron_1_1GraphWrapper.html#ae958845d012dfe193532d87977f98577", null ],
+    [ "set_edge_filter", "structbiovoltron_1_1GraphWrapper.html#af5eeaa8342aade2bdfbe8c9c590505f1", null ],
+    [ "source", "structbiovoltron_1_1GraphWrapper.html#a0a1c3108eeb10bdcfcc508be3c50e18c", null ],
+    [ "target", "structbiovoltron_1_1GraphWrapper.html#a9bbb0a6e7dda5df53b5d9d711c448af7", null ],
+    [ "vertices", "structbiovoltron_1_1GraphWrapper.html#aedf000dc51157cd1449e215b8f489cec", null ],
+    [ "edge_filter", "structbiovoltron_1_1GraphWrapper.html#a5a07145c5876c613eab26cd6f5ca2e80", null ],
+    [ "g", "structbiovoltron_1_1GraphWrapper.html#a85c523be11824351cca4825ce4b0a47a", null ]
 ];

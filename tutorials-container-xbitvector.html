@@ -1,0 +1,208 @@
+<!-- HTML header for doxygen 1.9.4-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Biovoltron: Working with XbitVector</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript">
+  DoxygenAwesomeParagraphLink.icon = "¶"
+  DoxygenAwesomeFragmentCopyButton.init()
+  DoxygenAwesomeDarkModeToggle.init()
+  DoxygenAwesomeParagraphLink.init()
+  DoxygenAwesomeInteractiveToc.init()
+</script>
+</head>
+<body>
+<a href="https://github.com/JHHLAB/Biovoltron" class="github-corner" title="View source on GitHub" target="_blank">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Biovoltron<span id="projectnumber">&#160;v0.1.0</span>
+   </div>
+   <div id="projectbrief">Bioinformatic tools library using modern C++.</div>
+  </td>
+ </tr>
+   <!--BEGIN FULL_SIDEBAR-->
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td></tr>
+   <!--END FULL_SIDEBAR-->
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('tutorials-container-xbitvector.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Working with XbitVector </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_doc_markdown_tutorials_container_xbit_vector"></a> [TOC]</p>
+<p>In this tutorial, we will explore how to effectively use **<code><a class="el" href="group__container.html#gac3150f4a4ecfc2996c37827da9316dfc">biovoltron::DibitVector</a></code>** and **<code><a class="el" href="group__container.html#ga4ae433cec1636e6cff77fe4666db615a">biovoltron::QuadbitVector</a></code>**, two space-efficient containers from Biovoltron. They are based on a general template <code>XbitVector&lt;N, Block, Allocator&gt;</code> and work just like <code>std::vector</code>, but pack multiple values into fewer bits.</p>
+<ul>
+<li>**<code>DibitVector</code>** packs <b>2 bits per value</b> (4 possible values: 0, 1, 2, 3). → Useful for DNA bases (<code>A, C, G, T</code>).</li>
+<li>**<code>QuadbitVector</code>** packs <b>4 bits per value</b> (16 possible values: 0–15).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md52"></a>
+Step 1. Include the Necessary Header</h1>
+<p>To use these containers, include the following header:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;biovoltron/container/xbit_vector.hpp&gt;</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md53"></a>
+Step 2. Creating a DibitVector</h1>
+<p>You can create a <code>DibitVector</code> just like you would create a <code>std::vector</code>:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/container/xbit_vector.hpp&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  <span class="comment">// Create a DibitVector with 5 elements, all initialized to 2</span></div>
+<div class="line">  <a class="code" href="group__container.html#gac3150f4a4ecfc2996c37827da9316dfc">biovoltron::DibitVector&lt;&gt;</a> v(5, 2);</div>
+<div class="line"> </div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;First element: &quot;</span> &lt;&lt; +v.front() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__container_html_gac3150f4a4ecfc2996c37827da9316dfc"><div class="ttname"><a href="group__container.html#gac3150f4a4ecfc2996c37827da9316dfc">biovoltron::DibitVector</a></div><div class="ttdeci">detail::XbitVector&lt; 2, Block, Allocator &gt; DibitVector</div><div class="ttdef"><b>Definition:</b> xbit_vector.hpp:2004</div></div>
+</div><!-- fragment --><p>Here, <code>+v.front()</code> prints <code>2</code>. Notice the <code>+</code> before <code>v.front()</code> — since the value type is <code>uint8_t</code>, we cast to <code>int</code> for printing.</p>
+<h1><a class="anchor" id="autotoc_md54"></a>
+Step 3. Using Initializer Lists</h1>
+<p>You can directly initialize with values:</p>
+<div class="fragment"><div class="line"><a class="code" href="group__container.html#gac3150f4a4ecfc2996c37827da9316dfc">biovoltron::DibitVector&lt;&gt;</a> v = {0, 1, 2, 3, 2, 1};</div>
+</div><!-- fragment --><p>This creates a vector of six elements: <code>[0,1,2,3,2,1]</code>.</p>
+<h1><a class="anchor" id="autotoc_md55"></a>
+Step 4. Iterating</h1>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/container/xbit_vector.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  <a class="code" href="group__container.html#gac3150f4a4ecfc2996c37827da9316dfc">biovoltron::DibitVector&lt;&gt;</a> v = {3, 2, 1, 0};</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Range-based for loop</span></div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : v)</div>
+<div class="line">    std::cout &lt;&lt; +x &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;  <span class="comment">// prints: 3 2 1 0</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md56"></a>
+Step 5. Specialized Operations</h1>
+<p><code>XbitVector</code> has some <b>extra utilities</b>, such as **<code>flip()</code>** → flip all values at once</p>
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="group__container.html#gac3150f4a4ecfc2996c37827da9316dfc">biovoltron::DibitVector&lt;&gt;</a> v = {0, 1, 2, 3};</div>
+<div class="line">v.flip();</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> x : v)</div>
+<div class="line">  std::cout &lt;&lt; +x &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;  <span class="comment">// prints: 3 2 1 0</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md57"></a>
+Step 6. DNA Example with DibitVector</h1>
+<p>A common use case is encoding DNA bases:</p>
+<div class="fragment"><div class="line"><a class="code" href="group__container.html#gac3150f4a4ecfc2996c37827da9316dfc">biovoltron::DibitVector&lt;&gt;</a> dna = {0, 1, 2, 3}; <span class="comment">// A=0, C=1, G=2, T=3</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> base_view = std::views::transform([](<span class="keyword">auto</span> c){ <span class="keywordflow">return</span> <span class="stringliteral">&quot;ACGT&quot;</span>[c]; });</div>
+<div class="line">std::ranges::copy(dna | base_view,</div>
+<div class="line">                  std::ostream_iterator&lt;char&gt;{std::cout, <span class="stringliteral">&quot;&quot;</span>});</div>
+<div class="line"><span class="comment">// Output: ACGT</span></div>
+</div><!-- fragment --><p>You can also compute the reverse complement:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> comp_view = std::views::transform([](<span class="keyword">auto</span> c){ <span class="keywordflow">return</span> 0b11u - c; });</div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> c : dna | std::views::reverse | comp_view | base_view)</div>
+<div class="line">  std::cout &lt;&lt; c;  <span class="comment">// Output: ACGT -&gt; reverse complement -&gt; ACGT</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md58"></a>
+Step 7. QuadbitVector Example</h1>
+<p><code>QuadbitVector</code> works the same, but allows values from 0 to 15:</p>
+<div class="fragment"><div class="line"><a class="code" href="group__container.html#ga4ae433cec1636e6cff77fe4666db615a">biovoltron::QuadbitVector&lt;&gt;</a> q = {1, 5, 9, 15};</div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> x : q)</div>
+<div class="line">  std::cout &lt;&lt; +x &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;  <span class="comment">// prints: 1 5 9 15</span></div>
+<div class="ttc" id="agroup__container_html_ga4ae433cec1636e6cff77fe4666db615a"><div class="ttname"><a href="group__container.html#ga4ae433cec1636e6cff77fe4666db615a">biovoltron::QuadbitVector</a></div><div class="ttdeci">detail::XbitVector&lt; 4, Block, Allocator &gt; QuadbitVector</div><div class="ttdef"><b>Definition:</b> xbit_vector.hpp:2017</div></div>
+</div><!-- fragment --><p><span class="next_section_button"> <a href="classbiovoltron_1_1detail_1_1XbitVector.html">Read Next: XbitVector Modules</a> </span> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

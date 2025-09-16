@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pointer_0',['pointer',['../classbiovoltron_1_1detail_1_1XbitIteratorBase.html#a486559b934c3fc588f9f5098ba951b66',1,'biovoltron::detail::XbitIteratorBase']]]
+  ['iterator_5fcategory_950',['iterator_category',['../classbiovoltron_1_1detail_1_1XbitIteratorBase.html#a7104b05a1bdabd2e0bb7613e50c720ed',1,'biovoltron::detail::XbitIteratorBase']]]
 ];

@@ -1,16 +1,12 @@
 var searchData=
 [
-  ['haplotype_0',['Haplotype',['../structbiovoltron_1_1Haplotype.html',1,'biovoltron']]],
-  ['haplotypeassembler_1',['HaplotypeAssembler',['../classbiovoltron_1_1HaplotypeAssembler.html',1,'biovoltron']]],
-  ['haplotypecaller_2',['HaplotypeCaller',['../structbiovoltron_1_1HaplotypeCaller.html',1,'biovoltron']]],
-  ['haplotypegraph_3',['HaplotypeGraph',['../structbiovoltron_1_1HaplotypeGraph.html',1,'biovoltron']]],
-  ['hard_5fclip_5fsoft_5fclipped_5fbases_4',['hard_clip_soft_clipped_bases',['../structbiovoltron_1_1ReadClipper.html#a88e338b0557b1d00881b744a1a1bd57c',1,'biovoltron::ReadClipper']]],
-  ['hard_5fclip_5fto_5finterval_5',['hard_clip_to_interval',['../structbiovoltron_1_1ReadClipper.html#ae8dbfcd288fc9562e1a2350a31da2f2a',1,'biovoltron::ReadClipper']]],
-  ['hash_6',['hash',['../structbiovoltron_1_1Codec.html#a5796349fb77904ba2a1298544b2b1750',1,'biovoltron::Codec']]],
-  ['header_7',['Header',['../structbiovoltron_1_1Header.html',1,'biovoltron']]],
-  ['header_8',['header',['../structbiovoltron_1_1SamRecord.html#a5fa05a127d636e5e9af97de8a0ac73b3',1,'biovoltron::SamRecord::header'],['../structbiovoltron_1_1VcfRecord.html#a9b5508978ed08c84f9c0da6f46c16da4',1,'biovoltron::VcfRecord::header']]],
-  ['headerablerecord_9',['HeaderableRecord',['../structbiovoltron_1_1HeaderableRecord.html',1,'biovoltron']]],
-  ['headers_10',['Step 1. Include the Necessary Headers',['../tutorials-fileio-fasta.html#autotoc_md54',1,'']]],
-  ['hit_11',['Hit',['../structbiovoltron_1_1Hit.html',1,'biovoltron']]],
-  ['hs37d5_12',['Hs37d5',['../structbiovoltron_1_1Hs37d5.html',1,'biovoltron']]]
+  ['qname_290',['qname',['../structbiovoltron_1_1SamRecord.html#a1c17386ed9d6d173adc749e0f2ad1fd4',1,'biovoltron::SamRecord']]],
+  ['quadbitvector_291',['QuadbitVector',['../group__container.html#ga4ae433cec1636e6cff77fe4666db615a',1,'biovoltron']]],
+  ['qual_292',['qual',['../structbiovoltron_1_1FastqRecord.html#a5b3fdc8addc40ff9f064e4658a6916a3',1,'biovoltron::FastqRecord::qual()'],['../structbiovoltron_1_1SamRecord.html#aaafa0e30961dee1a14a964abea280961',1,'biovoltron::SamRecord::qual()'],['../structbiovoltron_1_1VcfRecord.html#a61faddb7d2b4eb63cb7344227801ffe4',1,'biovoltron::VcfRecord::qual()']]],
+  ['qual_5fto_5ferror_5fprob_293',['qual_to_error_prob',['../structbiovoltron_1_1QualityUtils.html#a0536c568aa8c66f587f8d980caa43eb0',1,'biovoltron::QualityUtils']]],
+  ['qual_5fto_5ferror_5fprob_5flog10_294',['qual_to_error_prob_log10',['../structbiovoltron_1_1QualityUtils.html#ae6606441543f7a06043599b7465c37de',1,'biovoltron::QualityUtils']]],
+  ['qual_5fto_5fprob_5flog10_295',['qual_to_prob_log10',['../structbiovoltron_1_1QualityUtils.html#a2821fca1092745d57104442a02b9c579',1,'biovoltron::QualityUtils']]],
+  ['qualityutils_296',['QualityUtils',['../structbiovoltron_1_1QualityUtils.html',1,'biovoltron']]],
+  ['quantiledatahelpertype_297',['QuantileDataHelperType',['../structbiovoltron_1_1quantile_1_1QuantileDataHelperType.html',1,'biovoltron::quantile']]],
+  ['queue_5fmutex_298',['queue_mutex',['../classbiovoltron_1_1Worker.html#acad81f494a1322340fcf5f48364dd011',1,'biovoltron::Worker']]]
 ];

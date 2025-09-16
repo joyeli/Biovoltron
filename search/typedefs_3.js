@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quadbitvector_0',['QuadbitVector',['../group__container.html#gafcdf8f32fa36ecfd65c511f6ca5bd550',1,'biovoltron']]]
+  ['pointer_951',['pointer',['../classbiovoltron_1_1detail_1_1XbitIteratorBase.html#a486559b934c3fc588f9f5098ba951b66',1,'biovoltron::detail::XbitIteratorBase']]]
 ];

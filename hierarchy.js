@@ -37,8 +37,9 @@ var hierarchy =
     [ "biovoltron::DepthPerAllele", "classbiovoltron_1_1DepthPerAllele.html", null ],
     [ "biovoltron::DuplicateReadFilter", "structbiovoltron_1_1DuplicateReadFilter.html", null ],
     [ "biovoltron::Graph::Edge", "structbiovoltron_1_1Graph_1_1Edge.html", null ],
-    [ "ELEMENT", "structELEMENT.html", null ],
+    [ "biovoltron::WfGraph::Edge", "structbiovoltron_1_1WfGraph_1_1Edge.html", null ],
     [ "biovoltron::Cigar::Element", "structbiovoltron_1_1Cigar_1_1Element.html", null ],
+    [ "ELEMENT", "structELEMENT.html", null ],
     [ "ELEMENT_SET", null, [
       [ "cElementSet", "classcElementSet.html", null ]
     ] ],
@@ -47,13 +48,13 @@ var hierarchy =
     [ "biovoltron::FastaRecord< false >", "structbiovoltron_1_1FastaRecord.html", [
       [ "biovoltron::FastqRecord< Encoded >", "structbiovoltron_1_1FastqRecord.html", null ]
     ] ],
+    [ "biovoltron::FastaRecord< true >", "structbiovoltron_1_1FastaRecord.html", null ],
     [ "biovoltron::FisherStrand", "classbiovoltron_1_1FisherStrand.html", null ],
-    [ "biovoltron::FMIndex< SA_INTV, size_type, Sorter >", "classbiovoltron_1_1FMIndex.html", [
+    [ "biovoltron::FMIndex< SA_INTV, size_type, Sorter >", "classbiovoltron_1_1FMIndex.html", null ],
+    [ "biovoltron::FMIndex< 1, std::uint32_t, PsaisSorter< std::uint32_t > >", "classbiovoltron_1_1FMIndex.html", [
       [ "biovoltron::Index< SA_INTV, size_type, Sorter >", "structbiovoltron_1_1Index.html", null ]
     ] ],
-    [ "biovoltron::FMIndex< SA_INTV, size_type, Sorter >", "classbiovoltron_1_1FMIndex.html", [
-      [ "biovoltron::Index< SA_INTV, size_type, Sorter >", "structbiovoltron_1_1Index.html", null ]
-    ] ],
+    [ "biovoltron::FMIndex< 1, uint32_t, biovoltron::StableSorter< uint32_t > >", "classbiovoltron_1_1FMIndex.html", null ],
     [ "biovoltron::FMIndex< SA_INTV, std::uint32_t, Sorter >", "classbiovoltron_1_1FMIndex.html", [
       [ "biovoltron::Index< 1, std::uint32_t, PsaisSorter< std::uint32_t > >", "structbiovoltron_1_1Index.html", null ]
     ] ],
@@ -100,6 +101,7 @@ var hierarchy =
     [ "biovoltron::mirna::MirExp", "structbiovoltron_1_1mirna_1_1MirExp.html", null ],
     [ "biovoltron::Mismatch", "structbiovoltron_1_1Mismatch.html", null ],
     [ "biovoltron::Graph::Node", "structbiovoltron_1_1Graph_1_1Node.html", null ],
+    [ "biovoltron::WfGraph::Node", "structbiovoltron_1_1WfGraph_1_1Node.html", null ],
     [ "std::ofstream", null, [
       [ "biovoltron::OBamStream", "structbiovoltron_1_1OBamStream.html", null ]
     ] ],
@@ -163,19 +165,13 @@ var hierarchy =
     [ "biovoltron::kiss::ThreadState< size_type >", "structbiovoltron_1_1kiss_1_1ThreadState.html", null ],
     [ "biovoltron::Variant", "structbiovoltron_1_1Variant.html", null ],
     [ "biovoltron::VcfUtil", "structbiovoltron_1_1VcfUtil.html", null ],
+    [ "biovoltron::WfGraph", "classbiovoltron_1_1WfGraph.html", null ],
+    [ "biovoltron::WfpoaAlignmentEngine", "classbiovoltron_1_1WfpoaAlignmentEngine.html", null ],
     [ "biovoltron::Worker", "classbiovoltron_1_1Worker.html", null ],
     [ "biovoltron::detail::XbitIteratorBase< N, Block >", "classbiovoltron_1_1detail_1_1XbitIteratorBase.html", [
-      [ "biovoltron::detail::XbitConstIterator< N, block_type >", "structbiovoltron_1_1detail_1_1XbitConstIterator.html", null ],
-      [ "biovoltron::detail::XbitIterator< N, block_type >", "structbiovoltron_1_1detail_1_1XbitIterator.html", null ],
       [ "biovoltron::detail::XbitConstIterator< N, Block >", "structbiovoltron_1_1detail_1_1XbitConstIterator.html", null ],
       [ "biovoltron::detail::XbitIterator< N, Block >", "structbiovoltron_1_1detail_1_1XbitIterator.html", null ]
     ] ],
     [ "biovoltron::detail::XbitReference< N, Block >", "classbiovoltron_1_1detail_1_1XbitReference.html", null ],
-    [ "biovoltron::detail::XbitVectorBase", "classbiovoltron_1_1detail_1_1XbitVectorBase.html", [
-      [ "biovoltron::detail::XbitVector< 1, std::uint8_t, std::allocator< std::uint8_t > >", "classbiovoltron_1_1detail_1_1XbitVector.html", null ],
-      [ "biovoltron::detail::XbitVector< 2, Block, Allocator >", "classbiovoltron_1_1detail_1_1XbitVector.html", null ],
-      [ "biovoltron::detail::XbitVector< 4, Block, Allocator >", "classbiovoltron_1_1detail_1_1XbitVector.html", null ],
-      [ "biovoltron::detail::XbitVector< 1, std::uint64_t, std::allocator< std::uint64_t > >", "classbiovoltron_1_1detail_1_1XbitVector.html", null ],
-      [ "biovoltron::detail::XbitVector< N, Block, Allocator >", "classbiovoltron_1_1detail_1_1XbitVector.html", null ]
-    ] ]
+    [ "biovoltron::detail::XbitVectorBase", "classbiovoltron_1_1detail_1_1XbitVectorBase.html", null ]
 ];

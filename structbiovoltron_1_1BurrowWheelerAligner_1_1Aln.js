@@ -1,5 +1,8 @@
 var structbiovoltron_1_1BurrowWheelerAligner_1_1Aln =
 [
+    [ "operator<=>", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#a99cd585f604c60e5db69fa16f071ac35", null ],
+    [ "operator==", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#ac72f4296c7dcf6310e7c9df879209122", null ],
+    [ "operator<<", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#a21522c42a68d0e7e77e82c683037ecbe", null ],
     [ "align_len", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#a16e1a9378b2b20bf345d50341dd86059", null ],
     [ "cigar", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#a395e22009780c79ee970efe47c799312", null ],
     [ "find_cnt", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#adf05634b4a43bea3ccfa52fbfa31e4fe", null ],

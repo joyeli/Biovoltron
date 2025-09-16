@@ -1,7 +1,10 @@
 var group__applications =
 [
-    [ "biovoltron::BurrowWheelerAligner", "structbiovoltron_1_1BurrowWheelerAligner.html", [
+    [ "BurrowWheelerAligner", "structbiovoltron_1_1BurrowWheelerAligner.html", [
       [ "Aln", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html", [
+        [ "operator<=>", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#a99cd585f604c60e5db69fa16f071ac35", null ],
+        [ "operator==", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#ac72f4296c7dcf6310e7c9df879209122", null ],
+        [ "operator<<", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#a21522c42a68d0e7e77e82c683037ecbe", null ],
         [ "align_len", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#a16e1a9378b2b20bf345d50341dd86059", null ],
         [ "cigar", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#a395e22009780c79ee970efe47c799312", null ],
         [ "find_cnt", "structbiovoltron_1_1BurrowWheelerAligner_1_1Aln.html#adf05634b4a43bea3ccfa52fbfa31e4fe", null ],
@@ -23,6 +26,8 @@ var group__applications =
         [ "aln2", "structbiovoltron_1_1BurrowWheelerAligner_1_1AlnPair.html#a61106264b6bad6c4306960242ee811b3", null ]
       ] ],
       [ "Anchor", "structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html", [
+        [ "operator<=>", "structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html#af621b6f07d3d57f32ee892f6edb3e881", null ],
+        [ "operator<<", "structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html#a904377f38a743aeeb409ac87bd4dc8a9", null ],
         [ "forward", "structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html#ad1ab86a3275bafef06c9acec1ac0ea86", null ],
         [ "ref_pos", "structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html#a0f289584b94408ff07b75a7bb49733bb", null ],
         [ "repeat", "structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html#a6624317f46caa0be4795d3bea0e1f4bc", null ],
@@ -49,17 +54,29 @@ var group__applications =
         [ "SW_THRESHOLD", "structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters.html#ae64f9622508c535a64f1240ccabcfb96", null ]
       ] ],
       [ "SeedSpan", "structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html", [
+        [ "operator<=>", "structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html#a0da13ed4c60d5cdb1017d7d7b57fe19b", null ],
+        [ "operator==", "structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html#a6169893959dd43e727c3cc1dac0b40a2", null ],
         [ "seed", "structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html#a9f09d6dd5dd669c321037a8639dc5f1c", null ],
         [ "span", "structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html#add6b6bc9a02666b98fe17ad28802f702", null ]
       ] ],
-      [ "generate_sam", "structbiovoltron_1_1BurrowWheelerAligner.html#ab7a7d529389e811017b8d086f58f597c", null ],
+      [ "generate_sam", "structbiovoltron_1_1BurrowWheelerAligner.html#aa2cbcbcf6883c3aa652a6990a4010d41", null ],
       [ "map", "structbiovoltron_1_1BurrowWheelerAligner.html#a3dd87a50160fc0620054f336b76053e6", null ],
       [ "print", "structbiovoltron_1_1BurrowWheelerAligner.html#a5813f759f91915fbf23b170a40fc7090", null ],
       [ "args", "structbiovoltron_1_1BurrowWheelerAligner.html#a9218828c565d36c5538abfa3ce506251", null ],
       [ "index", "structbiovoltron_1_1BurrowWheelerAligner.html#a0b1af5472fcb9ee4fb66166ec06df04b", null ],
       [ "ref", "structbiovoltron_1_1BurrowWheelerAligner.html#a392f2725b605cd48b48ad00e6bddfb91", null ]
     ] ],
-    [ "biovoltron::HaplotypeCaller", "structbiovoltron_1_1HaplotypeCaller.html", [
-      [ "Parameters", "structbiovoltron_1_1HaplotypeCaller_1_1Parameters.html", null ]
+    [ "HaplotypeCaller", "structbiovoltron_1_1HaplotypeCaller.html", [
+      [ "Parameters", "structbiovoltron_1_1HaplotypeCaller_1_1Parameters.html", [
+        [ "MAX_READS_PER_ALIGN_BEGIN", "structbiovoltron_1_1HaplotypeCaller_1_1Parameters.html#a431a6fa31dcb911134d2afb75dfda33e", null ],
+        [ "PADDING_SIZE", "structbiovoltron_1_1HaplotypeCaller_1_1Parameters.html#a135090ed1cc93774963c104ae878156e", null ],
+        [ "REGION_SIZE", "structbiovoltron_1_1HaplotypeCaller_1_1Parameters.html#a3f32276c1b788b618526f9a93a380f98", null ]
+      ] ],
+      [ "run", "structbiovoltron_1_1HaplotypeCaller.html#a8cddeab8145851bd24a3bc6023b0d257", null ],
+      [ "args", "structbiovoltron_1_1HaplotypeCaller.html#a27988fa661cbd5b4a726486691c4b436", null ],
+      [ "assembler", "structbiovoltron_1_1HaplotypeCaller.html#a226f066d8b08b5807338d55c7b393431", null ],
+      [ "genotyper", "structbiovoltron_1_1HaplotypeCaller.html#afd2afa2fb97609a9188586d199a281fc", null ],
+      [ "pairhmm", "structbiovoltron_1_1HaplotypeCaller.html#a66a31cd2038a1b7f9bfb9018749a880a", null ],
+      [ "ref", "structbiovoltron_1_1HaplotypeCaller.html#a88d00e4d6c16d83a72f0931760340401", null ]
     ] ]
 ];

@@ -5,7 +5,7 @@ var structbiovoltron_1_1BurrowWheelerAligner =
     [ "Anchor", "structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor.html", "structbiovoltron_1_1BurrowWheelerAligner_1_1Anchor" ],
     [ "Parameters", "structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters.html", "structbiovoltron_1_1BurrowWheelerAligner_1_1Parameters" ],
     [ "SeedSpan", "structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan.html", "structbiovoltron_1_1BurrowWheelerAligner_1_1SeedSpan" ],
-    [ "generate_sam", "structbiovoltron_1_1BurrowWheelerAligner.html#ab7a7d529389e811017b8d086f58f597c", null ],
+    [ "generate_sam", "structbiovoltron_1_1BurrowWheelerAligner.html#aa2cbcbcf6883c3aa652a6990a4010d41", null ],
     [ "map", "structbiovoltron_1_1BurrowWheelerAligner.html#a3dd87a50160fc0620054f336b76053e6", null ],
     [ "print", "structbiovoltron_1_1BurrowWheelerAligner.html#a5813f759f91915fbf23b170a40fc7090", null ],
     [ "args", "structbiovoltron_1_1BurrowWheelerAligner.html#a9218828c565d36c5538abfa3ce506251", null ],

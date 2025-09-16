@@ -1,25 +1,49 @@
 var group__align =
 [
-    [ "biovoltron::FMIndex< SA_INTV, size_type, Sorter >", "classbiovoltron_1_1FMIndex.html", [
+    [ "FMIndex", "classbiovoltron_1_1FMIndex.html", [
+      [ "char_type", "classbiovoltron_1_1FMIndex.html#a4267523a620bf1c737de2d83574fdeec", null ],
       [ "build", "classbiovoltron_1_1FMIndex.html#a768c4a28edb577622735fd5227465c25", null ],
+      [ "build", "classbiovoltron_1_1FMIndex.html#aebebdde216cc008e0e81460aa7f9f9f8", null ],
+      [ "build_bwt", "classbiovoltron_1_1FMIndex.html#ac465a0fe68163b80a78ed163290591fc", null ],
+      [ "build_lookup", "classbiovoltron_1_1FMIndex.html#a5ecbebc90dd2e33ceca99e52f63de471", null ],
+      [ "build_occ", "classbiovoltron_1_1FMIndex.html#a840b392eb99214deb84fa4e2c20bb892", null ],
+      [ "build_sa", "classbiovoltron_1_1FMIndex.html#af5e631b52c871e90a46ee908a0fe59e9", null ],
+      [ "compute_b_occ", "classbiovoltron_1_1FMIndex.html#afe9535b0c1ad2a819352414bbff839d8", null ],
+      [ "compute_occ", "classbiovoltron_1_1FMIndex.html#a2e17c230fbdf991607a7b90a5d682458", null ],
+      [ "compute_range", "classbiovoltron_1_1FMIndex.html#a7af01038cc21b2948e077295ac224641", null ],
+      [ "compute_sa", "classbiovoltron_1_1FMIndex.html#a30029734e1501da16999bf5d7be2d109", null ],
+      [ "fmtree", "classbiovoltron_1_1FMIndex.html#a6da914be2759f80d2d10f2e41de7a9e7", null ],
+      [ "get_occ_value", "classbiovoltron_1_1FMIndex.html#a67747fade19b10fbbe3927a919c5ec86", null ],
       [ "get_offsets", "classbiovoltron_1_1FMIndex.html#a455bca12db0383428d3202faa3789d0d", null ],
       [ "get_offsets_traditional", "classbiovoltron_1_1FMIndex.html#a531d4cc0489670f363cb1042f9b9d3aa", null ],
+      [ "get_range", "classbiovoltron_1_1FMIndex.html#a1a0b264907b85d26c21ecd2dd04f639e", null ],
       [ "get_range", "classbiovoltron_1_1FMIndex.html#a12226db8c7f1a0ec4276a2d350413d42", null ],
+      [ "lf", "classbiovoltron_1_1FMIndex.html#a63b7a381b6f1b42655b0165e4b67790f", null ],
       [ "load", "classbiovoltron_1_1FMIndex.html#a2dab2565d7834bf8099dfd3029be71c0", null ],
+      [ "operator==", "classbiovoltron_1_1FMIndex.html#a60d8413f48c3760f5466f0c16bf8481c", null ],
       [ "save", "classbiovoltron_1_1FMIndex.html#a601573932a5bc6a0a594176d46f78956", null ],
       [ "b_", "classbiovoltron_1_1FMIndex.html#ad81a8e8673dd289dc40ca2475306d415", null ],
       [ "b_occ_", "classbiovoltron_1_1FMIndex.html#abfaa88d5df01224fa7e5ce84d22721ff", null ],
       [ "B_OCC_INTV", "classbiovoltron_1_1FMIndex.html#acfb115187dd204c3063752e59b673e5b", null ],
       [ "bwt_", "classbiovoltron_1_1FMIndex.html#a04071e964060795936b444efd029eb68", null ],
       [ "cnt_", "classbiovoltron_1_1FMIndex.html#a872e33c2464c05926928517c18b21a78", null ],
+      [ "lookup_", "classbiovoltron_1_1FMIndex.html#aeb20aaeda95fb656bfa6649697fc7317", null ],
       [ "LOOKUP_LEN", "classbiovoltron_1_1FMIndex.html#a38b4dc6bae3fe74f934419732130a818", null ],
+      [ "OCC1_INTV", "classbiovoltron_1_1FMIndex.html#a06d1270b43b2392ec7bb6c74a04d2bb5", null ],
+      [ "OCC2_INTV", "classbiovoltron_1_1FMIndex.html#a7d4f587c3c056de3ae9f46d83d03cd38", null ],
       [ "occ_", "classbiovoltron_1_1FMIndex.html#a58f3c0a3f63c9e2daf4974ff31ee4e83", null ],
       [ "OCC_INTV", "classbiovoltron_1_1FMIndex.html#af4035f70ea8cfc90742725bb7e3c1ed3", null ],
+      [ "pri_", "classbiovoltron_1_1FMIndex.html#a58ead16846944f21da1087040c368c71", null ],
       [ "sa_", "classbiovoltron_1_1FMIndex.html#a8e35eedacb48ff050fef5e0c39ed7149", null ]
     ] ],
-    [ "biovoltron::PairHMM", "structbiovoltron_1_1PairHMM.html", null ],
-    [ "biovoltron::AvxPairHMM", "structbiovoltron_1_1AvxPairHMM.html", null ],
-    [ "biovoltron::SmithWaterman", "structbiovoltron_1_1SmithWaterman.html", [
+    [ "PairHMM", "structbiovoltron_1_1PairHMM.html", [
+      [ "TrasMatrx", "structbiovoltron_1_1PairHMM.html#afb69491dbe6d1bb8a2a523eca863ec88", null ],
+      [ "compute_likelihoods", "structbiovoltron_1_1PairHMM.html#ac76f6557cb6189487182efacdf530c8e", null ]
+    ] ],
+    [ "AvxPairHMM", "structbiovoltron_1_1AvxPairHMM.html", [
+      [ "compute_likelihoods", "structbiovoltron_1_1AvxPairHMM.html#a6a423737fa86705a51079b309e4adb0c", null ]
+    ] ],
+    [ "SmithWaterman", "structbiovoltron_1_1SmithWaterman.html", [
       [ "Parameters", "structbiovoltron_1_1SmithWaterman_1_1Parameters.html", [
         [ "w_extend", "structbiovoltron_1_1SmithWaterman_1_1Parameters.html#a9c53c54c5c5ab60e5c1a09d8a3ca773b", null ],
         [ "w_match", "structbiovoltron_1_1SmithWaterman_1_1Parameters.html#a1ecc33ebd8fe63ee90cf8ec753b6095b", null ],
@@ -27,8 +51,17 @@ var group__align =
         [ "w_open", "structbiovoltron_1_1SmithWaterman_1_1Parameters.html#af116d7ae99345813550f3a873343a6e6", null ]
       ] ]
     ] ],
-    [ "biovoltron::AvxSmithWaterman", "structbiovoltron_1_1AvxSmithWaterman.html", null ],
-    [ "biovoltron::SseSmithWaterman", "structbiovoltron_1_1SseSmithWaterman.html", [
-      [ "SWResult", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html", null ]
+    [ "AvxSmithWaterman", "structbiovoltron_1_1AvxSmithWaterman.html", null ],
+    [ "SseSmithWaterman", "structbiovoltron_1_1SseSmithWaterman.html", [
+      [ "SWResult", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html", [
+        [ "cigar", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html#a6bd568db7293d2e64d1e6e049d7f9d00", null ],
+        [ "read_beg", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html#a3778f31605e90b177afb9a23ce5247c0", null ],
+        [ "read_end", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html#a59d23d6f2a058d58a53e38965370963b", null ],
+        [ "ref_beg", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html#a0bc9725fb797ac4ea020a7a3dbbd6634", null ],
+        [ "ref_end", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html#a07bb125de4836c0809dd8fc990631e04", null ],
+        [ "ref_end2", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html#a75913a8e5ab4927dad2387614533ff85", null ],
+        [ "score", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html#a6986e4e93cb730abac1d693d66dd21c2", null ],
+        [ "score2", "structbiovoltron_1_1SseSmithWaterman_1_1SWResult.html#a4c34db404a0b3fbdfa4966b6e35c2d33", null ]
+      ] ]
     ] ]
 ];

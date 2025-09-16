@@ -22,6 +22,7 @@ var structbiovoltron_1_1SamRecord =
     [ "secondary_alignment", "structbiovoltron_1_1SamRecord.html#ad84b23fd324abad38021b937130745e7", null ],
     [ "size", "structbiovoltron_1_1SamRecord.html#add88beb8afa2fb104d837d7509bbf05d", null ],
     [ "supplementary_alignment", "structbiovoltron_1_1SamRecord.html#a63b9586ade151a16577e90ddcdf15848", null ],
+    [ "tlen_well_defined", "structbiovoltron_1_1SamRecord.html#a9b020e623b1fe9eb7e03539bf34d39ae", null ],
     [ "cigar", "structbiovoltron_1_1SamRecord.html#a2b6884c2b848d75e785dcfe56bd92f39", null ],
     [ "flag", "structbiovoltron_1_1SamRecord.html#acf3a58a4bc2982b8b0fd96fdd58f2b44", null ],
     [ "header", "structbiovoltron_1_1SamRecord.html#a5fa05a127d636e5e9af97de8a0ac73b3", null ],

@@ -1,15 +1,25 @@
 var structbiovoltron_1_1Index =
 [
-    [ "ChromBound", "structbiovoltron_1_1Index_1_1ChromBound.html", null ],
+    [ "ChromBound", "structbiovoltron_1_1Index_1_1ChromBound.html", "structbiovoltron_1_1Index_1_1ChromBound" ],
+    [ "Base", "structbiovoltron_1_1Index.html#ac8f6851ca20a29615bfc058bcb5e35ee", null ],
+    [ "char_type", "structbiovoltron_1_1Index.html#a9198c08679615e6a6fa5370b39cd4751", null ],
+    [ "Index", "structbiovoltron_1_1Index.html#ab48583be6e0b2009a443b82c86f6744e", null ],
     [ "build", "structbiovoltron_1_1Index.html#a768c4a28edb577622735fd5227465c25", null ],
+    [ "build", "structbiovoltron_1_1Index.html#aebebdde216cc008e0e81460aa7f9f9f8", null ],
     [ "get_bwt_size", "structbiovoltron_1_1Index.html#a5f5758ab25a6c370ac24364048e65b95", null ],
     [ "get_chr_size", "structbiovoltron_1_1Index.html#a56f53d5faa064936cdadd8891d35f1e5", null ],
     [ "get_intervals", "structbiovoltron_1_1Index.html#ac3f19bb3eb93e749b5af48ee348ac803", null ],
     [ "get_offsets", "structbiovoltron_1_1Index.html#a455bca12db0383428d3202faa3789d0d", null ],
+    [ "lf", "structbiovoltron_1_1Index.html#a63b7a381b6f1b42655b0165e4b67790f", null ],
     [ "lf_mapping", "structbiovoltron_1_1Index.html#af102ebded158521ee761343a7af8bebe", null ],
-    [ "make_index", "structbiovoltron_1_1Index.html#adcb7a36cdfb13b6ae1036d20476ef2f5", null ],
+    [ "load", "structbiovoltron_1_1Index.html#a8bf122d38f24461d7a362837ab316b22", null ],
+    [ "make_index", "structbiovoltron_1_1Index.html#af9bd1ad0ff7de7c98eb77c04ce2d9032", null ],
+    [ "save", "structbiovoltron_1_1Index.html#a88b3c74bcbf8cc908316bb274bae05da", null ],
     [ "bwt_", "structbiovoltron_1_1Index.html#a04071e964060795936b444efd029eb68", null ],
+    [ "chr_bounds", "structbiovoltron_1_1Index.html#a85b675122a7a50f106b47a4520715442", null ],
     [ "cnt_", "structbiovoltron_1_1Index.html#a872e33c2464c05926928517c18b21a78", null ],
+    [ "lookup_", "structbiovoltron_1_1Index.html#aeb20aaeda95fb656bfa6649697fc7317", null ],
     [ "occ_", "structbiovoltron_1_1Index.html#a58f3c0a3f63c9e2daf4974ff31ee4e83", null ],
+    [ "pri_", "structbiovoltron_1_1Index.html#a58ead16846944f21da1087040c368c71", null ],
     [ "sa_", "structbiovoltron_1_1Index.html#a8e35eedacb48ff050fef5e0c39ed7149", null ]
 ];

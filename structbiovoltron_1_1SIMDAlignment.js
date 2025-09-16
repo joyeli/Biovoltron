@@ -1,5 +1,25 @@
 var structbiovoltron_1_1SIMDAlignment =
 [
-    [ "global_result_type", "structbiovoltron_1_1SIMDAlignment_1_1global__result__type.html", null ],
-    [ "local_result_type", "structbiovoltron_1_1SIMDAlignment_1_1local__result__type.html", null ]
+    [ "global_result_type", "structbiovoltron_1_1SIMDAlignment_1_1global__result__type.html", "structbiovoltron_1_1SIMDAlignment_1_1global__result__type" ],
+    [ "local_result_type", "structbiovoltron_1_1SIMDAlignment_1_1local__result__type.html", "structbiovoltron_1_1SIMDAlignment_1_1local__result__type" ],
+    [ "global_align", "structbiovoltron_1_1SIMDAlignment.html#ad9422ef281bfd93d44aac88e1f54e63b", null ],
+    [ "local_align", "structbiovoltron_1_1SIMDAlignment.html#a7de9e511aca14dd6ad6a738a3d7edf88", null ],
+    [ "simd_global_align", "structbiovoltron_1_1SIMDAlignment.html#aefb82a79f563830d939d8f5c55f0fd00", null ],
+    [ "simd_local_align", "structbiovoltron_1_1SIMDAlignment.html#a3138a5370796089379d9c94a500c2a68", null ],
+    [ "DELETE_EXT_MASK", "structbiovoltron_1_1SIMDAlignment.html#ac5cf7de0d08aacbc3e17ee0e7295d97a", null ],
+    [ "DELETE_EXT_OFFSET", "structbiovoltron_1_1SIMDAlignment.html#adbf2fbf7a4beaa5f8538443027ce3334", null ],
+    [ "DELETE_GAP_EXTEND_PENALTY", "structbiovoltron_1_1SIMDAlignment.html#ae27832629b0805a610c111804cf44631", null ],
+    [ "DELETE_GAP_OPEN_PENALTY", "structbiovoltron_1_1SIMDAlignment.html#ac8b69c9759722ca76d9095fed65e155b", null ],
+    [ "DELETE_MASK", "structbiovoltron_1_1SIMDAlignment.html#a33b3069813cde3a2598f12f3a0fbcca6", null ],
+    [ "DELETE_OFFSET", "structbiovoltron_1_1SIMDAlignment.html#a81323c8442f0569f30112ca786b8e783", null ],
+    [ "INSERT_EXT_MASK", "structbiovoltron_1_1SIMDAlignment.html#acd0148e956066f9b11c55f8dddf42da9", null ],
+    [ "INSERT_EXT_OFFSET", "structbiovoltron_1_1SIMDAlignment.html#a06d2a60dc5c34094f2388e6eac13d0ec", null ],
+    [ "INSERT_GAP_EXTEND_PENALTY", "structbiovoltron_1_1SIMDAlignment.html#abac56f24551218b6229867bc0cf95a94", null ],
+    [ "INSERT_GAP_OPEN_PENALTY", "structbiovoltron_1_1SIMDAlignment.html#a4bb8ce846d0330582a73222d0a514bd9", null ],
+    [ "INSERT_MASK", "structbiovoltron_1_1SIMDAlignment.html#a7e37e85dbf96821c5fb948358749424f", null ],
+    [ "INSERT_OFFSET", "structbiovoltron_1_1SIMDAlignment.html#a6fd96ab62680b1d966a6d732b9e9685c", null ],
+    [ "MATCH_MASK", "structbiovoltron_1_1SIMDAlignment.html#a12c018f184f4ac638ff7d7b87e2533da", null ],
+    [ "MATCH_OFFSET", "structbiovoltron_1_1SIMDAlignment.html#af8522c9adac3f89f959c41b719b963f4", null ],
+    [ "MATCH_SCORE", "structbiovoltron_1_1SIMDAlignment.html#aa53fa020b5d1c5154f687df0ecf2f446", null ],
+    [ "MISMATCH_PENALTY", "structbiovoltron_1_1SIMDAlignment.html#a22ebae81c97e5509b28615fecdb38dfa", null ]
 ];
