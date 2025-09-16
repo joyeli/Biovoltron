@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Robert Vaser
 
-#ifndef SPOA_GRAPH_HPP_
-#define SPOA_GRAPH_HPP_
+#ifndef WFPOA_GRAPH_HPP_
+#define WFPOA_GRAPH_HPP_
 
 #include <atomic>
 #include <cstdint>
@@ -23,9 +23,9 @@ namespace biovoltron{
 
 using Alignment = std::vector<std::pair<std::int32_t, std::int32_t>>;
 
-class Graph {
+class WfGraph {
  public:
-  Graph()
+  WfGraph()
     : num_codes_(0),
       coder_(256, -1),
       decoder_(256, -1),
@@ -37,13 +37,13 @@ class Graph {
       first_node_() {
   };
 
-  Graph(const Graph&) = delete;
-  Graph& operator=(const Graph&) = delete;
+  WfGraph(const WfGraph&) = delete;
+  WfGraph& operator=(const WfGraph&) = delete;
 
-  Graph(Graph&&) = default;
-  Graph& operator=(Graph&&) = default;
+  WfGraph(WfGraph&&) = default;
+  WfGraph& operator=(WfGraph&&) = default;
 
-  ~Graph() = default;
+  ~WfGraph() = default;
 
   struct Node;
   struct Edge;
@@ -207,7 +207,7 @@ class Graph {
     }
     if (sequence_len != weights.size()) {
       throw std::invalid_argument(
-          "[spoa::Graph::AddAlignment] error: "
+          "[spoa::WfGraph::AddAlignment] error: "
           "sequence and weights are of unequal size!");
     }
 
@@ -229,14 +229,14 @@ class Graph {
       if (it.second != -1) {
         if (it.second < 0 || it.second >= static_cast<std::int32_t>(sequence_len)) {  // NOLINT
           throw std::invalid_argument(
-              "[spoa::Graph::AddAlignment] error: invalid alignment");
+              "[spoa::WfGraph::AddAlignment] error: invalid alignment");
         }
         valid.emplace_back(it.second);
       }
     }
     if (valid.empty()) {
       throw std::invalid_argument(
-          "[spoa::Graph::AddAlignment] error: missing sequence in alignment");
+          "[spoa::WfGraph::AddAlignment] error: missing sequence in alignment");
     }
 
     // add unaligned bases
@@ -357,7 +357,7 @@ class Graph {
     bool verbose = false) {
     if (!summary) {
       throw std::invalid_argument(
-          "[spoa::Graph::GenerateConsensus] error: invalid ptr to summary");
+          "[spoa::WfGraph::GenerateConsensus] error: invalid ptr to summary");
     }
 
     auto dst = GenerateConsensus();
@@ -408,19 +408,19 @@ class Graph {
     return dst;
   }
 
-  Graph Subgraph(
+  WfGraph Subgraph(
       std::uint32_t begin,
       std::uint32_t end,
       std::vector<const Node*>* subgraph_to_graph) const{
     if (!subgraph_to_graph) {
       throw std::invalid_argument(
-          "[spoa::Graph::Subgraph] error: invalid ptr to subgraph_to_graph");
+          "[spoa::WfGraph::Subgraph] error: invalid ptr to subgraph_to_graph");
     }
 
     auto is_in_subgraph = ExtractSubgraph(nodes_[end].get(), nodes_[begin].get());
 
     // init subgraph
-    Graph subgraph{};
+    WfGraph subgraph{};
     subgraph.num_codes_ = num_codes_;
     subgraph.coder_ = coder_;
     subgraph.decoder_ = decoder_;
@@ -475,7 +475,7 @@ class Graph {
     }
   };
 
-  // print with Graphviz
+  // print with WfGraphviz
   void PrintDot(const std::string& path) const{
     if (path.empty()) {
       return;
@@ -518,7 +518,7 @@ class Graph {
     os.close();
   };
 
-    // print with Graphviz
+    // print with WfGraphviz
   void PrintGwfa(const std::string& path) const{
     if (path.empty()) {
       return;
@@ -627,7 +627,7 @@ class Graph {
             }
           }
 
-          assert((is_valid || marks[curr->id] != 1) && "Graph is not a DAG");
+          assert((is_valid || marks[curr->id] != 1) && "WfGraph is not a DAG");
 
           if (is_valid) {
             marks[curr->id] = 2;
@@ -649,7 +649,7 @@ class Graph {
     }
     first_node_.resize(0);
 
-    assert(IsTopologicallySorted() && "Graph is not topologically sorted");
+    assert(IsTopologicallySorted() && "WfGraph is not topologically sorted");
   }
 
   bool IsTopologicallySorted() {
@@ -721,7 +721,7 @@ class Graph {
     std::reverse(consensus_.begin(), consensus_.end());
   }
 
-  Graph::Node* BranchCompletion(
+  WfGraph::Node* BranchCompletion(
       std::uint32_t rank,
       std::vector<std::int64_t>* scores,
       std::vector<Node*>* predecessors) {
@@ -817,4 +817,4 @@ class Graph {
 
 }  // namespace spoa
 
-#endif  // SPOA_GRAPH_HPP_
+#endif  // WFPOA_GRAPH_HPP_

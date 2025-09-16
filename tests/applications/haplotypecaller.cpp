@@ -2,7 +2,7 @@
 #include <iostream> //debug
 #include <catch.hpp>
 
-// using namespace biovoltron;
+using namespace biovoltron;
 
 /*
 auto
@@ -32,7 +32,8 @@ ngs_sequencing(const auto& seq) {
 */
 
 TEST_CASE("Haplotypecaller") {
-  std::cout << "TODO: applications/haplotypecaller/haplotypecaller.hpp requires test" << std::endl;
+  auto haplotype_caller = HaplotypeCaller{};
+  WARN("TODO: applications/haplotypecaller/haplotypecaller.hpp requires test");
 
   /*
   auto ref = std::string{

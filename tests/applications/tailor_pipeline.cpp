@@ -714,7 +714,7 @@ TEST_CASE("Tailor parallel") {
       }
       auto end = std::chrono::high_resolution_clock::now();
       auto dur = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-      std::cout << "Time for thr_num#" << thr_num << ": " << dur.count() << " milli s.\n";
+      // std::cout << "Time for thr_num#" << thr_num << ": " << dur.count() << " milli s.\n";
       for(auto& sample: sample_list){
         auto& sample_expr_mat = expr_mat[sample];
         auto& ans = answer[sample];

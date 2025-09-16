@@ -301,10 +301,10 @@ TEST_CASE("tmm calculation utilities") {
       f /= std::exp2(f_log_mean);
     }
 
-    for (auto f: norm_factors) {
-      std::cout << f << " ";
-    }
-    std::cout << "\n";
+    // for (auto f: norm_factors) {
+    //   std::cout << f << " ";
+    // }
+    // std::cout << "\n";
   }
 
   SECTION("calculation and normalization of norm factors") {

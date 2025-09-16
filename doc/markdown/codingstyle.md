@@ -1,9 +1,9 @@
 # C++ Coding Style Guide {#codingstyle}
 
-## 1. Introduction
+## 1. Introduction {#codingstyle-introduction}
 This document outlines the coding standards and best practices for writing Geneasic's C++ code. Consistent coding style helps improve code readability, maintainability, and reduces the likelihood of bugs. Please follow the guides bellow.
 
-## 2. File Organization
+## 2. File Organization {#codingstyle-file-organization}
 
 ### 2.1. File Naming
 * Use lowercase letters.
@@ -17,7 +17,7 @@ my_class.hpp
 my_class.cpp
 ```
 
-## 3. Naming Conventions
+## 3. Naming Conventions {#codingstyle-naming-conventions}
 
 ### 3.1. Variables
 * Use meaningful names.
@@ -86,7 +86,7 @@ class MyClass;
 static constexpr int MAX_USERS = 100;
 ```
 
-## 4. Formatting
+## 4. Formatting {#codingstyle-formatting}
 
 ### 4.1. Indentation
 * Use 2 spaces per indentation level. Do not use tabs.
@@ -139,7 +139,7 @@ int sum = a + b;
 void myFunction(int x, int y);
 ```
 
-## 5. Comments
+## 5. Comments {#codingstyle-comments}
 
 ### 5.1. Using doxygen's comment style 
 
@@ -184,7 +184,7 @@ public:
 };
 ```
 
-## 6. Classes and Structs
+## 6. Classes and Structs {#codingstyle-classes-and-structs}
 
 ### 6.1. Class Definition
 
@@ -209,7 +209,7 @@ private:
 };
 ```
 
-## 7. Templates
+## 7. Templates {#codingstyle-templates}
 
 ### 7.1 Template Declaration
 
@@ -239,7 +239,7 @@ public:
 };
 ```
 
-## 8. Miscellaneous
+## 8. Miscellaneous {#codingstyle-miscellaneous}
 
 ### 8.1 Prefer using standard containers or standard algorithms
 
@@ -255,3 +255,4 @@ std::ranges::sort(numbers); /** 1,2,3,4,5 */
 * Declare member functions of stateless classes/structs as static.
 * Utilize const whenever possible.
 * Use move semantics instead of copying.
+```

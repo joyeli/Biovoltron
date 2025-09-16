@@ -10,8 +10,10 @@
 namespace biovoltron {
 
 
-/*
- * A struct that store reference of a species
+/**
+ * @ingroup file_io 
+ * 
+ * @brief struct that store reference of a species
  * which implemented using C++20
  *
  * sequence could be store as two types, DibitVector<std::uint8_t>, or std::string

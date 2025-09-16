@@ -30,9 +30,26 @@
       <tab type="user"     visible="yes" title="Bug Reporting"    url="@ref contribute-bug-reporting" />
       <tab type="user"     visible="yes" title="Environment Setup"    url="@ref contribute-setup" />
       <tab type="user"     visible="yes" title="Development Workflow"    url="@ref contribute-development-workflow" />
-      <tab type="user"     visible="yes" title="C++ Coding Guidelines"    url="@ref codingstyle" />
       <tab type="user"     visible="yes" title="Git style"    url="@ref contribute-git-style" />
       <tab type="user"     visible="yes" title="Doxygen Comment Guidelines"    url="@ref contribute-doxygen" />
+    </tab>
+    <tab type="usergroup"     visible="yes" title="C++ Coding Style Guidelines"   url="@ref codingstyle">
+      <tab type="user"     visible="yes" title="Introduction"    url="@ref codingstyle-introduction" />
+      <tab type="user"     visible="yes" title="File Organization"    url="@ref codingstyle-file-organization" />
+      <tab type="user"     visible="yes" title="Naming Conventions"    url="@ref codingstyle-naming-conventions" />
+      <tab type="user"     visible="yes" title="Formatting"    url="@ref codingstyle-formatting" />
+      <tab type="user"     visible="yes" title="Comments"    url="@ref codingstyle-comments" />
+      <tab type="user"     visible="yes" title="Classes and Structs"    url="@ref codingstyle-classes-and-structs" />
+      <tab type="user"     visible="yes" title="Templates"    url="@ref codingstyle-templates" />
+      <tab type="user"     visible="yes" title="Miscellaneous"    url="@ref codingstyle-miscellaneous" />
+    </tab>
+    <tab type="usergroup"     visible="yes" title="Testing Guide"   url="@ref testing">
+      <tab type="user"     visible="yes" title="Importance of Testing"    url="@ref testing-importance" />
+      <tab type="user"     visible="yes" title="Writing Effective Tests"    url="@ref testing-writing-tests" />
+      <tab type="user"     visible="yes" title="Compiling for Coverage"    url="@ref testing-compiling" />
+      <tab type="user"     visible="yes" title="Running Tests"    url="@ref testing-running-tests" />
+      <tab type="user"     visible="yes" title="Generating Coverage Reports"    url="@ref testing-coverage-reports" />
+      <tab type="user"     visible="yes" title="CI/CD Integration"    url="@ref testing-ci-cd" />
     </tab>
     <tab type="user" visible="yes" title="Benchmark" url="@ref benchmark"/>
     <tab type="user" visible="yes" title="Release Notes" url="@ref release_notes"/>

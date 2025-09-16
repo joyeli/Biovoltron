@@ -1973,7 +1973,7 @@ namespace biovoltron {
  * #include <biovoltron/container/xbit_vector.hpp>
  * 
  * int main() {
- *   auto v = biovoltron::DibitVector{3, 2, 1, 2, 3, 0, 0, 1, 2};
+ *   auto v = biovoltron::DibitVector<>{3, 2, 1, 2, 3, 0, 0, 1, 2};
  *   assert(v.size() == 9);
  *   assert(v.num_blocks() == 3);
  * 

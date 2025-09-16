@@ -88,16 +88,16 @@ namespace biovoltron{
                         const simdpp::int16<16> (&masks)[N]) {
       simdpp::int16<16> m;
       m = simdpp::add(a, penalties[0]);
-      a = simdpp::max(a, masks[0] | m << 2);
+      a = simdpp::max(a, masks[0] | simdpp::move8_r<1>(m));
 
       m = simdpp::add(a, penalties[1]);
-      a = simdpp::max(a, masks[1] | m << 4);
+      a = simdpp::max(a, masks[1] | simdpp::move8_r<2>(m));
 
       m = simdpp::add(a, penalties[2]);
-      a = simdpp::max(a, masks[2] | m << 8);
+      a = simdpp::max(a, masks[2] | simdpp::move8_r<4>(m));
 
       m = simdpp::add(a, penalties[3]);
-      a = simdpp::max(a, masks[3] | m << 16);
+      a = simdpp::max(a, masks[3] | simdpp::move8_r<8>(m));
   }
 
 #elif defined(__SSE2__)
@@ -120,13 +120,13 @@ namespace biovoltron{
                         const simdpp::int16<8> (&masks)[N]) {
       simdpp::int16<8> m;
       m = simdpp::add(a, penalties[0]);
-      a = simdpp::max(a, masks[0] | m << 2);
+      a = simdpp::max(a, masks[0] | simdpp::move8_r<1>(m));
 
       m = simdpp::add(a, penalties[1]);
-      a = simdpp::max(a, masks[1] | m << 4);
+      a = simdpp::max(a, masks[1] | simdpp::move8_r<2>(m));
 
       m = simdpp::add(a, penalties[2]);
-      a = simdpp::max(a, masks[2] | m << 8);
+      a = simdpp::max(a, masks[2] | simdpp::move8_r<4>(m));
   }
 #else
   #error "Unsupported SIMD instruction set"
@@ -535,7 +535,7 @@ private:
     }
 
     masks[4] = simdpp::load(unpacked);
-    masks[4] = masks[4] << LSS;
+    masks[4] = simdpp::move8_r<LSS/2>(masks[4]);
     
 
     // first
@@ -603,7 +603,7 @@ private:
         }
       }
 
-      x = kNegSimd >> RSS;
+      x = simdpp::move8_l<RSS/2>(kNegSimd);
       for (std::uint64_t j = 0; j < matrix_width; j += T_NUM) {
         // Check the previous cell in the same row, implementing "H_row[j] = std::max(static_cast<int16_t>(H_row[j - 1] + g), H_row[j])" as in a scalar (SISD) context.
         a = simdpp::load(H_row + j);
@@ -826,7 +826,7 @@ private:
 
         E_row_simd = simdpp::add(
           simdpp::add(
-            H_row_simd << LSS | x >> RSS,
+            simdpp::move8_r<LSS/2>(H_row_simd) | simdpp::move8_l<RSS/2>(x),
             gap
           ),
           extend

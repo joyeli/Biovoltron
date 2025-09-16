@@ -36,10 +36,10 @@ enum class AlignmentSubtype {
 };
 
 
-class Graph;
+class WfGraph;
 using Alignment = std::vector<std::pair<std::int32_t, std::int32_t>>;
 
-class SimdAlignmentEngine{
+class WfpoaAlignmentEngine{
  private:
     AlignmentType type_;
     AlignmentSubtype subtype_;
@@ -85,7 +85,7 @@ class SimdAlignmentEngine{
     std::unique_ptr<Implementation> pimpl_;
 
 
-    SimdAlignmentEngine(
+    WfpoaAlignmentEngine(
     AlignmentType type,
     AlignmentSubtype subtype,
     std::int8_t m,
@@ -102,7 +102,7 @@ class SimdAlignmentEngine{
       e_(e),
       q_(q),
       c_(c),
-      pimpl_(new SimdAlignmentEngine::Implementation()) {
+      pimpl_(new WfpoaAlignmentEngine::Implementation()) {
 
       total_time_measure_spoa_fulltable = 0;
       total_time_measure_spoa_wavefront = 0;
@@ -113,19 +113,19 @@ class SimdAlignmentEngine{
     bool acc_bench = false;
     double total_time_measure_spoa_fulltable = 0;
     double total_time_measure_spoa_wavefront = 0;
-  SimdAlignmentEngine(const SimdAlignmentEngine&) = delete;
-  SimdAlignmentEngine& operator=(const SimdAlignmentEngine&) = delete;
+  WfpoaAlignmentEngine(const WfpoaAlignmentEngine&) = delete;
+  WfpoaAlignmentEngine& operator=(const WfpoaAlignmentEngine&) = delete;
 
-  SimdAlignmentEngine(SimdAlignmentEngine&&) = default;
-  SimdAlignmentEngine& operator=(SimdAlignmentEngine&&) = default;
+  WfpoaAlignmentEngine(WfpoaAlignmentEngine&&) = default;
+  WfpoaAlignmentEngine& operator=(WfpoaAlignmentEngine&&) = default;
 
-  ~SimdAlignmentEngine() = default;
+  ~WfpoaAlignmentEngine() = default;
 
   void setCutThreshold(int cut){
     cut_threshold = cut;
   }
 
-  static std::unique_ptr<SimdAlignmentEngine> Create(
+  static std::unique_ptr<WfpoaAlignmentEngine> Create(
     AlignmentType type,
     std::int8_t m,   // match
     std::int8_t n,   // mismatch
@@ -133,7 +133,7 @@ class SimdAlignmentEngine{
       return Create(type, m, n, g, g);
       };
 
-  static std::unique_ptr<SimdAlignmentEngine> Create(
+  static std::unique_ptr<WfpoaAlignmentEngine> Create(
       AlignmentType type,
       std::int8_t m,
       std::int8_t n,
@@ -143,7 +143,7 @@ class SimdAlignmentEngine{
         return Create(type, m, n, g, e, g, e);
         };
     
-    static std::unique_ptr<SimdAlignmentEngine> Create(
+    static std::unique_ptr<WfpoaAlignmentEngine> Create(
         AlignmentType type,
         std::int8_t m,
         std::int8_t n,
@@ -176,12 +176,12 @@ class SimdAlignmentEngine{
           q = g;
           c = e;
       }
-      return std::unique_ptr<SimdAlignmentEngine>(
-        new SimdAlignmentEngine(type, subtype, m, n, g, e, q, c));
+      return std::unique_ptr<WfpoaAlignmentEngine>(
+        new WfpoaAlignmentEngine(type, subtype, m, n, g, e, q, c));
       
     };
 
-    static std::unique_ptr<SimdAlignmentEngine> Create(
+    static std::unique_ptr<WfpoaAlignmentEngine> Create(
         AlignmentType type,
         AlignmentSubtype subtype,
         std::int8_t m,
@@ -199,7 +199,7 @@ class SimdAlignmentEngine{
         std::uint8_t alphabet_size) {
       if (max_sequence_len > std::numeric_limits<int32_t>::max()) {
         throw std::invalid_argument(
-            "[spoa::SimdAlignmentEngine::Prealloc] error: too large sequence!");
+            "[spoa::WfpoaAlignmentEngine::Prealloc] error: too large sequence!");
       }
       try {
         Realloc(
@@ -208,7 +208,7 @@ class SimdAlignmentEngine{
             alphabet_size);
       } catch (std::bad_alloc& ba) {
         throw std::invalid_argument(
-            "[spoa::SimdAlignmentEngine::Prealloc] error: insufficient memory!");
+            "[spoa::WfpoaAlignmentEngine::Prealloc] error: insufficient memory!");
       }
     }
 
@@ -243,7 +243,7 @@ class SimdAlignmentEngine{
       } 
     }
 
-  void wf_Realloc_Init(const Graph& graph, int matrix_height){      
+  void wf_Realloc_Init(const WfGraph& graph, int matrix_height){      
       const auto& rank_to_node = graph.rank_to_node();
 
       for (std::uint32_t i = 0; i < graph.num_codes(); ++i) {
@@ -274,7 +274,7 @@ class SimdAlignmentEngine{
 
   void Initialize(
       const char* sequence, std::uint32_t sequence_len,
-      const Graph& graph) noexcept {
+      const WfGraph& graph) noexcept {
     std::uint32_t matrix_width = sequence_len + 1;
     std::uint32_t matrix_height = graph.nodes().size() + 1;
 
@@ -366,13 +366,13 @@ class SimdAlignmentEngine{
     */
   Alignment Align(
       const char* sequence, std::uint32_t sequence_len,
-      const Graph& graph,
+      const WfGraph& graph,
       std::int32_t* score, 
       int method) {
 
       if (sequence_len > std::numeric_limits<int32_t>::max()) {
           throw std::invalid_argument(
-              "[spoa::SimdAlignmentEngine::Align] error: too large sequence!");
+              "[spoa::WfpoaAlignmentEngine::Align] error: too large sequence!");
       }
 
       if (graph.nodes().empty() || sequence_len == 0) {
@@ -381,7 +381,7 @@ class SimdAlignmentEngine{
 
       if (WorstCaseAlignmentScore(sequence_len, graph.nodes().size()) < kNegativeInfinity) {  // NOLINT
           throw std::invalid_argument(
-              "[spoa::SimdAlignmentEngine::Align] error: possible overflow!");
+              "[spoa::WfpoaAlignmentEngine::Align] error: possible overflow!");
       }
 
 
@@ -390,7 +390,7 @@ class SimdAlignmentEngine{
           Realloc(sequence_len + 1, graph.nodes().size() + 1, graph.num_codes());
       } catch (std::bad_alloc& ba) {
           throw std::invalid_argument(
-              "[spoa::SimdAlignmentEngine::Align] error: insufficient memory!");
+              "[spoa::WfpoaAlignmentEngine::Align] error: insufficient memory!");
       }
       // Initialize(sequence, sequence_len, graph);
 
@@ -412,7 +412,7 @@ class SimdAlignmentEngine{
 
   Alignment Align(
       const std::string& sequence,
-      const Graph& graph,
+      const WfGraph& graph,
       int method) {
   return Align(sequence.c_str(), sequence.size(), graph, nullptr, method);
   }
@@ -421,7 +421,7 @@ class SimdAlignmentEngine{
 
   Alignment Align(
       const std::string& sequence,
-      const Graph& graph,
+      const WfGraph& graph,
       int method, std::int32_t* score) {
   return Align(sequence.c_str(), sequence.size(), graph, score, method);
   }
@@ -446,7 +446,7 @@ private:
     * Linear gap alignment
     */
 
-    void print_M(int *M, std::vector<Graph::Node*> rank_to_node){
+    void print_M(int *M, std::vector<WfGraph::Node*> rank_to_node){
 
       std::cout << "\t\t";
       for(auto c : seq){
@@ -475,7 +475,7 @@ private:
 
     }
 
-    bool extend_arrow(std::vector<int> &M, const Graph& graph){
+    bool extend_arrow(std::vector<int> &M, const WfGraph& graph){
       const auto& rank_to_node = graph.rank_to_node();
       const auto& i_to_next_i = pimpl_->i_to_next_i;
       std::queue<std::pair<int, int>> S_;
@@ -518,7 +518,7 @@ private:
       return true;
     }
 
-    bool extend(std::vector<int> &M, const Graph& graph){
+    bool extend(std::vector<int> &M, const WfGraph& graph){
       const auto& rank_to_node = graph.rank_to_node();
       const auto& i_to_next_i = pimpl_->i_to_next_i;
       std::queue<std::pair<int, int>> S_;
@@ -553,7 +553,7 @@ private:
       return true;
     }
 
-    void expand(std::vector<int> &M, const Graph& graph){
+    void expand(std::vector<int> &M, const WfGraph& graph){
       const auto& rank_to_node = graph.rank_to_node();
       const auto& i_to_next_i = pimpl_->i_to_next_i;
       std::queue<std::pair<int, int>> S_;
@@ -594,7 +594,7 @@ private:
 
     Alignment WFAlignment(
         std::uint32_t sequence_len,
-        const Graph& graph,
+        const WfGraph& graph,
         std::int32_t* score,
         const char* sequence) noexcept {
       std::uint64_t matrix_width = sequence_len + 1;
@@ -651,7 +651,7 @@ private:
 
     Alignment Linear(
         std::uint32_t sequence_len,
-        const Graph& graph,
+        const WfGraph& graph,
         std::int32_t* score,
         const char* sequence) noexcept {
       std::uint64_t matrix_width = sequence_len + 1;
@@ -744,7 +744,7 @@ private:
 
     Alignment Debug(
         std::uint32_t sequence_len,
-        const Graph& graph,
+        const WfGraph& graph,
         std::int32_t* score,
         const char* sequence) noexcept {
       std::uint64_t matrix_width = sequence_len + 1;
@@ -896,7 +896,7 @@ private:
     }
 
 
-    Alignment traceback(int max_i, int max_j, std::vector<Graph::Node*> rank_to_node, int matrix_width, int* dp){
+    Alignment traceback(int max_i, int max_j, std::vector<WfGraph::Node*> rank_to_node, int matrix_width, int* dp){
             // backtrack
       Alignment alignment;
       std::uint32_t i = max_i;
@@ -1034,7 +1034,7 @@ const int G_Score = 2;
       return alignment;
     }
 
-    void compare(int *M, int *H, int matrix_width, std::vector<Graph::Node*> rank_to_node){      
+    void compare(int *M, int *H, int matrix_width, std::vector<WfGraph::Node*> rank_to_node){      
       std::cout << "\t";
       for(auto c : seq){
           std::cout << "\t" << c;
@@ -1062,7 +1062,7 @@ const int G_Score = 2;
 
     }
 
-    void print_N(int *M, std::vector<Graph::Node*> rank_to_node){
+    void print_N(int *M, std::vector<WfGraph::Node*> rank_to_node){
 
       std::cout << "\t";
       for(auto c : seq){
@@ -1091,4 +1091,4 @@ const int G_Score = 2;
 
 }  // namespace spoa
 
-#endif  // SIMD_ALIGNMENT_ENGINE_HPP_
+#endif  // Wfpoa_ALIGNMENT_ENGINE_HPP_

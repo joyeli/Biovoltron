@@ -115,9 +115,6 @@ git push -f origin YOUR_BRANCH
 - Submit a merge request (delete the source branch when merged).
 - Get your code merged or make necessary fixes.
 
-## C++ Coding Guidelines {#contribute-coding-guideline}
-For more detailed coding style guidelines, refer to the [Biovoltron Coding Style Guide](codingstyle.md).
-
 ## Git style {#contribute-git-style}
 ### Commit Message
 A commit message should be divided into three parts:

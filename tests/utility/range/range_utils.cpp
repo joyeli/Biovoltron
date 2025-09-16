@@ -8,7 +8,7 @@ TEST_CASE("Range") {
     std::ostringstream out;
 
     SECTION("binary_transform") {
-        std::cout << "TODO: utility/range/range_utils.hpp requires test: binary_transform" << std::endl;
+        WARN("TODO: utility/range/range_utils.hpp requires test: binary_transform");
 
         std::vector<double> vec1{1.7, 2.6, 5.7, 0.0};
         std::vector<double> vec2{8.4, 9.8, 0.0, 2.7};

@@ -16,12 +16,22 @@ struct Haplotype {
   std::uint32_t align_begin_wrt_ref = 0;
   double score = std::numeric_limits<double>::lowest();
   int rank;
-
+  /**
+   * @brief Get the size of the haplotype sequence.
+   * 
+   * @return auto 
+   */
   auto
   size() const noexcept {
     return seq.size();
   }
 
+  /**
+   * @brief Get all events that overlap with the given position.
+   * 
+   * @param begin The position to check for overlapping events.
+   * @return auto A vector of overlapping events.
+   */
   auto
   get_overlapping_events(std::size_t begin) const {
     auto events =

@@ -10,9 +10,9 @@ TEST_CASE("WaveFront POA") {
     using namespace biovoltron;
     SECTION("Alignment") {
         {
-            auto alignment_engine = biovoltron::SimdAlignmentEngine::Create(
+            auto alignment_engine = biovoltron::WfpoaAlignmentEngine::Create(
             biovoltron::AlignmentType::kNW, 0, -1, -1);
-            biovoltron::Graph graph{};
+            biovoltron::WfGraph graph{};
             std::vector<std::string> sequences = {"ACTG", "ACTCG", "ATCGG"};
 
             for (const auto& it : sequences) {
@@ -28,9 +28,9 @@ TEST_CASE("WaveFront POA") {
         }
 
         {
-            auto alignment_engine = biovoltron::SimdAlignmentEngine::Create(
+            auto alignment_engine = biovoltron::WfpoaAlignmentEngine::Create(
             biovoltron::AlignmentType::kNW, 0, -1, -1);
-            biovoltron::Graph graph{};
+            biovoltron::WfGraph graph{};
             std::vector<std::string> sequences = {"AGCTAGTGTCAATGGCTACTTTTCAGGTCCT", 
                                                 "AACTAAGTGTCGGTGGCTACTATATATCAGGTCCT"};
 
@@ -46,9 +46,9 @@ TEST_CASE("WaveFront POA") {
         }
 
         {
-            auto alignment_engine = biovoltron::SimdAlignmentEngine::Create(
+            auto alignment_engine = biovoltron::WfpoaAlignmentEngine::Create(
             biovoltron::AlignmentType::kNW, 0, -1, -1);
-            biovoltron::Graph graph{};
+            biovoltron::WfGraph graph{};
             std::string sequence = "AG";
             std::vector<std::uint32_t> weight = {1, 2, 3};
             auto alignment = alignment_engine->Align(sequence, graph, 0);

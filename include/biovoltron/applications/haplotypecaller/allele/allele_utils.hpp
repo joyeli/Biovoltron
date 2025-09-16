@@ -7,25 +7,43 @@
 namespace biovoltron {
 
 class AlleleUtils {
+  /**
+   * @brief Given the original alleles, a subset of alleles to keep, and the full list of genotypes,
+   * return the indices of the subsetted genotype likelihoods (PL) corresponding to the genotypes that can be formed
+   * 
+   * @param original_alleles 
+   * @param new_alleles 
+   * @param genotypes 
+   * @return auto 
+   */
   static auto
   subsetted_pl_indices(std::span<const std::string> original_alleles,
-                       std::span<const std::string> new_alleles,
-                       std::span<const Genotype> genotypes) {
-    auto new_allele_indices = std::vector<int>{};
-    for (const auto& new_allele : new_alleles)
+    std::span<const std::string> new_alleles,
+    std::span<const Genotype> genotypes) {
+      auto new_allele_indices = std::vector<int>{};
+      for (const auto& new_allele : new_alleles)
       new_allele_indices.push_back(
         RangeUtils::index_of(original_alleles, new_allele));
-
-    const auto new_genotypes
-      = GenotypeUtils::get_vcf_genotypes(new_allele_indices);
-
-    auto result = std::vector<int>{};
-    for (const auto& new_genotype : new_genotypes)
-      result.push_back(RangeUtils::index_of(genotypes, new_genotype));
-    return result;
-  }
-
- public:
+        
+        const auto new_genotypes
+        = GenotypeUtils::get_vcf_genotypes(new_allele_indices);
+        
+        auto result = std::vector<int>{};
+        for (const auto& new_genotype : new_genotypes)
+        result.push_back(RangeUtils::index_of(genotypes, new_genotype));
+        return result;
+      }
+      
+  public:
+      /**
+       * @brief Given the original alleles, a subset of alleles to keep, and the full list of genotypes,
+       * return the subsetted genotype likelihoods (PL) corresponding to the genotypes that can be formed
+       * 
+       * @param original_alleles The original alleles
+       * @param alleles_to_keep The alleles to keep
+       * @param genotypes The full list of genotypes
+       * @return std::vector<int> list of genotype likelihoods (PL)
+       */
   static auto
   subset_alleles(std::span<const double> log10_genotype_likelihoods,
                  std::span<const std::string> original_alleles,

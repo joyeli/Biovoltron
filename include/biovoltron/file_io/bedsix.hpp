@@ -74,8 +74,8 @@ If any `ERROR` or `Segmentation fault` occurred,
 the reason might be the breaking change of the file format of the annotation.
 Please check the following URL for mirtrondb gff file format:
 http://mirtrondb.cp.utfpr.edu.br/
-    )";
-    std::cout << tips_msg << std::endl;
+)";
+    // std::cout << tips_msg << std::endl;
 
     while(std::getline(file, line)) {
       // std::cout << line << std::endl;
@@ -137,8 +137,8 @@ If any `ERROR` or `Segmentation fault` occurred,
 the reason might be the breaking change of the file format of the annotation.
 Please check the following URL for mirbase gff file format:
 https://www.mirbase.org/
-    )";
-    std::cout << tips_msg << std::endl;
+)";
+    // std::cout << tips_msg << std::endl;
 
     while(std::getline(file, line)) {
       if(line.empty()) continue;
@@ -198,9 +198,9 @@ If any `ERROR` or `Segmentation fault` occurred,
 the reason might be the breaking change of the file format of the annotation.
 Please check the following URL for gencode gtf file format:
 https://www.gencodegenes.org/pages/data_format.html
-    )";
+)";
 
-    std::cout << tips_msg << std::endl;
+    // std::cout << tips_msg << std::endl;
     while(std::getline(file, line)) {
       if(line.empty()) continue;
       if (line.at(0) == '#') continue;
@@ -252,9 +252,9 @@ If any `ERROR` or `Segmentation fault` occurred,
 the reason might be the breaking change of the file format of the annotation.
 Please check the following URL for gencode gff file format:
 https://www.gencodegenes.org/pages/data_format.html
-    )";
+)";
 
-    std::cout << tips_msg << std::endl;
+    // std::cout << tips_msg << std::endl;
     while(std::getline(file, line)) {
       if(line.empty()) continue;
       if (line.at(0) == '#') continue;
@@ -306,9 +306,9 @@ If any `ERROR` or `Segmentation fault` occurred,
 the reason might be the breaking change of the file format of the annotation.
 Please check the following URL for gencode gtf file format:
 https://www.gencodegenes.org/pages/data_format.html
-    )";
+)";
 
-    std::cout << tips_msg << std::endl;
+    // std::cout << tips_msg << std::endl;
     while(std::getline(file, line)) {
       if(line.empty()) continue;
       if (line.at(0) == '#') continue;
@@ -375,9 +375,9 @@ If any `ERROR` or `Segmentation fault` occurred,
 the reason might be the breaking change of the file format of the annotation.
 Please check the following URL for gencode gff file format:
 https://www.gencodegenes.org/pages/data_format.html
-    )";
+)";
 
-    std::cout << tips_msg << std::endl;
+    // std::cout << tips_msg << std::endl;
     while(std::getline(file, line)) {
       if(line.empty()) continue;
       if (line.at(0) == '#') continue;
@@ -443,9 +443,9 @@ Start reading the GtRNAdb bed annotation file.
 If any `ERROR` or `Segmentation fault` occurred, 
 the reason might be the breaking change of the file format of the annotation.
 Please check the URL of GtRNAdb: https://gtrnadb.ucsc.edu/faq.html
-    )";
+)";
 
-    std::cout << tips_msg << std::endl;
+    // std::cout << tips_msg << std::endl;
     while(std::getline(file, line)) {
       if (line.empty()) continue;
       if (line.at(0) == '#') continue;

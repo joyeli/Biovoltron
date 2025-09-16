@@ -11,6 +11,12 @@ struct GenotypeUtils {
   constexpr static auto MAX_ALLELE_COUNT = 7;
 
  private:
+  /**
+   * @brief Generate all possible genotypes in VCF order for a given range of alleles.
+   * 
+   * @param alleles
+   * @return std::vector<Genotype>
+   */
   static auto
   generate_vcf_genotypes(const std::ranges::range auto& alleles)
     -> std::vector<Genotype> {
@@ -24,14 +30,22 @@ struct GenotypeUtils {
     }
     return genotypes;
   }
-
+  /**
+   * @brief Precompute all possible genotypes in VCF order for a given number of alleles.
+   * 
+   */
   const static inline auto vcf_genotypes = [] {
     auto vcf_genotypes = std::vector<std::vector<Genotype>>{};
     for (auto i = 0; i <= MAX_ALLELE_COUNT; i++)
       vcf_genotypes.push_back(generate_vcf_genotypes(std::views::iota(0, i)));
     return vcf_genotypes;
   }();
-
+  /**
+   * @brief 
+   * 
+   * @param num_alleles 
+   * @return std::vector<Genotype> 
+   */
   static auto
   generate_raw_genotypes(int num_alleles) -> std::vector<Genotype> {
     auto genotypes = std::vector<Genotype>{};
@@ -40,14 +54,18 @@ struct GenotypeUtils {
         genotypes.emplace_back(allele1, allele2);
     return genotypes;
   }
-
+  /**
+   * @brief Precompute all possible genotypes in raw order for a given number of alleles.
+   */
   const static inline auto raw_genotypes = [] {
     auto raw_genotypes = std::vector<std::vector<Genotype>>{};
     for (auto i = 0; i <= MAX_ALLELE_COUNT; i++)
       raw_genotypes.push_back(generate_raw_genotypes(i));
     return raw_genotypes;
   }();
-
+  /**
+   * @brief Precompute a mapping table from raw order to VCF order for a given number of alleles.
+   */
   const static inline auto raw_to_vcf_tables = [] {
     auto raw_to_vcf_tables = std::vector<std::vector<int>>{};
     for (auto i = 0; i < raw_genotypes.size(); i++) {
@@ -59,26 +77,52 @@ struct GenotypeUtils {
   }();
 
  public:
+  /**
+  * @brief Get all possible genotypes in VCF order for a given number of alleles.
+  * 
+  * @param num_alleles 
+  * @return std::span<const Genotype>
+  */
   static auto
   get_vcf_genotypes(int num_alleles) {
     return std::span{vcf_genotypes.at(num_alleles)};
   }
-
+  /**
+  * @brief Get all possible genotypes in VCF order for a given range of alleles.
+  * 
+  * @param alleles
+  * @return std::vector<Genotype>
+  */
   static auto
   get_vcf_genotypes(const std::ranges::range auto& alleles) {
     return generate_vcf_genotypes(alleles);
   }
-
+  /**
+  * @brief Get all possible genotypes in raw order for a given number of alleles
+  * 
+  * @param num_alleles 
+  * @return std::span<const Genotype>
+  */
   static auto
   get_raw_genotypes(int num_alleles) {
     return std::span{raw_genotypes.at(num_alleles)};
   }
-
+  /**
+  * @brief Get all possible genotypes in raw order for a given range of alleles
+  * 
+  * @param alleles
+  * @return std::vector<Genotype>
+  */
   static auto
   get_genotype_size(int num_alleles) {
     return vcf_genotypes.at(num_alleles).size();
   }
-
+  /**
+  * @brief Get the number of alleles for a given number of genotypes.
+  * 
+  * @param num_genotypes 
+  * @return int
+  */
   static auto
   get_allele_size(int num_genotypes) {
     return RangeUtils::index_of(
@@ -87,6 +131,12 @@ struct GenotypeUtils {
       num_genotypes);
   }
 
+  /**
+  * @brief Convert a vector of PLs in raw order to VCF order.
+  * 
+  * @param raw_pls 
+  * @return std::vector<double>
+  */
   static auto
   to_vcf_order(std::span<const double> raw_pls) {
     const auto allele_size = get_allele_size(raw_pls.size());
@@ -95,7 +145,13 @@ struct GenotypeUtils {
     for (auto i = 0; i < raw_pls.size(); i++) vcf_pls[table[i]] = raw_pls[i];
     return vcf_pls;
   }
-
+  
+  /**
+  * @brief Convert a vector of GLs to PLs.
+  * 
+  * @param gls 
+  * @return std::vector<int>
+  */
   static auto
   gls_to_pls(const std::vector<double>& gls) {
     auto pls = std::vector(gls.size(), 0);
