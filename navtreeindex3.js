@@ -1,5 +1,10 @@
 var NAVTREEINDEX3 =
 {
+"structbiovoltron_1_1FastqRecord.html":[9,3,4],
+"structbiovoltron_1_1FastqRecord.html#a5b3fdc8addc40ff9f064e4658a6916a3":[9,3,4,1],
+"structbiovoltron_1_1FastqRecord.html#a940a29a893e0d9bcdd38e04d0667d51d":[9,3,4,0],
+"structbiovoltron_1_1GenotypeUtils.html":[11,0,0,75],
+"structbiovoltron_1_1GffRecord.html":[9,3,5],
 "structbiovoltron_1_1GffRecord.html#a11c907c41e0f7a01c895b72b5af7ba40":[9,3,5,7],
 "structbiovoltron_1_1GffRecord.html#a14e859edc1165cc18d69a61a2d864495":[9,3,5,9],
 "structbiovoltron_1_1GffRecord.html#a1d725456afb7b8796af8956f6e77d0e5":[9,3,5,10],
@@ -244,10 +249,5 @@ var NAVTREEINDEX3 =
 "structbiovoltron_1_1SIMDAlignment.html#a7e37e85dbf96821c5fb948358749424f":[11,0,0,9,16],
 "structbiovoltron_1_1SIMDAlignment.html#a81323c8442f0569f30112ca786b8e783":[11,0,0,9,11],
 "structbiovoltron_1_1SIMDAlignment.html#aa53fa020b5d1c5154f687df0ecf2f446":[11,0,0,9,20],
-"structbiovoltron_1_1SIMDAlignment.html#abac56f24551218b6229867bc0cf95a94":[11,0,0,9,14],
-"structbiovoltron_1_1SIMDAlignment.html#ac5cf7de0d08aacbc3e17ee0e7295d97a":[11,0,0,9,6],
-"structbiovoltron_1_1SIMDAlignment.html#ac8b69c9759722ca76d9095fed65e155b":[11,0,0,9,9],
-"structbiovoltron_1_1SIMDAlignment.html#acd0148e956066f9b11c55f8dddf42da9":[11,0,0,9,12],
-"structbiovoltron_1_1SIMDAlignment.html#ad9422ef281bfd93d44aac88e1f54e63b":[11,0,0,9,2],
-"structbiovoltron_1_1SIMDAlignment.html#adbf2fbf7a4beaa5f8538443027ce3334":[11,0,0,9,7]
+"structbiovoltron_1_1SIMDAlignment.html#abac56f24551218b6229867bc0cf95a94":[11,0,0,9,14]
 };

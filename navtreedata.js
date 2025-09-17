@@ -37,11 +37,11 @@ var NAVTREE =
         [ "Working with FASTA Files", "tutorials-fileio-fasta.html", null ],
         [ "Working with FASTQ Files", "tutorials-fileio-fastq.html", null ]
       ] ],
-      [ "Alignment Tutorials", "tutorials.html#tutorials-alignment", null ],
-      [ "Variant Calling Tutorials", "tutorials.html#tutorials-calling", null ],
-      [ "Genome Indexing Tutorials", "tutorials.html#tutorials-indexing", null ],
-      [ "Read Trimming Tutorials", "tutorials.html#tutorials-trimming", null ],
-      [ "Annotator Tutorials", "tutorials.html#tutorials-annotator", null ]
+      [ "Alignment Tutorials", "@ref tutorials-alignment", null ],
+      [ "Variant Calling Tutorials", "@ref tutorials-calling", null ],
+      [ "Genome Indexing Tutorials", "@ref tutorials-indexing", null ],
+      [ "Read Trimming Tutorials", "@ref tutorials-trimming", null ],
+      [ "Annotator Tutorials", "@ref tutorials-annotator", null ]
     ] ],
     [ "Contribute", "contribute.html", [
       [ "Bug Reporting", "contribute.html#contribute-bug-reporting", null ],
@@ -96,12 +96,12 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"classbiovoltron_1_1igzstream.html#a1d34faf3831d0d1a1a2f8d23dcc50b46",
-"functions_func_d.html",
-"structbiovoltron_1_1GffRecord.html#a11c907c41e0f7a01c895b72b5af7ba40",
-"structbiovoltron_1_1SIMDAlignment.html#ae27832629b0805a610c111804cf44631",
-"structbiovoltron_1_1mirna_1_1MirExp.html"
+"@ref tutorials-alignment",
+"classbiovoltron_1_1gzstreambuf.html#a9c2710578c4a9216c03c3131b6977d15",
+"functions_f.html",
+"structbiovoltron_1_1FastqRecord.html",
+"structbiovoltron_1_1SIMDAlignment.html#ac5cf7de0d08aacbc3e17ee0e7295d97a",
+"structbiovoltron_1_1kiss_1_1ThreadState.html#af14e34558e54f3319ef2e25921da02bd"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

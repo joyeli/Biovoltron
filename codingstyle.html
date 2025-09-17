@@ -122,7 +122,40 @@ $(document).ready(function(){initNavTree('codingstyle.html',''); initResizable()
 <div class="title">C++ Coding Style Guide </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_doc_markdown_codingstyle"></a> </p>
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#codingstyle-introduction">1. Introduction</a></li>
+<li class="level1"><a href="#codingstyle-file-organization">2. File Organization</a><ul><li class="level2"><a href="#autotoc_md3">2.1. File Naming</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#codingstyle-naming-conventions">3. Naming Conventions</a><ul><li class="level2"><a href="#autotoc_md4">3.1. Variables</a></li>
+<li class="level2"><a href="#autotoc_md5">3.2 Functions</a></li>
+<li class="level2"><a href="#autotoc_md6">3.3. Classes and Structs</a></li>
+<li class="level2"><a href="#autotoc_md7">3.4 Constants</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#codingstyle-formatting">4. Formatting</a><ul><li class="level2"><a href="#autotoc_md8">4.1. Indentation</a></li>
+<li class="level2"><a href="#autotoc_md9">4.2. Braces</a></li>
+<li class="level2"><a href="#autotoc_md10">4.3. Line Length</a></li>
+<li class="level2"><a href="#autotoc_md11">4.4. Whitespace</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#codingstyle-comments">5. Comments</a><ul><li class="level2"><a href="#autotoc_md12">5.1. Using doxygen&#39;s comment style</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#codingstyle-classes-and-structs">6. Classes and Structs</a><ul><li class="level2"><a href="#autotoc_md13">6.1. Class Definition</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#codingstyle-templates">7. Templates</a><ul><li class="level2"><a href="#autotoc_md14">7.1 Template Declaration</a></li>
+<li class="level2"><a href="#autotoc_md15">7.2 Template Function Definitions</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#codingstyle-miscellaneous">8. Miscellaneous</a><ul><li class="level2"><a href="#autotoc_md16">8.1 Prefer using standard containers or standard algorithms</a></li>
+<li class="level2"><a href="#autotoc_md17">8.2 Others</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><p><a class="anchor" id="md_doc_markdown_codingstyle"></a></p>
 <h1><a class="anchor" id="codingstyle-introduction"></a>
 1. Introduction</h1>
 <p>This document outlines the coding standards and best practices for writing Geneasic's C++ code. Consistent coding style helps improve code readability, maintainability, and reduces the likelihood of bugs. Please follow the guides bellow.</p>

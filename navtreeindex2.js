@@ -1,5 +1,10 @@
 var NAVTREEINDEX2 =
 {
+"functions_f.html":[11,3,0,5],
+"functions_func.html":[11,3,1],
+"functions_func.html":[11,3,1,0],
+"functions_func_b.html":[11,3,1,1],
+"functions_func_c.html":[11,3,1,2],
 "functions_func_d.html":[11,3,1,3],
 "functions_func_e.html":[11,3,1,4],
 "functions_func_f.html":[11,3,1,5],
@@ -64,8 +69,8 @@ var NAVTREEINDEX2 =
 "group__suffix__sorter.html#gabed3c34cb48dcda6871af3ffd41d5c78":[9,0,4,1],
 "group__utility.html":[9,4],
 "hierarchy.html":[11,2],
-"index.html":[],
 "index.html":[0],
+"index.html":[],
 "installation.html":[1],
 "installation.html#installation-first-example":[1,3],
 "installation.html#installation-requirements":[1,0],
@@ -244,10 +249,5 @@ var NAVTREEINDEX2 =
 "structbiovoltron_1_1FastaRecord.html":[9,3,3],
 "structbiovoltron_1_1FastaRecord.html#acf2684a999d11e2bb520b78a842ff769":[9,3,3,2],
 "structbiovoltron_1_1FastaRecord.html#ad6cad4e0e9c48a135bc17cb1f28218f6":[9,3,3,1],
-"structbiovoltron_1_1FastaRecord.html#af6fd26cf3daac2b6dd62c8a47a5ab24c":[9,3,3,0],
-"structbiovoltron_1_1FastqRecord.html":[9,3,4],
-"structbiovoltron_1_1FastqRecord.html#a5b3fdc8addc40ff9f064e4658a6916a3":[9,3,4,1],
-"structbiovoltron_1_1FastqRecord.html#a940a29a893e0d9bcdd38e04d0667d51d":[9,3,4,0],
-"structbiovoltron_1_1GenotypeUtils.html":[11,0,0,75],
-"structbiovoltron_1_1GffRecord.html":[9,3,5]
+"structbiovoltron_1_1FastaRecord.html#af6fd26cf3daac2b6dd62c8a47a5ab24c":[9,3,3,0]
 };

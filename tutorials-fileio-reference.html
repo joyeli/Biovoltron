@@ -153,15 +153,19 @@ Step 2. Creating a ReferenceRecord Object</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md64"></a>
 Step 3. Loading from a FASTA File</h1>
-<p><code>ReferenceRecord</code> integrates seamlessly with FASTA input. You can parse a FASTA file directly into a <code>ReferenceRecord</code>:</p>
+<p><code>ReferenceRecord</code> integrates seamlessly with FASTA input. You can parse a FASTA file directly into a <code>ReferenceRecord</code>.</p>
+<blockquote class="doxtable">
+<p>Note: The following example assumes you have a FASTA file named <code>GRCh38</code> in your working directory. </p>
+</blockquote>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/file_io/reference.hpp&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacebiovoltron.html">biovoltron</a>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
 <div class="line">  <span class="comment">// Open a FASTA reference genome file</span></div>
-<div class="line">  <span class="keyword">auto</span> fin = std::ifstream {<span class="stringliteral">&quot;GRCh38&quot;</span>}</div>
+<div class="line">  <span class="keyword">auto</span> fin = std::ifstream{<span class="stringliteral">&quot;GRCh38&quot;</span>};</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Create an empty ReferenceRecord</span></div>
 <div class="line">  <span class="keyword">auto</span> ref = ReferenceRecord&lt;false&gt;{ .species = <span class="stringliteral">&quot;Human&quot;</span> };</div>
@@ -214,22 +218,57 @@ Step 5. Recovering Original Sequence</h1>
 </div><!-- fragment --><p>This restores the <code>N</code> bases in all unknown intervals.</p>
 <h1><a class="anchor" id="autotoc_md67"></a>
 Step 6. Saving and Loading in Binary Format</h1>
-<p><code>ReferenceRecord</code> can be saved into a compact <code>.bfa</code> binary file and later loaded back:</p>
-<div class="fragment"><div class="line"><span class="comment">// Save</span></div>
-<div class="line">{</div>
-<div class="line">  <span class="keyword">auto</span> fout = std::ofstream{<span class="stringliteral">&quot;GRCh38.bfa&quot;</span>, std::ios::binary};</div>
-<div class="line">  ref.<a class="code" href="structbiovoltron_1_1ReferenceRecord.html#aadf4d469c3f22e9af4135e55fb21020c">save</a>(fout);</div>
-<div class="line">}</div>
+<p><code>ReferenceRecord</code> can be saved into a compact <code>.bfa</code> binary file and later loaded back.</p>
+<blockquote class="doxtable">
+<p>Note: This example assumes you have a FASTA file named <code>GRCh38</code> to create the initial record. </p>
+</blockquote>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/file_io/reference.hpp&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Load</span></div>
-<div class="line"><span class="keyword">auto</span> loaded_ref = ReferenceRecord&lt;false&gt;{};</div>
-<div class="line">{</div>
-<div class="line">  <span class="keyword">auto</span> fin = std::ifstream{<span class="stringliteral">&quot;GRCh38.bfa&quot;</span>, std::ios::binary};</div>
-<div class="line">  loaded_ref.load(fin);</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacebiovoltron.html">biovoltron</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Verify equality</span></div>
-<div class="line">assert(ref == loaded_ref);</div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  <span class="comment">// First, create and load a ReferenceRecord from a FASTA file.</span></div>
+<div class="line">  <span class="keyword">auto</span> ref = ReferenceRecord&lt;false&gt;{};</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keyword">auto</span> fin = std::ifstream{<span class="stringliteral">&quot;GRCh38&quot;</span>};</div>
+<div class="line">    <span class="keywordflow">if</span> (!fin) {</div>
+<div class="line">      std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Cannot open GRCh38. Please create this file.\n&quot;</span>;</div>
+<div class="line">      <span class="comment">// As a fallback for the example, create a dummy record.</span></div>
+<div class="line">      ref.seq = <span class="stringliteral">&quot;ACGTN&quot;</span>;</div>
+<div class="line">      ref.chr_names.push_back(<span class="stringliteral">&quot;chr1&quot;</span>);</div>
+<div class="line">      ref.chr_end_pos.push_back(5);</div>
+<div class="line">      ref.base_cnt = {1,1,1,1,1};</div>
+<div class="line">      ref.chr_num = 1;</div>
+<div class="line">      ref.species = <span class="stringliteral">&quot;Dummy&quot;</span>;</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">      fin &gt;&gt; ref;</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Save the record to a binary .bfa file</span></div>
+<div class="line">  {</div>
+<div class="line">    <span class="keyword">auto</span> fout = std::ofstream{<span class="stringliteral">&quot;GRCh38.bfa&quot;</span>, std::ios::binary};</div>
+<div class="line">    ref.<a class="code" href="structbiovoltron_1_1ReferenceRecord.html#aadf4d469c3f22e9af4135e55fb21020c">save</a>(fout);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Saved reference to GRCh38.bfa&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Load the record from the binary .bfa file</span></div>
+<div class="line">  <span class="keyword">auto</span> loaded_ref = ReferenceRecord&lt;false&gt;{};</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keyword">auto</span> fin = std::ifstream{<span class="stringliteral">&quot;GRCh38.bfa&quot;</span>, std::ios::binary};</div>
+<div class="line">    loaded_ref.load(fin);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Loaded reference from GRCh38.bfa&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Verify that the saved and loaded records are identical</span></div>
+<div class="line">  assert(ref == loaded_ref);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Verification successful: original and loaded records are identical.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
 <div class="ttc" id="astructbiovoltron_1_1ReferenceRecord_html_aadf4d469c3f22e9af4135e55fb21020c"><div class="ttname"><a href="structbiovoltron_1_1ReferenceRecord.html#aadf4d469c3f22e9af4135e55fb21020c">biovoltron::ReferenceRecord::save</a></div><div class="ttdeci">auto save(std::ofstream &amp;fout) const</div><div class="ttdef"><b>Definition:</b> reference.hpp:143</div></div>
 </div><!-- fragment --><p><span class="next_section_button"> <a href="structbiovoltron_1_1ReferenceRecord.html">Read Next: ReferenceRecord Modules</a> </span> </p>
 </div></div><!-- contents -->

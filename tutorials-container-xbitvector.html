@@ -176,23 +176,47 @@ Step 5. Specialized Operations</h1>
 <div class="line">  std::cout &lt;&lt; +x &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;  <span class="comment">// prints: 3 2 1 0</span></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md57"></a>
 Step 6. DNA Example with DibitVector</h1>
-<p>A common use case is encoding DNA bases:</p>
-<div class="fragment"><div class="line"><a class="code" href="group__container.html#gac3150f4a4ecfc2996c37827da9316dfc">biovoltron::DibitVector&lt;&gt;</a> dna = {0, 1, 2, 3}; <span class="comment">// A=0, C=1, G=2, T=3</span></div>
+<p>A common use case is encoding DNA bases. The following example demonstrates how to transform the encoded values back to characters and compute the reverse complement using C++20 ranges.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;ranges&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iterator&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/container/xbit_vector.hpp&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> base_view = std::views::transform([](<span class="keyword">auto</span> c){ <span class="keywordflow">return</span> <span class="stringliteral">&quot;ACGT&quot;</span>[c]; });</div>
-<div class="line">std::ranges::copy(dna | base_view,</div>
-<div class="line">                  std::ostream_iterator&lt;char&gt;{std::cout, <span class="stringliteral">&quot;&quot;</span>});</div>
-<div class="line"><span class="comment">// Output: ACGT</span></div>
-</div><!-- fragment --><p>You can also compute the reverse complement:</p>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> comp_view = std::views::transform([](<span class="keyword">auto</span> c){ <span class="keywordflow">return</span> 0b11u - c; });</div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> c : dna | std::views::reverse | comp_view | base_view)</div>
-<div class="line">  std::cout &lt;&lt; c;  <span class="comment">// Output: ACGT -&gt; reverse complement -&gt; ACGT</span></div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  <a class="code" href="group__container.html#gac3150f4a4ecfc2996c37827da9316dfc">biovoltron::DibitVector&lt;&gt;</a> dna = {0, 1, 2, 3}; <span class="comment">// A=0, C=1, G=2, T=3</span></div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">auto</span> base_view = std::views::transform([](<span class="keyword">auto</span> c){ <span class="keywordflow">return</span> <span class="stringliteral">&quot;ACGT&quot;</span>[c]; });</div>
+<div class="line"> </div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Original DNA: &quot;</span>;</div>
+<div class="line">  std::ranges::copy(dna | base_view,</div>
+<div class="line">                    std::ostream_iterator&lt;char&gt;{std::cout, <span class="stringliteral">&quot;&quot;</span>});</div>
+<div class="line">  std::cout &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// You can also compute the reverse complement:</span></div>
+<div class="line">  <span class="keyword">auto</span> comp_view = std::views::transform([](<span class="keyword">auto</span> c){ <span class="keywordflow">return</span> 0b11u - c; });</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Reverse Complement: &quot;</span>;</div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keyword">auto</span> c : dna | std::views::reverse | comp_view | base_view) {</div>
+<div class="line">    std::cout &lt;&lt; c;</div>
+<div class="line">  }</div>
+<div class="line">  std::cout &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md58"></a>
 Step 7. QuadbitVector Example</h1>
 <p><code>QuadbitVector</code> works the same, but allows values from 0 to 15:</p>
-<div class="fragment"><div class="line"><a class="code" href="group__container.html#ga4ae433cec1636e6cff77fe4666db615a">biovoltron::QuadbitVector&lt;&gt;</a> q = {1, 5, 9, 15};</div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span> x : q)</div>
-<div class="line">  std::cout &lt;&lt; +x &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;  <span class="comment">// prints: 1 5 9 15</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;biovoltron/container/xbit_vector.hpp&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  <a class="code" href="group__container.html#ga4ae433cec1636e6cff77fe4666db615a">biovoltron::QuadbitVector&lt;&gt;</a> q = {1, 5, 9, 15};</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;QuadbitVector contents: &quot;</span>;</div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keyword">auto</span> x : q) {</div>
+<div class="line">    std::cout &lt;&lt; +x &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;  <span class="comment">// prints: 1 5 9 15</span></div>
+<div class="line">  }</div>
+<div class="line">  std::cout &lt;&lt; std::endl;</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
 <div class="ttc" id="agroup__container_html_ga4ae433cec1636e6cff77fe4666db615a"><div class="ttname"><a href="group__container.html#ga4ae433cec1636e6cff77fe4666db615a">biovoltron::QuadbitVector</a></div><div class="ttdeci">detail::XbitVector&lt; 4, Block, Allocator &gt; QuadbitVector</div><div class="ttdef"><b>Definition:</b> xbit_vector.hpp:2017</div></div>
 </div><!-- fragment --><p><span class="next_section_button"> <a href="classbiovoltron_1_1detail_1_1XbitVector.html">Read Next: XbitVector Modules</a> </span> </p>
 </div></div><!-- contents -->

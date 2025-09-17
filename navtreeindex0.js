@@ -1,5 +1,10 @@
 var NAVTREEINDEX0 =
 {
+"@ref tutorials-alignment":[2,1],
+"@ref tutorials-annotator":[2,5],
+"@ref tutorials-calling":[2,2],
+"@ref tutorials-indexing":[2,3],
+"@ref tutorials-trimming":[2,4],
 "annotated.html":[11,0],
 "benchmark.html":[6],
 "classAlignedAllocator.html":[11,0,2],
@@ -244,10 +249,5 @@ var NAVTREEINDEX0 =
 "classbiovoltron_1_1gzstreambuf.html#a25194e0f7394a61dae4b5a23489b0217":[11,0,0,68,2],
 "classbiovoltron_1_1gzstreambuf.html#a343889e4b8b5c533345331653ec1489e":[11,0,0,68,0],
 "classbiovoltron_1_1gzstreambuf.html#a3912f9ff2d87d2b4a0b1fd0c004db3b9":[11,0,0,68,5],
-"classbiovoltron_1_1gzstreambuf.html#a9a7548b7c39afc145fed45c4feced91c":[11,0,0,68,1],
-"classbiovoltron_1_1gzstreambuf.html#a9c2710578c4a9216c03c3131b6977d15":[11,0,0,68,4],
-"classbiovoltron_1_1gzstreambuf.html#aa6a2967d50429ff2d049442908d7bdd8":[11,0,0,68,7],
-"classbiovoltron_1_1gzstreambuf.html#abba2400fcc5232007c6a5c12ac9ab292":[11,0,0,68,3],
-"classbiovoltron_1_1igzstream.html":[11,0,0,70],
-"classbiovoltron_1_1igzstream.html#a16de96ee1a4c5f75bdb0c1e7fd06b322":[11,0,0,70,2]
+"classbiovoltron_1_1gzstreambuf.html#a9a7548b7c39afc145fed45c4feced91c":[11,0,0,68,1]
 };

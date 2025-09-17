@@ -1,5 +1,10 @@
 var NAVTREEINDEX5 =
 {
+"structbiovoltron_1_1kiss_1_1ThreadState.html#af14e34558e54f3319ef2e25921da02bd":[11,0,0,1,1,6],
+"structbiovoltron_1_1mirna_1_1LenExp.html":[9,5,0],
+"structbiovoltron_1_1mirna_1_1LenExp.html#a0de44d88c487e79f2117bd73295f9f04":[9,5,0,5],
+"structbiovoltron_1_1mirna_1_1LenExp.html#a591ffdb36e2ecef8d40fd329ee4b5590":[9,5,0,1],
+"structbiovoltron_1_1mirna_1_1LenExp.html#a80ae1d8ae044dcce473ef7484890845a":[9,5,0,0],
 "structbiovoltron_1_1mirna_1_1MirExp.html":[9,5,2],
 "structbiovoltron_1_1mirna_1_1MirExp.html#a5c61f6133eed73b36bf350911b2553fc":[9,5,2,1],
 "structbiovoltron_1_1mirna_1_1MirExp.html#a9a9966cf327b9af00d7575cefe96a8dd":[9,5,2,3],
@@ -58,11 +63,6 @@ var NAVTREEINDEX5 =
 "tutorials-fileio-fasta.html":[2,0,0],
 "tutorials-fileio-fastq.html":[2,0,1],
 "tutorials.html":[2],
-"tutorials.html#tutorials-alignment":[2,1],
-"tutorials.html#tutorials-annotator":[2,5],
-"tutorials.html#tutorials-calling":[2,2],
 "tutorials.html#tutorials-fileio":[2,0],
-"tutorials.html#tutorials-indexing":[2,3],
-"tutorials.html#tutorials-trimming":[2,4],
 "wiki.html":[8]
 };

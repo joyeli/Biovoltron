@@ -123,71 +123,160 @@ $(document).ready(function(){initNavTree('tutorials.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#tutorials-fileio">File Input/Output Module Tutorials</a></li>
-<li class="level1"><a href="#tutorials-alignment">Alignment Tutorials</a></li>
-<li class="level1"><a href="#tutorials-calling">Variant Calling Tutorials</a></li>
-<li class="level1"><a href="#tutorials-indexing">Genome Indexing Tutorials</a></li>
-<li class="level1"><a href="#tutorials-trimming">Read Trimming Tutorials</a></li>
-<li class="level1"><a href="#tutorials-annotator">Annotator Tutorials</a></li>
+<ul><li class="level1"><a href="#tutorials-applications">Applications</a></li>
+<li class="level1"><a href="#tutorials-fileio">File Input/Output</a></li>
+<li class="level1"><a href="#tutorials-container">Containers</a></li>
+<li class="level1"><a href="#tutorials-algo">Algorithms</a><ul><li class="level2"><a href="#tutorials-algo-align">Alignment</a></li>
+<li class="level2"><a href="#tutorials-algo-assemble">Assembly</a></li>
+<li class="level2"><a href="#tutorials-algo-annotate">Annotation</a></li>
+<li class="level2"><a href="#tutorials-algo-sort">Suffix Sorting</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#tutorials-pipe">Pipes</a></li>
+<li class="level1"><a href="#tutorials-utility">Utilities</a></li>
+<li class="level1"><a href="#tutorials-math">Math</a></li>
 </ul>
 </div>
 <div class="textblock"><p><a class="anchor" id="md_doc_markdown_tutorials_index"></a></p>
 <p>Welcome to the Biovoltron tutorial. Explore these tutorials to gain a deeper understanding of Biovoltron's capabilities in various bioinformatics tasks. Each tutorial provides practical guidance, code examples, and best practices tailored to specific bioinformatics tasks. Click on the links to begin your journey with the tutorials of your choice.</p>
+<h1><a class="anchor" id="tutorials-applications"></a>
+Applications</h1>
+<p>High-level bioinformatics applications built using Biovoltron's modules.</p>
+<ol type="1">
+<li><a class="el" href="tutorials-applications-burrowwheeleraligner.html#md_doc_markdown_tutorials_applications_burrow_wheeler_aligner">Burrow-Wheeler Aligner</a> <br  />
+ A paired-end short-read aligner optimized for hs37d5 using an FM-index and SSE-accelerated Smith-Waterman.</li>
+<li><a class="el" href="tutorials-applications-haplotypecaller.html#md_doc_markdown_tutorials_applications_haplotypecaller">HaplotypeCaller</a> <br  />
+ A tool for calling SNPs and indels via local re-assembly of haplotypes.</li>
+<li><a class="el" href="tutorials-applications-adaptertrimmer.html#md_doc_markdown_tutorials_applications_adapter_trimmer">Adapter Trimmer (EARRINGS)</a> <br  />
+ A fast, multithreaded, and SIMD-optimized adapter trimmer for single-end and paired-end reads.</li>
+<li><a class="el" href="tutorials-applications-tailorpipeline.html#md_doc_markdown_tutorials_applications_tailor_pipeline">Tailor Pipeline</a> <br  />
+ A specialized pipeline for miRNA analysis, including alignment, non-template addition detection, and trimming.</li>
+</ol>
 <h1><a class="anchor" id="tutorials-fileio"></a>
-File Input/Output Module Tutorials</h1>
+File Input/Output</h1>
+<p>Modules for reading and writing common bioinformatics file formats.</p>
 <ol type="1">
-<li><a class="el" href="tutorials-fileio-fasta.html#md_doc_markdown_tutorials_file_io_fasta">Working with FASTA Files</a> <br  />
- Learn how to handle nucleotide sequences stored in FASTA format using Biovoltron's FastaRecord module.</li>
-<li><a class="el" href="tutorials-fileio-fastq.html#md_doc_markdown_tutorials_file_io_fastq">Working with FASTQ Files</a> <br  />
- Explore Biovoltron's FastqRecord module to parse and manipulate data from FASTQ files, including sequence data and quality scores.</li>
-<li><a href="/dummy">Working with SAM Files</a><br  />
- Dive into the intricacies of processing SAM (Sequence Alignment/Map) files using Biovoltron's SamUtil, SamHeader, and SamRecord modules.</li>
-<li><a href="/dummy">Working with VCF Files</a> <br  />
- Harness the power of Biovoltron's VcfHeader and VcfRecord modules to efficiently manage and analyze genomic variations stored in VCF format.</li>
-<li><a href="/dummy">Working with GFF Files</a> <br  />
- Learn how to parse and manipulate data from GFF (General Feature Format) files with Biovoltron's GffRecord module.</li>
-<li><a href="/dummy">Working with BED Files</a> <br  />
- Explore Biovoltron's BedRecord module for efficient handling of BED (Browser Extensible Data) files used for storing genomic annotations.</li>
-<li><a href="/dummy">Working with WIG Files</a> <br  />
- Discover how to parse and manipulate data from WIG (Wiggle) files using Biovoltron's WigRecord module, commonly used for representing genome-wide signal data.</li>
+<li><a class="el" href="tutorials-fileio-core.html#md_doc_markdown_tutorials_file_io_core">Core I/O Concepts</a> <br  />
+ Learn about the fundamental <code>Record</code> and <code>Header</code> structures for file parsing.</li>
+<li><a class="el" href="tutorials-fileio-fasta.html#md_doc_markdown_tutorials_file_io_fasta">FASTA Format</a> <br  />
+ Handle nucleotide or protein sequences stored in FASTA format.</li>
+<li><a class="el" href="tutorials-fileio-fastq.html#md_doc_markdown_tutorials_file_io_fastq">FASTQ Format</a> <br  />
+ Parse and manipulate sequence data and quality scores from FASTQ files.</li>
+<li><a class="el" href="tutorials-fileio-sam.html#md_doc_markdown_tutorials_file_io_sam">SAM/BAM Format</a> <br  />
+ Process Sequence Alignment/Map (SAM) and its binary version (BAM) files.</li>
+<li><a class="el" href="tutorials-fileio-vcf.html#md_doc_markdown_tutorials_file_io_vcf">VCF Format</a> <br  />
+ Manage and analyze genomic variations stored in Variant Call Format (VCF).</li>
+<li><a class="el" href="tutorials-fileio-bed.html#md_doc_markdown_tutorials_file_io_bed">BED Format</a> <br  />
+ Handle genomic annotations stored in Browser Extensible Data (BED) files.</li>
+<li><a class="el" href="tutorials-fileio-bedsix.html#md_doc_markdown_tutorials_file_io_bedsix">BED6+ Format</a> <br  />
+ Work with 6-column BED files containing gene type and name annotations.</li>
+<li><a class="el" href="tutorials-fileio-gff.html#md_doc_markdown_tutorials_file_io_gff">GFF/GTF Format</a> <br  />
+ Parse and manipulate data from General Feature Format (GFF) files.</li>
+<li><a class="el" href="tutorials-fileio-wig.html#md_doc_markdown_tutorials_file_io_wig">WIG Format</a> <br  />
+ Represent genome-wide signal data using the Wiggle (WIG) format.</li>
+<li><a class="el" href="tutorials-fileio-cigar.html#md_doc_markdown_tutorials_file_io_cigar">CIGAR Strings</a> <br  />
+ Understand and manipulate CIGAR strings representing sequence alignments.</li>
+<li><a class="el" href="tutorials-fileio-reference.html#md_doc_markdown_tutorials_file_io_reference">Reference Genome Format</a> <br  />
+ Work with <code>ReferenceRecord</code> to store, save, and load reference genomes efficiently.</li>
 </ol>
-<h1><a class="anchor" id="tutorials-alignment"></a>
-Alignment Tutorials</h1>
+<h1><a class="anchor" id="tutorials-container"></a>
+Containers</h1>
+<p>Specialized, efficient data structures for bioinformatics data.</p>
 <ol type="1">
-<li><a href="/dummy">Sequence Alignment with Blowtorch</a> <br  />
- Learn the fundamentals of sequence alignment using Biovoltron's alignment capabilities, ensuring precise alignment of sequences.</li>
-<li><a href="/dummy">Efficient Pairwise Sequence Alignment</a> <br  />
- Explore Biovoltron's pairwise alignment capabilities, enabling you to align two sequences quickly and accurately.</li>
+<li><a class="el" href="tutorials-container-xbitvector.html#md_doc_markdown_tutorials_container_xbit_vector">X-bit Vector (`DibitVector`, `QuadbitVector`)</a> <br  />
+ Use <code>DibitVector</code> and <code>QuadbitVector</code> for space-efficient storage of DNA sequences or other data requiring 2 or 4 bits per value.</li>
 </ol>
-<h1><a class="anchor" id="tutorials-calling"></a>
-Variant Calling Tutorials</h1>
+<h1><a class="anchor" id="tutorials-algo"></a>
+Algorithms</h1>
+<p>Core algorithms for sequence analysis, assembly, and annotation.</p>
+<h2><a class="anchor" id="tutorials-algo-align"></a>
+Alignment</h2>
+<p>Algorithms for aligning sequences to a reference or to each other.</p>
 <ol type="1">
-<li><a href="/dummy">Introduction to Variant Calling</a> <br  />
- Delve into Biovoltron's variant calling modules to discover and analyze genomic variations.</li>
+<li><a class="el" href="tutorials-algo-align-exactmatch-fmindex.html#md_doc_markdown_tutorials_algo_align_exact_match_fm_index">FM-Index Exact Matching</a> <br  />
+ Use a fast, compressed FM-Index for rapid and precise exact sequence matching.</li>
+<li><a class="el" href="tutorials-algo-align-inexactmatch-pairhmm.html#md_doc_markdown_tutorials_algo_align_inexact_match_pairhmm">Pair HMM Alignment</a> <br  />
+ Perform probabilistic alignment of reads to haplotypes using a Pair Hidden Markov Model. An <a class="el" href="tutorials-algo-align-inexactmatch-pairhmmavx.html#md_doc_markdown_tutorials_algo_align_inexact_match_pairhmm_avx">AVX-accelerated version</a> is also available.</li>
+<li><a class="el" href="tutorials-algo-align-inexactmatch-smithwaterman.html#md_doc_markdown_tutorials_algo_align_inexact_match_smithwaterman">Smith-Waterman Local Alignment</a> <br  />
+ Learn the fundamentals of Smith-Waterman for optimal local sequence alignment. Accelerated versions for <a class="el" href="tutorials-algo-align-inexactmatch-smithwatermanavx.html#md_doc_markdown_tutorials_algo_align_inexact_match_smithwaterman_avx">AVX2</a> and <a class="el" href="tutorials-algo-align-inexactmatch-smithwatermansse.html#md_doc_markdown_tutorials_algo_align_inexact_match_smithwaterman_sse">SSE</a> are available.</li>
+<li><a class="el" href="tutorials-algo-align-inexactmatch-simdalignment.html#md_doc_markdown_tutorials_algo_align_inexact_match_simd_alignment">SIMD-accelerated Alignment</a> <br  />
+ Explore a generic SIMD-optimized engine for local and global sequence alignment.</li>
+<li><a class="el" href="tutorials-algo-align-spoa.html#md_doc_markdown_tutorials_algo_align_spoa">Partial Order Alignment (SPOA)</a> <br  />
+ Generate consensus sequences from a set of related sequences using Partial Order Alignment.</li>
+<li><a class="el" href="md_doc_markdown_tutorials_algo_align_wfpoa.html">Wavefront Partial Order Alignment (WFPOA)</a> <br  />
+ Utilize the Wavefront algorithm for efficient Partial Order Alignment and consensus generation.</li>
+<li><a class="el" href="tutorials-algo-align-mapq.html#md_doc_markdown_tutorials_algo_align_mapq">Mapping Quality (MAPQ) Calculation</a> <br  />
+ Understand and calculate mapping quality scores for single-end and paired-end alignments.</li>
+<li><a class="el" href="tutorials-algo-align-tailor-tailor.html#md_doc_markdown_tutorials_algo_align_tailor_tailor">Tailor for miRNA Analysis</a> <br  />
+ A specialized tool for analyzing miRNA non-template additions and trimming events.</li>
 </ol>
-<h1><a class="anchor" id="tutorials-indexing"></a>
-Genome Indexing Tutorials</h1>
+<h2><a class="anchor" id="tutorials-algo-assemble"></a>
+Assembly</h2>
+<p>Algorithms for constructing larger sequences from smaller fragments.</p>
 <ol type="1">
-<li><a href="/dummy">Build Fast k-ordered Suffix Array with kISS</a> <br  />
- Explore the process of building a fast k-ordered suffix array using the kISS algorithm, a crucial step in genome indexing.</li>
-<li><a href="/dummy">Indexing and Exact Matching with FM Index</a> <br  />
- Learn how to utilize Biovoltron's FM Index for rapid and precise sequence matching.</li>
-<li><a href="/dummy">Graphical FM Index with Variant-Aware Indexing</a> <br  />
- Each tutorial provides practical guidance, code examples, and best practices tailored to specific bioinformatics tasks. Click on the links to embark on your journey of mastering genome indexing with Biovoltron.</li>
+<li><a class="el" href="tutorials-algo-assemble-assembler.html#md_doc_markdown_tutorials_algo_assemble_assembler">De Bruijn Graph Assembler</a> <br  />
+ Assemble haplotypes or discover adapters from reads using a de Bruijn graph-based approach.</li>
 </ol>
-<h1><a class="anchor" id="tutorials-trimming"></a>
-Read Trimming Tutorials</h1>
+<h2><a class="anchor" id="tutorials-algo-annotate"></a>
+Annotation</h2>
+<p>Algorithms for annotating genomic features.</p>
 <ol type="1">
-<li><a href="/dummy">Adaptor Trimming with EARRINGS</a> <br  />
- Explore how Biovoltron simplifies the critical process of read trimming, an essential step in preprocessing sequence data.</li>
-<li><a href="/dummy">miRNA Trimming with Tailor</a> <br  />
- Explore Biovoltron's miRNA non-template adding trimming (Tailor) module, which facilitates the analysis of miRNAs, including alignment, non-template additions, and trimming events.</li>
+<li><a class="el" href="tutorials-algo-annotate-annotator.html#md_doc_markdown_tutorials_algo_annotate_annotator">Genomic Interval Annotator</a> <br  />
+ Use an Interval Tree to efficiently find and annotate overlapping genomic features.</li>
 </ol>
-<h1><a class="anchor" id="tutorials-annotator"></a>
-Annotator Tutorials</h1>
+<h2><a class="anchor" id="tutorials-algo-sort"></a>
+Suffix Sorting</h2>
+<p>A collection of algorithms for constructing suffix arrays.</p>
 <ol type="1">
-<li><a href="/dummy">Annotating Genomic Intervals</a> <br  />
- Learn how to use Biovoltron's Annotator module to identify intervals overlapping with specific points or intervals within a set of genomic intervals, potentially derived from SAM files, GFF files, and BED files. </li>
+<li><a class="el" href="tutorials-algo-suffixsorter-core-suffixsorter.html#md_doc_markdown_tutorials_algo_suffix_sorter_core_suffix_sorter">Suffix Sorter Algorithms</a> <br  />
+ An overview of suffix sorting concepts in Biovoltron.</li>
+<li><a class="el" href="tutorials-algo-sort-saissorter.html#md_doc_markdown_tutorials_algo_sort_sais_sorter">SAIS-based Sorters</a> <br  />
+ Explore various Suffix-Array-Induced-Sorting (SAIS) based algorithms, including <a class="el" href="tutorials-algo-sort-psaissorter.html#md_doc_markdown_tutorials_algo_sort_psais_sorter">pSAIS</a>, <a class="el" href="tutorials-algo-sort-kpsaissorter.html#md_doc_markdown_tutorials_algo_sort_kpsais_sorter">k-prefix pSAIS</a>, <a class="el" href="tutorials-algo-sort-kiss1sorter.html#md_doc_markdown_tutorials_algo_sort_kiss1_sorter">k-ISS1</a>, and <a class="el" href="tutorials-algo-sort-kiss2sorter.html#md_doc_markdown_tutorials_algo_sort_kiss2_sorter">k-ISS2</a>.</li>
+<li><a class="el" href="tutorials-algo-sort-stablesorter.html#md_doc_markdown_tutorials_algo_sort_stable_sorter">Stable Sorter</a> <br  />
+ A straightforward, parallelized suffix sorter using <code>std::stable_sort</code>.</li>
+</ol>
+<h1><a class="anchor" id="tutorials-pipe"></a>
+Pipes</h1>
+<p>Tools for chaining multiple bioinformatics operations into a single pipeline.</p>
+<ol type="1">
+<li><a class="el" href="tutorials-pipe-algopipe.html#md_doc_markdown_tutorials_pipe_algo_pipe">Algorithm Pipe</a> <br  />
+ Learn how to use the <code>|</code> operator to chain together building an index, aligning reads, and calling variants in a single expression.</li>
+</ol>
+<h1><a class="anchor" id="tutorials-utility"></a>
+Utilities</h1>
+<p>Fundamental data structures and helper functions used throughout the library.</p>
+<ol type="1">
+<li><a class="el" href="tutorials-utility-dna4and5.html#md_doc_markdown_tutorials_utility_dna4and5">DNA Representations (`dna4`, `dna5`)</a> <br  />
+ Work with DNA sequences using 4-base (A,C,G,T) or 5-base (A,C,G,T,N) alphabets.</li>
+<li><a class="el" href="tutorials-utility-istring.html#md_doc_markdown_tutorials_utility_istring">Integer String (`istring`)</a> <br  />
+ Use integer-based strings for efficient storage and manipulation of DNA sequences.</li>
+<li><a class="el" href="tutorials-utility-interval.html#md_doc_markdown_tutorials_utility_interval">Genomic Interval</a> <br  />
+ Define and operate on genomic regions with chromosome, start, end, and strand.</li>
+<li><a class="el" href="tutorials-utility-haplotype.html#md_doc_markdown_tutorials_utility_haplotype">Haplotype Representation</a> <br  />
+ Understand the data structure for representing a single haplotype sequence and its associated variants.</li>
+<li><a class="el" href="tutorials-utility-variant.html#md_doc_markdown_tutorials_utility_variant">Variant Representation</a> <br  />
+ Learn about the data structure for storing genomic variants, including location, alleles, and genotype information.</li>
+<li><a class="el" href="tutorials-utility-genotype.html#md_doc_markdown_tutorials_utility_genotype">Genotype Representation</a> <br  />
+ Work with genotype data using a simple <code>std::pair</code> structure.</li>
+<li><a class="el" href="tutorials-utility-read.html#md_doc_markdown_tutorials_utility_read">Read Utilities</a> <br  />
+ Utilities for filtering and clipping sequence reads based on various criteria.</li>
+<li><a class="el" href="tutorials-utility-range.html#md_doc_markdown_tutorials_utility_range">Range Utilities</a> <br  />
+ Helper functions for working with C++20 ranges.</li>
+<li><a class="el" href="tutorials-utility-archive-serializer.html#md_doc_markdown_tutorials_utility_archive_serializer">Archive Utilities (`gzstream`, `Serializer`)</a> <br  />
+ Tools for data serialization and handling gzipped streams, including a tutorial for <a class="el" href="tutorials-utility-archive-gzstream.html#md_doc_markdown_tutorials_utility_archive_gzstream">gzstream</a>.</li>
+<li><a class="el" href="tutorials-utility-expression-mirna-mirnaexp.html#md_doc_markdown_tutorials_utility_expression_mirna_mirna_exp">Expression Analysis</a> <br  />
+ Data structures and functions for miRNA expression quantification and <a class="el" href="tutorials-utility-expression-normalization.html#md_doc_markdown_tutorials_utility_expression_normalization">normalization</a>.</li>
+<li><a class="el" href="tutorials-utility-ref-hs37d5.html#md_doc_markdown_tutorials_utility_ref_hs37d5">hs37d5 Reference Utilities</a> <br  />
+ Constants and helper functions specific to the hs37d5 human reference genome.</li>
+<li><a class="el" href="tutorials-utility-threadpool.html#md_doc_markdown_tutorials_utility_threadpool">Thread Pool</a> <br  />
+ A utility for managing a pool of threads for parallel execution of tasks.</li>
+</ol>
+<h1><a class="anchor" id="tutorials-math"></a>
+Math</h1>
+<p>Mathematical functions tailored for bioinformatics calculations.</p>
+<ol type="1">
+<li><a class="el" href="tutorials-math-mathutils.html#md_doc_markdown_tutorials_math_math_utils">Math Utilities</a> <br  />
+ A collection of mathematical functions for tasks like quality score conversion, factorial calculations, and logarithmic operations. </li>
 </ol>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

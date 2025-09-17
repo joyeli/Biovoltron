@@ -33,11 +33,11 @@ var menudata={children:[
 {text:"File Input/Output Module Tutorials",url:"tutorials.html#tutorials-fileio",children:[
 {text:"Working with FASTA Files",url:"tutorials-fileio-fasta.html"},
 {text:"Working with FASTQ Files",url:"tutorials-fileio-fastq.html"}]},
-{text:"Alignment Tutorials",url:"tutorials.html#tutorials-alignment"},
-{text:"Variant Calling Tutorials",url:"tutorials.html#tutorials-calling"},
-{text:"Genome Indexing Tutorials",url:"tutorials.html#tutorials-indexing"},
-{text:"Read Trimming Tutorials",url:"tutorials.html#tutorials-trimming"},
-{text:"Annotator Tutorials",url:"tutorials.html#tutorials-annotator"}]},
+{text:"Alignment Tutorials",url:"@ref tutorials-alignment"},
+{text:"Variant Calling Tutorials",url:"@ref tutorials-calling"},
+{text:"Genome Indexing Tutorials",url:"@ref tutorials-indexing"},
+{text:"Read Trimming Tutorials",url:"@ref tutorials-trimming"},
+{text:"Annotator Tutorials",url:"@ref tutorials-annotator"}]},
 {text:"Contribute",url:"contribute.html",children:[
 {text:"Bug Reporting",url:"contribute.html#contribute-bug-reporting"},
 {text:"Environment Setup",url:"contribute.html#contribute-setup"},

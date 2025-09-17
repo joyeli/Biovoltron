@@ -1,5 +1,10 @@
 var NAVTREEINDEX1 =
 {
+"classbiovoltron_1_1gzstreambuf.html#a9c2710578c4a9216c03c3131b6977d15":[11,0,0,68,4],
+"classbiovoltron_1_1gzstreambuf.html#aa6a2967d50429ff2d049442908d7bdd8":[11,0,0,68,7],
+"classbiovoltron_1_1gzstreambuf.html#abba2400fcc5232007c6a5c12ac9ab292":[11,0,0,68,3],
+"classbiovoltron_1_1igzstream.html":[11,0,0,70],
+"classbiovoltron_1_1igzstream.html#a16de96ee1a4c5f75bdb0c1e7fd06b322":[11,0,0,70,2],
 "classbiovoltron_1_1igzstream.html#a1d34faf3831d0d1a1a2f8d23dcc50b46":[11,0,0,70,1],
 "classbiovoltron_1_1igzstream.html#a24d23031e5396507921f6f9fc92cba1a":[11,0,0,70,0],
 "classbiovoltron_1_1igzstream.html#a69a13b566f04bd63f6aabc28e95a36e5":[11,0,0,70,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX1 =
 "functions_c.html":[11,3,0,2],
 "functions_d.html":[11,3,0,3],
 "functions_e.html":[11,3,0,4],
-"functions_enum.html":[11,3,4],
-"functions_f.html":[11,3,0,5],
-"functions_func.html":[11,3,1],
-"functions_func.html":[11,3,1,0],
-"functions_func_b.html":[11,3,1,1],
-"functions_func_c.html":[11,3,1,2]
+"functions_enum.html":[11,3,4]
 };
