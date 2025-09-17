@@ -10,7 +10,7 @@ struct FooRecord : Record{
   int i;
 };
 
-TEST_CASE("Record") {
+TEST_CASE("Record::IO - Reads and writes records", "[FileIOcore]") {
   SECTION("Basic use") {
     auto content = "a\t1\nb\t2\na\t1\n"s;
     auto ss = std::stringstream{content};

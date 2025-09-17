@@ -5,7 +5,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("variant basic behavior", "[variant]") {
+TEST_CASE("Variant::Operations - Performs various variant operations", "[VariantUtils]") {
   SECTION("size") {
     auto variant = Variant{
       Interval{"chr1", 100, 105},

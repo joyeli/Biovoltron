@@ -56,7 +56,7 @@ private:
   std::list<bio::Alignment> aln_queue;
 };
 
-TEST_CASE("Generate tailor pipeline data") {
+TEST_CASE("TailorPipeline::generate_data - Generates data for the Tailor pipeline", "[TailorPipeline]") {
   std::experimental::reseed(6); // Fix rand seed for easy debugging.
 
   constexpr auto CHROM_NUM = 3;
@@ -231,7 +231,7 @@ TEST_CASE("Generate tailor pipeline data") {
   }
 }
 
-TEST_CASE("Generate parallel tailor data") {
+TEST_CASE("TailorPipeline::generate_parallel_data - Generates data for the parallel Tailor pipeline", "[TailorPipeline]") {
   std::experimental::reseed(42); // Fix rand seed for easy debugging.
 
   constexpr auto CHROM_NUM = 1;
@@ -363,7 +363,7 @@ TEST_CASE("Generate parallel tailor data") {
   }
 }
 
-TEST_CASE("Tailor pipeline") {
+TEST_CASE("TailorPipeline::run - Runs the Tailor pipeline", "[TailorPipeline]") {
   // Prepair index.
   auto index = bio::Index{};
   {
@@ -517,7 +517,7 @@ TEST_CASE("Tailor pipeline") {
   // todo: Output annotation results to BED file.
 }
 
-TEST_CASE("Tailor parallel") {
+TEST_CASE("TailorPipeline::run_parallel - Runs the Tailor pipeline in parallel", "[TailorPipeline]") {
   constexpr auto READ_COUNT = 1000000;
   constexpr size_t NUM_COMPUTING_THREAD = 20;
   constexpr size_t NUM_IO_THREAD = 2;

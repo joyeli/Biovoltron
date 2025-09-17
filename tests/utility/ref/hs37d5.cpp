@@ -3,7 +3,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("hs37d5") {
+TEST_CASE("Hs37d5::Operations - Performs hs37d5 operations", "[Hs37d5]") {
   SECTION("Get chromosome position (offset)") {
     {
       auto [name, begin, end] = Hs37d5::chr_begin_sizes[1];

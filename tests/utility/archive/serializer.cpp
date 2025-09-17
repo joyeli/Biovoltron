@@ -22,7 +22,7 @@ struct Object2 {
 };
 
 // Must be a range of trivially copyable objects.
-TEMPLATE_TEST_CASE("Serializer", "", int, char, bool, float, Object1, Object2) {
+TEMPLATE_TEST_CASE("Serializer::Serialization - Serializes and deserializes various objects", "[Serializer]", int, char, bool, float, Object1, Object2) {
   auto objs = std::vector<TestType>(5);
   {
     auto fout = std::ofstream{"temp"};

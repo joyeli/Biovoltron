@@ -7,7 +7,7 @@
 using namespace biovoltron;
 const auto data_path = std::filesystem::path{DATA_PATH};
 
-TEST_CASE("Normal usage") {
+TEST_CASE("WigRecord::Parsing - Parses WIG records", "[Wig]") {
   SECTION("Variable step") {
     std::istringstream iss{
       R"(track type=wiggle_0 name="A name" description="example file" visibility=full autoScale=off viewLimits=0.0:25.0 color=50,150,255 yLineMark=11.76 yLineOnOff=on priority=10
@@ -65,7 +65,7 @@ fixedStep chrom=chr19 start=1000 step=300 span=200
   }
 }
 
-TEST_CASE("Read from file") {
+TEST_CASE("WigRecord::IO - Reads WIG files", "[WigRecord]") {
   SECTION("Variable step") {
     std::ifstream ifs(data_path / "variableStep.wig");
     WigHeader header;

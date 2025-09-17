@@ -21,7 +21,7 @@ bool overlap(Interval a, Interval b) {
   return a.chrom == b.chrom && a.begin < b.end && a.end > b.begin;
 }
 
-TEST_CASE("Annotator") {
+TEST_CASE("Annotator::find - Finds overlapping features", "[Annotator]") {
   SECTION("Insert an object at a location") {
     auto genes = Annotator<std::string>{};
     genes.insert_at("gene1", Interval{"chr1:5-15"});

@@ -13,7 +13,7 @@ using namespace std::chrono;
 // hs37d5 dataset. It is not recommended to use it for
 // other dataset.
 
-TEST_CASE("Burrow Wheeler Aligner") 
+TEST_CASE("BurrowWheelerAligner::generate_sam - Generates SAM records", "[BurrowWheelerAligner]") 
 {
   static std::once_flag init_flag;
   static FMIndex<1, uint32_t, StableSorter<uint32_t>> index;
@@ -156,7 +156,7 @@ TEST_CASE("Burrow Wheeler Aligner")
 
     const auto read = FastqRecord<true>{
       {"read/1", Codec::to_istring("GGGACGTACTGACTGACTGACTGACTGACTGAAAA")}, 
-      "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
+      "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"
     };
 
     const auto [rec1, rec2] = aligner.generate_sam({read, read}); 

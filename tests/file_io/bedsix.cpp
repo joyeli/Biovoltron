@@ -15,7 +15,7 @@ const auto pseudo_path = data_path / "mmu_gencode_pseudos.gtf";
 const auto polyA_path = data_path / "mmu_gencode_polyAs.gtf";
 const auto tRNAs_path = data_path / "mmu_gencode_tRNAs.gtf";
 
-TEST_CASE("bedsix") {
+TEST_CASE("BedSixRecord::Parsing - Parses BED6 records", "[BedSixRecord]") {
   BedSixRecord r;
   std::istringstream iss{
       "chr7\t12\t127472363\t+\tmiRNA\tmiR92a-1-3p"};
@@ -29,7 +29,7 @@ TEST_CASE("bedsix") {
   REQUIRE(Interval{r} == Interval{"chr7", 12, 127472363, '+'});
 }
 
-TEST_CASE("BedSixReader") {
+TEST_CASE("BedSixReader::Reading - Reads BED6 files", "[BedSixRecord]") {
   using namespace bedsixreader;
   SECTION("read from mirbase gff") {
     std::vector<BedSixRecord> records;
@@ -227,7 +227,7 @@ TEST_CASE("BedSixReader") {
   }
 }
 
-TEST_CASE("BedSixReaderFailed") {
+TEST_CASE("BedSixReader::ErrorHandling - Handles file reading errors", "[BedSixRecord]") {
   using namespace bedsixreader;
   SECTION("file does not exist") {
     std::vector<BedSixRecord> records;

@@ -9,7 +9,7 @@ using biovoltron::StableSorter;
 using namespace biovoltron;
 using namespace std::chrono;
 
-TEST_CASE("StableSorter") {
+TEST_CASE("StableSorter::get_sa - Sorts stably", "[StableSorter]") {
   SECTION("Sort all the way till the end of the sequence") {
     auto seq = Codec::to_istring("acgtaacca");
     auto sa = StableSorter<std::uint32_t>::get_sa(seq); 

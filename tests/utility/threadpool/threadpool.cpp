@@ -6,7 +6,7 @@
 #include <thread>
 #include <catch.hpp>
 
-TEST_CASE("Correctness") {
+TEST_CASE("ThreadPool::Execution - Executes tasks correctly", "[ThreadPool]") {
 
   SECTION("size check") {
     auto tp = biovoltron::make_threadpool();

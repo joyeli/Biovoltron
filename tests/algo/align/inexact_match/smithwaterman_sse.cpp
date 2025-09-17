@@ -11,7 +11,7 @@ using namespace biovoltron;
 //  - M: match / mismatch
 //  - I: insertion
 //  - D: deletion
-TEST_CASE("Smith Waterman SSE")
+TEST_CASE("SseSmithWaterman::align - Performs Smith-Waterman alignment using SSE", "[SseSmithWaterman]")
 {
   auto ref = Codec::to_istring(
     "AATCGAAGGTCGTAAGGACACGGTTGAGCGTTCAGCGTTCATGTGAGTCCTCACCACTTATGGCTCCATAGCCT"

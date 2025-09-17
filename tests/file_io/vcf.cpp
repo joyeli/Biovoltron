@@ -12,7 +12,7 @@ using Iter = std::istream_iterator<T>;
 
 const auto data_path = std::filesystem::path{DATA_PATH};
 
-TEST_CASE("vcf") {
+TEST_CASE("VcfRecord::Parsing - Parses VCF records", "[VcfRecord]") {
   VcfRecord r;
   std::istringstream iss{
     "20\t1110696\trs6040355\tA\tG,T\t67\tPASS\tNS=2;DP=10;AF=0.333,0.667;AA=T;"
@@ -33,7 +33,7 @@ TEST_CASE("vcf") {
   REQUIRE(r.samples[2] == "2/2:35:4");
   REQUIRE(Interval{r} == Interval{"20", 1110696 - 1, 1110696, '+'});
 }
-TEST_CASE("Consensus_func") {
+TEST_CASE("VcfUtil::consense - Creates consensus sequences", "[VcfRecord]") {
   SECTION("test_consensus_snp") {
     std::vector<FastaRecord<>> fasta;
     std::vector<VcfRecord> vcf;

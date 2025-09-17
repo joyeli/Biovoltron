@@ -96,7 +96,7 @@ using value_type = DibitVector<block_type>::value_type;
 using Sequence = DibitVector<block_type>;
 using Allocator = std::allocator<block_type>;
 
-TEST_CASE("dibit_vector") {
+TEST_CASE("DibitVector::Operations - Performs various vector operations", "[DibitVector]") {
   size_type size = 3;
   value_type val = 1;
   std::string s(size, val);

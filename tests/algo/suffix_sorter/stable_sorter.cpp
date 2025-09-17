@@ -17,7 +17,7 @@ template <SuffixSorter sorter> void check_suffix_array(istring_view ref) {
             ref.substr(sa[i + 1], sorter::sort_len));
 }
 
-TEST_CASE("StableSorter sorting test", "[StableSorter]") {
+TEST_CASE("StableSorter::get_sa - Sorts suffixes stably", "[SuffixSorter]") {
   auto refs = std::vector<istring>{
       Codec::to_istring(""), Codec::to_istring("A"),
       Codec::to_istring("CGTCGTAGTGCTCGTACAC"),

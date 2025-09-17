@@ -2,7 +2,7 @@
 #include <iostream> //debug
 #include <catch.hpp>
 #include <sstream>
-TEST_CASE("Genotype") {
+TEST_CASE("Genotype::IO - Writes Genotype to stream", "[GenotypeUtils]") {
 
     SECTION("operator<<") {
         const auto genotype = biovoltron::Genotype{1, 2};

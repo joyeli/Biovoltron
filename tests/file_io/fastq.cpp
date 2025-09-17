@@ -21,7 +21,7 @@ CHECK_FASTQ_IDENTITY(const std::filesystem::path& path, std::string_view expecte
   REQUIRE(oss.str() == expected_result);
 }
 
-TEST_CASE("FastqRecord Test", "[FastqRecord]") {
+TEST_CASE("FastqRecord::Operations - Performs various FASTQ record operations", "[FastqRecord]") {
   SECTION("Default Constructor and Implicit Conversion") {
     FastqRecord<> fastqString;
     fastqString.name = "TestSequence";
@@ -112,7 +112,7 @@ TEST_CASE("FastqRecord Test", "[FastqRecord]") {
   }
 }
 
-TEST_CASE("Fastq basic I/O") {
+TEST_CASE("FastqRecord::IO - Basic FASTQ I/O", "[FastqRecord]") {
   SECTION("Single record") {
     FastqRecord record;
 
@@ -225,7 +225,7 @@ ACGTGCTAGCTAGCTGATCGTACGTAGCTGACT
 }
 
 
-TEST_CASE("FASTQ FILE I/O") {
+TEST_CASE("FastqRecord::IO - Reads and writes FASTQ files", "[FastqRecord]") {
   SECTION("READFILE1.FASTQ") {
     std::string_view expected_result{R"(@A00709:43:HYG25DSXX:1:1101:3640:1000
 GCATTCACCCTGGTCGGGTCGGCGTTGTAATCTGCCTGGACCAGACTACGCACTGTCGGTGGGGTGGCGGCGCGGGAAACGTCATGTCGC

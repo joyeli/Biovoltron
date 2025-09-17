@@ -9,7 +9,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("PsaisSorter") {
+TEST_CASE("PsaisSorter::get_sa - Sorts suffixes", "[PsaisSorter]") {
   auto gen_dna_seq = [](int len) {
     auto seq = std::string{};
     while (len--)
@@ -38,7 +38,7 @@ TEST_CASE("PsaisSorter") {
   REQUIRE(failed_indices.empty());
 }
 
-TEST_CASE("PsaisSorter large testcase") {
+TEST_CASE("PsaisSorter::get_sa - Sorts suffixes with large input", "[PsaisSorter]") {
   auto gen_dna_seq = [](int len) {
     auto seq = std::string{};
     while (len--)

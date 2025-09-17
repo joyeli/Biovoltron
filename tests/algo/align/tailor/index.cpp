@@ -4,7 +4,7 @@
 namespace ranges = std::ranges;
 using namespace biovoltron;
 
-TEST_CASE("Tailor index") {
+TEST_CASE("Index::build - Builds, saves, and loads a Tailor index", "[Index]") {
   SECTION("Use std::string for sequnce") {
     auto ref = std::vector<FastaRecord<>>{
       {"chr1", "CGATCGATCGATGCATCGATAGGGGGGGG"}, // 8G at index 21

@@ -5,7 +5,7 @@
 #include <sstream>
 
 
-TEST_CASE("Reference") {
+TEST_CASE("ReferenceRecord::Operations - Performs various reference record operations", "[ReferenceRecord]") {
   SECTION("origin_seq") {
     biovoltron::ReferenceRecord<false> ref_record;
     biovoltron::ReferenceRecord<true> ref_record_encoded;

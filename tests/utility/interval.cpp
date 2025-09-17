@@ -3,7 +3,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("Construction") {
+TEST_CASE("Interval::Construction - Constructs Interval objects", "[Interval]") {
   SECTION("Normal interval (begin < end)") {
     Interval intvl("chr1", 2, 10, '+');
     CHECK(intvl.chrom == "chr1");
@@ -53,7 +53,7 @@ TEST_CASE("Construction") {
   }
 }
 
-TEST_CASE("Parse needed constuction") {
+TEST_CASE("Interval::Parsing - Parses Interval strings", "[Interval]") {
   SECTION("Normal input: forward") {
     Interval intvl("+chr1:10-2,000");
     CHECK(intvl.chrom == "chr1");
@@ -127,7 +127,7 @@ TEST_CASE("Parse needed constuction") {
   }
 }
 
-TEST_CASE("Overlap") {
+TEST_CASE("Interval::Overlap - Checks for overlap between intervals", "[Interval]") {
   SECTION("Intervals that overlaps") {
     Interval intvl1("chr1", 100, 150);
     Interval intvl2("chr1", 120, 200);
@@ -159,7 +159,7 @@ TEST_CASE("Overlap") {
   }
 }
 
-TEST_CASE("Contain") {
+TEST_CASE("Interval::Contain - Checks if one interval contains another", "[Interval]") {
   SECTION("Interval 1 contains interval 2") {
     Interval intvl1("chr1", 100, 150);
     Interval intvl2("chr1", 120, 130);
@@ -191,7 +191,7 @@ TEST_CASE("Contain") {
   }
 }
 
-TEST_CASE("Span") {
+TEST_CASE("Interval::Span - Calculates the span of two intervals", "[Interval]") {
   SECTION("Span with interval in the same chromosome") {
     SECTION("Same strand") {
       Interval intvl1("chr1", 100, 150, '-');
@@ -216,7 +216,7 @@ TEST_CASE("Span") {
   }
 }
 
-TEST_CASE("Expand") {
+TEST_CASE("Interval::Expand - Expands an interval by a given padding", "[Interval]") {
   SECTION("Normal padding") {
     Interval intvl1("chr1", 100, 150, '-');
     auto intvl2{intvl1.expand_with(50)};
@@ -238,7 +238,7 @@ TEST_CASE("Expand") {
   }
 }
 
-TEST_CASE("Comparison") {
+TEST_CASE("Interval::Comparison - Compares intervals", "[Interval]") {
   SECTION("Equality") {
     Interval intvl1("chr1", 100, 150, '-');
     Interval intvl2("chr1", 100, 150, '-');
@@ -263,7 +263,7 @@ TEST_CASE("Comparison") {
   }
 }
 
-TEST_CASE("Interval: to_string") {
+TEST_CASE("Interval::to_string - Converts an Interval to a string", "[Interval]") {
   auto iv = Interval{"chr1", 100, 150, '-'};
   CHECK(iv.to_string() == "-chr1:100-150");
 }

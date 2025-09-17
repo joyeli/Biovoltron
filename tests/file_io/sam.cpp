@@ -28,7 +28,7 @@ inline void CHECK_FILE_IDENTITY(
   REQUIRE(oss.str() == expected_result);
 }
 
-TEST_CASE("sam") {
+TEST_CASE("SamRecord::Parsing - Parses single SAM records", "[SamRecord]") {
   SamRecord r;
   // clang-format off
   std::istringstream iss{
@@ -53,7 +53,7 @@ TEST_CASE("sam") {
   REQUIRE(Interval{r} == Interval{"1", 497 - 1, 497 - 1 + 37, '-'});
 }
 
-TEST_CASE("Multiple records") {
+TEST_CASE("SamRecord::Parsing - Parses multiple SAM records", "[SamRecord]") {
   SamRecord rec1, rec2, rec3;
   // clang-format off
   std::istringstream iss{
@@ -125,7 +125,7 @@ TEST_CASE("Multiple records") {
   REQUIRE(rec3.optionals[4] == "RG:Z:YAP012L3_TGACCAA");
 }
 
-TEST_CASE("Header test") {
+TEST_CASE("SamHeader::Parsing - Parses SAM headers", "[SamRecord]") {
   SamHeader header_rec;
   SamRecord rec1, rec2, rec3;
 
@@ -214,7 +214,7 @@ TEST_CASE("Header test") {
   REQUIRE(rec3.optionals[4] == "RG:Z:YAP012L3_TGACCAA");
 }
 
-TEST_CASE("Header + Record") {
+TEST_CASE("SamRecord::IO - Reads and writes SAM records with headers", "[SamRecord]") {
   SamHeader header_rec;
   SamRecord rec1, rec2;
 
@@ -285,7 +285,7 @@ TEST_CASE("Header + Record") {
   REQUIRE(rec2.optionals[4] == "RG:Z:YAP006L8_TGACCAA");
 }
 
-TEST_CASE("ReadFile_1") {
+TEST_CASE("SamRecord::IO - Reads SAM file 1", "[SamRecord]") {
   std::string_view expected_result{
     "K00208:8901012:YAP012:1:1223:10399:10335\t163\tchr1\t3040075\t255\t100M\t="
     "\t3040192\t218\tCTGACAGATATCTACAGAACATTTTATCCTAAAACAAAAGGATATACCTTCTTCTCAGCACCTCACAGGACCTTCTCC"
@@ -296,7 +296,7 @@ TEST_CASE("ReadFile_1") {
   CHECK_FILE_IDENTITY(data_path / "test1.sam", expected_result);
 }
 
-TEST_CASE("ReadFile_2") {
+TEST_CASE("SamRecord::IO - Reads SAM file 2", "[SamRecord]") {
   // clang-format off
   std::string_view expected_result{
       "K00208:8901006:YAP006:8:2128:4361:9614\t419\tchr1\t3044919\t0\t101M\t=\t3044939\t121\tAAATTGCTGGTTGTTTGTGAGCCTAGAGGCTGCCTGGGGCTGAGAAAAGAGAAAAACAAACCTGGGTATGCCTCGTAGTTAAAACATTCCTGGGAACATCT\tAAAAFFJJFJJJJJJJJF<JFAJJJAJJFJJFJJJJJJFJJJJJJJJJJJFJFJJAJJAJAJJJJJAFFJJJ<JFJJJAFJFJJJJJJJJJJA-<FJJFJ7\tNH:i:11\tHI:i:2\tnM:i:1\tAS:i:198\tRG:Z:YAP006L8_TGACCAA\t\n"
@@ -309,14 +309,14 @@ TEST_CASE("ReadFile_2") {
   CHECK_FILE_IDENTITY(data_path / "test2.sam", expected_result);
 }
 
-TEST_CASE("ReadFile_3 (missing optional_fields)") {
+TEST_CASE("SamRecord::IO - Reads SAM file 3 (missing optional fields)", "[SamRecord]") {
   std::string_view expected_result{
     "r004\t4\tref\t16\t30\t6M14N1I5M\t*\t0\t0\tATAGCTCTCAGC\t*\t\t\n"};
 
   CHECK_FILE_IDENTITY(data_path / "test3.sam", expected_result);
 }
 
-TEST_CASE("SamUtil::compute_tlen") {
+TEST_CASE("SamUtil::compute_tlen - Computes template length", "[SamRecord]") {
   REQUIRE(
     SamUtil::compute_tlen(30902376, "86S27M35S"sv, false, 42046135, "148M", false) == 11143881);
   REQUIRE(SamUtil::compute_tlen(36254854, "148M", true, 19146290, "148M", true) == -17108565);

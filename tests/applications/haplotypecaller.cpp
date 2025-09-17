@@ -31,7 +31,7 @@ ngs_sequencing(const auto& seq) {
 }
 */
 
-TEST_CASE("Haplotypecaller") {
+TEST_CASE("HaplotypeCaller::call_region - Calls haplotypes", "[HaplotypeCaller]") {
   auto haplotype_caller = HaplotypeCaller{};
   WARN("TODO: applications/haplotypecaller/haplotypecaller.hpp requires test");
 

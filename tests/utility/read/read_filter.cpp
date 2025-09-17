@@ -4,7 +4,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("Read filter") {
+TEST_CASE("ReadFilter::Filtering - Filters reads based on various criteria", "[ReadUtils]") {
   SECTION("Mapping Quality Read Filter") {
     MappingQualityReadFilter filter;
 

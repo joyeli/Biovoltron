@@ -36,17 +36,20 @@ ref_encoded.seq = biovoltron::istring{0, 1, 2, 3};
 ## Step 3. Loading from a FASTA File
 
 `ReferenceRecord` integrates seamlessly with FASTA input.
-You can parse a FASTA file directly into a `ReferenceRecord`:
+You can parse a FASTA file directly into a `ReferenceRecord`.
+
+> Note: The following example assumes you have a FASTA file named `GRCh38` in your working directory.
 
 ```cpp
 #include <fstream>
 #include <iostream>
+#include <biovoltron/file_io/reference.hpp>
 
 using namespace biovoltron;
 
 int main() {
   // Open a FASTA reference genome file
-  auto fin = std::ifstream {"GRCh38"}
+  auto fin = std::ifstream{"GRCh38"};
 
   // Create an empty ReferenceRecord
   auto ref = ReferenceRecord<false>{ .species = "Human" };
@@ -61,6 +64,7 @@ int main() {
   return 0;
 }
 ```
+
 
 This automatically:
 
@@ -108,25 +112,60 @@ This restores the `N` bases in all unknown intervals.
 
 ## Step 6. Saving and Loading in Binary Format
 
-`ReferenceRecord` can be saved into a compact `.bfa` binary file and later loaded back:
+`ReferenceRecord` can be saved into a compact `.bfa` binary file and later loaded back.
+
+> Note: This example assumes you have a FASTA file named `GRCh38` to create the initial record.
 
 ```cpp
-// Save
-{
-  auto fout = std::ofstream{"GRCh38.bfa", std::ios::binary};
-  ref.save(fout);
-}
+#include <fstream>
+#include <iostream>
+#include <cassert>
+#include <biovoltron/file_io/reference.hpp>
 
-// Load
-auto loaded_ref = ReferenceRecord<false>{};
-{
-  auto fin = std::ifstream{"GRCh38.bfa", std::ios::binary};
-  loaded_ref.load(fin);
-}
+using namespace biovoltron;
 
-// Verify equality
-assert(ref == loaded_ref);
+int main() {
+  // First, create and load a ReferenceRecord from a FASTA file.
+  auto ref = ReferenceRecord<false>{};
+  {
+    auto fin = std::ifstream{"GRCh38"};
+    if (!fin) {
+      std::cerr << "Error: Cannot open GRCh38. Please create this file.\n";
+      // As a fallback for the example, create a dummy record.
+      ref.seq = "ACGTN";
+      ref.chr_names.push_back("chr1");
+      ref.chr_end_pos.push_back(5);
+      ref.base_cnt = {1,1,1,1,1};
+      ref.chr_num = 1;
+      ref.species = "Dummy";
+    } else {
+      fin >> ref;
+    }
+  }
+
+  // Save the record to a binary .bfa file
+  {
+    auto fout = std::ofstream{"GRCh38.bfa", std::ios::binary};
+    ref.save(fout);
+    std::cout << "Saved reference to GRCh38.bfa" << std::endl;
+  }
+
+  // Load the record from the binary .bfa file
+  auto loaded_ref = ReferenceRecord<false>{};
+  {
+    auto fin = std::ifstream{"GRCh38.bfa", std::ios::binary};
+    loaded_ref.load(fin);
+    std::cout << "Loaded reference from GRCh38.bfa" << std::endl;
+  }
+
+  // Verify that the saved and loaded records are identical
+  assert(ref == loaded_ref);
+  std::cout << "Verification successful: original and loaded records are identical." << std::endl;
+
+  return 0;
+}
 ```
+
 
 <span class="next_section_button">
 [Read Next: ReferenceRecord Modules](structbiovoltron_1_1ReferenceRecord.html)

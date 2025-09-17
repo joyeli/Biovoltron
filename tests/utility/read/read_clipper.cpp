@@ -5,7 +5,7 @@
 #include <biovoltron/file_io/cigar.hpp>
 
 using namespace biovoltron;
-TEST_CASE("Read clipper") {
+TEST_CASE("ReadClipper::Clipping - Clips reads based on various criteria", "[ReadUtils]") {
 
   SECTION("hard_clip_soft_clipped_bases") {
     SamRecord<> read;

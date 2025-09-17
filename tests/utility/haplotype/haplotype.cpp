@@ -2,7 +2,7 @@
 #include <iostream> //debug
 #include <catch.hpp>
 
-TEST_CASE("Haplotype") {
+TEST_CASE("Haplotype::get_overlapping_events - Gets overlapping events", "[Haplotype]") {
     SECTION("get_overlapping_events") {
         biovoltron::Haplotype haplotype = {
             .event_map = {

@@ -3,7 +3,7 @@
 #include <catch.hpp>
 #include <sstream>
 
-TEST_CASE("Range") {
+TEST_CASE("RangeUtils::Operations - Performs various range operations", "[RangeUtils]") {
     biovoltron::RangeUtils r;
     std::ostringstream out;
 

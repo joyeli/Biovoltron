@@ -131,8 +131,7 @@ static bool has_ct_snp_at_pos_by_cigar(const std::vector<SamRec>& alns,
   return false;
 }
 
-TEST_CASE("ALGO Pipe: build index once; verify exact answers",
-          "[algo_pipe][quick]") {
+TEST_CASE("AlgoPipe::Integration - Builds index, aligns, and calls variants", "[AlgoPipe]") {
   // ------------------------------------------------------------------
   // 1) Load reference (FASTA) and **pad tail with A's** BEFORE building index
   //    Reason: aligner needs >=4 8-mers; with a SNP one 8-mer breaks, so we

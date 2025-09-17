@@ -67,7 +67,7 @@ bool compare_float(T x, T y) {
   return std::abs(x - y) < 1e-9 ? true : false;
 }
 
-TEST_CASE("size normalization") {
+TEST_CASE("Normalization::size_normalization - Performs size normalization", "[Normalization]") {
   auto samples_copy = samples;
   auto& sample1 = samples_copy[0];
   size_normalization(sample1);
@@ -96,7 +96,7 @@ TEST_CASE("size normalization") {
 }
 
 
-TEST_CASE("fill gene value and transform to sample expression array") {
+TEST_CASE("Normalization::fill_gene_value_and_transform - Fills gene values and transforms to sample expression array", "[Normalization]") {
   auto samples_copy = samples;
   std::vector<std::vector<double>> samples_exp_arr_ans = {
     {15.0, 12.5, 22.5, 1.25, 8.75, 0.0, 0.0, 0.0},
@@ -148,7 +148,7 @@ TEST_CASE("fill gene value and transform to sample expression array") {
   CHECK(compare_float(sample3["gene9"].value, 7.5));
 }
 
-TEST_CASE("quantile normalization") {
+TEST_CASE("Normalization::quantile_normalization - Performs quantile normalization", "[Normalization]") {
   std::vector<std::map<std::string, SimExp>> quantile_example = {
     {
       {"A", {5.0}}, 
@@ -190,7 +190,7 @@ TEST_CASE("quantile normalization") {
   CHECK(compare_float(sample3["D"].value, 5.6666666667));
 }
 
-TEST_CASE("tmm calculation utilities") {
+TEST_CASE("Normalization::tmm - Performs TMM normalization", "[Normalization]") {
   std::vector<std::vector<double>> samples_exp_arr = {
     {15.0, 12.5, 22.5, 1.25, 8.75, 0.0, 0.0, 0.0},
     {100.0, 0.0, 155.0, 12.25, 0.0, 71.25, 0.0, 36.5},

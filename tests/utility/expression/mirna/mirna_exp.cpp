@@ -22,7 +22,7 @@ auto t_tail = mirna::TailExp { 1.0, { {20, {0.25}}, {21, {0.25}}, {23, {0.5}} } 
 auto o_tail = mirna::TailExp { 1.0, { {22, {1.0}} } };
 auto gm_exp = mirna::TailExp { 5.0, { {18, {2.5}}, {23, {1.0}}, {25, {1.5}} } };
 
-TEST_CASE("MirExp constructor") {
+TEST_CASE("MirExp::Construction - Constructs MirExp objects", "[MirExp]") {
   
   SECTION("empty object") {
     auto empty_mir = mirna::MirExp{};
@@ -153,7 +153,7 @@ TEST_CASE("MirExp constructor") {
   }
 }
 
-TEST_CASE("MirExp: operator+ and partial exp") {
+TEST_CASE("MirExp::Operations - Performs arithmetic and partial expression operations", "[MirExp]") {
   auto mir_1 = mirna::MirExp {
     total_value, // value 
     {{
@@ -282,7 +282,7 @@ TEST_CASE("MirExp: operator+ and partial exp") {
 }
 
 
-TEST_CASE("MirExp: transform from tail based exp to len based exp") {
+TEST_CASE("MirExp::Transformation - Transforms tail-based to length-based expression", "[MirExp]") {
   auto mir_1 = mirna::MirExp {
     total_value, // value 
     {{
@@ -399,7 +399,7 @@ namespace{
   }
 } // namespace
 
-TEST_CASE("use case: expression matrix") {
+TEST_CASE("MirExp::UseCase - Expression matrix", "[MirExp]") {
   SECTION("use case: canonical mirna expression") {
     mirna::ExpressionMatrix<mirna::MirExp> exp_mat;
     exp_mat["miR92a-1-3p"] += m1;
@@ -516,7 +516,7 @@ TEST_CASE("use case: expression matrix") {
 
 }
 
-TEST_CASE("use case: sized normalization") {
+TEST_CASE("MirExp::UseCase - Sized normalization", "[MirExp]") {
   auto exp_mat = matrix_92a();
 
   // T_l = Σ(miRNA) Σ(tail) x_{l, t}

@@ -28,7 +28,7 @@ auto read_fastq = [](std::filesystem::path p) {
   return v;
 };
 
-TEST_CASE("EARRING: Paired-end adapter trimming") {
+TEST_CASE("PairedEndAdapterTrimmer::trim - Trims adapters from paired-end reads", "[PairedEndAdapterTrimmer]") {
 
   spdlog::set_default_logger(logger);
   spdlog::set_level(spdlog::level::debug);
@@ -134,7 +134,7 @@ TEST_CASE("EARRING: Paired-end adapter trimming") {
 }
 
 
-TEST_CASE("Single-end adapter trimming") {
+TEST_CASE("SingleEndAdapterTrimmer::trim - Trims adapters from single-end reads", "[SingleEndAdapterTrimmer]") {
   spdlog::set_default_logger(logger);
   spdlog::set_level(spdlog::level::debug);
 

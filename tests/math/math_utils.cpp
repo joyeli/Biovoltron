@@ -12,7 +12,7 @@ static void vector_approx_equal(const std::vector<double>& result,
     }
 }
 
-TEST_CASE("Math utilities") {
+TEST_CASE("MathUtils::Utilities - Performs various math calculations", "[MathUtils]") {
 
     SECTION("get_precision") { 
       REQUIRE(MathUtils::get_precision<0>(3.5)        == Approx(4.0));

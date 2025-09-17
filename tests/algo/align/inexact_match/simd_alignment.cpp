@@ -5,7 +5,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("SIMDAlignment") {
+TEST_CASE("SIMDAlignment::Alignment - Performs local and global alignments", "[SIMDAlignment]") {
     auto gen_dna_seq = [](int len) {
         auto seq = std::string{};
         while (len--)

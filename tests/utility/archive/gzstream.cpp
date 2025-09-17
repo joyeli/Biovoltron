@@ -11,7 +11,7 @@ using namespace biovoltron;
 
 const auto data_path = std::filesystem::path{DATA_PATH};
 
-TEST_CASE("gzstream") {
+TEST_CASE("GzStream::IO - Reads and writes gzipped files", "[GzStream]") {
   SECTION("igzstream") {
     auto igs = igzstream(data_path / "test1.fastq.gz");
     auto is = std::ifstream(data_path / "test1.fastq");

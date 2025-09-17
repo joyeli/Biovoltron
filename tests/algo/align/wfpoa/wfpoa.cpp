@@ -6,7 +6,7 @@
 #include <iostream> //debug
 #include <catch.hpp>
 
-TEST_CASE("WaveFront POA") {
+TEST_CASE("WfpoaAlignmentEngine::Align - Alignment", "[WfpoaAlignmentEngine]") {
     using namespace biovoltron;
     SECTION("Alignment") {
         {

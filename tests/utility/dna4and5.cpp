@@ -8,7 +8,7 @@
 using namespace biovoltron;
 using namespace std::string_literals;
 
-TEST_CASE("dna4") {
+TEST_CASE("Dna4::Operations - Performs various dna4 operations", "[Dna4and5]") {
   SECTION("dna4 istring") {
     REQUIRE(dna4::to_istring("acgt") == 0123_dna4);
     REQUIRE(dna4::to_istring("ACGT") == 0123_dna4);
@@ -36,7 +36,7 @@ TEST_CASE("dna4") {
 }
 
 
-TEST_CASE("dna5") {
+TEST_CASE("Dna5::Operations - Performs various dna5 operations", "[Dna4and5]") {
   SECTION("Regular string to istring") {
     REQUIRE(dna5::to_istring("acgt") == 0123_dna5);
     REQUIRE(dna5::to_istring("ACGT") == 0123_dna5);

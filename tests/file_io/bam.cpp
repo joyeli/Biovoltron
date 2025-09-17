@@ -64,7 +64,7 @@ auto test_encoded() {
   }
 }
 
-TEST_CASE("IBamStream") {
+TEST_CASE("IBamStream::IO - Reads BAM files", "[BamStream]") {
   SECTION("Test encoded SamRecord") {
     test_encoded<true>();
   }
@@ -73,7 +73,7 @@ TEST_CASE("IBamStream") {
   }
 }
 
-TEST_CASE("OBamStream") {
+TEST_CASE("OBamStream::IO - Writes BAM files", "[BamStream]") {
   SECTION("conditional") {
     OBamStream fout(out);
     REQUIRE(fout.is_open());

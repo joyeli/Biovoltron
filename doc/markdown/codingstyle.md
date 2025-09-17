@@ -1,5 +1,7 @@
 # C++ Coding Style Guide {#codingstyle}
 
+[TOC]
+
 ## 1. Introduction {#codingstyle-introduction}
 This document outlines the coding standards and best practices for writing Geneasic's C++ code. Consistent coding style helps improve code readability, maintainability, and reduces the likelihood of bugs. Please follow the guides bellow.
 

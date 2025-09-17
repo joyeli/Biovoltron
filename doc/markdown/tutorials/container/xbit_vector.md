@@ -80,23 +80,34 @@ for (auto x : v)
 
 ## Step 6. DNA Example with DibitVector
 
-A common use case is encoding DNA bases:
+A common use case is encoding DNA bases. The following example demonstrates how to transform the encoded values back to characters and compute the reverse complement using C++20 ranges.
 
 ```cpp
-biovoltron::DibitVector<> dna = {0, 1, 2, 3}; // A=0, C=1, G=2, T=3
+#include <iostream>
+#include <ranges>
+#include <iterator>
+#include <biovoltron/container/xbit_vector.hpp>
 
-auto base_view = std::views::transform([](auto c){ return "ACGT"[c]; });
-std::ranges::copy(dna | base_view,
-                  std::ostream_iterator<char>{std::cout, ""});
-// Output: ACGT
-```
+int main() {
+  biovoltron::DibitVector<> dna = {0, 1, 2, 3}; // A=0, C=1, G=2, T=3
 
-You can also compute the reverse complement:
+  auto base_view = std::views::transform([](auto c){ return "ACGT"[c]; });
 
-```cpp
-auto comp_view = std::views::transform([](auto c){ return 0b11u - c; });
-for (auto c : dna | std::views::reverse | comp_view | base_view)
-  std::cout << c;  // Output: ACGT -> reverse complement -> ACGT
+  std::cout << "Original DNA: ";
+  std::ranges::copy(dna | base_view,
+                    std::ostream_iterator<char>{std::cout, ""});
+  std::cout << std::endl;
+
+  // You can also compute the reverse complement:
+  auto comp_view = std::views::transform([](auto c){ return 0b11u - c; });
+  std::cout << "Reverse Complement: ";
+  for (auto c : dna | std::views::reverse | comp_view | base_view) {
+    std::cout << c;
+  }
+  std::cout << std::endl;
+
+  return 0;
+}
 ```
 
 ## Step 7. QuadbitVector Example
@@ -104,9 +115,18 @@ for (auto c : dna | std::views::reverse | comp_view | base_view)
 `QuadbitVector` works the same, but allows values from 0 to 15:
 
 ```cpp
-biovoltron::QuadbitVector<> q = {1, 5, 9, 15};
-for (auto x : q)
-  std::cout << +x << " ";  // prints: 1 5 9 15
+#include <iostream>
+#include <biovoltron/container/xbit_vector.hpp>
+
+int main() {
+  biovoltron::QuadbitVector<> q = {1, 5, 9, 15};
+  std::cout << "QuadbitVector contents: ";
+  for (auto x : q) {
+    std::cout << +x << " ";  // prints: 1 5 9 15
+  }
+  std::cout << std::endl;
+  return 0;
+}
 ```
 
 <span class="next_section_button">

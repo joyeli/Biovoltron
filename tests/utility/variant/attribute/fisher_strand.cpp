@@ -4,7 +4,7 @@
 
 using biovoltron::FisherStrand;
 
-TEST_CASE("Fisher strand", "[fisher_strand]") {
+TEST_CASE("FisherStrand::annotate - Annotates Fisher strand bias", "[VariantUtils]") {
 
   SECTION("annotate returns reasonable Phred-scaled p-values") {
     double fs_score = FisherStrand::annotate(10, 10, 0, 20);  // ref: 10+10, alt: 0+20

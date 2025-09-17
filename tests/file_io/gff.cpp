@@ -5,7 +5,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("gff") {
+TEST_CASE("GffRecord::Parsing - Parses GFF records", "[GffRecord]") {
   GffRecord r;
   std::istringstream iss{
       "ctg123\t.\tmRNA\t10000\t15000\t0\t+\t0\tID=mrna0002;Parent=operon001;Name=subsonicsquirrel"};
@@ -22,7 +22,7 @@ TEST_CASE("gff") {
   REQUIRE(Interval{r} == Interval{"ctg123", 10000 - 1, 15000, '+'});
 }
 
-TEST_CASE("gff missing fields") {
+TEST_CASE("GffRecord::Parsing - Handles missing fields", "[GffRecord]") {
   GffRecord r;
   std::istringstream iss{
       ".\t.\t.\t.\t.\t.\t.\t.\t."};
@@ -38,7 +38,7 @@ TEST_CASE("gff missing fields") {
   REQUIRE(r.attrs == ".");
 }
 
-TEST_CASE("gff Equal to Comparison") {
+TEST_CASE("GffRecord::Comparison - Equal to", "[GffRecord]") {
   GffRecord rec1,rec2;
 
   std::istringstream iss1{"ctg123\t.\tmRNA\t10000\t15000\t.\t+\t.\tID=mrna0002;Parent=operon001;Name=subsonicsquirrel"};
@@ -53,7 +53,7 @@ TEST_CASE("gff Equal to Comparison") {
 
 }
 
-TEST_CASE("gff Less than Comparison") {
+TEST_CASE("GffRecord::Comparison - Less than", "[GffRecord]") {
   GffRecord rec1,rec2;
 
   /* Seqid */
@@ -88,7 +88,7 @@ TEST_CASE("gff Less than Comparison") {
   REQUIRE(false==(rec1>rec2));
 }
 
-TEST_CASE("gff Greater than Comparison") {
+TEST_CASE("GffRecord::Comparison - Greater than", "[GffRecord]") {
   GffRecord rec1,rec2;
 
   /* Seqid */

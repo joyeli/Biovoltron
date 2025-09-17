@@ -23,7 +23,7 @@ CHECK_FASTA_IDENTITY(const std::filesystem::path& path, std::string_view expecte
   REQUIRE(oss.str() == expected_result);
 }
 
-TEST_CASE("FASTA BASIC I/O") {
+TEST_CASE("FastaRecord::Parsing - Parses FASTA records", "[FastaRecord]") {
   SECTION("SINGLE RECORD") {
     FastaRecord record;
     std::istringstream iss{R"(>1
@@ -253,7 +253,7 @@ CAGCTCCGCCCTCGCGGTGCTCTCCGGGTCTGTGCTGAGGAGAACGCAACTCCGCCGGCGCAGGCG");
   }
 }
 
-TEST_CASE("FASTA FILE I/O") {
+TEST_CASE("FastaRecord::IO - Reads and writes FASTA files", "[FastaRecord]") {
   SECTION("READFILE1") {
     std::string_view expected_result{
       ">MCHU - Calmodulin - Human, rabbit, bovine, rat, and chicken\n\

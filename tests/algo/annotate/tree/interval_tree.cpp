@@ -4,7 +4,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("Interval tree") {
+TEST_CASE("IntervalTree::find - Finds overlapping intervals", "[IntervalTree]") {
   SECTION("Build interval tree and retrieve overlaping data") {
     IntervalTree<std::string> itree;
     itree.insert(5, 10, "data1");

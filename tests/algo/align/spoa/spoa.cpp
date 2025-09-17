@@ -8,7 +8,7 @@
 #include <iostream> //debug
 #include <catch.hpp>
 
-TEST_CASE("SIMD POA") {
+TEST_CASE("SimdAlignmentEngine::Align - Performs SIMD POA alignment", "[SimdAlignmentEngine]") {
     using namespace biovoltron;
     SECTION("Alignment") {
         {

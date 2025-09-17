@@ -9,7 +9,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("FMIndex") {
+TEST_CASE("FMIndex::build - Builds the FM-Index", "[FMIndex]") {
   spdlog::set_level(spdlog::level::info);
   
   auto gen_dna_seq = [](int len) {
@@ -94,7 +94,7 @@ TEST_CASE("FMIndex") {
   }
 }
 
-TEST_CASE("FMIndex with SA sampling") {
+TEST_CASE("FMIndex::get_offsets - Gets offsets with SA sampling", "[FMIndex]") {
   auto gen_dna_seq = [](int len) -> std::string {
     auto seq = std::string{};
     while (len--)
@@ -146,7 +146,7 @@ TEST_CASE("FMIndex with SA sampling") {
   }
 }
 
-TEST_CASE("FMIndex value sample") {
+TEST_CASE("FMIndex::build - Builds the FM-Index with value sampling", "[FMIndex]") {
   auto gen_dna_seq = [](int len) -> std::string {
     auto seq = std::string{};
     while (len--)

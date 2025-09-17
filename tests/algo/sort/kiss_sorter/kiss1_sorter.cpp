@@ -9,7 +9,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("Kiss1Sorter DNA") {
+TEST_CASE("KISS1Sorter::get_sa - Sorts DNA suffixes", "[KISS1Sorter]") {
   auto gen_dna_seq = [](int len) {
     auto seq = std::string{};
     while (len--)
@@ -39,7 +39,7 @@ TEST_CASE("Kiss1Sorter DNA") {
   REQUIRE(failed_indices.empty());
 }
 
-TEST_CASE("Kiss1Sorter DNA large") {
+TEST_CASE("KISS1Sorter::get_sa - Sorts DNA suffixes with large input", "[KISS1Sorter]") {
   auto gen_dna_seq = [](int len) {
     auto seq = std::string{};
     while (len--)
@@ -69,7 +69,7 @@ TEST_CASE("Kiss1Sorter DNA large") {
   REQUIRE(failed_indices.empty());
 }
 
-TEST_CASE("Kiss1Sorter-1 general") {
+TEST_CASE("KISS1Sorter::get_suffix_array - Sorts general suffixes", "[KISS1Sorter]") {
   auto gen_seq = [](int len) {
     auto seq = std::string{};
     while (len--)
@@ -98,7 +98,7 @@ TEST_CASE("Kiss1Sorter-1 general") {
   REQUIRE(failed_indices.empty());
 }
 
-TEST_CASE("Kiss1Sorter-1 general large") {
+TEST_CASE("KISS1Sorter::get_suffix_array - Sorts general suffixes with large input", "[KISS1Sorter]") {
   auto gen_seq = [](int len) {
     auto seq = std::string{};
     while (len--)

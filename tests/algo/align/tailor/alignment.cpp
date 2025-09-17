@@ -6,7 +6,7 @@
 using namespace biovoltron;
 namespace ranges = std::ranges;
 
-TEST_CASE("Tailor alignment object") {
+TEST_CASE("Alignment::aln_to_sam_list - Converts Alignment to SAM records", "[Alignment]") {
 
   SECTION("A list of aligments to SAM file") {
     auto hit1 = Hit{

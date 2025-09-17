@@ -10,7 +10,7 @@ using namespace std::string_literals;
 // which was represented as 01234 internally, to allow
 // a more efficient storage scheme (hashing) and ease 
 // of genomic alphabet comparison.
-TEST_CASE("Integer string") {
+TEST_CASE("Istring::Operations - Performs various integer string operations", "[Istring]") {
   SECTION("Regular string to istring") {
     REQUIRE(Codec::to_istring("acgt") == "0123"_s);
     REQUIRE(Codec::to_istring("ACGT") == "0123"_s);
@@ -80,7 +80,7 @@ TEST_CASE("Integer string") {
   }
 }
 
-TEST_CASE("Codec") {
+TEST_CASE("Codec::Conversion - Converts between DNA characters and integers", "[Codec]") {
   SECTION("to_char") {
     REQUIRE(Codec::to_char(0u) == 'A');
     REQUIRE(Codec::to_char(1u) == 'C');
@@ -124,12 +124,12 @@ TEST_CASE("Codec") {
   }
 }
 
-TEST_CASE("operator\"\"_s - Integer string literal conversion", "[utility]") {
+TEST_CASE("Istring::Literal - Converts integer string literal", "[Istring]") {
   biovoltron::istring is = "030102030"_s;
   REQUIRE(is == biovoltron::istring{0, 3, 0, 1, 0, 2, 0, 3, 0});
 }
 
-TEST_CASE("Codec::to_int - Convert DNA character to integer", "[utility]") {
+TEST_CASE("Codec::to_int - Converts DNA character to integer", "[Codec]") {
   REQUIRE(biovoltron::Codec::to_int('A') == 0);
   REQUIRE(biovoltron::Codec::to_int('C') == 1);
   REQUIRE(biovoltron::Codec::to_int('G') == 2);
@@ -137,8 +137,7 @@ TEST_CASE("Codec::to_int - Convert DNA character to integer", "[utility]") {
   REQUIRE(biovoltron::Codec::to_int('N') == 4);
 }
 
-TEST_CASE("Codec::is_valid - Check if character is a valid DNA character",
-          "[utility]") {
+TEST_CASE("Codec::is_valid - Checks if character is a valid DNA character", "[Codec]") {
   REQUIRE(biovoltron::Codec::is_valid('A') == true);
   REQUIRE(biovoltron::Codec::is_valid('C') == true);
   REQUIRE(biovoltron::Codec::is_valid('G') == true);
@@ -147,7 +146,7 @@ TEST_CASE("Codec::is_valid - Check if character is a valid DNA character",
   REQUIRE(biovoltron::Codec::is_valid('X') == false);
 }
 
-TEST_CASE("Codec::to_char - Convert integer to DNA character", "[utility]") {
+TEST_CASE("Codec::to_char - Converts integer to DNA character", "[Codec]") {
   REQUIRE(biovoltron::Codec::to_char(0) == 'A');
   REQUIRE(biovoltron::Codec::to_char(1) == 'C');
   REQUIRE(biovoltron::Codec::to_char(2) == 'G');
@@ -155,43 +154,38 @@ TEST_CASE("Codec::to_char - Convert integer to DNA character", "[utility]") {
   REQUIRE(biovoltron::Codec::to_char(4) == 'N');
 }
 
-TEST_CASE("Codec::hash - Calculate hash value for DNA sequence", "[utility]") {
+TEST_CASE("Codec::hash - Calculates hash value for DNA sequence", "[Codec]") {
   biovoltron::istring dna_iseq = "030013023"_s;
   REQUIRE(biovoltron::Codec::hash(dna_iseq) == 49611);
 }
 
-TEST_CASE("Codec::rhash - Reverse hash key to DNA sequence", "[utility]") {
+TEST_CASE("Codec::rhash - Reverses hash key to DNA sequence", "[Codec]") {
   std::size_t hash_value = 49611;
   std::size_t sequence_size = 9;
   biovoltron::istring seq = biovoltron::Codec::rhash(hash_value, sequence_size);
   REQUIRE(seq == biovoltron::istring{0, 3, 0, 0, 1, 3, 0, 2, 3});
 }
 
-TEST_CASE("Codec::rev_comp - Reverse complement a DNA sequence", "[utility]") {
+TEST_CASE("Codec::rev_comp - Reverse complements a DNA sequence", "[Codec]") {
   biovoltron::istring dna_iseq = "30012303"_s;
   biovoltron::istring rev_comp_iseq = biovoltron::Codec::rev_comp(dna_iseq);
   REQUIRE(rev_comp_iseq == biovoltron::Codec::to_istring("ATACGTTA"));
 }
 
-TEST_CASE(
-    "Codec::to_string - Convert integer-based DNA sequence to string-based",
-    "[utility]") {
+TEST_CASE("Codec::to_string - Converts integer-based DNA sequence to string-based", "[Codec]") {
   biovoltron::istring int_seq = "21033021"_s;
   std::string string_seq = biovoltron::Codec::to_string(int_seq);
   REQUIRE(string_seq == "GCATTAGC");
 }
 
-TEST_CASE(
-    "Codec::to_istring - Convert string-based DNA sequence to integer-based",
-    "[utility]") {
+TEST_CASE("Codec::to_istring - Converts string-based DNA sequence to integer-based", "[Codec]") {
   std::string string_seq = "TCGTAGCTGCA";
   biovoltron::istring int_iseq = biovoltron::Codec::to_istring(string_seq);
   // Replace with the actual expected integer-based sequence
   REQUIRE(int_iseq == "31230213210"_s);
 }
 
-TEST_CASE("Codec::rev_comp - Reverse complement a string-based DNA sequence",
-          "[utility]") {
+TEST_CASE("Codec::rev_comp - Reverse complements a string-based DNA sequence", "[Codec]") {
   std::string string_seq = "TCGTCATGCTGAC";
   std::string rev_comp_iseq = biovoltron::Codec::rev_comp(string_seq);
   // Replace with the actual expected reverse complemented string-based sequence

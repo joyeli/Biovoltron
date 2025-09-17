@@ -5,7 +5,7 @@
 
 using biovoltron::DepthPerAllele;
 
-TEST_CASE("Depth per allele", "[depth_per_allele]") {
+TEST_CASE("DepthPerAllele::annotate - Annotates depth per allele", "[VariantUtils]") {
 
   SECTION("get_informative_alleles") {
     // NOTE: Private method — not directly testable.

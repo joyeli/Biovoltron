@@ -14,7 +14,7 @@ struct Two : Record{
   int i;
 };
 
-TEST_CASE("Record to tuple") {
+TEST_CASE("Tuple::to_tuple - Converts a Record to a tuple", "[FileIOcore]") {
 
   SECTION("Basic use") {
     auto record = Two{{}, 'a', 1};

@@ -9,7 +9,7 @@ struct FooHeader : Header {
 };
 
 
-TEST_CASE("Header") {
+TEST_CASE("Header::IO - Reads and writes header lines", "[FileIOcore]") {
   SECTION("Basic functionality test") {
     auto content = std::string{
 R"(header1

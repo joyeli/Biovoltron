@@ -8,7 +8,7 @@ using namespace biovoltron;
 // probability that the mapping position is wrong, rounded to
 // the nearest integer. A value 255 indicates that mapping
 // quality is unavailable.
-TEST_CASE("Mapq") {
+TEST_CASE("MAPQ::Calculation - Calculates MAPQ scores", "[MAPQ]") {
   SECTION("Basic use (integration test)") {
     auto aln1_scores = std::vector<int>{10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     auto [opt_score1, sub_score1, sub_cnt1] = get_opt_subopt_count(aln1_scores);

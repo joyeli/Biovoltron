@@ -2,7 +2,7 @@
 #include <iostream> //debug
 #include <catch.hpp>
 
-TEST_CASE("Quality utils") {
+TEST_CASE("QualityUtils::Conversion - Converts quality scores", "[ReadUtils]") {
 
   using biovoltron::QualityUtils;
 

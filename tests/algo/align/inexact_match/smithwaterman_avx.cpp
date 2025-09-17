@@ -6,7 +6,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("Smith Waterman AVX")
+TEST_CASE("AvxSmithWaterman::align - Performs Smith-Waterman alignment using AVX", "[AvxSmithWaterman]")
 {
   // Reference DNA sequence (length = 162)
   std::string ref =

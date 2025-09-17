@@ -2,7 +2,7 @@
 #include <iostream> //debug
 #include <catch.hpp>
 
-TEST_CASE("Genotype utils") {
+TEST_CASE("GenotypeUtils::Operations - Performs various genotype utility operations", "[GenotypeUtils]") {
 
     SECTION("get_vcf_genotypes") {
         for(int i=0;i<=biovoltron::GenotypeUtils::MAX_ALLELE_COUNT;i++){

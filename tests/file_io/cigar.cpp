@@ -14,7 +14,7 @@ using namespace std::string_literals;
 // P: Padding (silent deletion from padded reference).
 // =: Sequence match.
 // X: Sequence mismatch.
-TEST_CASE("Cigar") {
+TEST_CASE("Cigar::Operations - Performs various CIGAR string operations", "[Cigar]") {
 
   SECTION("Default constructor") {
     auto cigar = Cigar{};

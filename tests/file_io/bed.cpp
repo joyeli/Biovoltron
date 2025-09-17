@@ -5,7 +5,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("bed") {
+TEST_CASE("BedRecord::Parsing - Parses BED records", "[BedRecord]") {
   BedRecord r;
   std::istringstream iss{
       "chr7\t12\t127472363\tPos1\t0\t+\t127471196\t127472363\t255,0,0\t3\t354,109,1189\t0,739,1347,"};
@@ -25,7 +25,7 @@ TEST_CASE("bed") {
   REQUIRE(Interval{r} == Interval{"chr7", 12, 127472363, '+'});
 }
 
-TEST_CASE("BED missing fields"){
+TEST_CASE("BedRecord::Parsing - Handles missing fields", "[BedRecord]") {
   BedRecord r;
   std::istringstream iss{
     "chr7\t127471196\t127472363\tPos1"};
@@ -44,7 +44,7 @@ TEST_CASE("BED missing fields"){
   REQUIRE(r.block_starts == "0");
 }
 
-TEST_CASE("BED Equal to Comparison"){
+TEST_CASE("BedRecord::Comparison - Equal to", "[BedRecord]"){
   BedRecord rec1,rec2;
   
   /* Equal */
@@ -62,7 +62,7 @@ TEST_CASE("BED Equal to Comparison"){
   REQUIRE(true==(rec1==rec2));
 }
 
-TEST_CASE("BED Less than Comparison"){
+TEST_CASE("BedRecord::Comparison - Less than", "[BedRecord]"){
   BedRecord rec1,rec2;
 
   /* Chrom */
@@ -150,7 +150,7 @@ TEST_CASE("BED Less than Comparison"){
 
 }
 
-TEST_CASE("BED Greater than Comparison"){
+TEST_CASE("BedRecord::Comparison - Greater than", "[BedRecord]"){
   BedRecord rec1,rec2;
 
   /* Chrom */
@@ -238,7 +238,7 @@ TEST_CASE("BED Greater than Comparison"){
 
 }
 
-TEST_CASE("BED Header")
+TEST_CASE("BedHeader::IO - Reads and writes BED headers", "[BedRecord]")
 {
   BedHeader Bh;
   std::istringstream iss{
@@ -258,7 +258,7 @@ TEST_CASE("BED Header")
 
 }
 
-TEST_CASE("bed_graph") {
+TEST_CASE("BedGraphRecord::Parsing - Parses bedGraph records", "[BedGraphRecord]") {
   BedGraphRecord r;
   std::istringstream iss{"chr19\t49302000\t49302300\t-1.0"};
   iss >> r;
@@ -268,7 +268,7 @@ TEST_CASE("bed_graph") {
   REQUIRE(r.score == -1);
 }
 
-TEST_CASE("BedGraph missing fields") {
+TEST_CASE("BedGraphRecord::Parsing - Handles missing fields", "[BedGraphRecord]") {
   BedGraphRecord r;
   std::istringstream iss{".\t.\t.\t."};
   iss >> r;
@@ -278,7 +278,7 @@ TEST_CASE("BedGraph missing fields") {
   REQUIRE(r.score == 0);
 }
 
-TEST_CASE("BedGraph Header")
+TEST_CASE("BedGraphHeader::IO - Reads and writes bedGraph headers", "[BedGraphHeader]")
 {
   BedHeader Bh;
   std::istringstream iss{

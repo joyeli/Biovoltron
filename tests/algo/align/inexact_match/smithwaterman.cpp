@@ -6,7 +6,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("Smith Waterman Aligner") 
+TEST_CASE("SmithWaterman::align - Performs Smith-Waterman alignment", "[SmithWaterman]") 
 {
   // Original reference DNA sequence (162 bases)
   std::string ref = 

@@ -6,7 +6,7 @@
 
 using namespace biovoltron;
 
-TEST_CASE("SuffixSorter concept test", "[SuffixSorter]") {
+TEST_CASE("SuffixSorter::Concept - Checks compliance with SuffixSorter concept", "[SuffixSorter]") {
   // Case 1: Ensure StableSorter complies with the SuffixSorter concept
   REQUIRE(SuffixSorter<StableSorter<std::uint32_t, 256>>);
 
